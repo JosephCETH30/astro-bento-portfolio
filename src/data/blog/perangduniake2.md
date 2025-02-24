@@ -6,7 +6,7 @@ category: "ok"
 draft: false
 ---
 
-_Disclaimer : Tulisan ini disusun berdasarkan fakta-fakta yang tersebar di berbagai sumber di internet dan telah melalui pengecekan berulang kali untuk memastikan keakuratan informasi yang disajikan. Namun, jika terdapat kesalahan atau ketidaksesuaian, pembaca diharapkan untuk melakukan verifikasi lebih lanjut dari sumber terpercaya._
+_Disclaimer : Tulisan ini disusun berdasarkan fakta-fakta yang tersebar di berbagai sumber di internet dan telah melalui pengecekan berulang kali untuk memastikan keakuratan informasi yang disajikan. Namun, jika terdapat kesalahan atau ketidaksesuaian, pembaca diharapkan untuk melakukan verifikasi lebih lanjut dari sumber terpercaya, big thanks to GraiHan._
 <br><br>
 
 <div style="display: flex; justify-content: center; max-width: 100%;">
@@ -184,11 +184,15 @@ Juli 1941, Setelah mendapatkan Arahan melalui pesan penting. Ratusan Angkatan da
 
 > <a href="https://en.wikipedia.org/wiki/Stalinism#:~:text=Stalinism%20included%20the%20creation%20of,foreign%20communist%20parties%20to%20those">Kebijakan Stalin yang Menindas </a>: Di bawah pemerintahan Joseph Stalin, Uni Soviet menerapkan kebijakan yang keras terhadap rakyatnya, termasuk kolektivisasi pertanian yang memaksa petani untuk menyerahkan tanah dan hasil pertanian mereka kepada negara. Hal ini menyebabkan kelaparan dan penderitaan bagi banyak warga. Kebijakan ini menciptakan ketidakpuasan dan kekecewaan di kalangan penduduk.
 
+Akan tetapi dalam kondisi perang ini, Pasukan Jerman diperintahkan untuk tetap memusnahkan Orang-orang Stalin karena dianggap beda tingkat dengan rakyat Jerman.
 
+Di sisi lain Erwin Romel sebagai pemimpin Pasukan Jerman di Afrika Utara mulai memasuki Libya dan Mesir yang dimana mereka disambut hangat oleh penduduk mesir. Dikarenakan Penduduk Mesir lebih menyukai Jerman dibanding <a href="https://en.wikipedia.org/wiki/North_African_campaign#:~:text=Fighting%20in%20North%20Africa%20started,and%20prevent%20an%20Axis%20defeat.">penjajahan</a> yang dilakukan oleh Inggris.
 
+![hitlerin kiev](https://warfarehistorynetwork.com/wp-content/uploads/2018/12/sov-b-6920-copy.jpg)
 
+Sementara itu Pasukan Nazi beserta Hitler berhasil Menguasai Kiev, Ukraina dan akan terus maju hingga memasukki <a href="https://id.wikipedia.org/wiki/Pengepungan_Leningrad">Leningrad</a>
 
-
+> "Kami berjarak 1000km diluar perbatasan. Kami mengarah ke Leningrad, Kami berada di Laut Hitam."
 
 
 
