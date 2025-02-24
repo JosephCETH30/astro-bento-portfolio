@@ -69,12 +69,18 @@ Setelah dinyatakan Perang dimulai, seluruh anak-anak yang berada di Inggris dan 
     </div>
 </div>
 
-Artikel akan dilanjutkan di pagi hari.
-.
+## Pasukan Jerman Berkumpul di garis Depan
+Pasukan sekutu menyebar di sepanjang <a href="https://id.wikipedia.org/wiki/Garis_Maginot">garis maginot</a>, sebuah rangkaian bunker dengan benteng di sepanjang perbatasan Jerman. Selama 8 Bulan kedua suku saling mengawasi dari sisi bersebrangan.
 
+![garismaginot](https://cdn.hswstatic.com/gif/maginot-line-1.jpg)
+<br>
 
+## Invasi Eropa Barat
+Musim semi 1940 Pasukan jerman melancarkan serangan yang membuat kaget, mereka mengitari <a href="https://id.wikipedia.org/wiki/Garis_Maginot">Garis Maginot</a> dan mengitari <a href="https://en.wikipedia.org/wiki/Ardennes">Hutan Ardennes</a>. Setelah menaklukkan Maginot dan Netherlands, kemudian pasukan tank lapis baja Panzer menyerbu belgia, belanda dan Prancis. 
 
+> On 10 May 1940, Germany invaded the Netherlands, Belgium, Luxembourg, and France. Luxembourg was occupied that same day. The Netherlands surrendered on 15 May, Belgium on the 28th. At first, Great Britain supported the Netherlands, Belgium, and France, but it withdrew later.
 
+Kami terkejut saat melihat hampir tidak ada perlawanan saat terjadinya invasi ini - <a href="https://en.wikipedia.org/wiki/Walter_H%C3%B6rnlein">Walter Hornlein</a>
 
 
 
