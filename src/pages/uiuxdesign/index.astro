@@ -1,0 +1,86 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<script>
+  import { timeline, type TimelineDefinition } from "motion";
+  import { loaderAnimation } from "../../lib/constants";
+  import { onMount } from "solid-js";
+
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const sequence = [loaderAnimation];
+
+  timeline(sequence as TimelineDefinition);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  onMount(() => {
+  gsap.from(".portfolio-image", {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    stagger: 0.2,
+    ease: "power3.out",
+    scrollTrigger: {
+      trigger: ".portfolio-gallery",
+      start: "top 80%", 
+      end: "bottom 20%",
+      toggleActions: "play none none none",
+    },
+  });
+});
+</script>
+
+<style>
+  layout{
+    overflow-x: hidden;
+  }
+</style>
+
+<Layout
+  title="Blog Yoseph Rafael - website orang ganteng"
+  description="Im a Junior UI/UX Designer 1y Exp. and Web Developer 1y+ Exp., as well as a freshman with a strong skill set in creating intuitive and user-friendly visual experiences."
+>
+
+
+  <main
+    class="w-screen h-screen flex flex-col justify-start items-start max-w-5xl mx-auto p-8"
+  >
+    <a
+      href="/"
+      class="sticky top-4 left-[-10px] z-50 text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg"
+      >Back</a
+    >
+    <h1 class="text-4xl font-bold mb-8 text-neutral-100">Working on it</h1>
+
+
+    <!-- <div class="portfolio-gallery grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+      {[
+        "https://cdn.dribbble.com/userupload/17376680/file/original-a229995eb0055fc27ad24a60388661d0.jpg?resize=1504x1004&vertical=center",
+        "https://cdn.dribbble.com/userupload/17371762/file/original-4b8596ccc354393a4ff68ee19eaee55e.jpg?resize=2048x1537&vertical=center",
+        "https://cdn.dribbble.com/userupload/17371601/file/original-408ef0748bb1b5163180897a6b6feb9a.png?resize=2048x1407&vertical=center",
+      ].map((img, index) => (
+        <div class="portfolio-card relative overflow-hidden rounded-lg shadow-lg group">
+          <div class="relative w-full aspect-video">
+            <img src={img.split('?')[0]} alt={`Portfolio ${index + 1}`} class="portfolio-image w-full h-full object-cover" loading="eager" />
+
+           
+            <div class="overlay absolute inset-x-0 bottom-0 h-full bg-black bg-opacity-60 flex flex-col justify-between p-4 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+              <h3 class="text-white text-lg font-semibold">UI/UX Design {index + 1}</h3>
+              <a href="#" class="mt-2 self-end px-4 py-2 bg-white text-gray-600 font-medium rounded-lg shadow-md transition duration-300 hover:bg-black hover:text-white">
+                View More
+              </a>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div> -->
+
+    
+    <br>
+  </main>
+
+  
+</Layout>

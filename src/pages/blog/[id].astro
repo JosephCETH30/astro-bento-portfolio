@@ -32,7 +32,7 @@ console.log("headings", entry, id);
   url={`blog/${entry.id}`}
   minutesRead={remarkPluginFrontmatter.minutesRead}
   pubDate={entry.data.pubDate!}
-  title={`${entry.data.title} | Gianmarco Cavallo`}
+  title={`${entry.data.title}`}
   description={entry.data.description!}
 >
   <Content />
@@ -75,11 +75,14 @@ console.log("headings", entry, id);
   }
 
   p {
+    font-size: 18px;
     margin: 0 0 10px 0;
   }
 
   a {
-    color: #1a0dab;
+    color: #e16f12;
+    text-decoration: none;
+    font-size: 18px;
     text-decoration: none;
   }
 

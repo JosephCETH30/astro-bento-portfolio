@@ -6,9 +6,10 @@ import ContactsCard from "../components/ContactsCard.astro";
 import TimeZone from "../components/TimeZoneCard.astro";
 import AboutMe from "../components/AboutMe.astro";
 import Now from "../components/Now.astro";
-import Globe from "../components/Globe";
+import BounceUI from "../components/BounceUI";
+// import Globe from "../components/Globe";
 import { getCollection } from "astro:content";
-import { formatDate } from "../lib/helpers";
+// import { formatDate } from "../lib/helpers";
 
 const posts = (await getCollection("blog"))?.sort(
   (blogEntryA, blogEntryB) =>
@@ -40,8 +41,8 @@ const posts = (await getCollection("blog"))?.sort(
 </script>
 
 <Layout
-  title="Gianmarco Cavallo - Freelance front-end Developer"
-  description="I'm a developer based in Italy, passionate about user experience and specializing in engaging animations and micro-interactions. My primary tools of choice include: JavaScript, React, Solid.js, Astro, Svelte, and Node.js."
+  title="Yoseph Rafael - website orang ganteng."
+  description="Im a Junior UI/UX Designer 1y Exp. and Web Developer 1y+ Exp., as well as a freshman with a strong skill set in creating intuitive and user-friendly visual experiences."
 >
   <main
     class="text-white m-auto p-2 grid gap-2 max-w-6xl overflow-hidden relative w-full sm:p-4 sm:gap-2 md:grid-cols-2 md:gap-3 md:p-6 lg:h-screen lg:grid-rows-8 lg:grid-cols-4 lg:gap-4 lg:max-h-[800px]"
@@ -54,53 +55,35 @@ const posts = (await getCollection("blog"))?.sort(
     <Card
       colSpan="md:col-span-1"
       rowSpan="md:row-span-1"
-      title="Countries I visited"
-      href="travel"
-      colorText="text-neutral-900"
+      href="/uiuxdesign"
     >
       <div class="h-full w-full absolute inset-0 -z-10">
-        <Globe client:load />
+        <BounceUI>
       </div>
     </Card>
     <Card
-      colSpan="md:col-span-1"
+      colSpan="md:col-span-1 flex"
       rowSpan="md:row-span-2 flex gap-4"
-      title="Blog"
+      title="New Blog Post"
       href="/blog"
     >
-      <div class="flex flex-col gap-4">
-        {
-          posts?.slice(0, 3).map((post) => (
-            // <a
-            //   class="text-sm md:text-base decoration-none flex justify-between"
-            //   href={`/blog/${post.id}`}
-            // >
-            <div class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0">
-              <p class="inline-block whitespace-nowrap text-xs">
-                {post.data.title}
-              </p>
-              {post.data.pubDate && (
-                <time
-                  class="text-right tabular-nums text-xs"
-                  datetime={post.data.pubDate.toISOString()}
-                  data-date={post.data.pubDate.toISOString()}
-                >
-                  {formatDate(post.data.pubDate)}
-                </time>
-              )}
-            </div>
-            // </a>
-          ))
-        }
+      <div class="flex flex-col gap-2 mb-2">
+        {posts?.slice(0, 2).map((post) => (
+          <div key={post.id} class="list-none w-full text-neutral-100 hover:text-neutral-400 ease-in-out transition-colors border-b-neutral-400 border-dashed border-b-1 my-0">
+            <p class="inline-block whitespace-normal text-xs overflow-hidden text-ellipsis">
+              {post.data.title}
+            </p>
+          </div>
+        ))}
       </div>
     </Card>
     <Card colSpan="md:col-span-1" rowSpan="md:row-span-1">
       <p class="text-xs">
-        © 2024 · Crafted with ♥️ using <a
+        © 2025 · Crafted with ♥️  using <a
           href="https://astro.build/"
           target="_blank"
           class="text-red-500">Astro</a
-        > by Gianmarco.
+        >
       </p>
     </Card>
   </main>
