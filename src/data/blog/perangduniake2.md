@@ -133,7 +133,7 @@ Pada 1940 ketika beberapa negara eropa barat dikuasai Jerman, Perdana menteri in
 ![britainwar](https://acesflyinghigh.wordpress.com/wp-content/uploads/2014/07/battle-of-britain-1940-robert-taylor-painting.jpg?w=900&h=400&crop=1)<br>
 Pertempuran di udara terjadi ketika Pasukan AU Inggris bertemu dengan <a href="https://en.wikipedia.org/wiki/Luftwaffe#:~:text=During%20World%20War%20II%2C%20German,nearly%2040%2C000%20were%20lost%20entirely.">pesawat pasukan Jerman</a>, baku tembak berlangsung selama 12 minggu dan sebanyak 1600 pesawat Jerman ditembak jatuh, akhirnya Jerman sementara Membatalkan misinya. Maka saat itulah Inggris Terbebas dari Invasi Hitler.
 
-## ROMA Benito Musolini
+## Benito Musolini
 Hitler bukan satu satunya diktaktor yang ada di west europe, mari kenalan dengan <a href="https://id.wikipedia.org/wiki/Benito_Mussolini?utm_source=chatgpt.com">Benito Musolini.</a> Seseorang yang merencanakan kesepakatan dengan Hitler dan menyiapkan militernya sendiri
 
 > "Hidup sang pemimpin!, Kita akan berperang melawan Demokrasi Barat. Segera ambil senjata kalian untuk menunjukkan kegigihan, keberanian, dan keperkasaan kalian!." - Musolini Menyatakan Perang kepada Sekutu dalam Pidato Propagandanya.
@@ -147,15 +147,42 @@ Sementara itu ribuan Tentara sekutu masih jadi Tawanan di Eropa, Alasan dibalik 
 
 > <a href="https://www.auschwitz.org/en/history/victims/prisoner-numbers/">Nomor Tahanan</a> : Pada banyak kamp konsentrasi, tahanan diberikan nomor identifikasi sebagai cara untuk mendekhumanisasi mereka. Ini juga digunakan untuk mempermudah pengawasan mereka, sementara secara psikologis mengurangi nilai individual mereka, menjadikan mereka hanya angka atau statistik.
 
+<div style="display: flex; justify-content: center; max-width: 100%;">
+    <video id="thumbnailVideo" style="width: 100%; max-width: 100%; border-radius: 8px; cursor: pointer" autoplay muted loop>
+        <source src="/ww2jews.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<br>
+
+Kembali lagi ke Warsawa, Polandia. Dimana Populasi Yahudi diasingkan ke Kampung Yahudi bernama <a href="https://de.m.wikipedia.org/wiki/Datei:Bundesarchiv_Bild_101I-133-0703-30,_Polen,_Ghetto_Litzmannstadt,_Torposten.jpg">Wohngebiet Der Juden Betreten Verboten</a>.
+
+> <a href="http://www.derekcrowe.com/post.aspx?id=114">Julan E. Kulski</a> seorang Remaja sipil Polandia Bertekad untuk melawan Pasukan Jerman bersama dengan Unitnya, Namun Komandannya tertangkap oleh Pasukan Jerman dan Langsung Dibunuh. Hal itu membuat Unit Julian marah dan kesal sehingga sesaat mereka bertemu dengan Pasukan Jerman, Julian Langsung membunuh seorang pasukan Jerman itu. 
+
+Tetapi keesokan harinya, hal ini diketahui oleh para tentara Nazi, dan Disinilah para Tentara Nazi mulai melakukan Pembantaian yang diawali dengan 20 orang Wanita dan Anak Anak sebagai ganti Kematian Anggotanya. Di Kampug Yahudi <a href="https://de.m.wikipedia.org/wiki/Datei:Bundesarchiv_Bild_101I-133-0703-30,_Polen,_Ghetto_Litzmannstadt,_Torposten.jpg?utm_source=yosephrafael.com">Wohngebiet Der Juden Betreten Verboten</a> Orang-orang yahudi mulai dikumpulkan dan ditarik paksa untuk dibawa ke kamp-kamp yang sudah disiapkan oleh Tentara Jerman dan Nazi juga punya rencana terhadap orang polandia yang tersisa. Setelah beberapa hari kemudian Pasukan SS Jerman datang <a href="https://id.wikipedia.org/wiki/Schutzstaffel?utm_source=yosephrafael.com">(Schutzstaffel)</a> Lalu disaat yang bersamaan Seluruh Anak-anak Polandia dipisahkan menggunakan Kereta Api yang bertuliskan "ANAK-ANAK POLANDIA AKAN DIPELIHARA DI KEKAISARAN". Ketika semua anak anak Polandia memasuki remaja, Hitler menjadikan mereka sebagai prajurit Jerman yang akan berperang kapanpun saat dibutuhkan. "Kaum Muda Jermanku kita ingin menjadi satu bangsa. Kalian kaum mudaku termasuk golongan bangsa ini, karena kalian adalah bagian dari darah dan daging kami. Dibenak kalian pun ada semangat yang mendukung kami. Di depan kita ada Jerman, Di diri kita ada Jerman, Di belakang kita Jerman Mengikuti" - Hitler Speech 1940
+
+> Selama pendudukan Nazi di Polandia, banyak anak-anak Polandia yang dipisahkan dari keluarga mereka dan diangkut ke Jerman dengan kereta api yang bertuliskan "Anak-anak Polandia akan dipelihara di Kekaisaran". Anak-anak yang dianggap memiliki karakteristik fisik yang sesuai dengan standar "ras Arya" sering dipilih untuk diadopsi oleh keluarga Jerman atau dibesarkan dalam asrama-asrama yang dikelola oleh negara. Tujuan dari kebijakan ini adalah untuk "menyerap" mereka ke dalam masyarakat Jerman dan menghapuskan identitas Polandia mereka. <a href="https://artsandculture.google.com/exhibit/dipisahkan-oleh-sejarah/QQKF7pxS?hl=id&utm_source=yosephrafael.com">Selengkapnya.</a>
 
 
+Setelah beberapa hari melakukan persiapan, Jerman kembali Melakukan serangan "fire from the skies!" ke Britania Raya/Inggris. Pesawat Jerman melancarkan banyak serangan ke Inggris Raya semalam sebagai serangan terbesar di berbagai belahan Britania. <br>
 
+![blokporos](https://pbs.twimg.com/media/F7iXTkIXgAAqHNx.png:large)
 
+Sementara itu <a href="https://id.wikipedia.org/wiki/Fasisme_Italia">Fasis Italia</a> menginvasi Greece/Yunani tetangganya, dan diluar Eropa-pun Perang meluas. Jepang sedang dalam misi membentuk suatu tatanan baru di Asia, Mereka sudah memerangi Tiongkok. Dan kini Nazi Jerman, Fasis Italia dan <a href="https://en.wikipedia.org/wiki/Empire_of_Japan">Imperialis Jepang</a> sepakat untuk bergabung membentuk Aliansi yang tangguh dan Mereka dikenal sebagai <a href="https://id.wikipedia.org/wiki/Blok_Poros">Blok Poros.</a> <br>
 
+Mereka berniat menguasai Dunia, Namun ada 1 pihak yang mereka harus pertimbangkan yaitu <a href="https://id.wikipedia.org/wiki/Uni_Soviet">Uni Soviet (Joseph Stalin)</a> Ambisi Joseph stalin menyamai Hitler dan terlebih Uni Soviet memiliki Jumlah Pasukan terbesar dalam Sejarah 1940s.
 
+## Jerman Menduduki Polandia
+Pasukan Angkatan Darat Jerman mendapatkan Pesan penting dari pusat melalui <a href="https://en.wikipedia.org/wiki/Heinz_Drossel">Heinz Drossel</a>. Pesan ini hanya boleh dibaca sekali seumur hidup dan kemudian harus dimusnahkan. Pesan itu berisi Penyerangan besar-besaran ke <a href="https://id.wikipedia.org/wiki/Uni_Soviet">Uni Soviet</a>, Penyerangan ini akan menjadi Invasi terbesar dalam sejarah manusia. Penyerangan ini disebut sebagai <a href="https://id.wikipedia.org/wiki/Operasi_Barbarossa">Barbarossa Operation.</a>
 
+<div class="iframe-container">
+<iframe width="633" height="351" src="https://www.youtube.com/embed/It4rnxE0ph4" title="Operation Barbarossa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
 
+<br><br>
+Juli 1941, Setelah mendapatkan Arahan melalui pesan penting. Ratusan Angkatan darat dan Udara Jerman Mulai melakukan pergerakan dan Penyerangan terhadap Wilayah Uni Soviet. Serangan ini tak diduga oleh Tentara merah Soviet karena mereka mengira bahwa suara ledakan tersebut adalah suara Petir. yang mengejutkannya adalah ketika Pasukan Jerman yang berhasil menduduki beberapa Kota Uni Soviet disambut dengan bahagia oleh rakyat Stalin. Mengapa? Karena Stalin membiarkan Rakyatnya Kelaparan bahkan ada yang ditembak mati, bahkan mereka menganggap Pasukan Jerman sebagai Pahlawan.
 
+> <a href="https://en.wikipedia.org/wiki/Stalinism#:~:text=Stalinism%20included%20the%20creation%20of,foreign%20communist%20parties%20to%20those">Kebijakan Stalin yang Menindas </a>: Di bawah pemerintahan Joseph Stalin, Uni Soviet menerapkan kebijakan yang keras terhadap rakyatnya, termasuk kolektivisasi pertanian yang memaksa petani untuk menyerahkan tanah dan hasil pertanian mereka kepada negara. Hal ini menyebabkan kelaparan dan penderitaan bagi banyak warga. Kebijakan ini menciptakan ketidakpuasan dan kekecewaan di kalangan penduduk.
 
 
 
