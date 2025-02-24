@@ -194,6 +194,17 @@ Sementara itu Pasukan Nazi beserta Hitler berhasil Menguasai Kiev, Ukraina dan a
 
 > "Kami berjarak 1000km diluar perbatasan. Kami mengarah ke Leningrad, Kami berada di Laut Hitam."
 
+will be continued pagi nanti.
+
+
+
+
+
+
+
+
+
+
 
 
 
