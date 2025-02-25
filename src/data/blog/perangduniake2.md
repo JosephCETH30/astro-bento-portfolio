@@ -401,8 +401,13 @@ Menguasai kota ini akan menghambat pergerakan pasokan Soviet dan membuka jalan b
 
 <a href="https://en.wikipedia.org/wiki/Battle_of_Stalingrad?utm_source=yosephrafael.com">Pertempuran Stalingrad </a> menjadi salah satu pertempuran paling brutal dalam sejarah perang modern. Dari musim panas 1942 hingga awal 1943, pasukan Jerman menggempur kota dengan serangan udara yang menghancurkan dan pertempuran jalanan yang tak kenal ampun. Setiap sudut kota menjadi medan tempur berdarah, di mana perlawanan Soviet bertahan dari gedung ke gedung, reruntuhan demi reruntuhan.
 
-![not one step back](https://preview.redd.it/order-no-227-not-a-step-back-uraaaa-v0-b7mr6t4an9qb1.jpg?auto=webp&s=41eafcc79ed65637a2a1119f9e3475aa756f1785)
-
+<div style="display: flex; justify-content: center; max-width: 100%;">
+    <video id="thumbnailVideo" style="width: 100%; max-width: 100%; border-radius: 8px; cursor: pointer" autoplay muted loop>
+        <source src="/Battle of Stalingrad 1942-43 [HD] with sounds. Combat footage WW2 Archive.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<p class="yebi">Kegigihan tentara Merah tentang "not a stepback ura!"</p>
 
 Pasukan Jerman, yang dipimpin oleh <a href="https://id.wikipedia.org/wiki/Friedrich_Paulus?utm_source=yosephrafael.com">Jenderal Friedrich Paulus</a>, awalnya bergerak dengan cepat, menduduki sebagian besar kota dan memaksa <a href="https://en.wikipedia.org/wiki/Red_Army?utm_source=yosephrafael.com">Tentara Merah</a> bertahan mati-matian. Unit-unit Wehrmacht didukung oleh artileri berat dan Luftwaffe yang terus membombardir wilayah pertahanan Soviet. Stalin mengeluarkan perintah terkenal, _"Ни шагу назад!"_ atau "Tidak ada langkah mundur!" <a href="https://en.wikipedia.org/wiki/Order_No._227?utm_source=yosephrafael.com">(Order No. 227)</a>, yang memaksa pasukan Soviet bertahan di setiap titik, bahkan dengan harga nyawa mereka sendiri.
 
@@ -412,27 +417,58 @@ Di tengah kepungan dan kehancuran, tekanan terhadap pasukan Soviet semakin menin
 
 Pada saat itu, Alexandra bertugas diatas Perahu Tentara merah. Yang dimana perahu ini sangat diincar untuk dihabisi oleh para tentara Jerman.
 
-![sovietboatinstalingrad](https://preview.redd.it/soviet-gunboat-usyskin-during-the-battle-of-stalingrad-1942-v0-lo6c1ji7hem91.jpg?width=1080&crop=smart&auto=webp&s=fe4bdbe5eecd79b49bbae6c311ce9e67a8b30cdc)
+<p class="yebi">Kapal Soviet Gunboat Usyskin</p>
 
+> "Saat itu aku berada di perahu, sebuah <a href="https://id.wikipedia.org/wiki/Proyektil">proyektil</a> mendarat di sebelah kami. Seorang perawat terlempar ke air. Dia tenggelam ke dasar sungai <a href="https://id.wikipedia.org/wiki/Sungai_Volga">Volga</a>" - <a href="https://www.blavatnikarchive.org/veteran/5255">Alexandra Bocharova</a>
 
+Setelah pasukan Jerman berhasil menyebrang, mereka mulai melakukan serangan besar-besaran ke kota. Sehingga pertempuran berdarah pun terjadi.
 
+> "Berita pertempuran di sepanjang garis Rusia. Ancaman Jerman terhadap Stalingrad semakin meningkat setiap harinya." - Radio Internasional
 
+November 1942, Pertempuran dahsyat terjadi dikarenakan Uni Soviet mengepung tentara Jerman dari segala sisi dan juga Soviet mengeluarkan alutsista andalannya yaitu <a href="https://en.wikipedia.org/wiki/Katyusha_rocket_launcher">Katyusha</a>
 
+![Katyusha](https://asset.kompas.com/crops/TT9yd14l7CYTaBJWE1GvoBhNL8M=/0x0:600x400/1200x800/data/photo/2019/03/29/1956953134.jpg)
+<p class="yebi">Real pic of Katyusha</p>
 
+<div class="quiz-container">
+    <h3>Quiz: Pertempuran Stalingrad</h3>
+    <p>Siapakah pemimpin pasukan Jerman dalam Pertempuran Stalingrad?</p>
+    <ul class="quiz-options">
+        <li onclick="checkAnswer(this, 'wrong')">Erwin Rommel</li>
+        <li onclick="checkAnswer(this, 'correct')">Friedrich Paulus</li>
+        <li onclick="checkAnswer(this, 'wrong')">Heinz Guderian</li>
+        <li onclick="checkAnswer(this, 'wrong')">Wilhelm Keitel</li>
+    </ul>
+    <p id="quiz-feedback"></p>
+</div>
 
+> "Jumlah mereka sangat Banyak, semakin banyak pasukan yang berdatangan. Mereka tidak melemah, malah makin kuat!" - <a href="https://en.wikipedia.org/wiki/Gerhard_Dengler">Gerhard Dengler</a>
 
+> "Kami tidak mempedulikan nyawa kami, Ibu pertiwi diatas segalanya" - <a href="https://www.blavatnikarchive.org/veteran/5255">Alexandra Bocharova</a>
 
+Pasukan Jerman terkejut dikarenakan mereka tidak menyangka, pasukan tentara Merah dapat memukul mundur mereka hingga terkepung di "pojok" Stalingrad.
 
+> "Astaga! Stalingrad dikepung." - <a href="https://en.wikipedia.org/wiki/Gerhard_Dengler">Gerhard Dengler</a>
 
+![SolomonIslandWar](https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2023/11/1200/675/GettyImages-615312506.jpg?ve=1&tl=1)
+<p class="yebi">Naval Battle guadalcanal begins solomon islands</p>
 
+Saat pasukan Jerman dan Uni soviet sedang berperang, di bagian Pasifik kedua negara juga sedang melakukan pertempuran. Tepatnya di <a href="https://en.wikipedia.org/wiki/Solomon_Islands_campaign">Kepulauan Solomon. </a>
 
+Pada<a href="https://www.nationalww2museum.org/sites/default/files/2017-07/guadalcanal-fact-sheet.pdf"> 7 Agustus 1942</a>, pasukan Amerika mendarat di <a href="https://en.wikipedia.org/wiki/Solomon_Islands_campaign">Kepulauan Solomon</a>, tepatnya di <a href="https://id.wikipedia.org/wiki/Guadalcanal">Guadalcanal</a>, <a href="https://id.wikipedia.org/wiki/Tulagi">Tulagi</a>, dan <a href="https://www.visitflorida.com/travel-ideas/articles/arts-history-florida-world-war-ii-u-boat/">Florida.</a> Setelah pertempuran sengit, Marinir berhasil menguasai Tulagi dan Florida pada 9 Agustus. Sementara itu, pasukan utama di Guadalcanal menghadapi sedikit perlawanan saat bergerak ke pedalaman untuk merebut lapangan udara di <a href="https://id.wikipedia.org/wiki/Lunga_Point">Lunga Point</a>, yang kemudian diberi nama <a href="https://en.wikipedia.org/wiki/Henderson_Field_(Guadalcanal)">Henderson Field.</a>
 
+Tak lama setelah itu, pesawat angkatan laut Jepang menyerang kapal-kapal Amerika, sementara bala bantuan Jepang dikirim ke wilayah tersebut. Dalam beberapa hari berikutnya, terjadi pertempuran laut besar pertama, yaitu <a href="https://id.wikipedia.org/wiki/Pertempuran_Pulau_Savo">Pertempuran Pulau Savo.</a> Selama berbulan-bulan, kedua pihak terus bertempur memperebutkan Guadalcanal dan Henderson Field, serta kendali atas perairan sekitarnya. Banyak tentara, kapal, dan pesawat yang hancur, tetapi tidak ada pihak yang langsung keluar sebagai pemenang.
+<a href="https://www.nationalww2museum.org/sites/default/files/2017-07/guadalcanal-fact-sheet.pdf">Selengkapnya.</a>
 
+> "Inilah sorotan berita utama hari ini, seluruh negeri mendoakan kesuksesan Navy, yang sedang menghadapi salah satu pertempuran krusial di Perang Dunia ke II di wilayah Solomon." - Radio Internasional 1942
 
+### Kelanjutan Perang di belahan Afrika Utara
+Di wilayah Afrika Utara Inggris berhasil menyeimbangkan kekuatan tempur setelah melantik <a href="https://id.wikipedia.org/wiki/Bernard_Montgomery">Montgomery</a> sebagai komandan Baru (The Spartan General). Semua tawanan yang ditangkap di sekitaran Tobruk oleh Tentara Jerman diangkut menuju <a href="https://en.wikipedia.org/wiki/Capua">Capua, Italia Selatan.</a>
 
+![rayellistobruk](https://warfarehistorynetwork.com/wp-content/uploads/2015/12/W-Tobruk-Lead-4C-Nov04-e1701469162971.jpg)
+<p class="yebi">The siage of tobruk, Germany Tank.</p>
 
-
-
+> "Aku sudah lupa berapa hari berlalu sejak aku ditawan, ini terasa seperti di neraka. Aku sulit untuk duduk, bergerak, bahkan untuk mengembalikkan badan." - <a href="https://www.warhistoryonline.com/war-articles/remembering-ray-ellis-last-surviving-wwii-vet-battle-knightsbridge.html">Ray Ellis</a> British Army 
 
 
 
@@ -447,6 +483,39 @@ Pada saat itu, Alexandra bertugas diatas Perahu Tentara merah. Yang dimana perah
 
 
 <style>
+
+.quiz-container {
+    background-color: #171717;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    color: white;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.quiz-options {
+    list-style: none;
+    padding: 0;
+}
+.quiz-options li {
+    background: #222;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.quiz-options li:hover {
+    background: #444;
+}
+.correct {
+    background: #28a745 !important;
+}
+.wrong {
+    background: #dc3545 !important;
+}
 
 body{
     user-select: none; 
@@ -550,6 +619,15 @@ document.addEventListener("keydown", function (event) {
         event.preventDefault();
     }
 });
+
+function checkAnswer(element, status) {
+    document.querySelectorAll(".quiz-options li").forEach(li => {
+        li.style.pointerEvents = "none";
+    });
+    element.classList.add(status);
+    document.getElementById("quiz-feedback").innerText = 
+        status === "correct" ? "Benar! Friedrich Paulus memimpin pasukan Jerman dalam pertempuran ini." : "Salah! Refresh untuk Coba lagi";
+}
 
 </script>
 
