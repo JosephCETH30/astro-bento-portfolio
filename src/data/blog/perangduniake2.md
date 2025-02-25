@@ -257,7 +257,7 @@ Setelah pembantaian semua tawanan Uni Soviet, kini para tentara Jerman harus men
 ## 80km dari Moskow
 November 1941, Pesawat Jerman menggempur habis moskow dan Pasukan tentara Hitler pun mulai bergerak masuk <a href="https://en.wikipedia.org/wiki/Battle_of_Moscow">80km dari gerbang masuk Moskow.</a>
 
-> "Beberapa laporan dari timur mengungkapkan bahwa Luftwaffle sedang menggempur wilayah moskow secara bertubi-tubi, Penyerangan yang terbesar sejauh ini dilakukan di ibukota Uni Soviet" - Radio
+> "Beberapa laporan dari timur mengungkapkan bahwa Luftwaffle sedang menggempur wilayah moskow secara bertubi-tubi, Penyerangan yang terbesar sejauh ini dilakukan di ibukota Uni Soviet" - <a href="https://en.wikipedia.org/wiki/Volksempf%C3%A4nger">Radio Jerman 1940 </a>
 
 Setelah sekian lama akhirnya Joseph Stalin merespon pertempuran dan berjanji akan melindungi rakyat Uni Soviet, baru lah Perang Dunia ke 2 semakin memanas.
 
@@ -320,22 +320,79 @@ Mei 1942, Pertempuran <a href="https://en.wikipedia.org/wiki/Port_of_Tobruk">Tob
 
 Pasukan Inggris berhasil dihabisi oleh Tentara Gabungan Jerman, dan hanya 1 tentara Inggris yang tersisa. Dengan direbutnya Tobruk oleh Jerman, ini menandakan bahwa 1 langkah lagi untuk Jerman bisa menguasai seluruh Afrika.
 
-### Hand to hand fighting in Singapore City
+## Japan in Anger
 Disaat yang bersamaan, Jepang berusaha merebut dengan melakukan pertempuran di area Asia lainnya. Bahkan Jepang sudah berada di tanah Amerika, di pos terpencil di Alaska.
 
-> "Jepang mendekati kota Singapura dari arah utara dan barat. Jepang menginjakkan kakiknya di benua Amerika Utara untuk pertama kalinya." - Breaking News Radio 1942
+> "Jepang mendekati kota Singapura dari arah utara dan barat. Jepang menginjakkan kakiknya di benua Amerika Utara untuk pertama kalinya." - Breaking News Radio US 1942
 
 > "Kita akan menghapuskan penindasan keji dari Amerika Serikat dan Britania Raya." - Japan Patriot Army in Alaska
 
+Pada tanggal 7 Juni 1942, Jepang menyerbu pulau <a href="https://en.wikipedia.org/wiki/Kiska">Kiska</a> di Aleut. Pada puncak pendudukan, 6.800 personel Jepang berada di pulau tersebut. Berlangsung selama 18 hari, <a href="https://id.wikipedia.org/wiki/Pertempuran_Attu">Pertempuran Attu</a> merupakan salah satu pertempuran paling mematikan dalam Perang Dunia II, tetapi tetap menjadi salah satu yang paling tidak dikenal. rencana Jepang untuk menyerang <a href="https://en.wikipedia.org/wiki/Midway_Atoll">Midway</a> pada tahun 1942 memang berhasil diketahui oleh AS, tetapi bukan oleh <a href="https://www.cia.gov/legacy/cia-history/">CIA</a>, melainkan oleh unit intelijen Angkatan Laut AS, khususnya <a href="https://en.wikipedia.org/wiki/Station_HYPO">Station HYPO</a> yang dipimpin oleh <a href="https://en.wikipedia.org/wiki/Joseph_Rochefort">Joseph Rochefort.</a> dikutip dari artikel <a href="https://www.afio.com/publications/OLESON_WIMAD_Breaking_of_JN-25_from_AFIO_Intelligencer_Vol26_No2_WinterSpring_2021.pdf?utm_source=yosephrafael.com">_The Breaking of JN-25 and its Impact in the War Against Japan_</a>
 
+> Pemecah kode Amerika berhasil memecahkan sandi Jepang tentang tanggal dan lokasi serangan, dan memungkinkan Angkatan Laut Amerika Serikat menyusun rencana penyergapan tiba-tiba. Empat kapal induk dan sebuah kapal penjelajah berat Jepang tenggelam, sementara pihak Amerika Serikat kehilangan sebuah kapal induk dan sebuah kapal perusak. Kerugian besar berupa tenggelamnya empat kapal induk dan tewasnya penerbang dalam jumlah besar melemahkan kekuatan Angkatan Laut Kekaisaran Jepang. Jepang tidak mampu lagi menyaingi kecepatan Amerika Serikat dalam membangun kapal-kapal perang dan melatih penerbang baru.
 
+<!-- Kekuatan Perang -->
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <tr>
+        <th colspan="2" style="border: 1px solid #ccc; padding: 12px; text-align: center; background-color:#1f1f1f;">Kekuatan Perang</th>
+    </tr>
+    <tr>
+        <th style="border: 1px solid #ccc; padding: 10px; text-align: center; background:rgb(30, 117, 247)">Amerika</th>
+        <th style="border: 1px solid #ccc; padding: 10px; text-align: center; background:rgb(255, 71, 71)">Jepang</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: auto;">3 kapal induk</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">4 kapal induk, 2 kapal tempur</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">25 kapal pendukung</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">~15 kapal pendukung <br>(kapal penjelajah ringan dan berat, <br> kapal perusak)</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">233 pesawat kapal induk</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">248 pesawat kapal induk,<br>2 kapal induk ringan</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">127 pesawat dari pangkalan di darat</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">5 kapal tempur,<br>~41 kapal pendukung</td>
+    </tr>
+</table>
 
+<p class="yebi">Statistik diatas diambil dari Wikipedia</p>
 
+<!-- Korban Perang -->
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <tr>
+        <th colspan="2" style="border: 1px solid #ccc; padding: 12px; text-align: center; background-color:#1f1f1f;">Korban Perang</th>
+    </tr>
+    <tr>
+        <th style="border: 1px solid #ccc; padding: 10px; text-align: center; background:rgb(30, 117, 247)">Amerika</th>
+        <th style="border: 1px solid #ccc; padding: 10px; text-align: center; background:rgb(255, 71, 71)">Jepang</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: auto;">1 kapal induk tenggelam</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">4 kapal induk tenggelam</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">1 kapal perusak tenggelam</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">1 kapal penjelajah tenggelam</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">98 pesawat hancur</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">248 pesawat kapal induk hancur</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: 10px;">307 tewas</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">3.057 tewas</td>
+    </tr>
+</table>
 
+<p class="yebi">Statistik diatas diambil dari Wikipedia</p>
 
+Pertempuran besar pertama Amerika, Balas dendam yang diluncurkan kepada Jepang memberikan kemenangan telak bagi Amerika.
 
-
-
+Sementara itu, di Moskow pasukan Jerman gagal mendapatkan kemenangan terhadap pasukan Stalin.
+> "Rentetan Serangan Jerman gagal menembus perbatasan Moskow" - <a href="https://en.wikipedia.org/wiki/Volksempf%C3%A4nger">Radio Jerman 1942 </a>
 
 
 
