@@ -500,7 +500,9 @@ Prajurit yang dilarang mundur ini mulai kekurangan pasokan Makanan, Amunisi, dan
 ![operationwinter](https://cdn.britannica.com/33/180233-138-2BEFA2E3/Overview-Battle-of-Stalingrad.jpg?w=800&h=450&c=crop)
 <p class="yebi">Battle of Stalingrad: Winter operation 1942</p>
 
-Desember 1942, Kelaparan semakin mencekik mereka. Dalam keputusasaan yang sangat mendalam mereka harus bertahan hidup dengan cara apapun. Gerhard melihat sendiri bahwa temannya mulai mengincar bangkai bangkai manusia, yang bahkan bangkai sesama prajurit Jerman itu sendiri. Bagi mereka yang masih terjebak di Stalingrad, perayaan Natal merupakan periode yang mencekam dan penuh penderitaan.
+Desember 1942, Kelaparan semakin mencekik mereka. Dalam keputusasaan yang sangat mendalam mereka harus bertahan hidup dengan cara apapun. Gerhard melihat sendiri bahwa temannya mulai mengincar bangkai bangkai manusia, yang bahkan bangkai sesama prajurit Jerman itu sendiri. Bagi mereka yang masih terjebak di Stalingrad, perayaan Natal merupakan periode yang mencekam dan penuh penderitaan. 
+
+Kurang lebih 800ribu pasukan blok poros tewas terbunuh atau ditawan. Hal ini merupakan bencana bagi Hitler dan kekalahan pertama terbesar bagi Hitler selama perang berlangsung. Warga menyambut kemenangan Stalingrad dengan bersorak-sorai terutama bagi salah satu tentara terdepan Uni Soviet Alexandra B.
 
 Lima minggu kemudian, 2 Februari 1943 Pasukan Jerman akhirnya menyatakan menyerah kepada tentara Merah Uni Soviet. "Pasukan Keenam telah menyerah pada keunggulan musuh. pertempuran Stalingrad berakhir." - Radio Internasional Eropa Barat.
 
