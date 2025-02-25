@@ -334,7 +334,7 @@ Pada tanggal 7 Juni 1942, Jepang menyerbu pulau <a href="https://en.wikipedia.or
 <!-- Kekuatan Perang -->
 <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
     <tr>
-        <th colspan="2" style="border: 1px solid #ccc; padding: 12px; text-align: center; background-color:#1f1f1f;">Kekuatan Perang</th>
+        <th colspan="2" style="border: 1px solid #ccc; padding: 12px; text-align: center; background-color:#e16f12;">Kekuatan Perang</th>
     </tr>
     <tr>
         <th style="border: 1px solid #ccc; padding: 10px; text-align: center; background:rgb(30, 117, 247)">Amerika</th>
@@ -363,7 +363,7 @@ Pada tanggal 7 Juni 1942, Jepang menyerbu pulau <a href="https://en.wikipedia.or
 <!-- Korban Perang -->
 <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
     <tr>
-        <th colspan="2" style="border: 1px solid #ccc; padding: 12px; text-align: center; background-color:#1f1f1f;">Korban Perang</th>
+        <th colspan="2" style="border: 1px solid #ccc; padding: 12px; text-align: center; background-color:#e16f12;">Korban Perang</th>
     </tr>
     <tr>
         <th style="border: 1px solid #ccc; padding: 10px; text-align: center; background:rgb(30, 117, 247)">Amerika</th>
@@ -394,9 +394,25 @@ Pertempuran besar pertama Amerika, Balas dendam yang diluncurkan kepada Jepang m
 Sementara itu, di Moskow pasukan Jerman gagal mendapatkan kemenangan terhadap pasukan Stalin.
 > "Rentetan Serangan Jerman gagal menembus perbatasan Moskow" - <a href="https://en.wikipedia.org/wiki/Volksempf%C3%A4nger">Radio Jerman 1942 </a>
 
+## Pertempuran Stalingrad
+Menguasai kota ini akan menghambat pergerakan pasokan Soviet dan membuka jalan bagi ekspansi lebih lanjut ke Kaukasus, yang kaya akan minyak dan sumber daya krusial bagi perang Jerman.
+
+> "Merebut Stalingrad akan Mengukuhkan kemenangan besar ini, bukan karena tempat ini identik dengan stalin, melainkan karena tempat ini secara strategis lokasi yang vital. Yakinlah bahwa tak seorang pun dapat mengusir kita dari tempat ini!" - Hitler Speech
+
+<a href="https://en.wikipedia.org/wiki/Battle_of_Stalingrad?utm_source=yosephrafael.com">Pertempuran Stalingrad </a> menjadi salah satu pertempuran paling brutal dalam sejarah perang modern. Dari musim panas 1942 hingga awal 1943, pasukan Jerman menggempur kota dengan serangan udara yang menghancurkan dan pertempuran jalanan yang tak kenal ampun. Setiap sudut kota menjadi medan tempur berdarah, di mana perlawanan Soviet bertahan dari gedung ke gedung, reruntuhan demi reruntuhan.
+
+![not one step back](https://preview.redd.it/order-no-227-not-a-step-back-uraaaa-v0-b7mr6t4an9qb1.jpg?auto=webp&s=41eafcc79ed65637a2a1119f9e3475aa756f1785)
 
 
+Pasukan Jerman, yang dipimpin oleh <a href="https://id.wikipedia.org/wiki/Friedrich_Paulus?utm_source=yosephrafael.com">Jenderal Friedrich Paulus</a>, awalnya bergerak dengan cepat, menduduki sebagian besar kota dan memaksa <a href="https://en.wikipedia.org/wiki/Red_Army?utm_source=yosephrafael.com">Tentara Merah</a> bertahan mati-matian. Unit-unit Wehrmacht didukung oleh artileri berat dan Luftwaffe yang terus membombardir wilayah pertahanan Soviet. Stalin mengeluarkan perintah terkenal, _"Ни шагу назад!"_ atau "Tidak ada langkah mundur!" <a href="https://en.wikipedia.org/wiki/Order_No._227?utm_source=yosephrafael.com">(Order No. 227)</a>, yang memaksa pasukan Soviet bertahan di setiap titik, bahkan dengan harga nyawa mereka sendiri.
 
+Di tengah kepungan dan kehancuran, tekanan terhadap pasukan Soviet semakin meningkat. Dengan semakin menipisnya tenaga dan sumber daya, Stalin mulai menyusun strategi perekrutan besar-besaran termasuk mengerahkan lebih dari satu juta perempuan Soviet untuk bertempur dalam berbagai peran di garis depan.
+
+> "Aku paling suka senapan mesin berat" - <a href="https://www.blavatnikarchive.org/veteran/5255">Alexandra Bocharova</a> _She was awarded the Order of the Patriotic War Award and the Order of the Red Star. Bocharova married in 1946 and has two daughters_
+
+Pada saat itu, Alexandra bertugas diatas Perahu Tentara merah. Yang dimana perahu ini sangat diincar untuk dihabisi oleh para tentara Jerman.
+
+![sovietboatinstalingrad](https://preview.redd.it/soviet-gunboat-usyskin-during-the-battle-of-stalingrad-1942-v0-lo6c1ji7hem91.jpg?width=1080&crop=smart&auto=webp&s=fe4bdbe5eecd79b49bbae6c311ce9e67a8b30cdc)
 
 
 
@@ -513,19 +529,28 @@ function closePopup() {
     document.body.style.overflow = "auto"; 
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("popup").style.display = "none";
+
+    document.querySelectorAll("img").forEach(img => {
+        img.style.userSelect = "none";
+        img.style.pointerEvents = "none";
+        img.setAttribute("onmousedown", "return false");
+        img.setAttribute("oncontextmenu", "return false");
+        img.setAttribute("draggable", "false");
+    });
 });
 
 document.addEventListener("contextmenu", function (event) {
     event.preventDefault();
-  });
+});
 
-  document.addEventListener("keydown", function (event) {
+document.addEventListener("keydown", function (event) {
     if (event.ctrlKey && ["u", "s", "c"].includes(event.key.toLowerCase())) {
-      event.preventDefault();
+        event.preventDefault();
     }
-  });
+});
+
 </script>
 
 
