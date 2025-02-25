@@ -588,19 +588,19 @@ Lima minggu kemudian, 2 Februari 1943 Pasukan Jerman akhirnya menyatakan menyera
     opacity: 0.9;
 }
 
-
-body{
-    user-select: none; 
+body {
+    user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
 }
 
-.yebi{
+.yebi {
     opacity: 0.5;
     font-size: 16px;
 }
 
+/* Pop-up styling */
 .popup {
     display: none;
     position: fixed;
@@ -621,7 +621,7 @@ body{
     max-width: 600px;
     width: 90%;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .close-btn {
@@ -655,6 +655,38 @@ body{
     width: 100%;
     height: 100%;
     border-radius: 8px;
+}
+
+/* Responsiveness */
+@media (max-width: 480px) {
+    #quiz-container {
+        width: auto;
+        margin-bottom: 25px;
+        padding: 15px;
+        border-radius: 8px;
+    }
+
+    .quiz-question {
+        font-size: 18px;
+    }
+
+    .quiz-option {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #quiz-feedback {
+        font-size: 14px;
+    }
+
+    .popup-content {
+        padding: 30px 20px;
+        width: 95%;
+    }
+
+    .close-btn {
+        font-size: 30px;
+    }
 }
 
 </style>
