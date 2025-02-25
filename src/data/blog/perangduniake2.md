@@ -493,9 +493,16 @@ Disini Hitler tetap memerintahkan untuk Maju dan bertempur terus apapun kendalan
 
 > "Beberapa bulan terakhir, keadaannya begitu luar biasa. Mari beri penghormatan kepada para tentara yang telah memberikan perjuangan ini. Kekalahan adalah hal yang tidak bisa diterima!. Nasionalis-Sosialis Jerman akan keluar dan meraih kemenangan besar!." - Hitler Speech 1942
 
+Prajurit yang dilarang mundur ini mulai kekurangan pasokan Makanan, Amunisi, dan Bahan lain keperluan Tempur. Bahkan diantara mereka ada yang membunuh dan memakan bangkai Kuda. <a href="https://en.wikipedia.org/wiki/Gerhard_Dengler">Gerhard Dengler</a> diantaranya menceritakan tentang apa yang Ia alami pada saat itu.
 
+> "awalnya kami mengira dapat keluar dari situasi ini. Namun, Situasinya semakin buruk. Kami kehabisan bensin, Amunisi kemudian Makanan. Sehingga dalam keadaan terpaksa kami memakan kuda-kuda itu." - <a href="https://en.wikipedia.org/wiki/Gerhard_Dengler">Gerhard Dengler</a>
 
+![operationwinter](https://cdn.britannica.com/33/180233-138-2BEFA2E3/Overview-Battle-of-Stalingrad.jpg?w=800&h=450&c=crop)
+<p class="yebi">Battle of Stalingrad: Winter operation 1942</p>
 
+Desember 1942, Kelaparan semakin mencekik mereka. Dalam keputusasaan yang sangat mendalam mereka harus bertahan hidup dengan cara apapun. Gerhard melihat sendiri bahwa temannya mulai mengincar bangkai bangkai manusia, yang bahkan bangkai sesama prajurit Jerman itu sendiri. Bagi mereka yang masih terjebak di Stalingrad, perayaan Natal merupakan periode yang mencekam dan penuh penderitaan.
+
+Lima minggu kemudian, 2 Februari 1943 Pasukan Jerman akhirnya menyatakan menyerah kepada tentara Merah Uni Soviet. "Pasukan Keenam telah menyerah pada keunggulan musuh. pertempuran Stalingrad berakhir." - Radio Internasional Eropa Barat.
 
 
 
