@@ -224,7 +224,7 @@ Hitler tidak hanya melakukan pertempuran pada invasi ini tetapi hitler juga ingi
 Disaat pertempuran di moskow semakin memanas, <a href="https://id.wikipedia.org/wiki/Winston_Churchill">Winston Churchill</a> menemui <a href="https://id.wikipedia.org/wiki/Franklin_Delano_Roosevelt">Franklin D. Roosevelt</a> di <a href="https://en.wikipedia.org/wiki/Newfoundland_and_Labrador">Newfoundland, Canada.</a>
 
 ![newfoundland Canada](https://i.cbc.ca/1.3719781.1629198824!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_940/atlantic-charter-roosevelt-and-churchill.jpg)
-<p class="yebi">Presiden Franklin dan Rooselvet di Newfoundland, Canada.</p>
+<p class="yebi">Presiden Franklin dan Winston di Newfoundland, Canada.</p>
 
 Tujuan pertemuan ini adalah mengajak USA untuk ikut ambil bagian dalam mengembalikan keseimbangan Eropa barat dari Jerman pada saat itu, tetapi <a href="https://id.wikipedia.org/wiki/Franklin_Delano_Roosevelt">Franklin</a> menolak dan tidak mau ikut campur dalam pertempuran.
 
@@ -275,6 +275,93 @@ Di sisi lain Jepang berusaha untuk menguasai Seluruh Asia, tetapi ada 1 kekhawat
     </video>
 </div>
 
+> "Kami menjeda acara ini dengan berita pengumuman khusus, bahwa Jepang telah menyerang Pearl Harbor, Hawaii dari udara secara tiba-tiba. Semua pangkalan darat dan laut di Pulau Oahu dan Pulau Hawaii dalam status bahaya. Presiden Roosevelt bicara dalam pernyataan hari ini bahwa Jepang telah menyerang Pearl Harbor, Hawaii dari udara." - Breaking News 1941
+
+Jepang berhasil menenggelamkan 5 Kapal perang dan 3 kapal destroyer milik Amerika Serikat pada penyerangan kejutan Hawaii ini. dan menewaskan lebih dari 2000 Tentara Amerika. <a href="https://en.wikipedia.org/wiki/Attack_on_Pearl_Harbor?utm_source=yosephrafael.com">Data statistik Asli</a>
+
+Pada saat inilah Amerika Mulai memperlihatkan kegigihannya sebagai negara dengan militer terbaik pada saat itu selain Uni Soviet. Akhirnya Presiden Franklin Roosevelt menyatakan perang dan membalas dendam kepada Jepang.
+
+## Rusia Musim dingin 1942
+Cuaca ekstrim musim dingin yang melanda Rusia menghambat pergerakan Pasukan Jerman, yang membuat pasukan Jerman merasa kesulitan dan harus mengatur ulang strategi pertempuran dengan medan yang berbeda.
+
+![soviet](https://cdn.britannica.com/74/207074-050-62E12043/Soviet-partisans-planning-a-raid-on-German-troops-January-1942.jpg)
+<p class="yebi">Tentara merah Soviet Mengatur strategi Penyerangan pada pasukan Jerman</p>
+
+> The Soviet Union also launched other offensives in central and northern European Russia, including the Oboyan–Kursk Offensive Operation, the Lyuban Offensive Operation, and the Demyansk Offensive Operation <a href="https://en.wikipedia.org/wiki/Winter_campaign_of_1941%E2%80%931942#:~:text=The%20winter%20campaign%20of%201941,during%20November%20and%20December%201942).">Selengkapnya.</a>
+
+
+## Afrika Utara
+Setelah 1 tahun penyerangan di Libya, Pasukan Jerman berhasil memukul mundur pasukan Britania Raya hingga mereka melarikan diri ke <a href="https://en.wikipedia.org/wiki/Port_of_Tobruk">Pelabuhan Tobruk</a>. Jika <a href="https://id.wikipedia.org/wiki/Erwin_Rommel">E. Rommel</a> berhasil menguasai kota Tobruk, maka Jerman menguasai Afrika sepenuhnya.
+
+![thesiegeoftobruk](https://warfarehistorynetwork.com/wp-content/uploads/2015/12/W-Tobruk-Lead-4C-Nov04-e1701469162971.jpg)
+<p class="yebi">The siege of Tobruk - Gambar asli pelabuhan Tobruk, Afrika Utara.</p>
+
+####  Mengapa Tobruk begitu penting bagi Jerman saat pertempuran ini terjadi?
+> **Pelabuhan Penting untuk Logistik** Tobruk memiliki pelabuhan alami yang dalam dan terlindung, memungkinkan kapal berlabuh dengan aman meskipun terjadi pengeboman. Hal ini menjadikannya titik suplai ideal untuk kampanye militer di gurun <a href="https://en.wikipedia.org/wiki/Tobruk?utm_source=yosephrafael.com">Selengkapnya.</a>
+
+> **Posisi Geografis Strategis** Terletak di semenanjung dengan benteng alami seperti tebing dan jurang di selatan, Tobruk mudah dipertahankan dengan jumlah pasukan minimal. Penguasaan Tobruk memungkinkan kontrol atas sebagian besar Cyrenaica dan memfasilitasi serangan lebih lanjut ke arah timur menuju Mesir dan Terusan Suez <a href="https://en.wikipedia.org/wiki/Tobruk?utm_source=yosephrafael.com">Selengkapnya.</a>
+
+> **Moral dan Simbolisme** Sebelumnya, Tobruk berhasil dipertahankan oleh pasukan Sekutu selama pengepungan delapan bulan pada tahun 1941, menjadikannya simbol perlawanan. Kejatuhan Tobruk ke tangan Rommel pada 21 Juni 1942 merupakan pukulan besar bagi moral Sekutu dan meningkatkan semangat pasukan Poros <a href="https://en.wikipedia.org/wiki/Axis_capture_of_Tobruk?utm_source=yosephrafael.com">Selengkapnya.</a>
+
+> **Sumber Daya dan Perlengkapan** Penaklukan Tobruk memungkinkan pasukan Poros mengamankan sejumlah besar peralatan, bahan bakar, dan persediaan lainnya yang ditinggalkan oleh pasukan Sekutu. Hal ini memperkuat logistik Jerman untuk operasi militer selanjutnya di Afrika <a href="https://en.wikipedia.org/wiki/Axis_capture_of_Tobruk?utm_source=yosephrafael.com">Selengkapnya.</a>
+
+Setelah mendengar mengenai Hal Pertempuran Tobruk, Pasukan Inggris mendapatkan perintah dari pusat dengan penyampaian yang tegas untuk mempertahankan Tobruk tanpa memperhatikan nyawa mereka.
+
+## Gazala War
+Mei 1942, Pertempuran <a href="https://en.wikipedia.org/wiki/Port_of_Tobruk">Tobruk</a> pun terjadi dimana Pasukan Jerman dengan bantuan Pasukan Fasil Italia dan Imperialis Jepang memasuki perbatasan <a href="https://en.wikipedia.org/wiki/Port_of_Tobruk">Tobruk</a> dan siap untuk melakukan Penyerangan terhadap Pasukan Inggris dan ya baku tembak pun tak bisa dihindari.
+
+<div style="display: flex; justify-content: center; max-width: 100%;">
+    <video id="thumbnailVideo" style="width: 100%; max-width: 100%; border-radius: 8px; cursor: pointer" autoplay muted loop>
+        <source src="/tobrukwar.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<br>
+
+Pasukan Inggris berhasil dihabisi oleh Tentara Gabungan Jerman, dan hanya 1 tentara Inggris yang tersisa. Dengan direbutnya Tobruk oleh Jerman, ini menandakan bahwa 1 langkah lagi untuk Jerman bisa menguasai seluruh Afrika.
+
+### Hand to hand fighting in Singapore City
+Disaat yang bersamaan, Jepang berusaha merebut dengan melakukan pertempuran di area Asia lainnya. Bahkan Jepang sudah berada di tanah Amerika, di pos terpencil di Alaska.
+
+> "Jepang mendekati kota Singapura dari arah utara dan barat. Jepang menginjakkan kakiknya di benua Amerika Utara untuk pertama kalinya." - Breaking News Radio 1942
+
+> "Kita akan menghapuskan penindasan keji dari Amerika Serikat dan Britania Raya." - Japan Patriot Army in Alaska
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -287,6 +374,13 @@ Di sisi lain Jepang berusaha untuk menguasai Seluruh Asia, tetapi ada 1 kekhawat
 
 
 <style>
+
+body{
+    user-select: none; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
 
 .yebi{
     opacity: 0.5;
@@ -362,10 +456,19 @@ function closePopup() {
     document.body.style.overflow = "auto"; 
 }
 
-// Pastikan popup tidak muncul otomatis saat halaman dimuat
 document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("popup").style.display = "none";
 });
+
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.ctrlKey && ["u", "s", "c"].includes(event.key.toLowerCase())) {
+      event.preventDefault();
+    }
+  });
 </script>
 
 
