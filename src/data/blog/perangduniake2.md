@@ -430,17 +430,17 @@ November 1942, Pertempuran dahsyat terjadi dikarenakan Uni Soviet mengepung tent
 ![Katyusha](https://asset.kompas.com/crops/TT9yd14l7CYTaBJWE1GvoBhNL8M=/0x0:600x400/1200x800/data/photo/2019/03/29/1956953134.jpg)
 <p class="yebi">Real pic of Katyusha</p>
 
-<div class="quiz-container">
-    <h3>Quiz: Pertempuran Stalingrad</h3>
-    <p>Siapakah pemimpin pasukan Jerman dalam Pertempuran Stalingrad?</p>
-    <ul class="quiz-options">
-        <li onclick="checkAnswer(this, 'wrong')">Erwin Rommel</li>
-        <li onclick="checkAnswer(this, 'correct')">Friedrich Paulus</li>
-        <li onclick="checkAnswer(this, 'wrong')">Heinz Guderian</li>
-        <li onclick="checkAnswer(this, 'wrong')">Wilhelm Keitel</li>
-    </ul>
+<div id="quiz-container">
+    <p class="quiz-question">Siapakah yang memimpin pasukan Jerman dalam Pertempuran Stalingrad?</p>
+    <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A. Erwin Rommel</button>
+        <button class="quiz-option" data-correct="true">B. Friedrich Paulus</button>
+        <button class="quiz-option" data-correct="false">C. Heinrich Himmler</button>
+        <button class="quiz-option" data-correct="false">D. Hermann Göring</button>
+    </div>
     <p id="quiz-feedback"></p>
 </div>
+
 
 > "Jumlah mereka sangat Banyak, semakin banyak pasukan yang berdatangan. Mereka tidak melemah, malah makin kuat!" - <a href="https://en.wikipedia.org/wiki/Gerhard_Dengler">Gerhard Dengler</a>
 
@@ -482,40 +482,85 @@ Di wilayah Afrika Utara Inggris berhasil menyeimbangkan kekuatan tempur setelah 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <style>
 
-.quiz-container {
-    background-color: #171717;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 20px;
+#quiz-container {
     text-align: center;
+    background-color: #171717;
     color: white;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 680px;
+    width: 90vw;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
+
+.quiz-question {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
 .quiz-options {
-    list-style: none;
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
-.quiz-options li {
-    background: #222;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
+
+.quiz-option {
+    background-color: #2c2c2c;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background 0.3s, transform 0.2s;
+    outline: none;
 }
-.quiz-options li:hover {
-    background: #444;
+
+.quiz-option:hover {
+    background-color: #444;
+    transform: scale(1.05);
 }
-.correct {
-    background: #28a745 !important;
+
+.quiz-option:active {
+    background-color: #555;
 }
-.wrong {
-    background: #dc3545 !important;
+
+#quiz-feedback {
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    opacity: 0.9;
 }
+
 
 body{
     user-select: none; 
@@ -588,6 +633,7 @@ body{
 </style>
 
 <script>
+
 function showPopup() {
     document.querySelector(".popup").style.display = "flex";
     document.body.style.overflow = "hidden"; 
@@ -599,7 +645,10 @@ function closePopup() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("popup").style.display = "none";
+    let popupElement = document.getElementById("popup");
+    if (popupElement) {
+        popupElement.style.display = "none";
+    }
 
     document.querySelectorAll("img").forEach(img => {
         img.style.userSelect = "none";
@@ -620,14 +669,45 @@ document.addEventListener("keydown", function (event) {
     }
 });
 
-function checkAnswer(element, status) {
-    document.querySelectorAll(".quiz-options li").forEach(li => {
-        li.style.pointerEvents = "none";
+document.addEventListener("DOMContentLoaded", function () {
+    let quizPassed = false;
+    let answered = false; 
+
+    document.querySelectorAll(".quiz-option").forEach(button => {
+        button.addEventListener("click", function () {
+            if (answered) return; 
+
+            answered = true;
+
+            if (this.getAttribute("data-correct") === "true") {
+                quizPassed = true;
+                document.getElementById("quiz-feedback").textContent = "Jawaban benar! Silakan lanjut scroll.";
+                document.getElementById("quiz-feedback").style.color = "green";
+                this.style.backgroundColor = "green"; 
+            } else {
+                document.getElementById("quiz-feedback").textContent = "Jawaban salah, refresh untuk coba lagi!";
+                document.getElementById("quiz-feedback").style.color = "red";
+                this.style.backgroundColor = "red"; 
+            }
+
+            document.querySelectorAll(".quiz-option").forEach(btn => btn.disabled = true);
+        });
     });
-    element.classList.add(status);
-    document.getElementById("quiz-feedback").innerText = 
-        status === "correct" ? "Benar! Friedrich Paulus memimpin pasukan Jerman dalam pertempuran ini." : "Salah! Refresh untuk Coba lagi";
-}
+
+    window.addEventListener("scroll", function () {
+        let quizSection = document.getElementById("quiz-section");
+
+        if (quizSection) {
+            let rect = quizSection.getBoundingClientRect();
+
+            if (!quizPassed && rect.top < window.innerHeight / 2) {
+                alert("Jawab kuis ini dulu sebelum lanjut scroll!");
+                window.scrollTo(0, window.scrollY - 50); 
+            }
+        }
+    });
+});
+
 
 </script>
 
