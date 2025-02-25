@@ -468,10 +468,30 @@ Di wilayah Afrika Utara Inggris berhasil menyeimbangkan kekuatan tempur setelah 
 ![rayellistobruk](https://warfarehistorynetwork.com/wp-content/uploads/2015/12/W-Tobruk-Lead-4C-Nov04-e1701469162971.jpg)
 <p class="yebi">The siage of tobruk, Germany Tank.</p>
 
-> "Aku sudah lupa berapa hari berlalu sejak aku ditawan, ini terasa seperti di neraka. Aku sulit untuk duduk, bergerak, bahkan untuk mengembalikkan badan." - <a href="https://www.warhistoryonline.com/war-articles/remembering-ray-ellis-last-surviving-wwii-vet-battle-knightsbridge.html">Ray Ellis</a> British Army 
+> "Aku sudah lupa berapa hari berlalu sejak aku ditawan, ini terasa seperti di neraka. Aku sulit untuk duduk, bergerak, bahkan untuk mengembalikkan badan. Banyak pria yang kotor, berkeringat, bau badan. Pada saat berdiri, semua isi perut dikosongkan secara paksa. Aku pun mendapatkan perlakuan yang sama, banyak yang mati berdiri. Sampai kami berhenti pada malam hari, saat mayat-mayat mulai diangkut dan dipindahkan." - <a href="https://www.warhistoryonline.com/war-articles/remembering-ray-ellis-last-surviving-wwii-vet-battle-knightsbridge.html">Ray Ellis</a> British Army 
 
+## Capua Southern Italy
+Kini Ray dan tawanan tiba di Italia dalam kondisi kelaparan. Warga Italia menunjukkan ketidaksukaan mereka terhadap tawanan Inggris yang sedang digiring menuju suatu tempat. 
 
+Sementara itu pasukan ke-8 Inggris yang dipimpin langsung oleh Montgomery berhasil mengalahkan pasukan Jendral Romel. Pertempuran ini dinamakan sebagai <a href="https://id.wikipedia.org/wiki/Pertempuran_El_Alamein_Kedua?utm_source=yosephrafael.com">Pertempuran _el alamein_</a>
 
+> "ini peringatan di saluran BBC di Amerika Utara. Kemarin sore pukul 16:30 waktu setempat pasukan Poros terbagi menjadi dua." - Jurnalis Amerika
+
+> "Ini bukanlah Akhir. Ini bahkan bukan permulaan dari sebuah akhir. Namun ini bukan akhir dari permulaan." - Wingston Churchill
+
+Kampanye Mesir–Libya" adalah sebutan untuk keterlibatan Amerika Serikat dalam perang di Mesir dan Libya selama Perang Dunia II. Sejak tahun 1942, pasukan AS membantu Inggris melawan pasukan Jerman dan Italia di kawasan tersebut. Kampanye ini merupakan bagian dari pertempuran besar di wilayah Mediterania.
+
+Kekuatan Inggris yang semakin besar dengan ditambah bantuan dari Armada Amerika berhasil merebut Libya kembali dari tangan Jerman.
+
+### Jerman terkepung di Stalingrad
+Sementara itu di garis depan timur, pasukan Jerman terkepung di Stalingrad. Ditambah lagi <a href="https://www.historyextra.com/period/second-world-war/stalingrad-friedrich-roske-account-testimony/#:~:text=Iain%20MacGregor%20reveal%20previously%20unpublished,began%20to%20tighten%20its%20grip%E2%80%A6&text=Winters%20in%20Russia%20can%20be,plummeted%20towards%20%E2%80%9320%C2%B0C.">musim dingin ekstrim rusia</a> yang semakin mendekat (-20°C). Sekarang bukan hanya memikirkan strategi tempur saja melainkan harus memikirkan juga cara bertempur di medan yang ekstrim menghantui pasukan Jerman. 
+
+![jermaninstalingrad](https://s.france24.com/media/display/14253dfc-18e4-11ed-8b1c-005056a90284/w:1280/p:16x9/AP389894241237.jpg)
+<p class="yebi">Tentara Jerman bertempur dalam keadaan Beku di Stalingrad.</p>
+
+Disini Hitler tetap memerintahkan untuk Maju dan bertempur terus apapun kendalanya, baik itu cuaca ekstrim mau apapun laporan yang dilaporkan oleh Jendral pasukannya, karena sebagai ras unggul tentu malu jika menyerah hanya karena keadaan Cuaca berubah alias dipukul mundur.
+
+> "Beberapa bulan terakhir, keadaannya begitu luar biasa. Mari beri penghormatan kepada para tentara yang telah memberikan perjuangan ini. Kekalahan adalah hal yang tidak bisa diterima!. Nasionalis-Sosialis Jerman akan keluar dan meraih kemenangan besar!." - Hitler Speech 1942
 
 
 
