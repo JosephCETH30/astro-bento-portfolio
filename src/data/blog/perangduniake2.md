@@ -653,31 +653,31 @@ Pada pukul 00:55 pagi, lebih dari 720 pesawat pengebom mulai tiba dan menjatuhka
     <ul class="timeline">
         <li>
             <span class="date">24-25 Juli</span>
-            <p>Serangan malam oleh sekitar 790 pembom RAF. Penggunaan pertama "Window".</p>
+            <a href="https://www.google.com/search?q=24-25+July%3A+Night+raid+by+about+790+RAF+bombers.+First+use+of+Window&sourceid=chrome&ie=UTF-8" style="color: white;"><p>Serangan malam oleh sekitar 790 pembom RAF. Penggunaan pertama "Window".</p></a>
         </li>
         <li>
             <span class="date">25 Juli</span>
-            <p>Serangan siang oleh sekitar 120 pembom USAAF.</p>
+            <a href="https://www.google.com/search?q=25+July%3A+Day+raid+by+about+120+USAAF+bombers&sourceid=chrome&ie=UTF-8" style="color: white;"><p>Serangan siang oleh sekitar 120 pembom USAAF.</p></a>
         </li>
         <li>
             <span class="date">26 Juli</span>
-            <p>Serangan siang oleh sekitar 50 pembom USAAF.</p>
+            <a href="https://www.google.com/search?q=26+July%3A+Day+raid+by+about+50+USAAF+bombers&sourceid=chrome&ie=UTF-8" style="color: white;"><p>Serangan siang oleh sekitar 50 pembom USAAF.</p></a>
         </li>
         <li>
             <span class="date">27-28 Juli</span>
-            <p>Serangan malam oleh sekitar 780 pembom RAF. Terjadinya badai api (*Firestorm*).</p>
+            <a href="https://www.google.com/search?q=27-28+July%3A+Night+raid+by+about+780+RAF+bombers.+Firestorm&sourceid=chrome&ie=UTF-8" style="color: white;"><p>Serangan malam oleh sekitar 780 pembom RAF. Terjadinya badai api (*Firestorm*).</p></a>
         </li>
         <li>
             <span class="date">28 Juli</span>
-            <p>Perintah evakuasi kota Hamburg.</p>
+            <a href="https://www.google.com/search?q=Perintah+evakuasi+kota+Hamburg.&oq=Perintah+evakuasi+kota+Hamburg.&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBBzE2MWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8" style="color: white;"><p>Perintah evakuasi kota Hamburg.</p></a>
         </li>
         <li>
             <span class="date">29-30 Juli</span>
-            <p>Serangan malam oleh sekitar 770 pembom RAF. Badai api (*Firestorm*) kedua.</p>
+            <a href="https://www.twz.com/horror-of-firestorm-introduced-by-europes-deadliest-bombing-raid-80-years-ago" style="color: white;"><p>Serangan malam oleh sekitar 770 pembom RAF. Badai api (*Firestorm*) kedua.</p></a>
         </li>
         <li>
             <span class="date">2-3 Agustus</span>
-            <p>Serangan malam oleh sekitar 740 pembom RAF, tetapi tersebar akibat cuaca buruk.</p>
+            <a href="https://ww2db.com/battle_spec.php?battle_id=55#:~:text=The%20final%20large%20scale%20raid,the%20740%20bombers%20were%20lost." style="color: white;"><p>Serangan malam oleh sekitar 740 pembom RAF, tetapi tersebar akibat cuaca buruk.</p></a>
         </li>
     </ul>
 </div>
@@ -699,7 +699,9 @@ Beberapa warga sipil yang masih selamat dievakuasi ke Gedung yang masih kokoh, t
 
 > "Kami ditugaskan ke Hamburg, kami menanyai perwira intelijen, Untuk apa kami kesana lagi bukannya kota itu sudah hancur dibom?. Dijawabnya: Kantor post utama satu-satunya gedung yang masih berdiri, dimana tempat berlindung darurat yang berisi 60,000 warga sipil. Itulah sasaran kalian. Jadi apa pendapat kalian? kita sepemikiran. Kami menutup mata dan berkata "oh" Mereka lah penjahatnya, bukan kami dan kami harus tetap melakukan ini? Kami tak punya pilihan." - <a href="http://www.rcaf434squadron.com/71-80/single-gallery/10492430">Donald Wickens</a>
 
+Misi penghancuran terakhir di Hamburg pun dilaksanakan, bagi Don dia tidak bisa melakukan apa apa selain menyelesaikan misinya. Menurutnya itu bukanlah aksi heroisme tetapi merupakan hal yang sangat buruk yang pernah ia lakukan "secara terpaksa". 
 
+Anak-anak muda Jerman mulai menunjukkan taringnya dalam pertentangan terhadap pasukan Sekutu, dan ini sangatlah disayangkan oleh pasukan Inggris, dan sangat terlarang.
 
 ### Data kematian
 <div class="chart-container">
