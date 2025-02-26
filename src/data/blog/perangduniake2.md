@@ -500,16 +500,65 @@ Prajurit yang dilarang mundur ini mulai kekurangan pasokan Makanan, Amunisi, dan
 ![operationwinter](https://cdn.britannica.com/33/180233-138-2BEFA2E3/Overview-Battle-of-Stalingrad.jpg?w=800&h=450&c=crop)
 <p class="yebi">Battle of Stalingrad: Winter operation 1942</p>
 
-Desember 1942, Kelaparan semakin mencekik mereka. Dalam keputusasaan yang sangat mendalam mereka harus bertahan hidup dengan cara apapun. Gerhard melihat sendiri bahwa temannya mulai mengincar bangkai bangkai manusia, yang bahkan bangkai sesama prajurit Jerman itu sendiri. Bagi mereka yang masih terjebak di Stalingrad, perayaan Natal merupakan periode yang mencekam dan penuh penderitaan. 
+Desember 1942, Kelaparan semakin mencekik mereka. Dalam keputusasaan yang sangat mendalam mereka harus bertahan hidup dengan cara apapun. <a href="https://en.wikipedia.org/wiki/Gerhard_Dengler">Gerhard</a> melihat sendiri bahwa temannya mulai mengincar bangkai bangkai manusia, yang bahkan bangkai sesama prajurit Jerman itu sendiri. Bagi mereka yang masih terjebak di <a href="https://id.wikipedia.org/wiki/Volgograd">Stalingrad</a>, perayaan Natal merupakan periode yang mencekam dan penuh penderitaan. 
 
-Kurang lebih 800ribu pasukan blok poros tewas terbunuh atau ditawan. Hal ini merupakan bencana bagi Hitler dan kekalahan pertama terbesar bagi Hitler selama perang berlangsung. Warga menyambut kemenangan Stalingrad dengan bersorak-sorai terutama bagi salah satu tentara terdepan Uni Soviet Alexandra B.
+Kurang lebih 800 ribu pasukan <a href="https://encyclopedia.ushmm.org/content/id/article/axis-powers-in-world-war-ii">Blok Poros</a> tewas terbunuh atau ditawan. Hal ini merupakan bencana bagi Hitler dan kekalahan pertama terbesar bagi Hitler selama perang berlangsung. Warga menyambut kemenangan <a href="https://id.wikipedia.org/wiki/Volgograd">Stalingrad</a> dengan bersorak-sorai terutama bagi salah satu tentara terdepan Uni Soviet Alexandra B.
 
-Lima minggu kemudian, 2 Februari 1943 Pasukan Jerman akhirnya menyatakan menyerah kepada tentara Merah Uni Soviet. "Pasukan Keenam telah menyerah pada keunggulan musuh. pertempuran Stalingrad berakhir." - Radio Internasional Eropa Barat.
+Lima minggu kemudian, 2 Februari 1943 Pasukan Jerman akhirnya menyatakan menyerah kepada tentara Merah Uni Soviet. "Pasukan Keenam telah menyerah pada keunggulan musuh. pertempuran <a href="https://id.wikipedia.org/wiki/Volgograd">Stalingrad</a> berakhir." - Radio Internasional Eropa Barat.
 
+## Benteng Eropa
+Pasukan sekutu mulai meluncurkan serangan ke tempat yang paling berbahaya di Bumi pada saat itu. yaitu, Nazi Jerman. Norfolk, Inggris menjadi lokasi kantor pusat COSSAC (Kepala Staf, Panglima Tertinggi Sekutu) pada tahun 1943
 
+![John Luckadoo](https://images.ctfassets.net/yx7kkugbpdox/6hFDqJtk0Uo7bWBcyMaPRK/36d92cdb0b82b800b0a1c4e7ba5fc886/crewluckadoo.jpg?fit=fill&q=75&w=3840&h=2826)
 
+1943, <a href="https://100thbg.com/personnel/?personnel_id=3204">John Luckadoo</a> mendapatkan perintah dari pusat untuk membombardir pusat kota Jerman. Misi ini ditujukan untuk Menghancurkan pusat militer Jerman, tetapi ada beberapa hambatan terlebih Jerman dengan alutsistanya yang lebih modern. Setelah seluruh armada pengebom sudah bersiap, misi pun akan dijalankan. 
 
+Saat sampai di perbatasan Jerman, mereka langsung disambut dengan Objek senjata "anti-pesawat" Jerman. Yang dimana Senjata ini dapat melumpuhkan pesawat karena mudah meledak.
 
+![antiaircraft](https://upload.wikimedia.org/wikipedia/commons/0/0f/Bundesarchiv_Bild_101I-478-2162-26%2C_Italien%2C_Flak.jpg)
+<p class="yebi">3.7 cm Flak 18/36/37, 88 mm Flak 36, and 2 cm Flak 30</p>
+
+> "Ya Tuhannnn..." - Salah satu pilot pesawat pengebom Sekutu
+
+Setelah berhasil melewati objek yang berbahaya, kini mereka dihadapi oleh <a href="https://en.wikipedia.org/wiki/Operational_history_of_the_Luftwaffe_(1939%E2%80%931945)">Luftwaffe</a>. Dan terjadilah pertempuran udara yang brutal diatas langit perbatasan Jerman.
+
+> "Arah pukul dua awasi, scotty!." <br>
+> "Aku melihat mereka, mereka mendekat." <br>
+> "Sini kamu!" <br>
+> "Arah pukul sebelas." <br>
+> "B17 Bermasalah di arah pukul dua." <br>
+
+satu <a href="https://en.wikipedia.org/wiki/Boeing_B-17_Flying_Fortress">pesawat B17</a> milik sekutu berhasil ditembak jatuh oleh pasukan udara Jerman. Tetapi dengan jatuhnya 1 pesawat pengebom tidak menghentikan misi Sekutu untuk mengebom benteng Nazi. Sekarang lah waktunya untuk <a href="https://en.wikipedia.org/wiki/Boeing_B-17_Flying_Fortress">pesawat B17</a> yang lain menjatuhkan Bomnya tepat diatas benteng Nazi.
+
+> "Bom sedang dijatuhkan."
+
+<a href="https://en.wikipedia.org/wiki/Strategic_bombing_during_World_War_II">70 ribu ton Bom</a> berhasil dijatuhkan sekutu di <a href="https://en.wikipedia.org/wiki/German_World_War_II_fortresses">Benteng Jerman</a> dan menghasilkan hasil yang signifikan. Tetapi, Nazi Jerman belum bisa ditakklukan, karena bomnya _Off-target_. Inggris merencanakan serangan selanjutnya yakni, serangan darat yang lebih brutal.
+
+![north-africa](https://www.nam.ac.uk/sites/default/files/2017-05/110526_slice.jpg)
+<p class="yebi">The Struggle for Germany in North Africa</p>
+
+May 1943, kabar gembira dari Afrika dimana pasukan sekutu berhasil menaklukkan <a href="https://en.wikipedia.org/wiki/Erwin_Rommel">pasukan Jerman</a> yang tersisa di Afrika Utara
+
+> "Kemarin sore, pukul 16:30 perang di Afrika Utara dinyatakan berakhir. Tak lama ratusan bendera putih bermunculan di segala tempat." - Radio Internasional.
+
+Setelah itu, pasukan Sekutu mulai merencanakan untuk menginvasi Italia. Tetapi sayangnya rencana ini diketahui oleh <a href="https://id.wikipedia.org/wiki/Fasisme_Italia">Fasis Italia</a>. Benito Musolini bersiap untuk menghadapi Invasi ini, sangat dan wajib dicegah, dikarenakan ini akan menjadi suatu ancaman bagi <a href="https://en.wikipedia.org/wiki/Axis_powers">Rezim mereka.</a>
+
+Fasis Italia pun meresponnya dengan menyiapkan seluruh pasukan terdepan untuk mencegah Invasi pasukan sekutu.
+
+> "Sang <a href="https://id.wikipedia.org/wiki/F%C3%BChrer">Fuhrer</a> dan <a href="https://en.wikipedia.org/wiki/Benito_Mussolini">Duce</a> memberikan pernyataan dalam pertemuannya, tekad mereka dan rakyatnya untuk berperang sampai kemenangan akhir." - Media Italia 1943
+
+## Invasi Italia
+Juni 1943, pasukan gabungan yang berada ditengah laut Mediterania sekarang telah sampai di pesisir <a href="https://id.wikipedia.org/wiki/Sisilia">Sisilia.</a>. Mereka tidak mendapatkan perlawanan apapun saat tiba di pinggir pantai <a href="https://id.wikipedia.org/wiki/Sisilia">Sisilia.</a>
+
+<div style="display: flex; justify-content: center; max-width: 100%;">
+    <video id="thumbnailVideo" style="width: 100%; max-width: 100%; border-radius: 8px; cursor: pointer" autoplay muted loop>
+        <source src="/sicily-Invasion.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<p class="yebi">Invasi di Sisilia Juni 1943</p>
+
+Mereka mendapatkan serangan dari pasukan Italia saat memasuki wilayah perdesaan.
 
 
 
