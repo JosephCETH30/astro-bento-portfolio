@@ -929,10 +929,249 @@ Setelah mengetahui kedatangan tentara soviet dan sekutu para warga berusaha kabu
 
 Mereka mulai menangkap prajurit Jerman yang sudah tak berdaya dan kemudian mereka mulai melangkah menuju Berlin. Akibat pasukan Jerman sudah menyerah di perbatasan Jerman, Hitler mulai menyusun strategi. Hitler menjadikan warga sipil yang terdiri dari Pria, Lansia, Wanita, dan anak anak sekolah sebagai Prajurit pertahanan terakhir Berlin. Prajurit ini dikenal sebagai tentara Volksstrum
 
-> "Tentara Volksstrum Berlin, angkat tangan kalian!. Dan ulangi perkataan saya."
+> "Tentara Volksstrum Berlin, angkat tangan kalian!. Dan ulangi perkataan saya. Saya berjanji bahwa saya, demi tanah air akan berjuang dengan berani, dan lebih memilih mati daripada mengorbankan kemerdekaan bangsa saya. Pasukan Volksstrum, Jangan pernah kibarkan bendera putih di hadapan musuh Kekaisaran dan menyerah seperti pengecut!". - Hitler
 
-![greifoperation](https://www.detroitnews.com/gcdn/-mm-/f3a38ead2f3dd9c20b817fd4155330a69d2ee225/c=0-64-3011-1765/local/-/media/2015/04/30/DetroitNews/DetroitNews/635660333964155816-AP450507014.jpg?width=700&height=396&fit=crop&format=pjpg&auto=webp)
-<p class="yebi">May 7, 1945: Germans surrender in WWII. Source : The Detroit News</p>
+Volkssturm merupakan salah satu komponen terakhir dalam konsep perang total yang dirumuskan oleh Menteri Propaganda Joseph Goebbels, yang merupakan salah satu upaya Nazi untuk mengalahkan musuh-musuh mereka melalui semangat kuat kenegaraan. Mereka mulai dengan membangun benteng benteng pertahanan di Berlin.
+
+![greifoperation](https://assets.editorial.aetnd.com/uploads/2020/06/berlin-gettyimages-1034959456.jpg?width=800&height=400&crop=1&w=800&h=400&q=100)
+<p class="yebi">As the Allies Closed in on Hitler, They Jockeyed for Future World. Source : History.com</p>
+
+Kemudian di bulan Maret 1945 Pasukan sekutu memasuki Berlin dari berbagai sudut.
+> "Pasukan sekutu Terus bergerak ke arah Sungai Rhine dengan hasil yang bagus yang dilaporkan dari semua sektor. Begitu Sungai Rhine ditembus, Kemenangan mutlak di Eropa akan semakin dekat." - Radio Internasional
+
+Sementara itu pada malam 9/10 Maret 1945, Angkatan Udara Amerika Serikat (USAAF) melancarkan serangan bom api yang dahsyat di Tokyo, ibu kota Jepang. Serangan ini diberi nama sandi Operasi Meetinghouse oleh USAAF dan dikenal sebagai Serangan Udara Besar Tokyo (東京大空襲, Tōkyō dai-kūshū) di Jepang.
+
+![deadliestwartokyo](https://media.cnn.com/api/v1/images/stellar/prod/200221235528-04-tokyo-bombing-anniversary-restricted.jpg?q=w_3000,h_1688,x_0,y_0,c_fill)
+<p class="yebi">History's deadliest air raid happened in Tokyo during World War 2. Source : CNN</p>
+
+> "Ada kesadaran tinggi bahwa mungkin fase tersulit dari perang masih menanti. Kita kini harus menghancurkan Jepang." - Radio Internasional US
+
+Bom yang dijatuhkan dari 279 Pesawat pengebom jenis B-29 Superfotress membakar sebagian besar wilayah timur Tokyo. Lebih dari 90ribu orang tewas, kebanyakan diantaranya yakni Warga Sipil. Dan 1 Juta orang kehilangan rumah sehingga ini bisa dibilang sebagai serangan udara yang paling merusak dalam sejarah selama perang berlangsung.
+
+![deadliestwartokyo](https://assets.editorial.aetnd.com/uploads/2020/06/big-three-stalin-roosevelt-churchill-gettyimages-615313038.jpg?width=2048&height=1152&crop=2048%3A1152%2Csmart&quality=75&auto=webp)
+<p class="yebi">FDR, Churchill and Stalin: Inside Their Uneasy WWII Alliance. Source : History.com</p>
+
+Di sisi lain para petinggi Sekutu mengadakan rapat, dalam pertemuan ini US meminta Stalin melakukan penyerangan merebut Berlin. Keputusan ini dikarenakan penyerangan yang dilakukan tentara Merah soviet akan lebih efektif yang lebih dekat dengan Berlin, dan US akan fokus bertempur dengan Jepang di Pasifik.
+
+Perang-perang di pasifik pun terjadi, pada akhirnya Amerika berhasil merebut kembali Filipina dan Pulau Iwozima dari tangan Imperialis Jepang.
+
+> "Kita tak boleh beristirahat sebelum musuh digulingkan sepenuhnya. Jepang adalah sasaran terakhir kita." - Radio Internasional US
+
+Kini Amerika tinggal melanjutkan pertempuran terakhir yaitu memasuki Tanah Jepang, Pertempuran di Tokyo. Tapi sebelum itu mereka harus menguasai Pulau Okinawa terlebih dahulu. Jika Mereka berhasil, maka invasi bisa terlaksanakan dengan lebih mudah.
+
+## New Meksiko
+Para ilmuwan sedang mengembangkan senjata paling mematikan yaitu Bom Atom. Dengan kekuatan dasar alam semesta.
+
+_Proyek Manhattan atau lebih formal, Manhattan Engineering District, adalah proyek riset dan pengembangan pada Perang Dunia II untuk mengembangkan senjata nuklir pertama. Proyek ini dipimpin oleh Amerika Serikat dengan bantuan dari Britania Raya dan Kanada. Risetnya diatur oleh fisikawan Amerika Julius Robert Oppenheimer, dan keseluruhan oleh Jenderal Leslie Groves setelah menjadi jelas bahwa senjata berdasarkan fisi nuklir dapat dikembangkan dan bahwa Jerman Nazi juga sedang mengembangkan senjata sejenis._
+
+<div style="display: flex; justify-content: center; max-width: 100%;">
+    <video id="thumbnailVideo" style="width: 100%; max-width: 100%; border-radius: 8px; cursor: pointer" controls>
+        <source src="/Manhattan Project Trinity Test - Stock Footage.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+## Battle of Okinawa, Jepang
+> "Negara kami memiliki silsilah kekaisaran berumur 3,500 tahun, kami tidak pernah diinvasi oleh negara lain. Kami pun punya kode kehormatan Samurai. Aku bagian dari satuan serbu kedelapan. Ratusan orang mengajukan diri. Kami meyakini bahwa kami melakukan tindakan berbudi, bahwa ini adalah perang suci dan menganggap diri sebagai pahlawan, keesokan harinya aku mulai merasa cemas dan takut. Kami tak terlalu mempercayai "Hidup Kaisar", namun sebagai anak muda kami tak mau ikut terlibat dan merasa harus mengikutinya." - Kanji Suzuki Team pilot Kamikaze 1945
+
+![okinawaus](https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2023/03/1200/675/GettyImages-1371370157.jpg?ve=1&tl=1)
+<p class="yebi">On this day in history, April 1, 1945, US forces invade Okinawa. Source : Fox Inews</p>
+
+April 1945 ditengah Samudra Pasifik. Pasukan Armada Amerika yang sedang santai dalam perjalanannya ke Okinawa. Tiba tiba mereka dikejutkan oleh serangan udara Kamikaze. Serangan ini dibalas tembakan Altileri oleh Amerika yang bertubi-tubi menembus langit. Beberapa pesawat berhasil ditembak jatuh, Namun pesawat yang berhasil lolos dari serangan altileri US mulai mendekat ke armada Amerika dengan kecepatan tinggi dan langsung menukik menghantam kapal Induk Amerika. 
+
+Pada puncaknya, serangan kamikaze terjadi selama Pertempuran Okinawa (April–Juni 1945), dengan 1.465 pesawat Jepang dikerahkan dalam Operasi Kikusui. Serangan ini menenggelamkan atau merusak lebih dari 30 kapal perang dan 3 kapal dagang AS, terutama kapal perusak. USS Laffey bertahan dari enam serangan kamikaze dan empat bom, mendapat julukan "The Ship That Would Not Die."
+
+Kapal induk AS dengan dek kayu lebih rentan dibanding kapal induk Inggris yang berlapis baja. Serangan terhadap USS Bunker Hill menewaskan 389 orang, jauh lebih banyak dari total korban di enam kapal induk Inggris sepanjang perang, membuktikan keunggulan dek lapis baja dalam perlindungan.
+
+## Hampir memasuki Berlin
+Kini di Eropa, Pasukan Sekutu sudah berhasil menduduki beberapa kota penting di negara Hitler.
+> "Pasukan US berhasil merebut Cologne hari ini. kota itu kini tinggal puing dan reruntuhan. Saat ini garnius Jerman dalam pelarian disepanjang tepi barat Rhine. Pasukan US telah berhasil memasuki kota nazi, Nuremberg. sementara pasukan udara Rusia mendarat dalam jarak 37km dari timur Berlin." - Radio Internasional US
+
+> "Timur dan Barat telah bertemu di dekat kota Torgau di Jerman. Nazi Jerman telah terpecah belah." - Radio Internasional Eropa
+
+![ssholocaust](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Selection_on_the_ramp_at_Auschwitz-Birkenau%2C_1944_%28Auschwitz_Album%29_1a.jpg/1200px-Selection_on_the_ramp_at_Auschwitz-Birkenau%2C_1944_%28Auschwitz_Album%29_1a.jpg)
+<p class="yebi">SS. Source : Holokaus Wikipedia</p>
+
+Pasukan SS melakukan pembantaian terhadap tawanan, ratusan tawanan digiring ke suatu tempat. Berbaris sejauh 537KM secara paksa, Para tawanan dipaksa masuk ke dalam pabrik ban karet. Mereka dikunci dan Pasukan SS memasang bom disekitar pabrik dengan Tujuan untuk membunuh semua tahanan yang tersisa. Rencana ini untuk mencegah bukti kekejaman SS, dan mencegah pasukan sekutu menemukan para tawanan.
+
+Tidak ada satu tawanan pun yang dapat menghancurkan pintu pabrik. Mereka hanya bisa duduk diam dan menyadari bahwa mungkin saja hari itu adalah hari terakhir mereka hidup.
+
+Sementara itu sebagian pasukan Amerika Serikat sudah sampai di tepi barat Rhine, dan mereka bergerak cepat memasuki Jerman. Sedangkan pasukan Stalin menyerang dari wilayah timur dengan gempuran yang brutal. Pasukan Amerika Serikat juga melakukan serangan yang sama melalui darat dan udara secara brutal.
+
+> "Inilah The World Today. Pasukan perlawanan Jerman di tepi barat Rhine masih ketar-ketir dan pasukan US bergerak cepat memasuki Jerman."
+
+Kedua lini pasukan berhasil menumbangkan pasukan perlawanan Jerman. "Pasukan Jerman telah terbantai dan mereka kini sangat buruk. Kini tentara merah Soviet sudah berada 12Km dari gerbang Berlin dan akan melakukan serangan besar-besaran.
+
+![ssholocaust](https://upload.wikimedia.org/wikipedia/commons/1/1e/Adolf_Hitler%2C_20._april_1945.jpg_%282%29.jpg)
+<p class="yebi">File:Adolf Hitler, 20. april 1945.jpg (2).jpg. Source : Wikipedia</p>
+
+Walaupun sudah didesak untuk menyerah, Tetapi hitler masih saja berambisi untuk mempertahankan Berlin dan menolak menyerah. Maka itu Kota Berlin akan dijadikan medan pertempuran yang Brutal and Final.
+
+## Pertempuran Berlin
+Pada 29 April 1945, Tentara Merah menyeberangi Jembatan Moltke dan mulai menyerang bangunan sekitar, termasuk Kementerian Dalam Negeri, meski awalnya tanpa dukungan artileri. Di Führerbunker, Hitler menandatangani wasiat terakhirnya dan menikahi Eva Braun.
+
+![reichstagsoviet](https://mf.b37mrtl.ru/rbthmedia/images/2024.04/original/6629178600a08313361098d2.jpg)
+<p class="yebi">How Soviet troops took the Reichstag. Source : GW2RU</p>
+
+Keesokan harinya, 30 April, dengan artileri siap, Soviet menyerang Reichstag. Pertahanan Jerman yang kuat membuat pertempuran berlangsung sengit hingga malam. Pada 2 Mei, Soviet menguasai gedung sepenuhnya. Foto ikonik pengibaran bendera di atas Reichstag sebenarnya adalah rekonstruksi sehari setelah kemenangan Soviet, yang menandai berakhirnya Pertempuran Berlin dan Front Timur.
+
+Akhirnya tentara Merah soviet berhasil menguasai gedung parlemen yang melambangkan jantung dari pemerintahan Jerman di Berlin.
+
+> "Aku bersiap memasuki reichstag dan menyudahi ini semua." - Leonid Rozenberg Soviet
+
+Dan inilah dimana Era Kekaisaran Jerman Hitler diakhiri. Setelah mengibarkan bendera Uni Soviet barulah Uni Soviet menebar pengumuman melalui Broadcast bahwa Jerman berhasil ditaklukkan.
+
+> "Pasukan Jerman telah takluk. Jerman Takluk!" - Broadcast in Berlin 1945
+
+> "Jerman telah menyerah tanpa syarat di semua garis depan kepada semua pasukan Sekutu. Jerman menandatangani dokumen pada pukul 02:41 pagi ini, waktu Prancis, digedung sekolah kecil ber-cat merah di Reims, Prancis.
+
+![reichstagsoviet](https://cdn.britannica.com/45/180245-138-EF408E8C/Soviet-troops-Adolf-Hitler-Berlin-suicide-April-1945.jpg)
+<p class="yebi">Hitler's final days in Berlin, April 1945. Source : Britannica</p>
+
+Ribuan tentara Jerman yang tersisa menyerahkan diri. Mengetahui Nazi Jerman yang sudah hancur, tanggal 30 April 1945 Adolf hitler bunuh diri menggunakan Pistol ke arah kepalanya sendiri (Belum diketahui pasti bunuh diri/diculik).
+
+> "Para pria dan wanita rakyat Jerman, Fuhrer kita, Adolf hitler telah tumbang" - German Radio
+
+> "Radio Jerman baru saja mengumumkan bahwa Hitler telah meninggal. Saya ulangi, bahwa Hitler telah meninggal." - Radio Internasional
+
+Hitler gagal menepati janjinya untuk rakyatnya yang katanya ingin menjadikan Jerman Kekaisaran 1000 Tahun, Ternyata sekarang Jerman hancur berkeping-keping. Kota-kota besar seperti Berlin, Hamburg dan kota lainnya hancul lebur akibat pertempuran yang Brutal. Dan ribuan warga sipil tewas dan kehilangan tempat tinggal.
+
+Sementara itu, 12 April 1945 di Amerika serikat Presiden kardiologis yang hadir, Dr. Howard Bruenn, mendiagnosis ia mengidap stroke masif. Pada pukul 3:35 sore hari itu, menyatakan bahwa Franklin D. Roosevelt meninggal dunia pada usia 63 tahun.
+
+## Pertempuran Pasifik Hirosima dan Nagasaki
+Pada 6 Agustus 1945, dunia dikejutkan oleh kehancuran luar biasa di Hiroshima, Jepang. Sebuah pesawat pengebom Amerika, Enola Gay, menjatuhkan bom atom bernama "Little Boy", yang langsung menewaskan sekitar 80.000 orang. Ledakan dahsyat menghancurkan hampir seluruh kota dalam sekejap, dengan gelombang panas dan radiasi yang menyebabkan luka bakar parah serta kematian yang terus bertambah dalam minggu-minggu berikutnya. Banyak korban selamat menderita efek radiasi jangka panjang, seperti kanker dan penyakit genetik, yang membuat tragedi ini semakin memilukan.
+
+![japan](https://i0.wp.com/www.arahjuang.com/wp-content/uploads/2020/08/Hiroshima-March-1946.jpg?fit=990%2C696&ssl=1)
+<p class="yebi">Bom Atom ke Hiroshima dan Nagasaki serta Akhir Perang Dunia ke 2. Source : Arah Juang</p>
+
+Tiga hari kemudian, pada 9 Agustus 1945, Amerika Serikat menjatuhkan bom atom kedua, "Fat Man", di kota Nagasaki. Meskipun target awalnya adalah kota Kokura, kondisi cuaca membuat pilot mengalihkan serangan ke Nagasaki. Ledakan ini membunuh sekitar 40.000 orang seketika dan melukai puluhan ribu lainnya. Seperti di Hiroshima, dampak radiasi menyebabkan penderitaan berkepanjangan bagi para korban yang selamat, banyak di antaranya mengalami luka bakar serius dan penyakit yang tidak dapat disembuhkan.
+
+Serangan ini merupakan puncak dari strategi Amerika untuk memaksa Jepang menyerah tanpa syarat dan mengakhiri Perang Dunia II. Sebelumnya, perang Pasifik telah berlangsung brutal dengan banyak pertempuran berdarah, seperti di Iwo Jima dan Okinawa, yang menunjukkan bahwa Jepang bersikeras bertahan. Akhirnya, pada 15 Agustus 1945, Kaisar Hirohito mengumumkan melalui siaran radio bahwa Jepang menyerah kepada Sekutu, menandai berakhirnya perang yang telah merenggut jutaan nyawa di seluruh dunia.
+
+![japan](https://asset-2.tstatic.net/manado/foto/bank/images/Awan-berbentuk-jamur-akibat-bom-atom-di-Kota-Nagasaki-pada-9-Agustus-1945.jpg)
+<p class="yebi">Bom Atom ke Hiroshima dan Nagasaki serta Akhir Perang Dunia ke 2. Source : Tribun Manado</p>
+
+Pengeboman Hiroshima dan Nagasaki masih menjadi perdebatan hingga kini. Beberapa pihak berpendapat bahwa serangan ini perlu dilakukan untuk mengakhiri perang dengan cepat dan menghindari lebih banyak korban di kedua belah pihak. Namun, banyak juga yang menganggapnya sebagai tindakan tidak manusiawi yang menargetkan warga sipil dan meninggalkan dampak mengerikan bagi generasi selanjutnya. Peristiwa ini juga menjadi pengingat akan bahaya senjata nuklir dan pentingnya menjaga perdamaian dunia.
+
+## Selesai
+Setelah pertempuran habis-habisan selama 6 tahun, Dunia menghitung kerugiannya. Lebih dari 60 Juta nyawa melayang dan mereka yang selamat dari konflik ini akan membawa luka seumur hidup. Generasi selanjutnya akan mendapatkan hikmahnya
+
+> "Dua penjahat Nazi Goering dan Van Rundstedt, keduanya merupakan tokoh penting dan telah ditangkap, dibawa ke Inggris. Mereka akan diadili di London atas kejahatan perangnya. Pemerintah Amerika agar Palestina dibuka untuk pengungsi Yahudi akan dikabulkan melalui kesepakatan dengan pemerintahan Inggris. Namun, ada indikasi awal bahwa baik pihak Arab dan Yahudi tak akan merasa puas dengan hal itu. Kita harus mempersiapkan iklim perdamaian, pemahaman dan Niat baik. komisi HAM diharapkan menyusun Deklarasi Universal Hak Asasi Manusia dan yang akan bertindak adalah suara hati PBB. Berlayarlah, wahai perahu pemerintahan. Wahai persatuan yang kuat dan hebat!. Umat manusia dengan segala kekuatannya, dengan segala harapan akan masa depannya, menggantungkan nasib sepenuhnya kepadamu!
+
+Baca Juga
+> <a href="https://www.history.com/this-day-in-history/the-balfour-declaration#:~:text=On%20November%202%2C%201917%2C%20Foreign,Jewish%20support%20for%20the%20Allies.">Balfour Declaration letter written "national home for the Jewish people" in Palestine</a><br>
+> <a href="https://www.tempo.co/internasional/benarkah-adolf-hitler-mati-di-indonesia--183543">Benarkah Hitler mati di Indonesia?</a>
+
+
+
+
+
+<p class="yebi">Author Joseph, Chatgpt (as Library), Graihan.</p>
+<p class="yebi">Big Thanks to wikipedia, holocaust encyclopedia, history.com, National Atomic, Adamthwaite, Anthony P. (1992). The Making of the Second World War. New York: Routledge. ISBN 0-415-90716-0.
+Aksar, Yusuf (2004). Implementing Intnl Humanitaria: From the AD Hoc Tribunals to a Permanent International Criminal Court. London and New York, NY: Routledge. ISBN 978-0-7146-5584-0.
+Anderson, Irvine H., Jr. (1975). "The 1941 De Facto Embargo on Oil to Japan: A Bureaucratic Reflex". The Pacific Historical Review. 44 (2). JSTOR 3638003.
+Applebaum, Anne (2003). Gulag: A History of the Soviet Camps. London: Allen Lane. ISBN 978-0-7139-9322-6.
+——— (2012). Iron Curtain: The Crushing of Eastern Europe 1944–56. London: Allen Lane. ISBN 978-0-7139-9868-9.
+Bacon, Edwin (1992). "Glasnost' and the Gulag: New Information on Soviet Forced Labour around World War II". Soviet Studies. 44 (6): 1069–1086. doi:10.1080/09668139208412066. JSTOR 152330.
+Badsey, Stephen (1990). Normandy 1944: Allied Landings and Breakout. Oxford: Osprey Publishing. ISBN 978-0-85045-921-0.
+Balabkins, Nicholas (1964). Germany Under Direct Controls: Economic Aspects of Industrial Disarmament 1945–1948. New Brunswick, NJ: Rutgers University Press. ISBN 978-0-8135-0449-0.
+Barber, John; Harrison, Mark (2006). "Patriotic War, 1941–1945". In Ronald Grigor Suny, ed.,' The Cambridge History of Russia, Volume III: The Twentieth Century (pp. 217–242). Cambridge: Cambridge University Press. ISBN 978-0-521-81144-6.
+Barker, A. J. (1971). The Rape of Ethiopia 1936. New York, NY: Ballantine Books. ISBN 978-0-345-02462-6.
+Barrett, David P.; Shyu, Lawrence N. (2001). China in the Anti-Japanese War, 1937–1945: Politics, Culture and Society. New York, NY: Peter Lang. ISBN 978-0-8204-4556-4.
+Beevor, Antony (1998). Stalingrad. New York, NY: Viking. ISBN 978-0-670-87095-0.
+——— (2006). The Battle for Spain: The Spanish Civil War 1936–1939. London: Weidenfeld & Nicolson. ISBN 978-0-297-84832-5.
+——— (2012). The Second World War. London: Weidenfeld & Nicolson. ISBN 978-0-297-84497-6.
+Belco, Victoria (2010). War, Massacre, and Recovery in Central Italy: 1943–1948. Toronto: University of Toronto Press. ISBN 978-0-8020-9314-1.
+Bellamy, Chris T. (2007). Absolute War: Soviet Russia in the Second World War. New York, NY: Alfred A. Knopf. ISBN 978-0-375-41086-4.
+Ben-Horin, Eliahu (1943). The Middle East: Crossroads of History. New York, NY: W. W. Norton & Company.
+Berend, Ivan T. (1996). Central and Eastern Europe, 1944–1993: Detour from the Periphery to the Periphery. Cambridge: Cambridge University Press. ISBN 978-0-521-55066-6.
+Bernstein, Gail Lee (1991). Recreating Japanese Women, 1600–1945. Berkeley & Los Angeles, CA: University of California Press. ISBN 978-0-520-07017-2.
+Bilhartz, Terry D.; Elliott, Alan C. (2007). Currents in American History: A Brief History of the United States. Armonk, NY: M. E. Sharpe. ISBN 978-0-7656-1821-4.
+Bilinsky, Yaroslav (1999). Endgame in NATO's Enlargement: The Baltic States and Ukraine. Westport, CT: Greenwood Publishing Group. ISBN 978-0-275-96363-7.
+Bix, Herbert P. (2000). Hirohito and the Making of Modern Japan. New York, NY: HarperCollins. ISBN 978-0-06-019314-0.
+Black, Jeremy (2003). World War Two: A Military History. Abingdon and New York, NY: Routledge. ISBN 978-0-415-30534-1.
+Blinkhorn, Martin (2006) [1984]. Mussolini and Fascist Italy (edisi ke-3rd). Abingdon and New York, NY: Routledge. ISBN 978-0-415-26206-4.
+Bonner, Kit; Bonner, Carolyn (2001). Warship Boneyards. Osceola, WI: MBI Publishing Company. ISBN 978-0-7603-0870-7.
+Borstelmann, Thomas (2005). "The United States, the Cold War, and the color line". In Melvyn P. Leffler and David S. Painter, eds., Origins of the Cold War: An International History (pp. 317–332) (edisi ke-2nd). Abingdon & New York, NY: Routledge. ISBN 978-0-415-34109-7.
+Brayley, Martin J. (2002). The British Army 1939–45, Volume 3: The Far East. Oxford: Osprey Publishing. ISBN 978-1-84176-238-8.
+British Bombing Survey Unit (1998). The Strategic Air War Against Germany, 1939–1945. London and Portland, OR: Frank Cass Publishers. ISBN 978-0-7146-4722-7.
+Brody, J. Kenneth (1999). The Avoidable War: Pierre Laval and the Politics of Reality, 1935–1936. New Brunswick, NJ: Transaction Publishers. ISBN 978-0-7658-0622-2.
+Brown, David (2004). The Road to Oran: Anglo-French Naval Relations, September 1939 – July 1940. London & New York, NY: Frank Cass. ISBN 978-0-7146-5461-4.
+Buchanan, Tom (2006). Europe's Troubled Peace, 1945–2000. Oxford & Malden, MA: Blackwell Publishing. ISBN 978-0-631-22162-3.
+Budiansky, Stephen (2001). Battle of Wits: The Complete Story of Codebreaking in World War II. London: Penguin Books. ISBN 978-0-14-028105-7.
+——— (2004). Air Power: The Men, Machines, and Ideas that Revolutionized War, from Kitty Hawk to Gulf War II. London: Viking. ISBN 978-0-670-03285-3.
+Bueno de Mesquita, Bruce; Smith, Alastair; Siverson, Randolph M.; Morrow, James D. (2003). The Logic of Political Survival. Cambridge, MA: MIT Press. ISBN 978-0-262-02546-1.
+Bull, Martin J.; Newell, James L. (2005). Italian Politics: Adjustment Under Duress. Polity. ISBN 978-0-7456-1298-0.
+Bullock, Alan (1990). Hitler: A Study in Tyranny. London: Penguin Books. ISBN 978-0-14-013564-0.
+Burcher, Roy; Rydill, Louis (1995). Concepts in Submarine Design. Cambridge: Cambridge University Press. ISBN 978-0-521-55926-3.
+Busky, Donald F. (2002). Communism in History and Theory: Asia, Africa, and the Americas. Westport, CT: Praeger Publishers. ISBN 0-275-97733-1.
+Canfora, Luciano (2006) [2004]. Democracy in Europe: A History. Oxford & Malden MA: Blackwell Publishing. ISBN 978-1-4051-1131-7.
+Cantril, Hadley (1940). "America Faces the War: A Study in Public Opinion". Public Opinion Quarterly. 4 (3): 387–407. doi:10.1086/265420. JSTOR 2745078.
+Chaney, Otto Preston (1996). Zhukov (edisi ke-Revised). Norman, OK: University of Oklahoma Press. ISBN 978-0-8061-2807-8.
+Chang, Iris (1997). The Rape of Nanking: The Forgotten Holocaust of World War II. New York, NY: Basic Books. ISBN 978-0-465-06835-7.
+Christofferson, Thomas R.; Christofferson, Michael S. (2006). France During World War II: From Defeat to Liberation. New York, NY: Fordham University Press. ISBN 978-0-8232-2562-0.
+Chubarov, Alexander (2001). Russia's Bitter Path to Modernity: A History of the Soviet and Post-Soviet Eras. London & New York, NY: Continuum. ISBN 978-0-8264-1350-5.
+Ch'i, Hsi-Sheng (1992). "The Military Dimension, 1942–1945". In James C. Hsiung and Steven I. Levine, eds., China's Bitter Victory: War with Japan, 1937–45 (pp. 157–184). Armonk, NY: M. E. Sharpe. ISBN 978-1-56324-246-5.
+Cienciala, Anna M. (2010). "Another look at the Poles and Poland during World War II". The Polish Review. 55 (1): 123–143. JSTOR 25779864.
+Clogg, Richard (2002). A Concise History of Greece (edisi ke-2nd). Cambridge: Cambridge University Press. ISBN 978-0-521-80872-9.
+Coble, Parks M. (2003). Chinese Capitalists in Japan's New Order: The Occupied Lower Yangzi, 1937–1945. Berkeley & Los Angeles, CA: University of California Press. ISBN 978-0-520-23268-6.
+Collier, Paul (2003). The Second World War (4): The Mediterranean 1940–1945. Oxford: Osprey Publishing. ISBN 978-1-84176-539-6.
+Collier, Martin; Pedley, Philip (2000). Germany 1919–45. Oxford: Heinemann. ISBN 978-0-435-32721-7.
+Commager, Henry Steele (2004). The Story of the Second World War. Brassey's. ISBN 978-1-57488-741-9.
+Coogan, Anthony (1993). "The Volunteer Armies of Northeast China". History Today. 43. Diakses tanggal 6 May 2012.
+Cook, Chris; Bewes, Diccon (1997). What Happened Where: A Guide to Places and Events in Twentieth-Century History. London: UCL Press. ISBN 978-1-85728-532-1.
+Coox, Alvin D. (1990). Nomonhan: Japan Against Russia, 1939. Palo Alto, CA: Stanford University Press. ISBN 978-0-8047-1160-9.
+Cowley, Robert; Parker, Geoffrey, ed. (2001). Readers Companion Military History. Boston, MA: Houghton Mifflin Company. ISBN 978-0-618-12742-9.
+Darwin, John (2007). After Tamerlane: The Rise & Fall of Global Empires 1400–2000. London: Penguin Books. ISBN 978-0-14-101022-9.
+Davidson, Eugene (1999). The Death and Life of Germany: An Account of the American Occupation. University of Missouri Press. ISBN 0-8262-1249-2.
+Davies, Norman (2008). No Simple Victory: World War II in Europe, 1939–1945. London: Penguin Books. ISBN 978-0-14-311409-3.
+Dawood, Mary; Mitra, Anu (2012). "Hidden agendas and hidden illness". Diversity and Equality in Health and Care. 9 (4): 297–298.
+Dear, I. C. B.; Foot, M. R. D., ed. (2001) [1995]. The Oxford Companion to World War II. Oxford: Oxford University Press. ISBN 978-0-19-860446-4.
+DeLong, J. Bradford; Eichengreen, Barry (1993). "The Marshall Plan: History's Most Successful Structural Adjustment Program". In Rudiger Dornbusch, Wilhelm Nölling and Richard Layard, eds., Postwar Economic Reconstruction and Lessons for the East Today (pp. 189–230). Cambridge, MA: MIT Press. ISBN 978-0-262-04136-2.
+Douglas, R. M. (2012). Orderly and Humane: The Expulsion of the Germans After the Second World War. New Haven, CT: Yale University Press. ISBN 978-0-300-16660-6.
+Dower, John W. (1986). War Without Mercy: Race and Power in the Pacific War. New York, NY: Pantheon Books. ISBN 978-0-394-50030-0.
+Drea, Edward J. (2003). In the Service of the Emperor: Essays on the Imperial Japanese Army. Lincoln, NE: University of Nebraska Press. ISBN 978-0-8032-6638-4.
+de Grazia, Victoria; Paggi, Leonardo (1991). "Story of an Ordinary Massacre: Civitella della Chiana, 29 June, 1944". Cardozo Studies in Law and Literature, Vol. 3, No. 2 (Autumn, 1991): 153–169. JSTOR 743479.
+Dunn, Dennis J. (1998). Caught Between Roosevelt & Stalin: America's Ambassadors to Moscow. Lexington, KY: University Press of Kentucky. ISBN 978-0-8131-2023-2.
+Eastman, Lloyd E. (1986). "Nationalist China during the Sino-Japanese War 1937–1945". In John K. Fairbank and Denis Twitchett, eds., The Cambridge History of China, Volume 13: Republican China 1912–1949, Part 2. Cambridge: Cambridge University Press. ISBN 978-0-521-24338-4.
+Ellman, Michael (2002). "Soviet Repression Statistics: Some Comments" (PDF). Europe-Asia Studies. 54 (7): 1151–1172. doi:10.1080/0966813022000017177. JSTOR 826310. Diarsipkan dari versi asli (PDF) tanggal 2012-11-22. Diakses tanggal 2012-12-07. Copy
+———; Maksudov, S. (1994). "Soviet Deaths in the Great Patriotic War: A Note" (PDF). Europe-Asia Studies. 46 (4): 671–680. doi:10.1080/09668139408412190. JSTOR 152934.
+Emadi-Coffin, Barbara (2002). Rethinking International Organization: Deregulation and Global Governance. London and New York, NY: Routledge. ISBN 978-0-415-19540-9.
+Erickson, John (2001). "Moskalenko". In Harold Shukman, ed., Stalin's Generals (pp. 137–154). London: Phoenix Press. ISBN 978-1-84212-513-7.
+——— (2003). The Road to Stalingrad. London: Cassell Military. ISBN 978-0-304-36541-8.
+Evans, David C.; Peattie, Mark R. (2012) [1997]. Kaigun: Strategy, Tactics, and Technology in the Imperial Japanese Navy. Annapolis, MD: Naval Institute Press. ISBN 978-1-59114-244-7.
+Evans, Richard J. (2008). The Third Reich at War. London: Allen Lane. ISBN 978-0-7139-9742-2.
+Fairbank, John King; Goldman, Merle (2006) [1994]. China: A New History (edisi ke-2nd). Cambridge, MA: Harvard University Press. ISBN 978-0-674-01828-0.
+Farrell, Brian P. (1993). "Yes, Prime Minister: Barbarossa, Whipcord, and the Basis of British Grand Strategy, Autumn 1941". Journal of Military History. 57 (4): 599–625. doi:10.2307/2944096. JSTOR 2944096.
+Ferguson, Niall (2006). The War of the World: Twentieth-Century Conflict and the Descent of the West. Penguin. ISBN 978-0-14-311239-6.
+Ferraro, Kathleen J. (2008). "Reviews: Taken by Force: Rape and American GIs in Europe during WWII by J. Robert Lilly". Contemporary Sociology. 37 (6): 585–586. doi:10.1177/009430610803700640. JSTOR 20444365.
+Fitzgerald, Stephanie (2011). Children of the Holocaust. Mankato, MN: Compass Point Books. ISBN 9780756543907.
+Forrest, Glen; Evans, Anthony; Gibbons, David (2012). The Illustrated Timeline of Military History. New York: The Rosen Publishing Group. ISBN 9781448847945.
+Förster, Stig; Gessler, Myriam (2005). "The Ultimate Horror: Reflections on Total War and Genocide". In Roger Chickering, Stig Förster and Bernd Greiner, eds., A World at Total War: Global Conflict and the Politics of Destruction, 1937–1945 (pp. 53–68). Cambridge: Cambridge University Press. ISBN 978-0-521-83432-2.
+Frei, Norbert (2002). Adenauer's Germany and the Nazi Past: The Politics of Amnesty and Integration. New York, NY: Columbia University Press. ISBN 978-0-231-11882-8.
+Gardiner, Robert; Brown, David K., ed. (2004). The Eclipse of the Big Gun: The Warship 1906–1945. London: Conway Maritime Press. ISBN 978-0-85177-953-9.
+Garthoff, Raymond L. (1969). "The Soviet Manchurian Campaign, August 1945". Military Affairs. 33 (2): 312–336. doi:10.2307/1983926. JSTOR 1983926.
+Garver, John W. (1988). Chinese-Soviet Relations, 1937–1945: The Diplomacy of Chinese Nationalism. New York, NY: Oxford University Press. ISBN 978-0-19-505432-3.
+Glantz, David M. (1986). "Soviet Defensive Tactics at Kursk, July 1943". CSI Report No. 11. Combined Arms Research Library. OCLC 278029256. Archived from the original on 2008-03-06. Diakses tanggal 15 July 2013.
+——— (1989). Soviet Military Deception in the Second World War. Abingdon and New York, NY: Frank Cass. ISBN 978-0-7146-3347-3.
+——— (1998). When Titans Clashed: How the Red Army Stopped Hitler. Lawrence, KS: University Press of Kansas. ISBN 978-0-7006-0899-7.
+——— (2001). "The Soviet-German War 1941–45 Myths and Realities: A Survey Essay" (PDF). Diarsipkan dari versi asli (PDF) tanggal 2011-06-17. Diakses tanggal 2012-12-06.
+——— (2002). The Battle for Leningrad: 1941–1944. Lawrence, KS: University Press of Kansas. ISBN 978-0-7006-1208-6.
+——— (2005). "August Storm: The Soviet Strategic Offensive in Manchuria". Leavenworth Papers. Combined Arms Research Library. OCLC 78918907. Archived from the original on 2008-03-02. Diakses tanggal 15 July 2013.
+Goldstein, Margaret J. (2004). World War II: Europe. Minneapolis: Lerner Publications. ISBN 978-0-8225-0139-8.
+Gordon, Andrew (2004). "The greatest military armada ever launched". In Jane Penrose, ed., The D-Day Companion (pp. 127–144). Oxford: Osprey Publishing. ISBN 978-1-84176-779-6.
+Gordon, Robert S. C. (2012). The Holocaust in Italian Culture, 1944–2010. Stanford, CA: Stanford University Press. ISBN 978-0-8047-6346-2.
+Graham, Helen (2005). The Spanish Civil War: A Very Short Introduction. Oxford & New York, NY: Oxford University Press. ISBN 0-19-280377-8.
+Grove, Eric J. (1995). "A Service Vindicated, 1939–1946". In J. R. Hill, ed., The Oxford Illustrated History of the Royal Navy (pp. 348–380). Oxford: Oxford University Press. ISBN 978-0-19-211675-8.
+Hane, Mikiso (2001). Modern Japan: A Historical Survey (edisi ke-3rd). Boulder, CO: Westview Press. ISBN 978-0-8133-3756-2.
+Hanhimäki, Jussi M. (1997). Containing Coexistence: America, Russia, and the "Finnish Solution". Kent, OH: Kent State University Press. ISBN 978-0-87338-558-9.</p>
+
+
+
+
+
+
+
 
 
 
