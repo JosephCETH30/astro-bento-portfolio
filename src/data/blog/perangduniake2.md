@@ -558,9 +558,154 @@ Juni 1943, pasukan gabungan yang berada ditengah laut Mediterania sekarang telah
 </div>
 <p class="yebi">Invasi di Sisilia Juni 1943</p>
 
-Mereka mendapatkan serangan dari pasukan Italia saat memasuki wilayah perdesaan.
+Mereka mendapatkan serangan dari pasukan Italia saat memasuki wilayah perdesaan. Disaat berhasil merangsek masuk ke dalam perdesaan, pasukan gabungan ini menemukan sebuah rumah besar yang berisi warga sipil.
+
+> "Kami menerobos masuk dan kami menemukan ada sekitar 20 orang di dalam. Para lansia, wanita, dan anak-anak. Mereka berhari-hari belum makan. Mereka akan mati kelaparan. Ketika diberikan kornet mereka langsung menganggap bahwa itu penyambung nyawa mereka." - <a href="https://49thbnassociation.ca/?p=4437">Maurice White</a>
+
+Dikarenakan kelaparan yang tak terhindarkan, pasukan gabungan mengambil alih fungsi toko roti untuk membuat makanan bagi tentara dan warga sipil di tempat.
+> "Nasib kami tergantung pada pasukan Ingrris dan AS, mereka mengambil alih toko roti kami untuk membuat roti bagi para tentara. Mau tidak mau aku harus mencuri roti. Aku harus berbuat apa lagi? kami tak punya apa apa lagi." - <a href="https://artflsrv04.uchicago.edu/cgi-bin/efts/textdbs/IWW//hub.py?type=author&browse=full&auth_code=A0295">Anna Cartia Bongiorno</a>
+
+Banyak dari tentara Italia menyerahkan diri karena mereka juga sudah muak dengan <a href="https://id.wikipedia.org/wiki/Benito_Mussolini">Musolini</a> dan pihak Jerman. Kini seluruh wilayah <a href="https://id.wikipedia.org/wiki/Sisilia">Sisilia</a> berhasil ditakklukan oleh pasukan Gabungan Inggris dan AS.
+
+![kurskbattle](https://www.warhistoryonline.com/wp-content/uploads/sites/64/2015/06/Untitled-design-4-1.png)
+<p class="yebi">THE BATTLE OF KURSK 1943 - Review by Mark Barnes</p>
+
+450KM dari selatan moskow, tepatnya di <a href="https://www.warhistoryonline.com/wp-content/uploads/sites/64/2015/06/Untitled-design-4-1.png">Kursk</a> pertempuran masih terjadi secara brutal. Pertempuran Kursk adalah pertempuran besar dalam Perang Dunia II yang terjadi pada 5 Juli–23 Agustus 1943. Pertempuran ini melibatkan pasukan Jerman Nazi dan Uni Soviet di <a href="https://id.wikipedia.org/wiki/Front_Timur_(Perang_Dunia_II)">Front Timur</a>
+> "Tentara merah telah merebut 19km wilayah dengan 12000 pasukan Jerman Tewas" - Radio Internasional 1943
+
+Sementara itu di Asia, Jepang semakin meluas menguasai Asia. Jepang berencana untuk menguasai <a href="https://en.wikipedia.org/wiki/Pacific_War">Asia Timur</a> dengan cepat, untuk melancarkan rencana tersebut Jepang membangun benteng-benteng mereka di lautan. Dan tameng mereka terletak di pasifik seperti, <a href="https://id.wikipedia.org/wiki/Prefektur_Okinawa">Okinawa</a>, <a href="https://en.wikipedia.org/wiki/Battle_of_Iwo_Jima">Iwo Jima</a>, <a href="https://en.wikipedia.org/wiki/Battle_of_Saipan">Saipan</a>, <a href="https://en.wikipedia.org/wiki/Battle_of_Saipan">Filipina</a>, <a href="https://en.wikipedia.org/wiki/Battle_of_Peleliu">Peleliu</a>, dan <a href="https://en.wikipedia.org/wiki/Battle_of_Tarawa">Tarawa</a>.
+> "Amerika dan Inggris raya akan tetap menolak terbentuknya Asia Timur Raya, kita harus bekerja sama dan membebaskan diri dari belenggu mereka!." - Propaganda Jepang di radio
+
+Amerika langsung menanggapi pernyataan Imperialis Jepang dengan menyerang pulau Tawara.
+
+> "Kita akan bergerak maju untuk menyerang pulau-pulau milik Jepang. kemenangan mutlak adalah harga mati." - Radio tentara Amerika
+
+## Pertempuran Tawara
+November 1943, Sebuah dermaga panjang dibangun menonjol keluar dari pantai utara dimana kapal-kapal kargo bisa membongkar muatannya sambil buang sauh di luar terumbu karang dangkal selebar 500-meter (550 yd) yang mengelilingi pulau tersebut. Diantara pasukan amerika itu terdapat seorang prajurit yang berusia 17 tahun bernama Joy asal California. 
+
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+<tr>
+        <th colspan="2" style="border: 1px solid #ccc; padding: 12px; text-align: center; background-color:#222;">Pasukan yang menyerang</th>
+    </tr>
+    <tr>
+        <th style="border: 1px solid #ccc; padding: 10px; text-align: center; background:rgb(30, 117, 247)">Formasi tempur Amerika</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: auto;">Armada Kelima AS :<br>Laksamana Madya Raymond A. Spruance di penjelajah berat Indianapolis</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: auto;">Pasukan Penyerang Operasi Galvanic :<br>Laksamana Muda Richmond Kelly Turner di kapal tempur Pennsylvania</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: auto;">Korps Amfibi Kelima :<br>Mayjen Holland M. Smith, KMAS, memimpin</td>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: auto;">Divisi 2 Marinir :<br>Komandan Divisi: Mayjen Julian C. Smith <br>
+        Asisten Komandan Divisi: Brigjen Leo D. Hermle <br>
+        Kepala staf: Kolonel Merritt A. Edson</td>
+    </tr>
+</table>
+
+<br>
+
+![tarawabattle](https://warfarehistorynetwork.com/wp-content/uploads/2022/05/W-Aug22-Ordnance-LEAD.jpg)
+<p class="yebi">Tarawa Radio Failure - Warfare History Network Images</p>
+
+Pasukan Amerika mendapatkan bantuan dari pasukan sekutu, dimana ini sangat menguntungkan bagi pihak amerika untuk melakukan serangan darat langsung ke pasukan Jepang. Pertempuran yang brutal berlangsung, walaupun sesaat mereka menyadari bahwa pasukan Jepang masih tangguh bertempur, tetap saja pada akhirnya pasukan Amerika memenangkan peperangan ini.
+
+> "Itulah akhir perang bagiku." - Joy U.S Marine
+
+Hasil dari pertempuran ini adalah kurang lebih 7000 Tewas terbunuh dan 17 pasukan Jepang menyerahkan diri, lalu dibawa ke suatu tempat oleh pasukan Amerika Serikat. Setelah pertempuran itu Amerika Serikat bertekat untuk menyerang Jepang, tetapi tidak segampang yang mereka pikirkan, dimana mereka harus menaklukkan terlebih dahulu pulau-pulau terdekat yang dikuasai oleh Jepang.
+
+Sementara itu di Eropa Nazi Jerman terus-menerus memproduksi Alutsista buatan mereka.
+> "Jutaan tangan harus bekerja. dan memasok garis depan dengan senjata yang diperlukan" - Hitler
+
+![fuhrer](https://ichef.bbci.co.uk/images/ic/1200xn/p02mm0pd.jpg)
+<p class="yebi">Adolf Hitler: Man and monster - BBC Teach</p>
+
+Tetapi tidak disangka <a href="https://id.wikipedia.org/wiki/Winston_Churchill">Winston Churchill</a> mengetahui tentang hal itu lalu berencana untuk mengebom warga sipil di Jerman, dengan tujuan untuk mematahkan semangat para warga sipil terkait dengan pernyataan propaganda yang Hitler suarakan.
+> "Saat kita membaca tiap pekan perihal kekejaman mengerikan yang dilakukan tentara Jerman terhadap kita, kita percaya bahwa kita akan mengadili mereka." <a href="https://id.wikipedia.org/wiki/Winston_Churchill">Winston Churchill</a>
+
+## Operasi Gomorrah: Firestorm menciptakan 'Nagasaki-nya Jerman'
+<!-- Grafik setelah "Operasi Gomorrah: Firestorm" -->
+_Peringatan 100 tahun RAF tidak hanya bertepatan dengan ulang tahun ke-75 salah satu misinya yang paling terkenal - Dambusters - tetapi juga dengan salah satu misinya yang paling kontroversial._
+
+![Hundreds of aircraft flew from dozens of airfields - here a Lancaster leaves RAF Syerston in Nottinghamshire
+](https://ichef.bbci.co.uk/news/1024/cpsprodpb/154EB/production/_102657278_1a9ce085-0abb-4535-98f4-7bf0fb35f0c9.jpg.webp)
+<p class="yebi">Hundreds of aircraft flew from dozens of airfields - here a Lancaster leaves RAF Syerston in Nottinghamshire; BBC UK England.</p>
+
+July 1943, Warga sipil di <a href="https://id.wikipedia.org/wiki/Hamburg">Hamburg</a> tidak merasa bahwa bulan tersebut akan menjadi bulan penuh kehancuran. Mereka mendapatkan pemberitahuan dari tentara Inggris melalui pesawat untuk meninggalkan kota tersebut, menhindari korban jiwa. Akan tetapi, peringatan tersebut diabaikan oleh kebanyakan warga <a href="https://id.wikipedia.org/wiki/Hamburg">Hamburg</a> karena dianggap sebagai propaganda dan "angin lewat" semata.
+
+Kemudian disaat malam tiba, pasukan pengebom RAF tiba untuk meluncurkan serangan 1000 Ton bom api tepat di kota <a href="https://id.wikipedia.org/wiki/Hamburg">Hamburg</a>. Sehingga malam itu menjadi malam yang kelam untuk warga sipil yang masih menetap di Kota Hamburg Lautan Api <br><br>
+
+![hamburglautanapi](https://ichef.bbci.co.uk/news/1024/cpsprodpb/D787/production/_102657155_gettyimages-90759455.jpg.webp)
+<p class="yebi">Aircrews were awed by the scale of destruction, indicated in this press photo of a smaller raid; BBC UK England.</p>
+
+Pada tahun 1942, Kabinet Perang dan Staf Udara mengambil keputusan untuk menghancurkan semua kota di Jerman yang berpenduduk lebih dari 100.000 jiwa, dengan sasaran "moral penduduk sipil musuh - khususnya pekerja industri".
+
+Ribuan lembar kertas aluminium dijatuhkan dari pesawat, membuat radar Jerman terganggu seperti tertutup badai salju. Akibatnya, pertahanan mereka tidak bisa melihat apa yang terjadi.
+
+Pada pukul 00:55 pagi, lebih dari 720 pesawat pengebom mulai tiba dan menjatuhkan bom di area padat penduduk di bagian timur kota. Dalam beberapa jam, muncul istilah baru dalam perang: badai api (feuersturm), yang menggambarkan kobaran api besar yang melahap kota.
 
 
+<div class="timeline-container">
+    <h2>Linimasa Operasi Gomorrah</h2>
+    <ul class="timeline">
+        <li>
+            <span class="date">24-25 Juli</span>
+            <p>Serangan malam oleh sekitar 790 pembom RAF. Penggunaan pertama "Window".</p>
+        </li>
+        <li>
+            <span class="date">25 Juli</span>
+            <p>Serangan siang oleh sekitar 120 pembom USAAF.</p>
+        </li>
+        <li>
+            <span class="date">26 Juli</span>
+            <p>Serangan siang oleh sekitar 50 pembom USAAF.</p>
+        </li>
+        <li>
+            <span class="date">27-28 Juli</span>
+            <p>Serangan malam oleh sekitar 780 pembom RAF. Terjadinya badai api (*Firestorm*).</p>
+        </li>
+        <li>
+            <span class="date">28 Juli</span>
+            <p>Perintah evakuasi kota Hamburg.</p>
+        </li>
+        <li>
+            <span class="date">29-30 Juli</span>
+            <p>Serangan malam oleh sekitar 770 pembom RAF. Badai api (*Firestorm*) kedua.</p>
+        </li>
+        <li>
+            <span class="date">2-3 Agustus</span>
+            <p>Serangan malam oleh sekitar 740 pembom RAF, tetapi tersebar akibat cuaca buruk.</p>
+        </li>
+    </ul>
+</div>
+
+Tim pemadam kebakaran yang sudah kewalahan tidak mampu mengatasi situasi.
+
+Mereka menghadapi "lautan api", dengan pakaian dan kendaraan yang langsung terbakar. Salah satu petugas menggambarkan upaya penyelamatan seperti "menyiram setetes air ke batu panas".
+
+Tornado yang dipenuhi api, bara, dan puing-puing menyedot orang-orang—terutama lansia dan anak-anak—ke dalam kobaran api. Henni Klank baru melarikan diri dari apartemennya bersama suami dan bayinya ketika gorden sudah terbakar dan langit-langit mulai retak.
+
+![yabihamburg](https://ichef.bbci.co.uk/news/1024/cpsprodpb/0E02/production/_102668530_deadbpkclearedcut.jpg.webp)
+<p class="yebi">Many Hamburg residents died together when overwhelmed by heat or struck by debris</p>
+
+> "Saat itu, sesuatu dalam diri tetangga kami seperti kehilangan kendali. Dalam kepanikan, dia mengambil selimutnya dan berusaha keluar." - Warga sipil yang selamat
+
+> "Tidak ada yang bisa menghentikannya. Kami masih sempat melihatnya, tetapi hanya sebagai 'obor hidup' yang tersapu badai api, melayang di udara." - Warga sipil yang selamat
+
+Beberapa warga sipil yang masih selamat dievakuasi ke Gedung yang masih kokoh, tetapi ada satu rencana gila <a href="https://id.wikipedia.org/wiki/Winston_Churchill">Winston Churchill</a> yang mana ia memerintahkan <a href="http://www.rcaf434squadron.com/71-80/single-gallery/10492430">Donald Wickens</a> untuk menghancurkan gedung pengungsian warga sipil Hamburg yang selamat, dan ini pengakuan dari <a href="http://www.rcaf434squadron.com/71-80/single-gallery/10492430">Donald Wickens</a>.
+
+> "Kami ditugaskan ke Hamburg, kami menanyai perwira intelijen, Untuk apa kami kesana lagi bukannya kota itu sudah hancur dibom?. Dijawabnya: Kantor post utama satu-satunya gedung yang masih berdiri, dimana tempat berlindung darurat yang berisi 60,000 warga sipil. Itulah sasaran kalian. Jadi apa pendapat kalian? kita sepemikiran. Kami menutup mata dan berkata "oh" Mereka lah penjahatnya, bukan kami dan kami harus tetap melakukan ini? Kami tak punya pilihan." - <a href="http://www.rcaf434squadron.com/71-80/single-gallery/10492430">Donald Wickens</a>
+
+
+
+### Data kematian
+<div class="chart-container">
+    <canvas id="airRaidChart"></canvas>
+</div>
+<a href="https://ww2file-required.yosephrafael.com/download/0307gomorrah.pdf" target="_blank" download class="download-btn">Download PDF</a>
 
 
 
@@ -584,6 +729,74 @@ Mereka mendapatkan serangan dari pasukan Italia saat memasuki wilayah perdesaan.
 
 
 <style>
+    .timeline-container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #111;
+    border-radius: 8px;
+    color: white;
+}
+
+.timeline-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.timeline {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+.timeline li {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    background: #1c1c1c;
+    border-left: 5px solid #e16f12;
+    border-radius: 6px;
+}
+
+.timeline .date {
+    font-weight: bold;
+    color: #e16f12;
+}
+
+@media (max-width: 480px) {
+    .timeline-container {
+        width: 90%;
+    }
+}
+
+.download-btn {
+    display: block;
+    text-align: center;
+    background: #111;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    border: 1.2px solid #fff;
+    text-decoration: none;
+    margin: 20px auto;
+    width: fit-content;
+    transition: background 0.3s;
+}
+
+.download-btn:hover {
+    background:#222;
+}
+
+.chart-container {
+    width: 100%;
+    max-width: 680px;
+    height: 400px;
+    margin: 20px auto;
+    background: #111;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 35px;
+}
 
 #quiz-container {
     text-align: center;
@@ -742,6 +955,10 @@ body {
 
 </style>
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script>
 
 function showPopup() {
@@ -818,8 +1035,47 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const ctx = document.getElementById("airRaidChart").getContext("2d");
+
+    const airRaidChart = new Chart(ctx, {
+        type: "bar",
+        data: {
+            labels: ["Guernica", "Rotterdam", "London", "Cologne", "Hamburg"],
+            datasets: [{
+                label: "Jumlah Kematian",
+                data: [250, 980, 1436, 486, 20000],
+                backgroundColor: ["#e16f12", "#e16f12", "#e16f12", "#e16f12", "#e16f12"],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: { color: "white" },
+                    grid: { color: "rgba(255, 255, 255, 0.2)" }
+                },
+                x: {
+                    ticks: { color: "white" },
+                    grid: { color: "rgba(255, 255, 255, 0.2)" }
+                }
+            },
+            plugins: {
+                legend: { display: false }
+            }
+        }
+    });
+
+    window.addEventListener("resize", function () {
+        airRaidChart.resize();
+    });
+});
 
 </script>
+
 
 
 <!-- Margin bottom manual -->
