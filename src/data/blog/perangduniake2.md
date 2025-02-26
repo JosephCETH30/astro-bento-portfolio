@@ -709,20 +709,230 @@ Anak-anak muda Jerman mulai menunjukkan taringnya dalam pertentangan terhadap pa
 </div>
 <a href="https://ww2file-required.yosephrafael.com/download/0307gomorrah.pdf" target="_blank" download class="download-btn">Download PDF</a>
 
+<br>
+
+Di belahan Eropa dekat Afrika utara, yaitu di Sisilia. Setelah berhasil menguasai Sisilia, kini sasaran selanjutnya pasukan sekutu adalah <a href="https://id.wikipedia.org/wiki/Roma">Roma.</a>
+
+Saat itu Musolini berjanji kepada rakyatnya bahwa bom musuh tidak akan bisa menerpa kita. Tetapi ternyata pernyataan ini terbantahkan, dikarenakan pasukan sekutu mulai menjatuhkan ribuan Ton bom di Roma, Italia.
+
+> "Jelas itu salah satu serangan siang hari terbesar selama perang terjadi, Demonstrasi mengerikan akan kekuasaan dan tekad." - Radio Internasional
+
+## Roma Dihujani 1000 TON Bom
+Roma, bersama dengan Kota Vatikan, dibom beberapa kali selama tahun 1943 dan 1944, terutama oleh Sekutu dan dalam jumlah yang lebih kecil oleh pesawat Poros, sebelum kota itu dibebaskan oleh Sekutu pada tanggal 4 Juni 1944.
+
+![yebi](https://www.througheternity.com/upload/CONF83/20230309/bombardimento_italia-tSa-730X490.jpg)
+<p class="yebi">Ruins, rubble, shame, 70 years after the bombing of Rome</p>
+
+Disini rakyat Italia sudah muak dengan kelakuan Musolini, zaman dimana rezim akan hancur berkeping keping. Pada akhirnya, Musolini digulingkan oleh rakyatnya sendiri, kemudian Hitler memerintahkan Prajuritnya untuk menyelamatkan kejatuhan <a href="https://id.wikipedia.org/wiki/Benito_Mussolini">Musolini.</a>
+
+> "Diktaktor italia baru saja melarikan diri dengan kereta gantung di lembah Appenini. Di sana Hitler yang cemas menyambut Mussolini dengan senyuman indahnya" - Radio Internasional
+
+Karena jatuhnya rezim Mussolini, kini rakyat Italia mulai bergabung dengan sekutu dan menyatakan perang terhadap Jerman.
+
+> "Dua jam lalu, Italia menyatakan perang terhadap Jerman. Proklamasi menyatakan tak akan ada kedamaian, selagi masih ada satu tentara jerman di tanah Italia." - Radio Internasional
+
+Kedudukan Nazi sekarang tersebar hingga garis kota Cassino, jadi jika cassino berhasil direbut oleh pasukan sekutu, maka itu akan mempermudah sekutu memperebutkan kota Roma dengan lebih cepat dan lebih mudah.
+
+## Pertempuran Monte Cassino, Italia
+Januari 1944, pada awal tahun ini pasukan Jerman dan sekutu akan menghadapi suatu pertempuran. Yang dimana pasukan Jerman berada di dataran tinggi dan pasukan sekutu berada di dataran yang rendah. Posisi ini sangat menguntungkan bagi pasukan Jerman.
+
+![yebi](https://images.theconversation.com/files/340156/original/file-20200605-176564-1k5sq6q.jpg?ixlib=rb-4.1.0&rect=9%2C180%2C1310%2C754&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip)
+<p class="yebi">Second World War fight to protect Monte Cassino Abbey</p>
+
+Akibat situasi ini, pasukan sekutu mulai bantuan udara untuk menjatuhkan Bom di sekitaran Monte Cassino. Akibat serangan udara banyak pasukan Jerman yang tewas tetapi dengan sisa kekuatan pasukan Jerman, mereka berhasil mengepung pasukan sekutu yang berada di Lereng. 
+
+Mereka berencana untuk mengebom suatu tempat yaitu Monumen Budaya yang ada diatas, kemudian presiden Roosevelt melarang pasukannya untuk mengebom montecassino dikarenakan bangunan tersebut merupakan bangunan keagamaan penting.
+
+Mereka ternyata salah perkiraan!. Awalnya mereka kira bangunan itu tempat perlindungan para tentara Jerman, ternyata didalamnya terdapat warga sipil yang sedang berlindung.
+
+Dibutuhkan sekiranya 4 bulan pertempuran berlangsung, sebelum akhirnya sekutu berhasil menjangkau Roma, Italia.
+
+> "... garis depan Italia, kendaraan ringan dan infanteri bermotor memasuki jantung kota roma" - Radio Internasional Italia
+
+## Serangan D-Day | Pendaratan Normandia
+Bulan ini adalah momen penting bagi sekutu yang berkumpul di selatan Inggris, persiapan matang ini dilakukan dari berbagai lini. Tujuannya untuk melaksanakan serangan besar-besaran ke benteng Eropa yang dijaga ketat oleh pasukan Nazi Jerman.
+
+![yebi](https://www.historic-uk.com/wp-content/uploads/2021/06/D-Day-scaled.jpg)
+<p class="yebi">D Day 6th June 1944 - Historic UK Image on Archive</p>
+
+> "Ya Tuhan yang maha kuasa, putra-putri bangsa kami hari ini melaksanakan upaya yang besar, bimbinglah mereka, mereka butuh berkat karuniaMu karena musuhnya sangat tangguh."
+
+Pantai Normandia dipenuhi oleh alutsista Sekutu laut hingga udara mendekati pesisir Prancis. Dari Laut pengawalan dilakukan oleh ratusan Kapal perang sementara itu di Udara pesawat pengebom dan pesawat tempur menyapu langit demi keamanan Jalur mereka.
+
+![yebi](/PendaratanNormandia-1.png)
+<p class="yebi">D-Day: What happened during the Normandy landings of 1944? - Source : BBC</p>
+
+> "Mata dunia tertuju kepada kalian, harapan dan doa para pecinta kebebasan menyertai kalian dimanapun, kemenangan adalah harga mati. Semoga beruntung!
+
+Para sekutu baru saja berganti armada dikarenakan kapal besar tidak dapat sampai ke pesisir, lalu tepat di pesisir Prancis sudah ada seorang prajurit Jerman <a href="https://en.wikipedia.org/wiki/Hans-Heinz_Augenstein">Hans Heinze</a> yang menunggu dan memantau pergerakan pasukan sekutu. Menyadari akan ada pertempuran brutal di pantai ini, dengan cepat ia langsung memberitahukannya ke rekan-rekannya untuk bersiap melakukan defense terhadap penyerangan brutal dari sekutu.
+
+![yebi](https://images.bonnier.cloud/files/his/production/2024/05/24135908/Omaha-Beach-FB.jpg?max-w=1200&max-h=630&fit=crop)
+<p class="yebi">D-Day: D-day: De grote aanval op Omaha Beach - Source : Historianet.nl</p>
+
+Sedangkan di atas perahu, pasukan Sekutu belum menyadari posisi mereka telah diketahui oleh pertahanan Jerman yang berada di pesisir pantai. Mereka pun langsung dikejutkan dengan tembakan pembuka perang oleh Nazi, sehingga pertempuran pun tak bisa dihindari.<br>
+
+<div class="iframe-container">
+<iframe width="1056" height="594" src="https://www.youtube.com/embed/0wg5x5WaZPo" title="Archive Video Of The D-Day Normandy Landings" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<br>
+
+<!-- Kekuatan Perang -->
+<table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <tr>
+        <th colspan="2" style="border: 1px solid #ccc; padding: 12px; text-align: center; background-color:#e16f12;">Korban Pendaratan Normandia</th>
+    </tr>
+    <tr>
+        <th style="border: 1px solid #ccc; padding: 10px; text-align: center; background:rgb(30, 117, 247)">Sekutu</th>
+        <th style="border: 1px solid #ccc; padding: 10px; text-align: center; background:rgb(255, 71, 71)">Nazi</th>
+    </tr>
+    <tr>
+        <td style="border: 1px solid #ccc; padding: auto;">10.000+ korban; 4.414 dipastikan tewas.</td>
+        <td style="border: 1px solid #ccc; padding: 10px;">4,000-9,000 korban</td>
+    </tr>
+</table>
+
+<br><br>
+Pasukan sekutu menjadi sasaran empuk pasukan Nazi dikarenakan Low Ground dan tidak memiliki tameng yang cukup untuk menahan serangan Senapan Mesin pasukan Nazi. Mau tidak mau mereka harus berlindung di balik tebing garis pantai. Walaupun dalam posisi terpojok, pasukan Sekutu tidak merasa kehilangan semangat maupun menyerah, mereka tetap maju dan menyerang.
+
+Mereka berhasil membuat Nazi mundur dari pantai ini, walaupun terluka mereka tetap memburu sisa pasukan Nazi sampai ke pemukiman.
+
+> "Pasukan sekutu berhasil mendarat di Prancis dalam invasi terbesar dalam sejarah" - Radio Internasional Inggris
+
+Pasukan tambahan langsung membantu pasukan sekutu darat yang sudah mengnjakkan kaki di tanah Prancis.
+> "Pasukan ringan udara dan parasutis berbondong-bondong terjun hari ini tepatnya di Prancis Utara" - Radio Internasional Inggris.
+
+![armadanormandia](https://d220hvstrn183r.cloudfront.net/attachment/00971640903216685990.large)
+<p class="yebi">Di Balik D-Day, Gebrakan Menentukan di Normandia. Source : Historia.id</p>
+
+Setelah garis pantai dan sekitarnya dinyatakan aman, barulah armada sebanyak 4000 Kapal menurunkan <a href="https://id.wikipedia.org/wiki/Pendaratan_Normandia">190.000 Pasukan</a> yang sebentar lagi ditugaskan untuk bertempur sampai ke ibukota Jerman yaitu Berlin.
+> "Armada berkekuatan ribuan kapal menurunkan pasukan darat di pantai berbentangnya Hitler." - Radio Internasional Inggris.
+
+> Jangan sampai ada yang mundur. meski situasi tampak sulit setelah lima tahun berperang, itu demi mengakhiri pembantaian ini.
+
+Sementara itu di Asia, Amerika masih berusaha untuk memaksa Jepang kembali ke tanah air mereka. Banyak armada Jepang yang dihancurkan. Para pilot Amerika merebut kemenangan terbesar di udara dalam sejarah perlautan. Sebanyak 402 pesawat Jepang berbanding 26 pesawat Amerika.
+> "kita sedang menggemparkan seluruh dunia, menyerang musuh secara langsung." - Media Internasional Amerika
+
+![warsawSoviet](https://mf.b37mrtl.ru/rbthmedia/images/2024.10/original/6721dd0da363823e7531a6a0.jpg)
+<p class="yebi">How Polish troops helped the Red Army defeat the Nazis (PHOTO)</p>
+
+Di Belahan <a href="https://id.wikipedia.org/wiki/Eropa_Barat">Eropa Barat</a> <a href="https://id.wikipedia.org/wiki/Tentara_Merah">Tentara Merah</a> Stalin terus melancarkan serangan kepada pasukan Nazi. Pertempuran yang terus berlangsung ini berhasil memukul mundur pasukan Hitler, dan disinilah pasukan Stalin memasuki wilayah Warsawa, Polandia yang diduduki oleh pasukan Nazi sejak awal perang dimulai.
+
+## Pemberontakan Warsawa 
+Agustus 1994, Pasukan Polandia berusaha membuat benteng pertahanan untuk melakukan serangan ke Pasukan Nazi dengan persenjataan seadanya sambil menunggu sampai Tentara Merah tiba di Warsawa.
+
+![warsawSoviet](https://www.americanrifleman.org/media/poifnnap/main2-warsaw-uprising-blyskawica-stock-extended.jpg)
+<p class="yebi">Uprising! Poland's Fight For Freedom In Warsaw 194. Source : American Riffleman</p>
+
+Pejuang perlawanan polandia di pinggir kota mulai melakukan serangan ke Pos komando Jerman yang terletak di tengah kota <a href="https://id.wikipedia.org/wiki/Warsawa">Warsawa</a>.
+> "Angkat tangan! Semuanya, angkat tangan kalian!" - Pejuang Polandia
+
+<a href="https://id.wikipedia.org/wiki/Pemberontakan_Warsawa">Pejuang Polandia</a> berhasil menangkap beberapa pasukan Nazi, mereka beruntung karena mendapatkan senjata hasil tawanan mereka.
+> "Tentara dalam negeri Polandia baru saja membebaskan 50 tawanan sipil, 30 tentara Jerman terbunuh."
+
+Tetapi ini bukanlah akhir dari perjuangan mereka, dikarenakan pasukan nazi sudah kembali datang dan ingin merebut kembali pinggiran kota <a href="https://id.wikipedia.org/wiki/Warsawa">Warsawa</a>, dan pertempuran pun terjadi. Walaupun banyak yang mengalami luka-luka tetapi Pejuang Polandia tidak patah semangat dan terus bertempur. Setelah beberapa hari pertempuran akhirnya mereda. Sayangnya pasukan Nazi tidak akan tiba di Warsawa dikarenakan Stalin lebih suka jika pejuang Polandia berperang dengan Nazi.
 
 
+![parisSoviet](https://d220hvstrn183r.cloudfront.net/attachment/59188236659915746773)
+<p class="yebi">Jenderal Choltitz Penyelamat Paris - Historia. Source : Historia.id</p>
 
+Sementara itu Agustus 1944 setelah peristiwa D'Day, Pasukan Jerman ditarik mundur dan pasukan sekutu berhasil mendarat di utara Prancis. Mereka bergerak maju untuk membebaskan Paris, bahkan Warga Paris sendiri melakukan penyerangan kepada Nazi Jerman karena Jiwa Patriotisme yang tinggi.
 
+> "untuk ringkasan perkembangan garis depan barat, Admiral mengajak anda ke paris. Inilah semuanya, "Semua ke barikade, semua berjuang! Warga Paris, maju!" - Radio Internasional Paris.
 
+> "Pemberontak Prancis melakukan perang terbuka terhadap Jerman, mempertaruhkan nyawa demi cita-cita." - Radio Internasional Amerika
 
+Sangat disayangkan Pejuang Polandia tidak mendapatkan treatment yang sama dengan Pejuang Perancis, dikarenakan mereka tidak mendapatkan bantuan dari pihak Sekutu. Hal ini membuat Nazi menarik mundur semua pasukannya ke Belgia. 
 
+![parisSoviet](https://daily.jstor.org/wp-content/uploads/2024/08/policing_the_holocaust_in_paris_1050x700.jpg)
+<p class="yebi">Policing the Holocaust in Paris. Source : JSTOR Daily</p>
 
+Setelah 11 minggu akhirnya Paris terbebas dari pasukan Nazi, Jerman. Akhirnya kebebasan ini dirasakan penduduk paris setelah bertahun-tahun, para Prajurit pun disambut hangat oleh para warga di Paris mereka dengan antusias melakukan penyambutan itu.
 
+Setelah perayaan kebebasan itu, warga Paris memberitahukan kepada Sekutu terkait nama-nama yang terlibat membantu Nazi dalam masa Peperangan, dan orang-orang tersebut ditangkap dan diperlakukan layaknya tawanan (dibotakkan, dibenci, dipermalukkan).
 
+Sementara itu di Warsawa, pejuang Polandia dipaksa menyerah karena sudah terpojok. Pejuang Polandia awalnya masih mengharapkan bantuan dari tentara Sekutu, tetapi tidak ada respon sama sekali. Mau tidak mau mereka menyerah kepada pihak Nazi, Jerman.
 
+Setelah pasukan polandia menyerah, datanglah satu pasukan Nazi yang sangat kejam. mari tebak tebakkan Pasukan apa yang kira kira akan datang?
 
+<div id="quiz-container">
+    <p class="quiz-question">Apa sebutan pasukan Jerman yang dianggap paling kejam ini?<br></p>
+    <div class="quiz-options">
+        <button class="quiz-option" data-correct="false">A. Korps Speciale Troepen</button>
+        <button class="quiz-option" data-correct="false">B. Wehrmacht</button>
+        <button class="quiz-option" data-correct="false">C. Yebiyungkung</button>
+        <button class="quiz-option" data-correct="true">D. Schutzstaffel</button>
+    </div>
+    <p id="quiz-feedback"></p>
+</div>
+<br>
 
+![parisSoviet](https://b3059196.smushcdn.com/3059196/wp-content/uploads/2024/02/article-p16-AP420218026-4x3-1.png?lossy=1&strip=1&webp=1)
+<p class="yebi">Unveiling the Holocaust. Source : The Harriman Institute</p>
 
+Pasukan tersebut berhasil membuat takut warga Polandia, mengapa? karena Mereka tau bahwa Pasukan tersebut datang hanya untuk membunuh warga polandia. 180rb pria, wanita, dan anak-anak dibantai dengan sangat cepat. Warga yang masih hidup digiring ke sebuah kereta yang menuju ke Jerman dan akan melalui sisa perang di Kamp Tahanan.
+
+## Pertempuran Saipan Juni 1944
+Pasukan Amerika berencana untuk menguasai Pulau Saipan dan Peleliu, jika mereka berhasil menguasai pulau tersebut maka Amerika Serikat mendapatkan Basis yang strategis untuk menempatkan Pesawat <a href="https://oceanexplorer.noaa.gov/okeanos/explorations/ex1605/logs/jul9/welcome.html">pengebom B-29 Superfotress</a>. Karena dianggap memiliki jangkauan yang cukup ke wilayah pusat Jepang tanpa harus mengisi bahan bakar ditengah jalan.
+
+![saipanUS](https://i.redd.it/wi0w52qsl2u71.jpg)
+<p class="yebi">A B-29 Superfortress lifts off from Saipan. Source : Reddit/Warplane</p>
+
+Di pesisir pantai Saipan, Pasukan Amerika mulai melakukan serangan melalui Kapal Laut mereka ke arah Pulau Saipan. Sesaat setelah melakukan bombardir, pasukan Amerika mulai menyapu setiap sudut pulau Saipan secara sistematis membersihkan pasukan Jepang.
+
+Walaupun melakukan serangan bertubi-tubi, pasukan Jepang merasa bahwa pasukan Amerika memiliki pertahanan yang tak terbendung saking kuatnya ya. Dan pada akhirnya mereka menghentikan pertempuran dan menyerah, satu-persatu pasukan Jepang mulai menyerahkan diri.
+
+Pasukan Amerika memberikan pengobatan bagi Wanita dan anak anak yang terluka, dengan memanggil mereka menggunakan Speaker untuk memastikan kesehatan mereka. Tetapi, beberapa diantaranya menolak menyerah alias takut ditawan dan dijadikan pemuas nafsu para pasukan Amerika, mereka memilih untuk bunuh diri ke batu karang sekitar pantai. pada akhirnya Amerika berhasil menguasai pulau Saipan sepenuhnya
+
+> "Mereka yang tetap loyal terhadap negaranya akan bunuh diri jika ketahuan. itulah mentalitas mereka." - Ciyoko Yokota Javanese Civilian
+
+![greifoperation](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7pchKGab5nu2tKUkq73WS4VVvPfoW3g2Tw49PJ1Yie7yWRc2IsPRMUpOPNIEQvMWBrjztMCsxTyVdmS7bTSGf8ndBuL0Jog3rL_GbPzIcOxrX4o9FAwoUhvP8BXHFQAxaHl3r5L_sHiE/s1600/Artur+Axmann+%2526+Ernst+Busch.jpgF)
+<p class="yebi">NAZI JERMAN: Unternehmen Wacht am Rhein. Source : alifrafikhan blogspot</p>
+
+Kemudian di bulan Desember 1944 di Eropa, Jerman sudah diambang kekalahan. Kemudian Hitler berencana mengeluarkan armada besar terakhirnya untuk meratakan pasukan Sekutu yang mendekati perbatasan Jerman.
+
+> "Dunia harus mengetahui bahwa Jerman tidak pernah menyerah. Saya meminta kalian untuk mempercayai kepemimpinan saya untuk berjuang lebih fanatik di sepanjang pertempuran sulit ini, demi masa depan bangsa." - Hitler
+
+Hitler mempertaruhkan semuanya dalam usaha terakhir dalam pendesakan sekutu kembali ke pantai. Di bulan Desember 1994 rencananya pun dilakukan.
+
+## Battle of the Bulge
+Pertempuran Bulge, atau yang juga dikenal sebagai Serangan Ardennes, adalah upaya terakhir Jerman untuk menyerang pasukan Sekutu di Front Barat selama Perang Dunia II. Pertempuran ini terjadi dari 16 Desember 1944 hingga 25 Januari 1945 di hutan lebat Ardennes, yang terletak di antara Belgia dan Luksemburg.
+
+Jerman berusaha merebut kembali kendali dengan menghentikan Sekutu menggunakan pelabuhan Antwerp di Belgia. Mereka juga ingin memecah pertahanan Sekutu agar bisa mengepung dan mengalahkan pasukan Sekutu, serta memaksa mereka untuk bernegosiasi.
+
+![greifoperation](https://assets.editorial.aetnd.com/uploads/2009/10/battle-of-the-bulge-gettyimages-107758834.jpg)
+<p class="yebi">Battle of the Bulge. Source : History.com</p>
+
+Jerman berharap bisa menerobos pertahanan Sekutu dan merebut jalan-jalan utama menuju barat laut. Namun, pasukan Amerika bertahan dengan gigih di dua titik penting: Elsenborn Ridge di utara dan Bastogne di selatan. Medan yang sulit dan perlawanan sengit memperlambat gerak maju Jerman, memberi waktu bagi Sekutu untuk mengirim bala bantuan. Pada 24 Desember, pasukan Jerman mencapai titik terjauh mereka di Foy-Notre-Dame sebelum akhirnya dihentikan oleh Divisi Lapis Baja ke-2 Amerika.
+
+Cuaca mulai membaik pada 24 Desember, memungkinkan pesawat Sekutu menyerang pasukan dan jalur suplai Jerman. Dua hari kemudian, Jenderal Patton dan pasukan Amerika berhasil menembus Bastogne, mengakhiri pengepungan kota tersebut. Pada 27 Desember, serangan Jerman benar-benar terhenti, meskipun pertempuran kecil masih berlangsung hingga Januari 1945.
+
+Jerman mengerahkan lebih dari 410.000 tentara, 1.400 tank, dan 1.000 pesawat tempur, tetapi kehilangan hingga 104.000 tentara yang tewas, terluka, atau tertangkap, kerugian yang tak bisa dipulihkan. Sekutu, dengan lebih dari 700.000 pasukan, mengalami 77.000 hingga 83.000 korban, termasuk 8.600 yang tewas.
+
+Pertempuran Bulge menjadi pertempuran terbesar dan paling berdarah bagi Amerika Serikat dalam Perang Dunia II, sekaligus titik balik yang memastikan Jerman tidak lagi mampu menyerang dan hanya bisa bertahan hingga akhirnya kalah dalam perang.
+
+## Pertahanan Terakhir Jerman 1945
+Setelah 6 tahun Konflik global, perang telah memasuki negara Jerman. Warga yang berada di kota kecil merasa bahagia karena mereka terhindar dari perang yang sedang berlangsung. Ditambah lagi Joseph Goebbles berbicara melalui pengeras suara, bahwa Negara mereka masih kokoh menahan serangan dari musuh. Orasi ini jelas menambah ketenangan para warga.
+
+![greifoperation](https://cdn.britannica.com/49/71349-050-3750A23B/tanks-Nurnberg-Germany-April-1945.jpg)
+<p class="yebi">World War II - Soviet Advance, Oder, 1945. Source : Britanica</p>
+
+Beberapa hari kemudian Warga dikejutkan dengan tembusnya pertahanan garis depan jerman oleh pasukan Tentara Merah, hari itu berubah menjadi hari yang kelam dan penuh dengan ketakutan.
+
+Di siang harinya para warga mendengar deru rombongan Tank, awalnya mereka mengira suara tersebut merupakan suara Tank tentara Jerman yang sedang melindungi mereka. Namun ternyata Tank tersebut adalah tank tank Uni Soviet yang akan membumihanguskan kota Berlin.
+
+> "Inilah kabar baru dari perang Eropa. Kemajuan spektakuler yang didapatkan Tentara Merah. Marshal Hukov mengerahkan ribuan tank, senjata, dan pasukan ke dalam Jerman.
+
+Setelah mengetahui kedatangan tentara soviet dan sekutu para warga berusaha kabur dengan menaiki truk tentara, maupun cara mereka sendiri. Kebanyakan pasukan soviet yang mempunyai rasa dendam terhadap kekejaman Hitler mulai menjadikan pertempuran ini menjadi masalah pribadi.
+
+![Volksstrum](https://warfarehistorynetwork.com/wp-content/uploads/2018/12/Bild-183-J31320-e1662758397367.jpg)
+<p class="yebi">The Volkssturm: Last-Ditch Militia of the Third Reich. Source : Warfare History Network</p>
+
+Mereka mulai menangkap prajurit Jerman yang sudah tak berdaya dan kemudian mereka mulai melangkah menuju Berlin. Akibat pasukan Jerman sudah menyerah di perbatasan Jerman, Hitler mulai menyusun strategi. Hitler menjadikan warga sipil yang terdiri dari Pria, Lansia, Wanita, dan anak anak sekolah sebagai Prajurit pertahanan terakhir Berlin. Prajurit ini dikenal sebagai tentara Volksstrum
+
+> "Tentara Volksstrum Berlin, angkat tangan kalian!. Dan ulangi perkataan saya."
+
+![greifoperation](https://www.detroitnews.com/gcdn/-mm-/f3a38ead2f3dd9c20b817fd4155330a69d2ee225/c=0-64-3011-1765/local/-/media/2015/04/30/DetroitNews/DetroitNews/635660333964155816-AP450507014.jpg?width=700&height=396&fit=crop&format=pjpg&auto=webp)
+<p class="yebi">May 7, 1945: Germans surrender in WWII. Source : The Detroit News</p>
 
 
 
