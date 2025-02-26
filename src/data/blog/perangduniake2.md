@@ -1067,6 +1067,7 @@ Baca Juga
 
 
 <p class="yebi">Author Joseph, Chatgpt (as Library), Graihan.</p>
+
 <p class="yebi">Big Thanks to wikipedia, holocaust encyclopedia, history.com, National Atomic, Adamthwaite, Anthony P. (1992). The Making of the Second World War. New York: Routledge. ISBN 0-415-90716-0.
 Aksar, Yusuf (2004). Implementing Intnl Humanitaria: From the AD Hoc Tribunals to a Permanent International Criminal Court. London and New York, NY: Routledge. ISBN 978-0-7146-5584-0.
 Anderson, Irvine H., Jr. (1975). "The 1941 De Facto Embargo on Oil to Japan: A Bureaucratic Reflex". The Pacific Historical Review. 44 (2). JSTOR 3638003.
@@ -1312,6 +1313,7 @@ body {
 
 .yebi {
     opacity: 0.5;
+    z-index: -1111;
     font-size: 16px;
 }
 
