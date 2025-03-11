@@ -44,10 +44,10 @@
 
     .logo-container {
       display: flex;
-      justify-content: center; 
+      justify-content: center;
       align-items: center;
       gap: 20px;
-      flex-wrap: wrap; 
+      flex-wrap: wrap;
     }
 
     h1 {
@@ -289,6 +289,27 @@
       font-weight: 600;
     }
 
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    .status-dot {
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+      animation: blink 1.2s infinite;
+    }
+
     @media (max-width: 768px) {
       .link-box {
         width: auto;
@@ -375,7 +396,8 @@
 <body>
   <div class="main-container">
     <div class="logo-container">
-      <img src="https://snpmb.bppp.kemdikbud.go.id/user/themes/editorial/images/logo/logo-snpmb.png" alt="SNPBM Logo" class="logo">
+      <img src="https://snpmb.bppp.kemdikbud.go.id/user/themes/editorial/images/logo/logo-snpmb.png" alt="SNPBM Logo"
+        class="logo">
     </div>
 
 
@@ -463,13 +485,16 @@
 
     <div style="display: flex; justify-content: flex-start; margin-bottom: 15px; align-items: center;">
       <span class="status-dot"></span>
-      <span style="font-size: 0.85em; color: #A0AEC0;">Online : <span id="online-count" style="color: #48BB78; font-weight: 600;">0</span></span>
+      <span style="font-size: 0.85em; color: #A0AEC0;">Online : <span id="online-count"
+          style="color: #48BB78; font-weight: 600;">0</span></span>
       <span style="margin: 0 8px; font-size: 0.85em; color: #A0AEC0;">|</span>
       <span class="status-dot-yellow"></span>
-      <span style="font-size: 0.85em; color: #A0AEC0;">Lambat : <span id="slow-count" style="color: #bbaf48; font-weight: 600;">0</span></span>
+      <span style="font-size: 0.85em; color: #A0AEC0;">Lambat : <span id="slow-count"
+          style="color: #bbaf48; font-weight: 600;">0</span></span>
       <span style="margin: 0 8px; font-size: 0.85em; color: #A0AEC0;">|</span>
       <span class="status-dot-red"></span>
-      <span style="font-size: 0.85em; color: #A0AEC0;">Offline : <span id="offline-count" style="color: #bb4848; font-weight: 600;">0</span></span>
+      <span style="font-size: 0.85em; color: #A0AEC0;">Offline : <span id="offline-count"
+          style="color: #bb4848; font-weight: 600;">0</span></span>
     </div>
 
     <div class="link-box">
