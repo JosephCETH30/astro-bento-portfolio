@@ -725,6 +725,13 @@
     }
 
     window.addEventListener('load', updateStatusCounts);
+
+    document.addEventListener("contextmenu", (e) => e.preventDefault()); // Disable right-click
+    document.addEventListener("keydown", (e) => {
+      if (e.ctrlKey && ["u", "s", "c", "j"].includes(e.key.toLowerCase()) || e.key === "F12") {
+        e.preventDefault();
+      }
+    });
   </script>
 
 </body>
