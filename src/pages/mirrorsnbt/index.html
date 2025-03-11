@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snbt Mirror Link</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    body {
+      background-color: #0D1B2A;
+      color: #FFF;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      padding: 30px 0;
+      margin: 0;
+    }
+
+    .main-container {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    img.logo {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+      color: #A0AEC0;
+    }
+
+    .link-box {
+      background-color: #14253D;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin: 15px auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+
+    .link-box:hover {
+      background-color: #1B3149;
+    }
+
+    .link-box a {
+      color: #9AD0EC;
+      text-decoration: none;
+      padding: 8px 12px;
+      background-color: #0D1B2A;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .link-box a:hover {
+      background-color: #1B3149;
+    }
+
+    .status-dot {
+      height: 10px;
+      width: 10px;
+      background-color: #48BB78;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .status-dot-red {
+      height: 10px;
+      width: 10px;
+      background-color: #bb4848;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    p {
+      margin: 20px 0;
+      color: #A0AEC0;
+    }
+
+    /* Improved Search Container with inline share button */
+    .search-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .search-row {
+      display: flex;
+      width: 100%;
+      max-width: 600px;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .search-wrapper {
+      position: relative;
+      flex-grow: 1;
+    }
+
+    .search-bar {
+      width: 100%;
+      height: 45px;
+      padding: 0 15px 0 40px;
+      border: 2px solid #9AD0EC;
+      border-radius: 8px;
+      background-color: #14253D;
+      color: #FFF;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #A0AEC0;
+      font-size: 16px;
+    }
+
+    .search-bar:focus {
+      outline: none;
+      border-color: #4FD1C5;
+      background-color: #1B3149;
+    }
+
+    .search-bar::placeholder {
+      color: #A0AEC0;
+      opacity: 0.8;
+    }
+
+    /* Share Button with Dropdown */
+    .share-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .share-btn {
+      background-color: #4FD1C5;
+      color: #0D1B2A;
+      border: none;
+      border-radius: 5px;
+      padding: 0 15px;
+      height: 45px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    .share-btn:hover {
+      background-color: #38B2AC;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #14253D;
+      min-width: 160px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      z-index: 1;
+      right: 0;
+      margin-top: 5px;
+    }
+
+    .dropdown-content a {
+      color: #FFF;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.2s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #1B3149;
+    }
+
+    .share-dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .share-wa {
+      color: #25D366;
+    }
+
+    .share-tg {
+      color: #0088cc;
+    }
+
+    .share-ds {
+      color: #5865F2;
+    }
+
+    /* Countdown Timer Styles */
+    .countdown-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 10px 0 20px;
+    }
+
+    .countdown-box {
+      background-color: #14253D;
+      border-radius: 8px;
+      padding: 10px;
+      min-width: 60px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .countdown-value {
+      font-size: 1.8em;
+      font-weight: 600;
+      color: #4FD1C5;
+    }
+
+    .countdown-label {
+      font-size: 0.7em;
+      color: #A0AEC0;
+      text-transform: uppercase;
+      margin-top: 3px;
+    }
+
+    .countdown-title {
+      font-size: 0.9em;
+      color: #A0AEC0;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .link-box {
+        width: auto;
+      }
+
+      .search-bar {
+        height: 40px;
+        font-size: 0.9em;
+      }
+
+      .share-btn {
+        height: 40px;
+        padding: 0 12px;
+        font-size: 0.9em;
+      }
+
+      .countdown-box {
+        min-width: 50px;
+        padding: 8px;
+      }
+
+      .countdown-value {
+        font-size: 1.5em;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .search-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .search-wrapper {
+        width: 100%;
+      }
+
+      .share-dropdown {
+        align-self: center;
+      }
+
+      .link-box {
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+      }
+
+      .link-box a {
+        margin-top: 10px;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .search-bar {
+        height: 45px;
+        font-size: 0.9em;
+      }
+
+      .search-icon {
+        font-size: 14px;
+        left: 10px;
+      }
+
+      .countdown-container {
+        gap: 5px;
+      }
+
+      .countdown-box {
+        min-width: 45px;
+        padding: 6px;
+      }
+
+      .countdown-value {
+        font-size: 1.2em;
+      }
+
+      .countdown-label {
+        font-size: 0.6em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="main-container">
+    <img src="https://snpmb.bppp.kemdikbud.go.id/user/themes/editorial/images/logo/logo-snpmb.png" alt="SNPBM Logo"
+      class="logo">
+
+    <div class="countdown-title">PENGUMUMAN SNBT 2025 DALAM:</div>
+    <div class="countdown-container">
+      <div class="countdown-box">
+        <div id="days" class="countdown-value">0</div>
+        <div class="countdown-label">hari</div>
+      </div>
+      <div class="countdown-box">
+        <div id="hours" class="countdown-value">0</div>
+        <div class="countdown-label">jam</div>
+      </div>
+      <div class="countdown-box">
+        <div id="minutes" class="countdown-value">0</div>
+        <div class="countdown-label">menit</div>
+      </div>
+      <div class="countdown-box">
+        <div id="seconds" class="countdown-value">0</div>
+        <div class="countdown-label">detik</div>
+      </div>
+    </div>
+
+    <h1>SNBT Mirror Link</h1>
+    <h2>Mirror site digunakan untuk mencegah situs utama overload</h2>
+
+    <div class="search-container">
+      <div class="search-row">
+        <div class="search-wrapper">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="searchBar" class="search-bar" placeholder="Cari Nama kampus/SNBT Mirror UI"
+            onkeyup="filterLinks()">
+        </div>
+
+        <div class="share-dropdown">
+          <button class="share-btn">
+            <i class="fas fa-share-alt"></i> Bagikan
+          </button>
+          <div class="dropdown-content">
+            <a href="https://wa.me/?text=Lihat%20link%20mirror%20SNBT%20ini%20%F0%9F%91%89%20https%3A%2F%2Fyosephrafael.com%2Fmirrosnbt"
+              target="_blank">
+              <i class="fab fa-whatsapp share-wa"></i> WhatsApp
+            </a>
+            <a href="https://t.me/share/url?url=https%3A%2F%2Fyosephrafael.com%2Fmirrosnbt&text=Lihat%20link%20mirror%20SNBT%20ini%20%F0%9F%91%89"
+              target="_blank">
+              <i class="fab fa-telegram-plane share-tg"></i> Telegram
+            </a>
+            <a href="https://discord.com/channels/@me" target="_blank"
+              onclick="navigator.clipboard.writeText('https://yosephrafael.com/mirrosnbt'); alert('Link mirror SNBT berhasil disalin! 🚀');">
+              <i class="fab fa-discord share-ds"></i> Discord
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="link-box">
+      <span><span class="status-dot"></span>SNBT Mirror Unhas</span>
+      <a href="https://snbt.unhas.ac.id">https://snbt.unhas.ac.id</a>
+    </div>
+
+    <div class="link-box">
+      <span><span class="status-dot-red"></span>SNBT Mirror Unair</span>
+      <a href="https://snbt.unair.ac.id/">https://snbt.unair.ac.id/</a>
+    </div>
+    
+    <div class="link-box">
+      <span><span class="status-dot-red"></span>SNBT Mirror Unimal</span>
+      <a href="https://snbt.unimal.ac.id">https://snbt.unimal.ac.id</a>
+    </div>
+    
+    <div class="link-box">
+      <span><span class="status-dot-red"></span>SNBT Mirror IPB</span>
+      <a href="https://snbt.ipb.ac.id">https://snbt.ipb.ac.id</a>
+    </div>
+    
+    <div class="link-box">
+      <span><span class="status-dot"></span>SNBT Mirror ITS</span>
+      <a href="https://snbt.its.ac.id">https://snbt.its.ac.id</a>
+    </div>
+    
+    <div class="link-box">
+      <span><span class="status-dot-red"></span>SNBT Mirror Unsoed</span>
+      <a href="https://snbt.unsoed.ac.id">https://snbt.unsoed.ac.id</a>
+    </div>
+    
+    <div class="link-box">
+      <span><span class="status-dot"></span>SNBT Mirror Unimed</span>
+      <a href="⁠https://snbt.unimed.ac.id">⁠https://snbt.unimed.ac.id</a>
+    </div>
+    
+    <div class="link-box">
+      <span><span class="status-dot"></span>SNBT Mirror Undip</span>
+      <a href="https://snbt.undip.ac.id">https://snbt.undip.ac.id</a>
+    </div>
+    
+    <div class="link-box">
+      <span><span class="status-dot"></span>SNBT Mirror UPN Jatim</span>
+      <a href="⁠https://snbt.upnjatim.ac.id">⁠https://snbt.upnjatim.ac.id</a>
+    </div>
+    
+    <div class="link-box">
+      <span><span class="status-dot"></span>SNBT Mirror Unnes</span>
+      <a href="⁠https://snbt.unnes.ac.id">⁠https://snbt.unnes.ac.id</a>
+    </div>
+    
+    <div class="link-box">
+      <span><span class="status-dot"></span>SNBT Mirror Usu</span>
+      <a href="⁠⁠https://snbt.usu.ac.id">⁠⁠https://snbt.usu.ac.id</a>
+    </div>
+    
+    
+  </div>
+
+  <script>
+    function filterLinks() {
+      let input = document.getElementById('searchBar').value.toLowerCase();
+      let links = document.querySelectorAll('.link-box');
+      links.forEach(link => {
+        let text = link.textContent.toLowerCase();
+        link.style.display = text.includes(input) ? '' : 'none';
+      });
+    }
+
+    const targetDate = new Date('May 28, 2025 15:00:00 GMT+0700');
+
+    function updateCountdown() {
+      const currentDate = new Date();
+      const difference = targetDate - currentDate;
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = days;
+      document.getElementById('hours').innerText = hours;
+      document.getElementById('minutes').innerText = minutes;
+      document.getElementById('seconds').innerText = seconds;
+
+      if (difference < 0) {
+        clearInterval(interval);
+        document.getElementById('days').innerText = '0';
+        document.getElementById('hours').innerText = '0';
+        document.getElementById('minutes').innerText = '0';
+        document.getElementById('seconds').innerText = '0';
+      }
+    }
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  </script>
+
+</body>
+
+</html>
