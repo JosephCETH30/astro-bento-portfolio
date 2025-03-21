@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Entalpi</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #1a1a1a; /* Warna latar gelap */
+            color: #e0e0e0; /* Warna teks terang */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: #2d2d2d; /* Warna container gelap */
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #fff; /* Warna biru untuk judul */
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #fff; /* Warna biru untuk subjudul */
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .section p {
+            font-size: 1rem;
+            color: #b0b0b0; /* Warna teks abu-abu muda */
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .interactive-box {
+            width: 100%;
+            padding: 20px;
+            border: 1px solid #444; /* Warna border gelap */
+            border-radius: 12px;
+            margin: 20px 0;
+            background: #3d3d3d; /* Warna latar box gelap */
+        }
+
+        .interactive-box label {
+            font-size: 1rem;
+            color: #b0b0b0; /* Warna teks abu-abu muda */
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .interactive-box input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #444; /* Warna border gelap */
+            border-radius: 8px;
+            background: #2d2d2d; /* Warna latar input gelap */
+            color: #e0e0e0; /* Warna teks terang */
+            outline: none;
+        }
+
+        .interactive-box button {
+            padding: 10px 20px;
+            background: #3b82f6; /* Warna biru untuk tombol */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .interactive-box button:hover {
+            background: #111; /* Warna biru lebih gelap saat hover */
+        }
+
+        .result {
+            margin-top: 10px;
+            font-size: 1.2rem;
+            color: #fff; /* Warna biru untuk hasil */
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .section h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Perhitungan Entalpi 🔥</h1>
+
+        <!-- Persamaan Termokimia -->
+        <div class="section">
+            <h2>Persamaan Termokimia</h2>
+            <p>
+                Persamaan termokimia adalah persamaan kimia yang mencakup perubahan entalpi (ΔH) dari reaksi. 
+                Persamaan ini menunjukkan hubungan antara reaktan, produk, dan perubahan energi.
+            </p>
+            <div class="interactive-box">
+                <label for="reactants">Reaktan:</label>
+                <input type="text" id="reactants" placeholder="Contoh: 2H₂ + O₂">
+                <label for="products">Produk:</label>
+                <input type="text" id="products" placeholder="Contoh: 2H₂O">
+                <label for="enthalpy">Perubahan Entalpi (ΔH):</label>
+                <input type="number" id="enthalpy" placeholder="Contoh: -483.6 kJ">
+                <button onclick="displayEquation()">Tampilkan Persamaan</button>
+                <div class="result" id="equationResult"></div>
+            </div>
+        </div>
+
+        <!-- Aplikasi Hukum Hess -->
+        <div class="section">
+            <h2>Aplikasi Hukum Hess</h2>
+            <p>
+                Hukum Hess menyatakan bahwa total perubahan entalpi untuk suatu reaksi adalah sama, 
+                terlepas dari jumlah tahapannya. Ini memungkinkan kita menghitung ΔH untuk reaksi kompleks 
+                dengan memecahnya menjadi tahapan yang lebih sederhana.
+            </p>
+            <div class="interactive-box">
+                <label for="step1">ΔH Tahap 1:</label>
+                <input type="number" id="step1" placeholder="Contoh: -200 kJ">
+                <label for="step2">ΔH Tahap 2:</label>
+                <input type="number" id="step2" placeholder="Contoh: -150 kJ">
+                <label for="step3">ΔH Tahap 3:</label>
+                <input type="number" id="step3" placeholder="Contoh: -133.6 kJ">
+                <button onclick="calculateHessLaw()">Hitung Total ΔH</button>
+                <div class="result" id="hessResult"></div>
+            </div>
+        </div>
+
+        <!-- Kalkulator Entalpi Interaktif -->
+        <div class="section">
+            <h2>Kalkulator Entalpi Interaktif</h2>
+            <p>
+                Hitung perubahan entalpi (ΔH) untuk suatu reaksi menggunakan rumus: 
+                ΔH = ΣH(produk) - ΣH(reaktan).
+            </p>
+            <div class="interactive-box">
+                <label for="reactantEnthalpy">Total Entalpi Reaktan (ΣH):</label>
+                <input type="number" id="reactantEnthalpy" placeholder="Contoh: 500 kJ">
+                <label for="productEnthalpy">Total Entalpi Produk (ΣH):</label>
+                <input type="number" id="productEnthalpy" placeholder="Contoh: 300 kJ">
+                <button onclick="calculateEnthalpy()">Hitung ΔH</button>
+                <div class="result" id="enthalpyResult"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Persamaan Termokimia
+        function displayEquation() {
+            const reactants = document.getElementById('reactants').value;
+            const products = document.getElementById('products').value;
+            const enthalpy = document.getElementById('enthalpy').value;
+
+            if (reactants && products && enthalpy) {
+                const equation = `${reactants} → ${products} (ΔH = ${enthalpy} kJ)`;
+                document.getElementById('equationResult').textContent = equation;
+            } else {
+                alert("Harap isi semua field!");
+            }
+        }
+
+        // Aplikasi Hukum Hess
+        function calculateHessLaw() {
+            const step1 = parseFloat(document.getElementById('step1').value);
+            const step2 = parseFloat(document.getElementById('step2').value);
+            const step3 = parseFloat(document.getElementById('step3').value);
+
+            if (!isNaN(step1) && !isNaN(step2) && !isNaN(step3)) {
+                const totalΔH = step1 + step2 + step3;
+                document.getElementById('hessResult').textContent = `Total ΔH = ${totalΔH} kJ`;
+            } else {
+                alert("Harap masukkan angka yang valid untuk semua tahap!");
+            }
+        }
+
+        // Kalkulator Entalpi Interaktif
+        function calculateEnthalpy() {
+            const reactantEnthalpy = parseFloat(document.getElementById('reactantEnthalpy').value);
+            const productEnthalpy = parseFloat(document.getElementById('productEnthalpy').value);
+
+            if (!isNaN(reactantEnthalpy) && !isNaN(productEnthalpy)) {
+                const ΔH = productEnthalpy - reactantEnthalpy;
+                document.getElementById('enthalpyResult').textContent = `ΔH = ${ΔH} kJ`;
+            } else {
+                alert("Harap masukkan angka yang valid untuk entalpi!");
+            }
+        }
+    </script>
+</body>
+</html>
