@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halalhero.id - Web Development Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        @import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap');
+    
+        body {
+            margin: 0;
+            font-family: 'Satoshi', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            padding: 20px;
+        }
+    
+        h1 {
+            font-size: 2.5rem;
+        }
+    
+        h2 {
+            font-size: 1.625rem;
+        }
+    
+        p {
+            letter-spacing: 0.2px;
+            font-size: 1.125rem;
+        }
+    
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        li {
+            background: #1e1e1e;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 6px;
+            font-size: 1.125rem;
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+        }
+    
+        li::before {
+            content: "•";
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.375rem;
+        }
+    
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+    
+            h2 {
+                font-size: 1.5rem;
+            }
+    
+            p {
+                font-size: 1rem;
+            }
+    
+            li {
+                font-size: 1rem;
+                padding: 0.625rem;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+    
+            h2 {
+                font-size: 1.25rem;
+            }
+    
+            p {
+                font-size: 0.875rem;
+            }
+    
+            li {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+        }
+    
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+    
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #222;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+    
+        .back-button:hover {
+            background: #333;
+        }
+    
+        .portfolio-image {
+            cursor: pointer;
+            border: 8px solid white;
+            border-radius: 10px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+    
+        .view-more {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: white;
+            color: black;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+    
+        .view-more:hover {
+            background: rgb(220, 216, 216);
+            color: black;
+        }
+    
+        blockquote {
+            border-left: 4px solid white;
+            padding-left: 20px;
+            font-style: italic;
+            color: #f0f0f0;
+            margin: 20px 0;
+        }
+    
+        cite {
+            display: block;
+            margin-top: 5px;
+            font-size: 14px;
+            color: #bbb;
+        }
+    
+        .image-overlay {
+            cursor: pointer;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+    
+        .image-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+    
+        .image-overlay.show {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <a href="/uiuxdesign" class="back-button">Back</a>
+
+        <h1>Halalhero.id</h1>
+
+        <img src="/Halalhero.id_Showcase.png" alt="Halalhero.id Showcase" class="portfolio-image">
+
+        <a href="https://halalhero.id" class="view-more">
+             Visit Website &nbsp;<i class="fas fa-external-link-alt"></i>
+        </a>
+
+        <h2>Project Overview</h2>
+        <p>
+            Halalhero.id is a web development project that I started in 2023. The website is designed to provide a platform for users to find halal-certified products and services. The project is developed and maintained entirely by me, without any financial compensation.
+        </p>
+
+        <h3>Development Approach</h3>
+        <ul>
+            <li>Frontend Development: Utilized HTML, CSS, JavaScript, Laravel to create a responsive and user-friendly interface (Including Admin Dashboard).</li>
+            <li>Database: Used MySQL/Codeigniter to store and manage data efficiently.</li>
+            <li>Deployment: Hosted on a cloud platform with continuous integration and deployment pipelines.</li>
+            <li>Maintenance: Regularly updated and maintained the website to ensure optimal performance and security.</li>
+        </ul>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>User Authentication: Secure login and registration system.</li>
+            <li>Responsive Design: Optimized for various devices and screen sizes.</li>
+            <li>Admin Dashboard: Easy-to-use interface for managing content and users.</li>
+        </ul>
+
+        <h3>Challenges & Solutions</h3>
+        <ul>
+            <li>Challenge: Ensuring the website is fast and responsive.
+                <br>Solution: Optimized code and used efficient algorithms to reduce load times.</li>
+            <li>Challenge: Maintaining security.
+                <br>Solution: Implemented robust security measures, including encryption and regular security audits.</li>
+            <li>Challenge: Handling large amounts of data.
+                <br>Solution: Used a scalable database and optimized queries for better performance.</li>
+        </ul>
+
+        <h3>Future Plans</h3>
+        <p>
+            In the future, I plan to add more features such as user reviews, ratings, and a recommendation system to enhance the user experience. Additionally, I aim to improve the website's SEO to attract more visitors.
+        </p>
+
+        <hr style="border: 0; height: 1px; background: #444; margin: 20px 0;">
+
+    </div>
+    <footer style="text-align: center; opacity: 50%; font-size: 14px;">Copyright @yosephrafael.com, EST. 2025</footer>
+
+    <div class="image-overlay" id="imageOverlay" onclick="closeOverlay()">
+        <img id="overlayImg" src="">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const images = document.querySelectorAll(".portfolio-image");
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            images.forEach(img => observer.observe(img));
+        });
+
+        document.querySelectorAll(".portfolio-image").forEach(img => {
+            img.addEventListener("click", function () {
+                document.getElementById("overlayImg").src = this.src;
+                document.getElementById("imageOverlay").classList.add("show");
+                document.body.style.overflow = "hidden"; // Matikan scroll
+            });
+        });
+
+        function closeOverlay() {
+            document.getElementById("imageOverlay").classList.remove("show");
+            document.body.style.overflow = ""; // Aktifkan kembali scroll
+        }
+    </script>
+
+</body>
+
+</html>
