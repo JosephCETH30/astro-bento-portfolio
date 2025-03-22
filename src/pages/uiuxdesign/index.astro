@@ -53,30 +53,52 @@ import Layout from "../../layouts/Layout.astro";
       class=" top-4 left-[-10px] z-50 text-white bg-neutral-900 hover:bg-neutral-800 px-4 py-2 mb-8 border-1 border-solid border-neutral-600 rounded-lg"
       >Back</a
     >
-    <h1 class="text-4xl font-bold mb-8 text-neutral-100">Working on it</h1>
-
-
-    <!-- <div class="portfolio-gallery grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+    <div class="portfolio-gallery grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
       {[
-        "https://cdn.dribbble.com/userupload/17376680/file/original-a229995eb0055fc27ad24a60388661d0.jpg?resize=1504x1004&vertical=center",
-        "/TradingWebsites.jpg",
-        "https://cdn.dribbble.com/userupload/17371601/file/original-408ef0748bb1b5163180897a6b6feb9a.png?resize=2048x1407&vertical=center",
-      ].map((img, index) => (
+        {
+          title: "DotProjects.com.sg",
+          image: "/Dotsshowcase.png",
+          link: "/uiuxdesign/dotprojects",
+          page: 1
+        }
+      ].map((item, index) => (
         <div class="portfolio-card relative overflow-hidden rounded-lg shadow-lg group">
           <div class="relative w-full aspect-video">
-            <img src={img.split('?')[0]} alt={`Portfolio ${index + 1}`} class="portfolio-image w-full h-full object-cover" loading="eager" />
-
-           
+            <img 
+              src={item.image.split('?')[0]} 
+              alt={item.title} 
+              class="portfolio-image w-full h-full object-cover" 
+              loading="eager" 
+            />
+            
             <div class="overlay absolute inset-x-0 bottom-0 h-full bg-black bg-opacity-60 flex flex-col justify-between p-4 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-              <h3 class="text-white text-lg font-semibold">UI/UX Design {index + 1}</h3>
-              <a href="#" class="mt-2 self-end px-4 py-2 bg-white text-gray-600 font-medium rounded-lg shadow-md transition duration-300 hover:bg-black hover:text-white">
-                View More
-              </a>
+              <h3 class="text-white text-lg font-semibold">{item.title}</h3>
+              <div class="flex justify-between items-center w-full">
+                <span class="text-white text-sm">Page {item.page}</span>
+                <a 
+                  href={item.link} 
+                  class="mt-2 px-4 py-2 bg-white text-gray-600 font-medium rounded-lg shadow-md transition duration-300 hover:bg-black hover:text-white"
+                >
+                  View More
+                </a>
+              </div>
             </div>
           </div>
         </div>
       ))}
-    </div> -->
+    </div>
+    
+    <!-- Pagination Controls -->
+    <div class="pagination flex justify-center mt-8 gap-2">
+      {[1].map((pageNum) => (
+        <a 
+          href={`/portfolio/page/${pageNum}`} 
+          class={`px-3 py-1 rounded-md ${pageNum === 1 ? 'bg-white text-black' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
+        >
+          {pageNum}
+        </a>
+      ))}
+    </div>
 
     
     <br>
