@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DotProjects</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         @import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap');
-
+    
         body {
             margin: 0;
             font-family: 'Satoshi', sans-serif;
@@ -15,51 +17,88 @@
             color: #ffffff;
             padding: 20px;
         }
-
-        h1{
-            font-size: 40px;
+    
+        h1 {
+            font-size: 2.5rem;
         }
-
-        h2{
-            font-size: 26px;
+    
+        h2 {
+            font-size: 1.625rem;
         }
-
-        p{
+    
+        p {
             letter-spacing: 0.2px;
-            font-size: 18px;
+            font-size: 1.125rem;
         }
-        
+    
         ul {
-            list-style: none;
+            list-style-type: none;
             padding: 0;
-            margin: 15px 0;
+            margin: 0;
         }
-        
+    
         li {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 10px 15px;
-            margin-bottom: 8px;
+            background: #1e1e1e;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
             border-radius: 6px;
-            font-size: 18px;
-            line-height: 1.6;
+            font-size: 1.125rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0.625rem;
         }
-        
+    
         li::before {
             content: "•";
-            color: #4caf50;
-            font-size: 22px;
+            color: #4CAF50;
+            font-weight: bold;
+            font-size: 1.375rem;
         }
-        
-
+    
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+    
+            h2 {
+                font-size: 1.5rem;
+            }
+    
+            p {
+                font-size: 1rem;
+            }
+    
+            li {
+                font-size: 1rem;
+                padding: 0.625rem;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+    
+            h2 {
+                font-size: 1.25rem;
+            }
+    
+            p {
+                font-size: 0.875rem;
+            }
+    
+            li {
+                font-size: 0.875rem;
+                padding: 0.5rem;
+            }
+        }
+    
         .container {
             max-width: 800px;
             margin: auto;
             padding: 20px;
         }
-
+    
         .back-button {
             display: inline-block;
             padding: 10px 20px;
@@ -69,11 +108,11 @@
             border-radius: 5px;
             transition: 0.3s;
         }
-
+    
         .back-button:hover {
             background: #333;
         }
-
+    
         .portfolio-image {
             cursor: pointer;
             border: 8px solid white;
@@ -86,7 +125,7 @@
             transform: translateY(50px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
+    
         .view-more {
             display: inline-block;
             margin-top: 20px;
@@ -98,12 +137,12 @@
             transition: 0.3s;
             font-weight: 600;
         }
-
+    
         .view-more:hover {
             background: rgb(220, 216, 216);
             color: black;
         }
-
+    
         blockquote {
             border-left: 4px solid white;
             padding-left: 20px;
@@ -111,14 +150,14 @@
             color: #f0f0f0;
             margin: 20px 0;
         }
-
+    
         cite {
             display: block;
             margin-top: 5px;
             font-size: 14px;
             color: #bbb;
         }
-
+    
         .image-overlay {
             cursor: pointer;
             display: none;
@@ -132,13 +171,13 @@
             align-items: center;
             z-index: 1000;
         }
-
+    
         .image-overlay img {
             max-width: 90%;
             max-height: 90%;
             border-radius: 10px;
         }
-
+    
         .image-overlay.show {
             display: flex;
         }
@@ -154,7 +193,9 @@
 
         <img src="/Dotsshowcase.png" alt="DotProjects Showcase" class="portfolio-image">
 
-        <a href="https://dotprojects.com.sg" class="view-more">Live Website</a>
+        <a href="https://dotprojects.com.sg" class="view-more">
+             Visit Website &nbsp;<i class="fas fa-external-link-alt"></i>
+        </a>
 
         <h2>Project Overview</h2>
         <p>
@@ -165,14 +206,14 @@
 
         <h3>Design Approach</h3>
         <ul>
-            <li><strong>Color Palette:</strong> Light background (white, cream, gray), green used only for CTAs.</li>
-            <li><strong>Layout & Spacing:</strong> Applied a 4px grid system for consistency and engineering
+            <li> Color Palette: Light background (white, cream, gray), green used only for CTAs.</li>
+            <li> Layout & Spacing: Applied a 4px grid system for consistency and engineering
                 compatibility.</li>
-            <li><strong>Typography:</strong> Used gray tones instead of black for a softer, more readable text
+            <li> Typography: Used gray tones instead of black for a softer, more readable text
                 experience.</li>
-            <li><strong>UI Simplification:</strong> Reduced decorative elements, replacing borders with subtle color
+            <li> UI Simplification: Reduced decorative elements, replacing borders with subtle color
                 blocks.</li>
-            <li><strong>Responsiveness:</strong> Designed a mobile-friendly structure for optimal usability.</li>
+            <li> Responsiveness: Designed a mobile-friendly structure for optimal usability.</li>
         </ul>
 
 
@@ -192,28 +233,28 @@
 
         <h4> Define – Identifying Key Problems</h4>
         <ul>
-            <li>The previous design was <strong>cluttered</strong> and lacked <strong>clear visual hierarchy</strong>.
+            <li>The previous design was cluttered and lacked  clear visual hierarchy.
             </li>
-            <li><strong>Inconsistent spacing</strong> and <strong>text contrast</strong> affected readability.</li>
-            <li>Overuse of <strong>green</strong> made the design overwhelming.</li>
+            <li> Inconsistent spacing and  text contrast affected readability.</li>
+            <li>Overuse of  green made the design overwhelming.</li>
         </ul>
 
         <img src="/beforeafterDots_Home.png" alt="DotProjects Showcase" class="portfolio-image">
 
         <h4> Ideate – Brainstorming & Conceptualizing Solutions</h4>
         <ul>
-            <li>Used a <strong>light-themed background</strong> with <strong>gray-toned typography</strong> for better
+            <li>Used a  light-themed background with  gray-toned typography for better
                 readability.</li>
-            <li>Implemented <strong>minimalist UI elements</strong>, replacing hard borders with subtle color blocks.
+            <li>Implemented  minimalist UI elements, replacing hard borders with subtle color blocks.
             </li>
-            <li>Applied a <strong>4px grid system</strong> for structured and consistent spacing.</li>
+            <li>Applied a  4px grid system for structured and consistent spacing.</li>
         </ul>
 
         <h4> Prototype Creating the Initial Design</h4>
         <ul>
-            <li>Developed a <strong>content-first layout</strong>, reducing unnecessary decorative elements.</li>
-            <li>Limited the use of <strong>green only for call-to-action (CTA) elements</strong>.</li>
-            <li>Designed a <strong>responsive interface</strong> for optimal usability.</li>
+            <li>Developed a  content-first layout, reducing unnecessary decorative elements.</li>
+            <li>Limited the use of  green only for call-to-action (CTA) elements.</li>
+            <li>Designed a  responsive interface for optimal usability.</li>
         </ul>
 
         <img src="/beforeafterDots_Service.png" alt="DotProjects Showcase" class="portfolio-image">
@@ -223,9 +264,9 @@
             After presenting the high-fidelity prototype, the client provided feedback to further refine the design:
         </p>
         <ul>
-            <li>Reduced <strong>green accents</strong> to align with the brand’s ESG vision.</li>
-            <li>Improved <strong>spacing</strong> for better content flow and scannability.</li>
-            <li>Enhanced <strong>text contrast</strong> for accessibility.</li>
+            <li>Reduced  green accents to align with the brand’s ESG vision.</li>
+            <li>Improved  spacing for better content flow and scannability.</li>
+            <li>Enhanced  text contrast for accessibility.</li>
         </ul>
 
         <p>
@@ -271,7 +312,7 @@
 
         <h3>4. Tools & Methodologies</h3>
         <ul>
-            <li><strong>Main tool:</strong> Figma.</li>
+            <li> Main tool: Figma.</li>
             <li>Since I have a perfectionist approach, I applied responsive design principles and adhered to Laws of UX.
             </li>
         </ul>
@@ -289,7 +330,7 @@
         </ul>
 
         <img src="/yesitisresponsive_dotsproject.png" alt="DotProjects Showcase" class="portfolio-image">
-        
+
         <img src="/Dotsshowcase.png" alt="DotProjects Showcase" class="portfolio-image">
 
         <h3>Conclusion</h3>
