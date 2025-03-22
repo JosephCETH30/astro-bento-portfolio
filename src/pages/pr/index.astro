@@ -58,13 +58,13 @@ import Layout from "../../layouts/Layout.astro";
         {
           title: "DotProjects.com.sg",
           image: "/Dotsshowcase.png",
-          link: "/uiuxdesign/dotprojects",
+          link: "/pr/dotprojects",
           page: 1
         },
         {
           title: "Halalhero.id",
           image: "/Halalhero.id_Showcase.png",
-          link: "/uiuxdesign/halalheroid",
+          link: "/pr/halalheroid",
           page: 1
         }
       ].map((item, index) => (
@@ -98,7 +98,7 @@ import Layout from "../../layouts/Layout.astro";
     <div class="pagination flex justify-center mt-8 gap-2">
       {[1].map((pageNum) => (
         <a 
-          href={`/uiuxdesign/${pageNum}`} 
+          href={`/pr/${pageNum}`} 
           class={`px-3 py-1 rounded-md ${pageNum === 1 ? 'bg-white text-black' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}`}
         >
           {pageNum}
