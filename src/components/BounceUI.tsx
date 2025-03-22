@@ -14,7 +14,7 @@ const BouncingCard = () => {
       >
         <div class="absolute inset-0 bg-gradient-to-r animate-gradient from-[#3B82F6] to-[#2563EB] opacity-75"></div>
         <p class="text-lg font-semibold text-white relative z-10 font-cabinet">
-          My UX Design
+          My Projects
         </p>
       </div>
       <style>

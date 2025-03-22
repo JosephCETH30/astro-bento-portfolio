@@ -16,6 +16,44 @@
             padding: 20px;
         }
 
+        h1{
+            font-size: 40px;
+        }
+
+        h2{
+            font-size: 26px;
+        }
+
+        p{
+            letter-spacing: 0.2px;
+            font-size: 18px;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+        }
+        
+        li {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 18px;
+            line-height: 1.6;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        li::before {
+            content: "•";
+            color: #4caf50;
+            font-size: 22px;
+        }
+        
+
         .container {
             max-width: 800px;
             margin: auto;
@@ -58,6 +96,7 @@
             border-radius: 5px;
             text-decoration: none;
             transition: 0.3s;
+            font-weight: 600;
         }
 
         .view-more:hover {
