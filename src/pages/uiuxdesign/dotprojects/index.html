@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +37,8 @@
         }
 
         .portfolio-image {
-            border: 5px solid white;
+            cursor: pointer;
+            border: 8px solid white;
             border-radius: 10px;
             max-width: 100%;
             height: auto;
@@ -77,36 +79,64 @@
             font-size: 14px;
             color: #bbb;
         }
+
+        .image-overlay {
+            cursor: pointer;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .image-overlay img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+        }
+
+        .image-overlay.show {
+            display: flex;
+        }
     </style>
 </head>
+
 <body>
 
     <div class="container">
         <a href="/uiuxdesign" class="back-button">Back</a>
-    
+
         <h1>DotProjects</h1>
-        
+
         <img src="/Dotsshowcase.png" alt="DotProjects Showcase" class="portfolio-image">
-        
+
         <a href="https://dotprojects.com.sg" class="view-more">Live Website</a>
-    
+
         <h2>Project Overview</h2>
         <p>
-            The DotProjects website revamp followed a structured design thinking process to create a modern, 
-            professional, and ESG-aligned look. The client required a cleaner, text-focused design with minimal 
+            The DotProjects website revamp followed a structured design thinking process to create a modern,
+            professional, and ESG-aligned look. The client required a cleaner, text-focused design with minimal
             decorative elements while ensuring a seamless user experience.
         </p>
-    
+
         <h3>Design Approach</h3>
         <ul>
             <li><strong>Color Palette:</strong> Light background (white, cream, gray), green used only for CTAs.</li>
-            <li><strong>Layout & Spacing:</strong> Applied a 4px grid system for consistency and engineering compatibility.</li>
-            <li><strong>Typography:</strong> Used gray tones instead of black for a softer, more readable text experience.</li>
-            <li><strong>UI Simplification:</strong> Reduced decorative elements, replacing borders with subtle color blocks.</li>
+            <li><strong>Layout & Spacing:</strong> Applied a 4px grid system for consistency and engineering
+                compatibility.</li>
+            <li><strong>Typography:</strong> Used gray tones instead of black for a softer, more readable text
+                experience.</li>
+            <li><strong>UI Simplification:</strong> Reduced decorative elements, replacing borders with subtle color
+                blocks.</li>
             <li><strong>Responsiveness:</strong> Designed a mobile-friendly structure for optimal usability.</li>
         </ul>
 
-        
+
         <img src="/Dotsshowcasedua.png" alt="DotProjects Showcase" class="portfolio-image">
         <blockquote>
             This is my first design that I gave according to the existing brief, before any revisions.
@@ -116,14 +146,15 @@
 
         <h4> Empathize – Understanding User Needs</h4>
         <p>
-            We conducted user research and competitive analysis to understand the project's pain points. The 
+            We conducted user research and competitive analysis to understand the project's pain points. The
             previous design had readability issues and lacked a structured layout, affecting the user experience.
         </p>
-        
+
 
         <h4> Define – Identifying Key Problems</h4>
         <ul>
-            <li>The previous design was <strong>cluttered</strong> and lacked <strong>clear visual hierarchy</strong>.</li>
+            <li>The previous design was <strong>cluttered</strong> and lacked <strong>clear visual hierarchy</strong>.
+            </li>
             <li><strong>Inconsistent spacing</strong> and <strong>text contrast</strong> affected readability.</li>
             <li>Overuse of <strong>green</strong> made the design overwhelming.</li>
         </ul>
@@ -132,12 +163,14 @@
 
         <h4> Ideate – Brainstorming & Conceptualizing Solutions</h4>
         <ul>
-            <li>Used a <strong>light-themed background</strong> with <strong>gray-toned typography</strong> for better readability.</li>
-            <li>Implemented <strong>minimalist UI elements</strong>, replacing hard borders with subtle color blocks.</li>
+            <li>Used a <strong>light-themed background</strong> with <strong>gray-toned typography</strong> for better
+                readability.</li>
+            <li>Implemented <strong>minimalist UI elements</strong>, replacing hard borders with subtle color blocks.
+            </li>
             <li>Applied a <strong>4px grid system</strong> for structured and consistent spacing.</li>
         </ul>
 
-        <h4> Prototype  Creating the Initial Design</h4>
+        <h4> Prototype Creating the Initial Design</h4>
         <ul>
             <li>Developed a <strong>content-first layout</strong>, reducing unnecessary decorative elements.</li>
             <li>Limited the use of <strong>green only for call-to-action (CTA) elements</strong>.</li>
@@ -157,7 +190,8 @@
         </ul>
 
         <p>
-            These refinements resulted in a modern, user-friendly, and ESG-aligned design, ensuring an improved user experience.
+            These refinements resulted in a modern, user-friendly, and ESG-aligned design, ensuring an improved user
+            experience.
         </p>
 
         <img src="/beforeafterDots_About.png" alt="DotProjects Showcase" class="portfolio-image">
@@ -165,19 +199,109 @@
 
         <h3>Client Feedback & Iteration</h3>
         <p>
-            After the initial high-fidelity prototype, refinements were made to further minimize green accents, 
-            adjust spacing for consistency, and enhance the readability of text elements. The final design balances 
+            After the initial high-fidelity prototype, refinements were made to further minimize green accents,
+            adjust spacing for consistency, and enhance the readability of text elements. The final design balances
             a modern aesthetic with functional clarity.
         </p>
-    
+
+        <h2>🎨 UI Design Revamp Project Overview</h2>
+
+        <h3>1. Project Scope</h3>
+        <ul>
+            <li>This project involved a UX designer from Singapore and a development team. The website is
+                already live.</li>
+            <li>My role was focused on redesigning/revamping the previous design, which was outdated and initially
+                created for quick deployment.</li>
+        </ul>
+
+        <img src="/beforeafterDots_Contacs.png" alt="DotProjects Showcase" class="portfolio-image">
+
+        <h3>2. Challenges & Goals</h3>
+        <ul>
+            <li>There was no significant problem statement; I only received minor revision requests from the UX
+                designer.</li>
+            <li>The main goal was to align the design vibe from Ll Page to the website and presentations for
+                consistency. Additionally, ESG-related design was not limited to the typical green color scheme.</li>
+        </ul>
+
+        <h3>3. My Role in the Project</h3>
+        <ul>
+            <li>My involvement was not limited to UI iterations; I also worked on refining the visual structure.</li>
+            <li>I was responsible solely for the visual design phase, without direct involvement in user testing.</li>
+        </ul>
+
+        <h3>4. Tools & Methodologies</h3>
+        <ul>
+            <li><strong>Main tool:</strong> Figma.</li>
+            <li>Since I have a perfectionist approach, I applied responsive design principles and adhered to Laws of UX.
+            </li>
+        </ul>
+
+        <h3>5. Collaboration & Workflow</h3>
+        <ul>
+            <li>Handoff to developers was managed by the UX designer.</li>
+            <li>There were no major communication challenges with stakeholders or developers.</li>
+        </ul>
+
+        <h3>6. Outcome & Learnings</h3>
+        <ul>
+            <li>The final design was clearer and more refined, and the client was highly satisfied with the
+                improvements.</li>
+        </ul>
+
+        <img src="/yesitisresponsive_dotsproject.png" alt="DotProjects Showcase" class="portfolio-image">
+        
+        <img src="/Dotsshowcase.png" alt="DotProjects Showcase" class="portfolio-image">
+
+        <h3>Conclusion</h3>
+        <p>
+            The DotProjects UI revamp was a structured and detail-oriented process aimed at modernizing the website’s
+            visual appeal while ensuring alignment with the brand’s overall design language and ESG principles. The
+            previous design, which prioritized speed over refinement, was systematically improved to enhance clarity,
+            readability, and user experience.
+        </p>
+        <p>
+            By adopting a content-first approach, reducing unnecessary decorative elements, and refining the use of
+            color, the final design achieved a balance between aesthetics and functionality. The primary focus was on
+            creating a more structured layout, improving spacing consistency, and ensuring that typography remained
+            clear and easy to read across various devices.
+        </p>
+        <p>
+            One of the key successes of this project was the seamless collaboration between UI, UX, and development
+            teams. While the UX designer handled overall design thinking and handoff to developers, my role as a UI
+            designer was crucial in refining the visual presentation and ensuring pixel-perfect execution. The
+            application of responsive design principles and adherence to UX laws further strengthened the design’s
+            usability.
+        </p>
+        <p>
+            Client feedback was highly positive, particularly regarding the improved clarity and alignment of design
+            elements across different platforms. The reduction of green tones to a more strategic placement ensured that
+            the branding remained strong without overwhelming the interface. Additionally, spacing and contrast
+            adjustments enhanced readability, making the design more user-friendly.
+        </p>
+        <p>
+            Looking ahead, future iterations could explore even more interactive elements and micro-interactions to
+            enhance engagement. However, as it stands, this revamp successfully met the project’s objectives, delivering
+            a polished, accessible, and visually cohesive website that elevates the user experience while maintaining
+            brand consistency.
+        </p>
+
+        <hr style="border: 0; height: 1px; background: #444; margin: 20px 0;">
+
+
+
     </div>
-    <footer style="text-align: center; opacity: 50%; font-size: 14px;">yosephrafael.com</footer>
-    
+    <footer style="text-align: center; opacity: 50%; font-size: 14px;">Copyright @yosephrafael.com, EST. 2025</footer>
+
+    <div class="image-overlay" id="imageOverlay" onclick="closeOverlay()">
+        <img id="overlayImg" src="">
+    </div>
+
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const images = document.querySelectorAll(".portfolio-image");
-            
+
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -186,11 +310,27 @@
                     }
                 });
             }, { threshold: 0.3 });
-        
+
             images.forEach(img => observer.observe(img));
         });
-        
+
+        document.querySelectorAll(".portfolio-image").forEach(img => {
+            img.addEventListener("click", function () {
+                document.getElementById("overlayImg").src = this.src;
+                document.getElementById("imageOverlay").classList.add("show");
+                document.body.style.overflow = "hidden"; // Matikan scroll
+            });
+        });
+
+        function closeOverlay() {
+            document.getElementById("imageOverlay").classList.remove("show");
+            document.body.style.overflow = ""; // Aktifkan kembali scroll
+        }
+
+
+
     </script>
 
 </body>
+
 </html>
