@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DotProjects</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 
     <style>
         @import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap');
@@ -181,6 +182,46 @@
         .image-overlay.show {
             display: flex;
         }
+
+        #pdf-container {
+            margin: 20px 0;
+            border: 1px solid #444;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        #pdf-canvas {
+            width: 100%;
+            height: auto;
+        }
+
+        #pdf-controls {
+            margin-top: 10px;
+            padding: 10px;
+            background: #1e1e1e;
+            border-top: 1px solid #444;
+        }
+
+        #pdf-controls button {
+            padding: 8px 16px;
+            margin: 0 5px;
+            background: #fff;
+            color: #121212;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #pdf-controls button:hover {
+            background: #121212;
+            color: white;
+        }
+
+        #pdf-controls span {
+            font-size: 14px;
+            color: #ffffff;
+        }
     </style>
 </head>
 
@@ -195,7 +236,17 @@
 
         <a href="https://dotprojects.com.sg" class="view-more">
              Visit Website &nbsp;<i class="fas fa-external-link-alt"></i>
-        </a>
+        </a>    
+
+        <div id="pdf-container">
+            <canvas id="pdf-canvas"></canvas>
+            <div id="pdf-controls">
+                <button id="prev-page">Previous</button>
+                <span id="page-num"></span> / <span id="page-count"></span>
+                <button id="next-page">Next</button>
+            </div>
+        </div>
+        
 
         <h2>Project Overview</h2>
         <p>
@@ -377,7 +428,7 @@
         <img id="overlayImg" src="">
     </div>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const images = document.querySelectorAll(".portfolio-image");
@@ -398,14 +449,81 @@
             img.addEventListener("click", function () {
                 document.getElementById("overlayImg").src = this.src;
                 document.getElementById("imageOverlay").classList.add("show");
-                document.body.style.overflow = "hidden"; // Matikan scroll
+                document.body.style.overflow = "hidden";  
             });
         });
 
         function closeOverlay() {
             document.getElementById("imageOverlay").classList.remove("show");
-            document.body.style.overflow = ""; // Aktifkan kembali scroll
+            document.body.style.overflow = "";  
         }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const pdfUrl = '/ESG_DOTPROJECTS_.pdf';  
+            const canvas = document.getElementById('pdf-canvas');
+            const context = canvas.getContext('2d');
+            const pageNum = document.getElementById('page-num');
+            const pageCount = document.getElementById('page-count');
+            const prevButton = document.getElementById('prev-page');
+            const nextButton = document.getElementById('next-page');
+
+            let pdfDoc = null;
+            let pageNumCurrent = 1;
+            let pageRendering = false;
+            let pageNumPending = null;
+
+            function renderPage(num) {
+                pageRendering = true;
+                pdfDoc.getPage(num).then(page => {
+                    const viewport = page.getViewport({ scale: 1.5 });
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    const renderContext = {
+                        canvasContext: context,
+                        viewport: viewport
+                    };
+                    page.render(renderContext).promise.then(() => {
+                        pageRendering = false;
+                        if (pageNumPending !== null) {
+                            renderPage(pageNumPending);
+                            pageNumPending = null;
+                        }
+                    });
+
+                    pageNum.textContent = num;
+                });
+            }
+
+            function queueRenderPage(num) {
+                if (pageRendering) {
+                    pageNumPending = num;
+                } else {
+                    renderPage(num);
+                }
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (pageNumCurrent <= 1) return;
+                pageNumCurrent--;
+                queueRenderPage(pageNumCurrent);
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (pageNumCurrent >= pdfDoc.numPages) return;
+                pageNumCurrent++;
+                queueRenderPage(pageNumCurrent);
+            });
+
+            pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
+                pdfDoc = pdf;
+                pageCount.textContent = pdf.numPages;
+                renderPage(pageNumCurrent);
+            }).catch(error => {
+                console.error('Error loading PDF: ', error);
+            });
+        });
+        
 
 
 
