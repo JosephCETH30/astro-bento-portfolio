@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Kata Baku</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap');
+
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2E7D32;
+            --accent-color: #8BC34A;
+            --dark-bg: #121212;
+            --card-bg: #1E1E1E;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --border-color: #333;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Satoshi', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: var(--primary-color);
+        }
+
+        h2 {
+            font-size: 1.625rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .game-container {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .leaderboard {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            margin-top: 30px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .maintenance-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            border-radius: 10px;
+        }
+
+        .maintenance-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .maintenance-text {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            text-align: center;
+            max-width: 80%;
+        }
+
+        #questionContainer {
+            font-size: 1.25rem;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+        }
+
+        #optionsContainer {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .option-btn {
+            padding: 12px 20px;
+            background: #252525;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .option-btn:hover {
+            background: #333;
+            border-color: var(--primary-color);
+        }
+
+        #scoreContainer {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        tr:nth-child(even) {
+            background-color: #252525;
+        }
+
+        .rank-1 {
+            color: gold;
+            font-weight: bold;
+        }
+
+        .rank-2 {
+            color: silver;
+            font-weight: bold;
+        }
+
+        .rank-3 {
+            color: #cd7f32;
+            font-weight: bold;
+        }
+
+        /* Timer Styling */
+        .timer-container {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .timer-button {
+            background-color: var(--primary-color);
+            font-family: 'Satoshi', sans-serif;
+            color: var(--text-primary);
+            border: none;
+            padding: 10px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .timer-button:hover {
+            background-color: var(--primary-color);
+        }
+
+        .timer-button.active {
+            background-color: #f44336;
+        }
+
+        .timer-display {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .results-container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #252525;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .correct-answers {
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animated {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            .game-container,
+            .leaderboard {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .timer-container {
+                top: 10px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            #questionContainer {
+                font-size: 1.1rem;
+            }
+
+            th,
+            td {
+                padding: 10px 12px;
+                font-size: 0.875rem;
+            }
+
+            .maintenance-text {
+                font-size: 1rem;
+            }
+
+            .timer-button {
+                padding: 4px 8px;
+                font-size: 0.8rem;
+            }
+
+            .timer-display {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+    <div class="container">
+        <div class="game-container animated">
+            <h2><i class="fas fa-spell-check"></i> Game Kata Baku</h2>
+            <div class="timer-container">
+                <button id="timerButton" class="timer-button">Mulai Timer</button>
+                <div id="timerDisplay" class="timer-display">00:00</div>
+            </div>
+            <div id="questionContainer"></div>
+            <div id="optionsContainer"></div>
+            <div id="scoreContainer">Skor: 0</div>
+        </div>
+
+        <div class="leaderboard animated">
+            <h3><i class="fas fa-trophy"></i> Leaderboard Kata Baku</h3>
+            <div class="maintenance-overlay">
+                <div class="maintenance-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="maintenance-text">
+                    Leaderboard sedang dalam maintenance. Aku fokus ubtk juga soalnya jadi tunggu jika ada waktu ya!.
+                    Math juga nanti kubuat.
+                </div>
+            </div>
+            <table id="gameLeaderboard">
+                <thead>
+                    <tr>
+                        <th>Peringkat</th>
+                        <th>Username</th>
+                        <th>Skor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rank-1">1</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-2">2</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-3">3</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Disable keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+U (View Page Source)
+            if (e.ctrlKey && e.key === 'u') {
+                e.preventDefault();
+                return false;
+            }
+            
+            // Other keyboard shortcuts you may want to disable
+            if (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'p' || e.key === 'P')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        let score = 0;
+        let currentQuestionIndex = 0;
+        let timerInterval;
+        let timerSeconds = 0;
+        let isTimerRunning = false;
+        let correctAnswers = 0;
+        let shuffledQuestions = [];
+        
+        const questions = [
+            {
+                question: "Manakah kata yang baku?",
+                options: ["apotik", "apotek"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'apotek' sesuai KBBI."
+            },
+            {
+                question: "Manakah penulisan yang baku?",
+                options: ["praktek", "praktik"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'praktik' sesuai KBBI."
+            },
+            {
+                question: "Pilih kata baku yang tepat:",
+                options: ["jaman", "zaman"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'zaman' sesuai KBBI."
+            },
+            {
+                question: "Manakah penulisan yang baku?",
+                options: ["nasehat", "nasihat"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'nasihat' sesuai KBBI."
+            },
+            {
+                question: "Pilih kata baku yang benar:",
+                options: ["tehnik", "teknik"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'teknik' sesuai KBBI."
+            },
+            {
+                question: "Manakah kata yang baku?",
+                options: ["resiko", "risiko"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'risiko' sesuai KBBI."
+            },
+            {
+                question: "Pilih kata yang sesuai dengan ejaan baku:",
+                options: ["aktifitas", "aktivitas"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'aktivitas' sesuai KBBI."
+            },
+            {
+                question: "Manakah bentuk yang benar menurut KBBI?",
+                options: ["atlit", "atlet"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'atlet' sesuai KBBI."
+            },
+            {
+                question: "Pilih kata yang sesuai dengan ejaan baku:",
+                options: ["ijin", "izin"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'izin' sesuai KBBI."
+            },
+            {
+                question: "Manakah kata yang baku?",
+                options: ["kwalitas", "kualitas"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'kualitas' sesuai KBBI."
+            },
+            {
+                question: "Pilih kata baku yang benar:",
+                options: ["cinderamata", "cenderamata"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'cenderamata' sesuai KBBI."
+            },
+            {
+                question: "Manakah penulisan yang baku?",
+                options: ["memeriksa", "meriksa"],
+                answer: 0,
+                explanation: "Kata baku yang benar adalah 'memeriksa' sesuai KBBI."
+            },
+            {
+                question: "Pilih kata baku yang benar:",
+                options: ["sekedar", "sekadar"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'sekadar' sesuai KBBI."
+            },
+            {
+                question: "Manakah kata yang baku?",
+                options: ["analisa", "analisis"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'analisis' sesuai KBBI."
+            },
+            {
+                question: "Pilih kata baku yang benar:",
+                options: ["frekwensi", "frekuensi"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'frekuensi' sesuai KBBI."
+            },
+            {
+                question: "Manakah bentuk yang benar menurut KBBI?",
+                options: ["karir", "karier"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'karier' sesuai KBBI."
+            },
+            {
+                question: "Pilih kata baku yang benar:",
+                options: ["objektif", "obyektif"],
+                answer: 0,
+                explanation: "Kata baku yang benar adalah 'objektif' sesuai KBBI."
+            },
+            {
+                question: "Manakah penulisan yang baku?",
+                options: ["efektif", "efektip"],
+                answer: 0,
+                explanation: "Kata baku yang benar adalah 'efektif' sesuai KBBI."
+            },
+            {
+                question: "Pilih kata yang sesuai dengan ejaan baku:",
+                options: ["aktif", "aktip"],
+                answer: 0,
+                explanation: "Kata baku yang benar adalah 'aktif' sesuai KBBI."
+            },
+            {
+                question: "Manakah kata yang baku?",
+                options: ["esklusif", "eksklusif"],
+                answer: 1,
+                explanation: "Kata baku yang benar adalah 'eksklusif' sesuai KBBI."
+            }
+        ];
+
+        // Fungsi untuk mengacak array
+        function shuffleArray(array) {
+            let shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        // Fungsi untuk mengacak opsi jawaban (sambil mempertahankan answer index)
+        function shuffleOptions(question) {
+            const shuffledQuestion = {...question};
+            const correctAnswer = question.options[question.answer];
+            
+            // Acak opsi
+            shuffledQuestion.options = shuffleArray(question.options);
+            
+            // Tentukan indeks jawaban yang benar setelah pengacakan
+            shuffledQuestion.answer = shuffledQuestion.options.indexOf(correctAnswer);
+            
+            return shuffledQuestion;
+        }
+
+        // Fungsi untuk memformat waktu (00:00)
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        // Fungsi untuk toggle timer (start/stop)
+        function toggleTimer() {
+            const timerButton = document.getElementById('timerButton');
+            
+            if (!isTimerRunning) {
+                // Mulai timer
+                isTimerRunning = true;
+                timerButton.textContent = 'Stop Timer';
+                timerButton.classList.add('active');
+                
+                timerInterval = setInterval(function() {
+                    timerSeconds++;
+                    document.getElementById('timerDisplay').textContent = formatTime(timerSeconds);
+                }, 1000);
+            } else {
+                // Hentikan timer
+                stopTimer();
+            }
+        }
+
+        // Fungsi untuk menghentikan timer
+        function stopTimer() {
+            clearInterval(timerInterval);
+            isTimerRunning = false;
+            document.getElementById('timerButton').textContent = 'Mulai Timer';
+            document.getElementById('timerButton').classList.remove('active');
+        }
+
+        // Acak pertanyaan saat halaman dimuat
+        function initializeQuestions() {
+            shuffledQuestions = shuffleArray(questions);
+            
+            // Acak juga opsi-opsi jawabannya
+            shuffledQuestions = shuffledQuestions.map(q => shuffleOptions(q));
+        }
+
+        window.onload = function () {
+            // Acak pertanyaan saat halaman dimuat
+            initializeQuestions();
+            
+            // Tambahkan event listener untuk tombol timer
+            document.getElementById('timerButton').addEventListener('click', toggleTimer);
+            loadQuestion();
+        };
+
+        function loadQuestion() {
+            if (currentQuestionIndex >= shuffledQuestions.length) {
+                endGame();
+                return;
+            }
+
+            const question = shuffledQuestions[currentQuestionIndex];
+            document.getElementById('questionContainer').textContent = question.question;
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+
+            question.options.forEach((option, index) => {
+                const button = document.createElement('button');
+                button.className = 'option-btn';
+                button.textContent = option;
+                button.onclick = () => checkAnswer(index);
+                optionsContainer.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedIndex) {
+            const question = shuffledQuestions[currentQuestionIndex];
+            const optionButtons = document.querySelectorAll('.option-btn');
+
+            if (selectedIndex === question.answer) {
+                optionButtons[selectedIndex].style.backgroundColor = 'var(--secondary-color)';
+                optionButtons[selectedIndex].style.borderColor = 'var(--secondary-color)';
+                score += 10;
+                correctAnswers++; // Menambah hitungan jawaban benar
+            } else {
+                optionButtons[selectedIndex].style.backgroundColor = '#d32f2f';
+                optionButtons[selectedIndex].style.borderColor = '#d32f2f';
+                optionButtons[question.answer].style.backgroundColor = 'var(--secondary-color)';
+                optionButtons[question.answer].style.borderColor = 'var(--secondary-color)';
+            }
+
+            document.getElementById('scoreContainer').textContent = `Skor: ${score}`;
+
+            optionButtons.forEach(button => {
+                button.disabled = true;
+            });
+
+            setTimeout(() => {
+                currentQuestionIndex++;
+                loadQuestion();
+            }, 1500);
+        }
+
+        function endGame() {
+            // Hentikan timer jika sedang berjalan
+            if (isTimerRunning) {
+                stopTimer();
+            }
+            
+            // Hapus konten pertanyaan dan opsi
+            document.getElementById('questionContainer').innerHTML = '';
+            document.getElementById('optionsContainer').innerHTML = '';
+            
+            // Buat container hasil
+            const resultsContainer = document.createElement('div');
+            resultsContainer.className = 'results-container';
+            resultsContainer.innerHTML = `
+                <h3>Permainan Selesai!</h3>
+                <p>Waktu: ${formatTime(timerSeconds)}</p>
+                <p>Skor akhir: ${score}</p>
+                <p>Jawaban benar: <span class="correct-answers">${correctAnswers}</span> dari ${shuffledQuestions.length}</p>
+                <button id="restartButton" class="option-btn" style="margin-top: 15px; background-color: var(--primary-color);">Main Lagi</button>
+            `;
+            
+            // Tambahkan container hasil ke dalam DOM
+            document.getElementById('optionsContainer').appendChild(resultsContainer);
+            
+            // Tambahkan event listener untuk tombol main lagi
+            document.getElementById('restartButton').addEventListener('click', resetGame);
+        }
+
+        function resetGame() {
+            score = 0;
+            currentQuestionIndex = 0;
+            timerSeconds = 0;
+            correctAnswers = 0;
+            
+            // Acak pertanyaan lagi saat reset game
+            initializeQuestions();
+            
+            // Reset timer display
+            document.getElementById('timerDisplay').textContent = '00:00';
+            
+            document.getElementById('scoreContainer').textContent = `Skor: 0`;
+            loadQuestion();
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const elements = document.querySelectorAll('.animated');
+
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = "translateY(0)";
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
