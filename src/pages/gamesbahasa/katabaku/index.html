@@ -363,20 +363,20 @@
 
     <script>
         // Disable keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             // Disable Ctrl+U (View Page Source)
             if (e.ctrlKey && e.key === 'u') {
                 e.preventDefault();
                 return false;
             }
-            
+
             // Other keyboard shortcuts you may want to disable
             if (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'p' || e.key === 'P')) {
                 e.preventDefault();
                 return false;
             }
         });
-        
+
         let score = 0;
         let currentQuestionIndex = 0;
         let timerInterval;
@@ -384,128 +384,55 @@
         let isTimerRunning = false;
         let correctAnswers = 0;
         let shuffledQuestions = [];
-        
+
         const questions = [
-            {
-                question: "Manakah kata yang baku?",
-                options: ["apotik", "apotek"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'apotek' sesuai KBBI."
-            },
-            {
-                question: "Manakah penulisan yang baku?",
-                options: ["praktek", "praktik"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'praktik' sesuai KBBI."
-            },
-            {
-                question: "Pilih kata baku yang tepat:",
-                options: ["jaman", "zaman"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'zaman' sesuai KBBI."
-            },
-            {
-                question: "Manakah penulisan yang baku?",
-                options: ["nasehat", "nasihat"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'nasihat' sesuai KBBI."
-            },
-            {
-                question: "Pilih kata baku yang benar:",
-                options: ["tehnik", "teknik"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'teknik' sesuai KBBI."
-            },
-            {
-                question: "Manakah kata yang baku?",
-                options: ["resiko", "risiko"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'risiko' sesuai KBBI."
-            },
-            {
-                question: "Pilih kata yang sesuai dengan ejaan baku:",
-                options: ["aktifitas", "aktivitas"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'aktivitas' sesuai KBBI."
-            },
-            {
-                question: "Manakah bentuk yang benar menurut KBBI?",
-                options: ["atlit", "atlet"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'atlet' sesuai KBBI."
-            },
-            {
-                question: "Pilih kata yang sesuai dengan ejaan baku:",
-                options: ["ijin", "izin"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'izin' sesuai KBBI."
-            },
-            {
-                question: "Manakah kata yang baku?",
-                options: ["kwalitas", "kualitas"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'kualitas' sesuai KBBI."
-            },
-            {
-                question: "Pilih kata baku yang benar:",
-                options: ["cinderamata", "cenderamata"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'cenderamata' sesuai KBBI."
-            },
-            {
-                question: "Manakah penulisan yang baku?",
-                options: ["memeriksa", "meriksa"],
-                answer: 0,
-                explanation: "Kata baku yang benar adalah 'memeriksa' sesuai KBBI."
-            },
-            {
-                question: "Pilih kata baku yang benar:",
-                options: ["sekedar", "sekadar"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'sekadar' sesuai KBBI."
-            },
-            {
-                question: "Manakah kata yang baku?",
-                options: ["analisa", "analisis"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'analisis' sesuai KBBI."
-            },
-            {
-                question: "Pilih kata baku yang benar:",
-                options: ["frekwensi", "frekuensi"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'frekuensi' sesuai KBBI."
-            },
-            {
-                question: "Manakah bentuk yang benar menurut KBBI?",
-                options: ["karir", "karier"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'karier' sesuai KBBI."
-            },
-            {
-                question: "Pilih kata baku yang benar:",
-                options: ["objektif", "obyektif"],
-                answer: 0,
-                explanation: "Kata baku yang benar adalah 'objektif' sesuai KBBI."
-            },
-            {
-                question: "Manakah penulisan yang baku?",
-                options: ["efektif", "efektip"],
-                answer: 0,
-                explanation: "Kata baku yang benar adalah 'efektif' sesuai KBBI."
-            },
-            {
-                question: "Pilih kata yang sesuai dengan ejaan baku:",
-                options: ["aktif", "aktip"],
-                answer: 0,
-                explanation: "Kata baku yang benar adalah 'aktif' sesuai KBBI."
-            },
-            {
-                question: "Manakah kata yang baku?",
-                options: ["esklusif", "eksklusif"],
-                answer: 1,
-                explanation: "Kata baku yang benar adalah 'eksklusif' sesuai KBBI."
-            }
+            { question: "Mana kata yang baku?", options: ["sekedar", "sekadar"], answer: 1, explanation: "'Sekadar' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata yang benar:", options: ["aktifitas", "aktivitas"], answer: 1, explanation: "'Aktivitas' adalah bentuk baku menurut KBBI." },
+            { question: "Manakah yang benar?", options: ["efektif", "efektip"], answer: 0, explanation: "'Efektif' adalah kata baku yang benar." },
+            { question: "Pilih kata baku:", options: ["analisa", "analisis"], answer: 1, explanation: "'Analisis' adalah bentuk baku menurut KBBI." },
+            { question: "Mana yang sesuai KBBI?", options: ["subjektif", "subyektif"], answer: 0, explanation: "'Subjektif' adalah kata baku yang benar." },
+            { question: "Pilih kata yang benar:", options: ["trilyun", "triliun"], answer: 1, explanation: "'Triliun' adalah kata baku menurut KBBI." },
+            { question: "Mana yang baku?", options: ["mempertanggungjawabkan", "mempertanggung jawabkan"], answer: 0, explanation: "'Mempertanggungjawabkan' ditulis serangkai dalam bentuk baku." },
+            { question: "Pilih bentuk yang benar:", options: ["frekwensi", "frekuensi"], answer: 1, explanation: "'Frekuensi' adalah bentuk baku menurut KBBI." },
+            { question: "Manakah kata yang sesuai KBBI?", options: ["resiko", "risiko"], answer: 1, explanation: "'Risiko' adalah bentuk baku yang benar." },
+            { question: "Pilih bentuk baku:", options: ["demokratisasi", "demokratisisasi"], answer: 0, explanation: "'Demokratisasi' adalah kata baku menurut KBBI." },
+            { question: "Mana yang sesuai KBBI?", options: ["destinasi", "destionasi"], answer: 0, explanation: "'Destinasi' adalah bentuk baku yang benar." },
+            { question: "Pilih kata yang baku:", options: ["komplek", "kompleks"], answer: 1, explanation: "'Kompleks' adalah kata baku menurut KBBI." },
+            { question: "Mana yang baku?", options: ["diagnosa", "diagnosis"], answer: 1, explanation: "'Diagnosis' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata yang benar:", options: ["formalitas", "formalisasi"], answer: 0, explanation: "'Formalitas' adalah kata baku yang benar." },
+            { question: "Mana yang sesuai KBBI?", options: ["obat nyamuk", "repelan"], answer: 1, explanation: "'Repelan' adalah istilah baku untuk obat nyamuk." },
+            { question: "Manakah yang benar?", options: ["atlit", "atlet"], answer: 1, explanation: "'Atlet' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata baku:", options: ["hakekat", "hakikat"], answer: 1, explanation: "'Hakikat' adalah kata baku menurut KBBI." },
+            { question: "Manakah kata yang sesuai ejaan baku?", options: ["silahkan", "silakan"], answer: 1, explanation: "'Silakan' adalah bentuk baku menurut KBBI." },
+            { question: "Mana yang benar menurut KBBI?", options: ["sistim", "sistem"], answer: 1, explanation: "'Sistem' adalah bentuk baku yang benar." },
+            { question: "Pilih kata yang sesuai KBBI:", options: ["realita", "realitas"], answer: 1, explanation: "'Realitas' adalah kata baku menurut KBBI." },
+            { question: "Manakah kata baku?", options: ["praktekan", "praktikkan"], answer: 1, explanation: "'Praktikkan' adalah bentuk baku menurut KBBI." },
+            { question: "Mana yang benar?", options: ["meteorologi", "metereologi"], answer: 0, explanation: "'Meteorologi' adalah kata baku yang benar." },
+            { question: "Pilih kata baku:", options: ["apotek", "apotik"], answer: 0, explanation: "'Apotek' adalah bentuk baku menurut KBBI." },
+            { question: "Mana yang sesuai KBBI?", options: ["aktif", "aktifis"], answer: 0, explanation: "'Aktif' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata yang benar:", options: ["pasport", "paspor"], answer: 1, explanation: "'Paspor' adalah kata baku yang benar." },
+            { question: "Mana yang baku?", options: ["rekening", "rekning"], answer: 0, explanation: "'Rekening' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata yang benar:", options: ["tehnologi", "teknologi"], answer: 1, explanation: "'Teknologi' adalah kata baku menurut KBBI." },
+            { question: "Mana yang sesuai KBBI?", options: ["karir", "karier"], answer: 1, explanation: "'Karier' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata baku:", options: ["hipotesa", "hipotesis"], answer: 1, explanation: "'Hipotesis' adalah kata baku menurut KBBI." },
+            { question: "Manakah kata yang benar?", options: ["gizi", "gisi"], answer: 0, explanation: "'Gizi' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata baku:", options: ["nasihat", "nasehat"], answer: 0, explanation: "'Nasihat' adalah kata baku menurut KBBI." },
+            { question: "Mana yang benar menurut KBBI?", options: ["praktek", "praktik"], answer: 1, explanation: "'Praktik' adalah kata baku yang benar." },
+            { question: "Pilih kata yang sesuai KBBI:", options: ["atmosfir", "atmosfer"], answer: 1, explanation: "'Atmosfer' adalah kata baku menurut KBBI." },
+            { question: "Manakah kata baku?", options: ["generalisasi", "generalisir"], answer: 0, explanation: "'Generalisasi' adalah bentuk baku menurut KBBI." },
+            { question: "Mana yang benar?", options: ["respon", "respons"], answer: 1, explanation: "'Respons' adalah kata baku menurut KBBI." },
+            { question: "Pilih kata baku:", options: ["produktifitas", "produktivitas"], answer: 1, explanation: "'Produktivitas' adalah bentuk baku menurut KBBI." },
+            { question: "Mana yang merupakan kata baku?", options: ["kwalitas", "kualitas"], answer: 1, explanation: "'Kualitas' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata yang benar menurut KBBI:", options: ["komersil", "komersial"], answer: 1, explanation: "'Komersial' adalah bentuk baku menurut KBBI." },
+            { question: "Manakah yang sesuai ejaan baku?", options: ["spekulasi", "spekulir"], answer: 0, explanation: "'Spekulasi' adalah bentuk baku yang benar." },
+            { question: "Pilih kata yang benar menurut KBBI:", options: ["efisiensi", "efesien"], answer: 0, explanation: "'Efisiensi' adalah kata baku menurut KBBI." },
+            { question: "Mana kata baku yang benar?", options: ["komunikir", "komunikasi"], answer: 1, explanation: "'Komunikasi' adalah bentuk baku yang benar." },
+            { question: "Pilih kata yang benar menurut KBBI:", options: ["alternatif", "alternatip"], answer: 0, explanation: "'Alternatif' adalah bentuk baku menurut KBBI." },
+            { question: "Manakah kata baku yang benar?", options: ["serapan", "serapah"], answer: 0, explanation: "'Serapan' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata yang sesuai KBBI:", options: ["tragedi", "tragegi"], answer: 0, explanation: "'Tragedi' adalah bentuk baku menurut KBBI." },
+            { question: "Mana yang benar menurut KBBI?", options: ["negosiasi", "negosiasion"], answer: 0, explanation: "'Negosiasi' adalah kata baku yang benar." },
+            { question: "Manakah yang sesuai ejaan baku?", options: ["transparan", "transparansi"], answer: 0, explanation: "'Transparan' adalah bentuk baku menurut KBBI." }
+            
         ];
 
         // Fungsi untuk mengacak array
@@ -520,15 +447,15 @@
 
         // Fungsi untuk mengacak opsi jawaban (sambil mempertahankan answer index)
         function shuffleOptions(question) {
-            const shuffledQuestion = {...question};
+            const shuffledQuestion = { ...question };
             const correctAnswer = question.options[question.answer];
-            
+
             // Acak opsi
             shuffledQuestion.options = shuffleArray(question.options);
-            
+
             // Tentukan indeks jawaban yang benar setelah pengacakan
             shuffledQuestion.answer = shuffledQuestion.options.indexOf(correctAnswer);
-            
+
             return shuffledQuestion;
         }
 
@@ -542,14 +469,14 @@
         // Fungsi untuk toggle timer (start/stop)
         function toggleTimer() {
             const timerButton = document.getElementById('timerButton');
-            
+
             if (!isTimerRunning) {
                 // Mulai timer
                 isTimerRunning = true;
                 timerButton.textContent = 'Stop Timer';
                 timerButton.classList.add('active');
-                
-                timerInterval = setInterval(function() {
+
+                timerInterval = setInterval(function () {
                     timerSeconds++;
                     document.getElementById('timerDisplay').textContent = formatTime(timerSeconds);
                 }, 1000);
@@ -570,7 +497,7 @@
         // Acak pertanyaan saat halaman dimuat
         function initializeQuestions() {
             shuffledQuestions = shuffleArray(questions);
-            
+
             // Acak juga opsi-opsi jawabannya
             shuffledQuestions = shuffledQuestions.map(q => shuffleOptions(q));
         }
@@ -578,7 +505,7 @@
         window.onload = function () {
             // Acak pertanyaan saat halaman dimuat
             initializeQuestions();
-            
+
             // Tambahkan event listener untuk tombol timer
             document.getElementById('timerButton').addEventListener('click', toggleTimer);
             loadQuestion();
@@ -638,11 +565,11 @@
             if (isTimerRunning) {
                 stopTimer();
             }
-            
+
             // Hapus konten pertanyaan dan opsi
             document.getElementById('questionContainer').innerHTML = '';
             document.getElementById('optionsContainer').innerHTML = '';
-            
+
             // Buat container hasil
             const resultsContainer = document.createElement('div');
             resultsContainer.className = 'results-container';
@@ -653,10 +580,10 @@
                 <p>Jawaban benar: <span class="correct-answers">${correctAnswers}</span> dari ${shuffledQuestions.length}</p>
                 <button id="restartButton" class="option-btn" style="margin-top: 15px; background-color: var(--primary-color);">Main Lagi</button>
             `;
-            
+
             // Tambahkan container hasil ke dalam DOM
             document.getElementById('optionsContainer').appendChild(resultsContainer);
-            
+
             // Tambahkan event listener untuk tombol main lagi
             document.getElementById('restartButton').addEventListener('click', resetGame);
         }
@@ -666,13 +593,13 @@
             currentQuestionIndex = 0;
             timerSeconds = 0;
             correctAnswers = 0;
-            
+
             // Acak pertanyaan lagi saat reset game
             initializeQuestions();
-            
+
             // Reset timer display
             document.getElementById('timerDisplay').textContent = '00:00';
-            
+
             document.getElementById('scoreContainer').textContent = `Skor: 0`;
             loadQuestion();
         }

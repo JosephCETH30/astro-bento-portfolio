@@ -104,17 +104,36 @@
         
         .leaderboard {
             background: var(--card-bg);
+            padding: 30px;
             border-radius: 10px;
-            padding: 25px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            margin-top: 2rem;
-            border: 1px solid #333;
+            margin-top: 30px;
+            border: 1px solid var(--border-color);
+            position: relative;
         }
+
         
         .leaderboard h2 {
             text-align: center;
             margin-bottom: 1.5rem;
         }
+
+        .maintenance-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 30, 30, 0.85);
+            backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            border-radius: 10px;
+        }
+
         
         table {
             width: 100%;
@@ -200,6 +219,11 @@
             p {
                 font-size: 1rem;
             }
+
+            .game-container,
+            .leaderboard {
+                padding: 20px;
+            }
             
             .game-menu {
                 grid-template-columns: 1fr 1fr;
@@ -248,7 +272,7 @@
         </header>
         
         <div class="game-menu">
-            <div class="game-card animated delay-1" onclick="window.location.href='gamesbahasa/katabaku/'">
+            <div class="game-card animated delay-1" onclick="window.location.href='katabaku'">
                 <h3><i class="fas fa-spell-check"></i> Kata Baku</h3>
                 <p>Uji pengetahuan Anda tentang kata baku dalam bahasa Indonesia</p>
                 <div style="margin-top: 15px;">
@@ -281,52 +305,53 @@
             </div>
         </div>
         
-        <div class="leaderboard-container animated delay-3">
-            <h2><i class="fas fa-trophy"></i> Leaderboard</h2>
-            <div class="leaderboard">
-                <table id="leaderboardTable">
-                    <thead>
-                        <tr>
-                            <th>Peringkat</th>
-                            <th>Username</th>
-                            <th>Skor</th>
-                            <th>Game</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="rank-1">1</td>
-                            <td>BahasaMaster</td>
-                            <td>950</td>
-                            <td>Kata Baku</td>
-                        </tr>
-                        <tr>
-                            <td class="rank-2">2</td>
-                            <td>KataKita</td>
-                            <td>890</td>
-                            <td>Konotasi Denotasi</td>
-                        </tr>
-                        <tr>
-                            <td class="rank-3">3</td>
-                            <td>PolaAhli</td>
-                            <td>850</td>
-                            <td>Tebak Pola Kalimat</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Linguis01</td>
-                            <td>820</td>
-                            <td>Kata Baku</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>DenoKon</td>
-                            <td>790</td>
-                            <td>Konotasi Denotasi</td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="leaderboard animated delay-3">
+            <h3><i class="fas fa-trophy"></i> Leaderboard Kata Baku</h3>
+            <div class="maintenance-overlay">
+                <div class="maintenance-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="maintenance-text">
+                    Leaderboard sedang dalam maintenance. Aku fokus ubtk juga soalnya jadi tunggu jika ada waktu ya!.
+                    Math juga nanti kubuat.
+                </div>
             </div>
+            <table id="gameLeaderboard">
+                <thead>
+                    <tr>
+                        <th>Peringkat</th>
+                        <th>Username</th>
+                        <th>Skor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rank-1">1</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-2">2</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                    <tr>
+                        <td class="rank-3">3</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>########</td>
+                        <td>###</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
