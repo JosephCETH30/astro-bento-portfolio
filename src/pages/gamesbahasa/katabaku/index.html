@@ -187,27 +187,6 @@
             gap: 10px;
         }
 
-        .timer-button {
-            background-color: var(--primary-color);
-            font-family: 'Satoshi', sans-serif;
-            color: var(--text-primary);
-            border: none;
-            padding: 10px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s;
-        }
-
-        .timer-button:hover {
-            background-color: var(--primary-color);
-        }
-
-        .timer-button.active {
-            background-color: #f44336;
-        }
-
         .timer-display {
             font-weight: 500;
             font-size: 1.1rem;
@@ -286,11 +265,6 @@
                 font-size: 1rem;
             }
 
-            .timer-button {
-                padding: 4px 8px;
-                font-size: 0.8rem;
-            }
-
             .timer-display {
                 font-size: 0.9rem;
             }
@@ -303,7 +277,6 @@
         <div class="game-container animated">
             <h2><i class="fas fa-spell-check"></i> Game Kata Baku</h2>
             <div class="timer-container">
-                <button id="timerButton" class="timer-button">Mulai Timer</button>
                 <div id="timerDisplay" class="timer-display">00:00</div>
             </div>
             <div id="questionContainer"></div>
@@ -466,23 +439,14 @@
             return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
         }
 
-        // Fungsi untuk toggle timer (start/stop)
-        function toggleTimer() {
-            const timerButton = document.getElementById('timerButton');
-
+        // Fungsi untuk memulai timer
+        function startTimer() {
             if (!isTimerRunning) {
-                // Mulai timer
                 isTimerRunning = true;
-                timerButton.textContent = 'Stop Timer';
-                timerButton.classList.add('active');
-
                 timerInterval = setInterval(function () {
                     timerSeconds++;
                     document.getElementById('timerDisplay').textContent = formatTime(timerSeconds);
                 }, 1000);
-            } else {
-                // Hentikan timer
-                stopTimer();
             }
         }
 
@@ -490,8 +454,6 @@
         function stopTimer() {
             clearInterval(timerInterval);
             isTimerRunning = false;
-            document.getElementById('timerButton').textContent = 'Mulai Timer';
-            document.getElementById('timerButton').classList.remove('active');
         }
 
         // Acak pertanyaan saat halaman dimuat
@@ -505,9 +467,6 @@
         window.onload = function () {
             // Acak pertanyaan saat halaman dimuat
             initializeQuestions();
-
-            // Tambahkan event listener untuk tombol timer
-            document.getElementById('timerButton').addEventListener('click', toggleTimer);
             loadQuestion();
         };
 
@@ -527,7 +486,13 @@
                 const button = document.createElement('button');
                 button.className = 'option-btn';
                 button.textContent = option;
-                button.onclick = () => checkAnswer(index);
+                button.onclick = () => {
+                    // Mulai timer saat jawaban pertama dipilih
+                    if (!isTimerRunning && currentQuestionIndex === 0) {
+                        startTimer();
+                    }
+                    checkAnswer(index);
+                };
                 optionsContainer.appendChild(button);
             });
         }
@@ -561,10 +526,8 @@
         }
 
         function endGame() {
-            // Hentikan timer jika sedang berjalan
-            if (isTimerRunning) {
-                stopTimer();
-            }
+            // Hentikan timer
+            stopTimer();
 
             // Hapus konten pertanyaan dan opsi
             document.getElementById('questionContainer').innerHTML = '';
