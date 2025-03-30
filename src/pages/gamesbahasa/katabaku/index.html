@@ -51,6 +51,16 @@
             padding: 20px;
         }
 
+        .settings-form {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
         .game-container {
             background: var(--card-bg);
             padding: 30px;
@@ -59,6 +69,7 @@
             border: 1px solid var(--border-color);
             margin-bottom: 30px;
             position: relative;
+            display: none;
         }
 
         .leaderboard {
@@ -208,6 +219,53 @@
             font-weight: 500;
         }
 
+        /* Input Styling */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .input-group input {
+            width: 100px;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: #252525;
+            color: var(--text-primary);
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .start-btn {
+            padding: 12px 30px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .start-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            color: #f44336;
+            margin-top: 10px;
+            font-size: 0.9rem;
+            display: none;
+        }
+
         /* Animations */
         @keyframes fadeIn {
             from {
@@ -231,6 +289,7 @@
                 padding: 15px;
             }
 
+            .settings-form,
             .game-container,
             .leaderboard {
                 padding: 20px;
@@ -274,7 +333,17 @@
 
 <body oncontextmenu="return false;">
     <div class="container">
-        <div class="game-container animated">
+        <div class="settings-form animated" id="settingsForm">
+            <h2><i class="fas fa-cog"></i> Pengaturan Game</h2>
+            <div class="input-group">
+                <label for="questionCount">Jumlah Pertanyaan (min 3):</label>
+                <input type="number" id="questionCount" min="3" max="50" value="10">
+                <div class="error-message" id="errorMessage">Minimal 3 pertanyaan!</div>
+            </div>
+            <button class="start-btn" onclick="startGame()"><i class="fas fa-play"></i> Mulai Game</button>
+        </div>
+
+        <div class="game-container animated" id="gameContainer">
             <h2><i class="fas fa-spell-check"></i> Game Kata Baku</h2>
             <div class="timer-container">
                 <div id="timerDisplay" class="timer-display">00:00</div>
@@ -337,13 +406,11 @@
     <script>
         // Disable keyboard shortcuts
         document.addEventListener('keydown', function (e) {
-            // Disable Ctrl+U (View Page Source)
             if (e.ctrlKey && e.key === 'u') {
                 e.preventDefault();
                 return false;
             }
 
-            // Other keyboard shortcuts you may want to disable
             if (e.ctrlKey && (e.key === 's' || e.key === 'S' || e.key === 'p' || e.key === 'P')) {
                 e.preventDefault();
                 return false;
@@ -357,6 +424,7 @@
         let isTimerRunning = false;
         let correctAnswers = 0;
         let shuffledQuestions = [];
+        let totalQuestions = 10; // Default value
 
         const questions = [
             { question: "Mana kata yang baku?", options: ["sekedar", "sekadar"], answer: 1, explanation: "'Sekadar' adalah bentuk baku menurut KBBI." },
@@ -405,7 +473,6 @@
             { question: "Pilih kata yang sesuai KBBI:", options: ["tragedi", "tragegi"], answer: 0, explanation: "'Tragedi' adalah bentuk baku menurut KBBI." },
             { question: "Mana yang benar menurut KBBI?", options: ["negosiasi", "negosiasion"], answer: 0, explanation: "'Negosiasi' adalah kata baku yang benar." },
             { question: "Manakah yang sesuai ejaan baku?", options: ["transparan", "transparansi"], answer: 0, explanation: "'Transparan' adalah bentuk baku menurut KBBI." }
-            
         ];
 
         // Fungsi untuk mengacak array
@@ -418,17 +485,12 @@
             return shuffled;
         }
 
-        // Fungsi untuk mengacak opsi jawaban (sambil mempertahankan answer index)
+        // Fungsi untuk mengacak opsi jawaban
         function shuffleOptions(question) {
             const shuffledQuestion = { ...question };
             const correctAnswer = question.options[question.answer];
-
-            // Acak opsi
             shuffledQuestion.options = shuffleArray(question.options);
-
-            // Tentukan indeks jawaban yang benar setelah pengacakan
             shuffledQuestion.answer = shuffledQuestion.options.indexOf(correctAnswer);
-
             return shuffledQuestion;
         }
 
@@ -456,19 +518,41 @@
             isTimerRunning = false;
         }
 
-        // Acak pertanyaan saat halaman dimuat
-        function initializeQuestions() {
-            shuffledQuestions = shuffleArray(questions);
+        // Fungsi untuk memulai game
+        function startGame() {
+            const questionCountInput = document.getElementById('questionCount');
+            const errorMessage = document.getElementById('errorMessage');
+            const count = parseInt(questionCountInput.value);
 
+            // Validasi input
+            if (isNaN(count) || count < 3) {
+                errorMessage.style.display = 'block';
+                return;
+            }
+
+            errorMessage.style.display = 'none';
+            totalQuestions = Math.min(count, questions.length); // Jangan melebihi total pertanyaan yang ada
+
+            // Sembunyikan form settings dan tampilkan game container
+            document.getElementById('settingsForm').style.display = 'none';
+            document.getElementById('gameContainer').style.display = 'block';
+
+            // Acak pertanyaan
+            initializeQuestions();
+            loadQuestion();
+        }
+
+        // Acak pertanyaan
+        function initializeQuestions() {
+            // Acak semua pertanyaan terlebih dahulu
+            let allShuffled = shuffleArray(questions);
+            
+            // Ambil jumlah yang diminta user
+            shuffledQuestions = allShuffled.slice(0, totalQuestions);
+            
             // Acak juga opsi-opsi jawabannya
             shuffledQuestions = shuffledQuestions.map(q => shuffleOptions(q));
         }
-
-        window.onload = function () {
-            // Acak pertanyaan saat halaman dimuat
-            initializeQuestions();
-            loadQuestion();
-        };
 
         function loadQuestion() {
             if (currentQuestionIndex >= shuffledQuestions.length) {
@@ -487,7 +571,6 @@
                 button.className = 'option-btn';
                 button.textContent = option;
                 button.onclick = () => {
-                    // Mulai timer saat jawaban pertama dipilih
                     if (!isTimerRunning && currentQuestionIndex === 0) {
                         startTimer();
                     }
@@ -505,7 +588,7 @@
                 optionButtons[selectedIndex].style.backgroundColor = 'var(--secondary-color)';
                 optionButtons[selectedIndex].style.borderColor = 'var(--secondary-color)';
                 score += 10;
-                correctAnswers++; // Menambah hitungan jawaban benar
+                correctAnswers++;
             } else {
                 optionButtons[selectedIndex].style.backgroundColor = '#d32f2f';
                 optionButtons[selectedIndex].style.borderColor = '#d32f2f';
@@ -526,14 +609,11 @@
         }
 
         function endGame() {
-            // Hentikan timer
             stopTimer();
 
-            // Hapus konten pertanyaan dan opsi
             document.getElementById('questionContainer').innerHTML = '';
             document.getElementById('optionsContainer').innerHTML = '';
 
-            // Buat container hasil
             const resultsContainer = document.createElement('div');
             resultsContainer.className = 'results-container';
             resultsContainer.innerHTML = `
@@ -544,10 +624,7 @@
                 <button id="restartButton" class="option-btn" style="margin-top: 15px; background-color: var(--primary-color);">Main Lagi</button>
             `;
 
-            // Tambahkan container hasil ke dalam DOM
             document.getElementById('optionsContainer').appendChild(resultsContainer);
-
-            // Tambahkan event listener untuk tombol main lagi
             document.getElementById('restartButton').addEventListener('click', resetGame);
         }
 
@@ -557,14 +634,13 @@
             timerSeconds = 0;
             correctAnswers = 0;
 
-            // Acak pertanyaan lagi saat reset game
-            initializeQuestions();
-
-            // Reset timer display
+            // Reset tampilan
             document.getElementById('timerDisplay').textContent = '00:00';
-
             document.getElementById('scoreContainer').textContent = `Skor: 0`;
-            loadQuestion();
+            
+            // Tampilkan kembali form settings
+            document.getElementById('settingsForm').style.display = 'block';
+            document.getElementById('gameContainer').style.display = 'none';
         }
 
         document.addEventListener("DOMContentLoaded", () => {
