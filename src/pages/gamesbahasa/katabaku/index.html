@@ -336,9 +336,9 @@
         <div class="settings-form animated" id="settingsForm">
             <h2><i class="fas fa-cog"></i> Pengaturan Game</h2>
             <div class="input-group">
-                <label for="questionCount">Jumlah Pertanyaan (min 3):</label>
-                <input type="number" id="questionCount" min="3" max="50" value="10">
-                <div class="error-message" id="errorMessage">Minimal 3 pertanyaan!</div>
+                <label for="questionCount">Jumlah Pertanyaan :</label>
+                <input type="number" id="questionCount" min="3" max="50" value="1">
+                <div class="error-message" id="errorMessage">Minimal 3 pertanyaan, Maksimal 55!</div>
             </div>
             <button class="start-btn" onclick="startGame()"><i class="fas fa-play"></i> Mulai Game</button>
         </div>
@@ -472,7 +472,17 @@
             { question: "Manakah kata baku yang benar?", options: ["serapan", "serapah"], answer: 0, explanation: "'Serapan' adalah bentuk baku menurut KBBI." },
             { question: "Pilih kata yang sesuai KBBI:", options: ["tragedi", "tragegi"], answer: 0, explanation: "'Tragedi' adalah bentuk baku menurut KBBI." },
             { question: "Mana yang benar menurut KBBI?", options: ["negosiasi", "negosiasion"], answer: 0, explanation: "'Negosiasi' adalah kata baku yang benar." },
-            { question: "Manakah yang sesuai ejaan baku?", options: ["transparan", "transparansi"], answer: 0, explanation: "'Transparan' adalah bentuk baku menurut KBBI." }
+            { question: "Manakah yang sesuai ejaan baku?", options: ["transparan", "transparansi"], answer: 0, explanation: "'Transparan' adalah bentuk baku menurut KBBI." },
+            { question: "Mana kata yang baku?", options: ["eksploitir", "eksploitasi"], answer: 1, explanation: "'Eksploitasi' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata yang benar menurut KBBI:", options: ["implementir", "implementasi"], answer: 1, explanation: "'Implementasi' adalah kata baku yang benar." },
+            { question: "Manakah kata baku yang benar?", options: ["kreatifitas", "kreativitas"], answer: 1, explanation: "'Kreativitas' adalah bentuk baku menurut KBBI." },
+            { question: "Mana yang benar menurut KBBI?", options: ["efektifitas", "efektivitas"], answer: 1, explanation: "'Efektivitas' adalah kata baku menurut KBBI." },
+            { question: "Pilih kata yang sesuai KBBI:", options: ["konsekwensi", "konsekuensi"], answer: 1, explanation: "'Konsekuensi' adalah bentuk baku menurut KBBI." },
+            { question: "Manakah yang benar?", options: ["tradisionalisasi", "tradisionalisme"], answer: 1, explanation: "'Tradisionalisme' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata baku:", options: ["legalisir", "legalisasi"], answer: 1, explanation: "'Legalisasi' adalah kata baku yang benar." },
+            { question: "Mana yang merupakan kata baku?", options: ["universil", "universal"], answer: 1, explanation: "'Universal' adalah bentuk baku menurut KBBI." },
+            { question: "Pilih kata yang benar menurut KBBI:", options: ["konkrit", "konkret"], answer: 1, explanation: "'Konkret' adalah bentuk baku menurut KBBI." },
+            { question: "Manakah yang sesuai ejaan baku?", options: ["komprehensif", "komperhensif"], answer: 0, explanation: "'Komprehensif' adalah bentuk baku yang benar." },
         ];
 
         // Fungsi untuk mengacak array
@@ -546,10 +556,10 @@
         function initializeQuestions() {
             // Acak semua pertanyaan terlebih dahulu
             let allShuffled = shuffleArray(questions);
-            
+
             // Ambil jumlah yang diminta user
             shuffledQuestions = allShuffled.slice(0, totalQuestions);
-            
+
             // Acak juga opsi-opsi jawabannya
             shuffledQuestions = shuffledQuestions.map(q => shuffleOptions(q));
         }
@@ -637,7 +647,7 @@
             // Reset tampilan
             document.getElementById('timerDisplay').textContent = '00:00';
             document.getElementById('scoreContainer').textContent = `Skor: 0`;
-            
+
             // Tampilkan kembali form settings
             document.getElementById('settingsForm').style.display = 'block';
             document.getElementById('gameContainer').style.display = 'none';
