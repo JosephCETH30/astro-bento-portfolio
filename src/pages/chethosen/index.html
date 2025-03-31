@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineView - Modern Movie Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a6cf4;
+            --dark: #141414;
+            --dark-gray: #222;
+            --medium-gray: #444;
+            --light-gray: #999;
+            --light: #fff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--medium-gray);
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .player-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            /* 16:9 aspect ratio */
+            margin-bottom: 30px;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .player-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-info {
+            margin-bottom: 40px;
+        }
+
+        .video-info h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .video-info p {
+            color: var(--light-gray);
+            margin-bottom: 15px;
+        }
+
+        .season-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .season-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .episode-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .nav-button {
+            background-color: var(--dark-gray);
+            color: var(--light);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .nav-button:hover {
+            background-color: var(--primary);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-button:disabled:hover {
+            background-color: var(--dark-gray);
+        }
+
+        .episodes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .episode-card {
+            background-color: var(--dark-gray);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .episode-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .episode-thumbnail {
+            width: 100%;
+            height: 120px;
+            background-color: var(--medium-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-gray);
+        }
+
+        .episode-details {
+            padding: 12px;
+        }
+
+        .episode-details h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .episode-details p {
+            font-size: 13px;
+            color: var(--light-gray);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid var(--medium-gray);
+            color: var(--light-gray);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .episodes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .episodes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            }
+
+            .episode-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <nav class="nav-links">
+                <a href="https://instagram.com/pyosephlib">Report Error</a>
+            </nav>
+        </header>
+        
+        <div class="player-container">
+            <iframe class="player-iframe" id="video-player" allow="autoplay"></iframe>
+        </div>
+
+        <div class="video-info">
+            <h1 id="episode-title">Episode 1</h1>
+            <p id="episode-meta">Season 1 • Episode 1 • 51m</p>
+            <p id="episode-desc">The Chosen One - No Horror Things</p>
+        </div>
+
+
+        <div class="episode-nav">
+            <button class="nav-button" id="prev-episode">
+                <i class="fas fa-arrow-left"></i> Previous Episode
+            </button>
+            <button class="nav-button" id="next-episode">
+                Next Episode <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <footer>
+            <p>© 2025 yosephrafael.com. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        const episodes = [
+            {
+                id: 1,
+                title: "Episode 1",
+                duration: "56m",
+                description: "The beginning of the story where characters are introduced.",
+                videoUrl: "https://drive.google.com/file/d/1EkzuFc6AwjHQCnQ3z0qucGZ_gV5gMJtD/preview"
+            },
+            {
+                id: 2,
+                title: "Episode 2",
+                duration: "80m",
+                description: "The plot thickens as mysteries start to unfold.",
+                videoUrl: "https://drive.google.com/file/d/11QV0YY-p-4cYjfbo88g1Mi5lgWT1p4nq/preview"
+            },
+            {
+                id: 3,
+                title: "Episode 3",
+                duration: "44m",
+                description: "Characters face their first major challenges.",
+                videoUrl: "https://drive.google.com/file/d/1glpEMOf9QgO1CoG2UGhaDC4AuJ2G3mJ4/preview"
+            },
+            {
+                id: 4,
+                title: "Episode 4",
+                duration: "57m",
+                description: "Unexpected twists change the course of events.",
+                videoUrl: "https://drive.google.com/file/d/15ktvkBNGocO6PzkyOXuFBVE2Esi3k5GK/preview"
+            },
+            {
+                id: 5,
+                title: "Episode 5",
+                duration: "65m",
+                description: "Relationships are tested under pressure.",
+                videoUrl: "https://drive.google.com/file/d/16sZa-MpiNNzuU_KLrF2896XPJhqC6UJt/preview"
+            },
+            {
+                id: 6,
+                title: "Episode 6",
+                duration: "64m",
+                description: "The midpoint brings revelations and new questions.",
+                videoUrl: "https://drive.google.com/file/d/1JRVGEccxp9yukDCyQciQ67lF1h_6frBs/preview"
+            },
+            {
+                id: 7,
+                title: "Episode 7",
+                duration: "73m",
+                description: "Tensions rise as the climax approaches.",
+                videoUrl: "https://drive.google.com/file/d/1gcc0INfMlYh23HzFrtte6_20kW3qmRBj/preview"
+            },
+            {
+                id: 8,
+                title: "Episode 8",
+                duration: "84m",
+                description: "Season finale with dramatic conclusions and cliffhangers.",
+                videoUrl: "https://drive.google.com/file/d/1LOLjJxh1f-aLFIRYDl35_0YgW1AYuOlz/preview"
+            }
+        ];
+
+        // Current episode tracking
+        let currentEpisodeIndex = 0;
+        const player = document.getElementById('video-player');
+        const episodeTitle = document.getElementById('episode-title');
+        const episodeMeta = document.getElementById('episode-meta');
+        const episodeDesc = document.getElementById('episode-desc');
+        const episodesContainer = document.getElementById('episodes-container');
+        const prevButton = document.getElementById('prev-episode');
+        const nextButton = document.getElementById('next-episode');
+
+        // Initialize the player with first episode
+        function loadEpisode(index) {
+            const episode = episodes[index];
+            player.src = episode.videoUrl;
+            episodeTitle.textContent = episode.title;
+            episodeMeta.textContent = `Season 1 • Episode ${episode.id} • ${episode.duration}`;
+            episodeDesc.textContent = episode.description;
+            
+            
+            // Update active state in grid
+            document.querySelectorAll('.episode-card').forEach(card => {
+                card.classList.remove('active');
+                if (parseInt(card.getAttribute('data-episode')) === episode.id) {
+                    card.classList.add('active');
+                }
+            });
+            
+            // Update button states
+            prevButton.disabled = index === 0;
+            nextButton.disabled = index === episodes.length - 1;
+            
+            currentEpisodeIndex = index;
+        }
+
+        // Generate episode cards
+        function generateEpisodeCards() {
+            episodesContainer.innerHTML = '';
+            episodes.forEach(episode => {
+                const card = document.createElement('div');
+                card.className = 'episode-card';
+                if (episode.id === 1) card.classList.add('active');
+                card.setAttribute('data-episode', episode.id);
+                
+                card.innerHTML = `
+                    <div class="episode-thumbnail">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="episode-details">
+                        <h3>${episode.title}</h3>
+                        <p>${episode.duration}</p>
+                    </div>
+                `;
+                
+                card.addEventListener('click', () => {
+                    loadEpisode(episode.id - 1);
+                });
+                
+                episodesContainer.appendChild(card);
+            });
+        }
+
+        // Navigation controls
+        prevButton.addEventListener('click', () => {
+            if (currentEpisodeIndex > 0) {
+                loadEpisode(currentEpisodeIndex - 1);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentEpisodeIndex < episodes.length - 1) {
+                loadEpisode(currentEpisodeIndex + 1);
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft' && currentEpisodeIndex > 0) {
+                loadEpisode(currentEpisodeIndex - 1);
+            } else if (e.key === 'ArrowRight' && currentEpisodeIndex < episodes.length - 1) {
+                loadEpisode(currentEpisodeIndex + 1);
+            }
+        });
+
+        // Initialize
+        generateEpisodeCards();
+        loadEpisode(0);
+
+        // Content protection
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('selectstart', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 67 || e.keyCode === 83)) {
+                e.preventDefault();
+            }
+            if (e.keyCode === 123) {
+                e.preventDefault();
+            }
+        });
+        
+        document.addEventListener('dragstart', function(e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
