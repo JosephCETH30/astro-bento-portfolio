@@ -17,7 +17,7 @@ const posts = (await getCollection("blog"))?.sort(
     (blogEntryA.data.pubDate || new Date()).getTime()
 );
 ---
-
+ 
 <script>
   import { stagger, spring, timeline, type TimelineDefinition } from "motion";
   import { loaderAnimation } from "../lib/constants";
