@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tool Details</title>
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2E7D32;
+            --accent-color: #8BC34A;
+            --dark-bg: #121212;
+            --card-bg: #1E1E1E;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --border-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Satoshi', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(51, 51, 51, 0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 10px;
+            z-index: 100;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 0 0 12px 12px;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .navbar-brand {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-right: 2rem;
+        }
+        
+        .nav-center {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .support-btn {
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .support-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 26px;
+            height: 18px;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background-color: var(--text-primary);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        .content-divider {
+            height: 1px;
+            background-color: var(--border-color);
+            margin: 0 auto 2rem;
+            max-width: 1200px;
+        }
+        
+        /* Tool Detail Specific Styles */
+        .tool-detail-container {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+        
+        .tool-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            gap: 2rem;
+        }
+        
+        .tool-icon-lg {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        
+        .tool-title-lg {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tool-category {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .tool-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        .tool-description-lg {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            margin: 1rem 0;
+        }
+        
+        .feature-list li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            margin-right: 10px;
+        }
+        
+        .tool-sidebar {
+            background-color: rgba(30, 30, 30, 0.7);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .info-item {
+            margin-bottom: 1rem;
+        }
+        
+        .info-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .info-value {
+            font-weight: 500;
+        }
+        
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.7rem 1.5rem;
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 6px;
+            text-decoration: none;
+            margin-top: 2rem;
+            font-weight: 500;
+        }
+        
+        
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .breadcrumb span {
+            margin: 0 0.5rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .tool-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .tool-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+            
+            .support-btn {
+                display: none;
+            }
+            
+            .nav-right {
+                display: none;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav-center {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: rgba(30, 30, 30, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                gap: 2rem;
+                transition: left 0.3s ease;
+                z-index: 99;
+            }
+            
+            .nav-center.active {
+                left: 0;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-left">
+            <a href="https://yosephrafael.com/AI-Tools" class="navbar-brand">Joseph</a>
+        </div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <div class="nav-center" id="nav-center">
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#">Tools</a>
+                <a href="#">Categories</a>
+                <a href="#">About</a>
+            </div>
+        </div>
+        
+        <div class="nav-right">
+            <button class="support-btn">Contact Support</button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        
+        <a href="https://yosephrafael.com/AI-Tools" class="back-btn">← Back to All Tools</a>
+        <div class="breadcrumb">
+            <a href="https://yosephrafael.com/AI-Tools">Home</a>
+            <span>/</span>
+            <a href="#">AI Tools</a>
+            <span>/</span>
+            <span>ChatGPT</span>
+        </div>
+        
+        <div class="tool-detail-container">
+            <div class="tool-header">
+                <img src="https://cdn.pixabay.com/photo/2023/05/08/00/43/chatgpt-7977357_1280.png" alt="ChatGPT" class="tool-icon-lg">
+                <div>
+                    <h1 class="tool-title-lg">ChatGPT</h1>
+                    <div class="tool-category">AI Chatbot</div>
+                </div>
+            </div>
+            
+            <div class="content-divider"></div>
+            
+            <div class="tool-content">
+                <div class="tool-main">
+                    <h2>Overview</h2>
+                    <p class="tool-description-lg">ChatGPT helps you get answers, find inspiration and be more productive. It is free to use and easy to try. Just ask and ChatGPT can help with writing, learning, brainstorming and more.</p>
+                    
+                    <h2>Key Features</h2>
+                    <ul class="feature-list">
+                        <li>Natural language conversations</li>
+                        <li>Code writing and debugging</li>
+                        <li>Creative writing assistance</li>
+                        <li>Knowledge across many topics</li>
+                        <li>Available 24/7</li>
+                    </ul>
+                    
+                </div>
+                
+                <div class="tool-sidebar">
+                    <div class="info-item">
+                        <div class="info-label">Developer</div>
+                        <div class="info-value">OpenAI</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Latest Version</div>
+                        <div class="info-value">GPT-4</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Release Date</div>
+                        <div class="info-value">November 2022</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-label">Website</div>
+                        <div class="info-value"><a href="https://chat.openai.com" style="color: var(--primary-color);">chat.openai.com</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navCenter = document.getElementById('nav-center');
+        
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navCenter.classList.toggle('active');
+        });
+        
+        // Support button functionality
+        const supportBtns = document.querySelectorAll('.support-btn');
+        supportBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                alert('Support contact form would appear here!');
+            });
+        });
+    </script>
+</body>
+</html>
