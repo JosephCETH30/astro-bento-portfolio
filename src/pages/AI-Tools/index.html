@@ -158,6 +158,7 @@
             margin: 0 auto 2rem;
             max-width: 1200px;
             animation: fadeIn 1s ease-out;
+            border: 1px solid var(--border-color);
         }
 
         .container {
@@ -190,14 +191,16 @@
             max-width: 700px;
             margin: 0 auto;
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
             animation: slideUp 0.8s ease-out;
+            align-items: center;
         }
 
         #searchBar {
             flex: 1;
+            min-width: 150px; /* Agar tidak terlalu kecil saat responsive */
             padding: 0.9rem 1.5rem;
-            border-radius: 30px;
+            border-radius: 5px;
             border: none;
             background-color: var(--card-bg);
             color: var(--text-primary);
@@ -206,10 +209,97 @@
             font-family: 'Satoshi', sans-serif;
         }
 
-        #searchBar:focus {
+        .category-filter {
+            position: relative;
+            min-width: 150px;
+        }
+
+        .category-filter select {
+            width: 100%;
+            padding: 0.9rem 1.5rem;
+            padding-right: 2rem; /* Space for dropdown arrow */
+            border-radius: 5px;
+            border: none;
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            font-family: 'Satoshi', sans-serif;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .category-filter::after {
+            content: '▼';
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            pointer-events: none;
+            font-size: 0.7rem;
+        }
+
+        .reset-btn {
+            padding: 0.9rem 1.5rem;
+            border-radius: 5px;
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 0.95rem;
+            white-space: nowrap;
+        }
+
+        .reset-btn:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+
+        .filter-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .category-filter {
+            position: relative;
+            width: 200px;
+        }
+
+        .category-filter select {
+            width: 100%;
+            padding: 0.9rem 1.5rem;
+            border-radius: 5px;
+            border: none;
+            background-color: var(--card-bg);
+            color: var(--text-primary);
+            font-size: 0.95rem;
+            border: 1px solid var(--border-color);
+            font-family: 'Satoshi', sans-serif;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .category-filter select:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+        }
+
+        .category-filter::after {
+            content: '▼';
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            pointer-events: none;
+            font-size: 0.7rem;
         }
 
         .filter-btn {
@@ -223,6 +313,8 @@
             align-items: center;
             gap: 0.5rem;
             font-family: 'Satoshi', sans-serif;
+            height: 44px;
+            white-space: nowrap;
         }
 
         .filter-btn:hover {
@@ -245,12 +337,32 @@
             padding: 1.5rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border: 1px solid var(--border-color);
+            position: relative;
         }
 
         .tool-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             border-color: var(--primary-color);
+        }
+
+        .tool-badges {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: flex-end;
+        }
+
+        .tool-badge {
+            color: var(--text-primary);
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            white-space: nowrap;
         }
 
         .tool-icon {
@@ -324,8 +436,6 @@
             }
         }
 
-
-
         /* Responsive Styles */
         @media (max-width: 992px) {
             .nav-links {
@@ -334,6 +444,24 @@
         }
 
         @media (max-width: 768px) {
+            .search-container {
+                flex-wrap: wrap;
+            }
+            
+            #searchBar {
+                min-width: 100%;
+                order: 1;
+            }
+            
+            .category-filter {
+                flex: 1;
+                min-width: auto;
+                order: 2;
+            }
+            
+            .reset-btn {
+                order: 3;
+            }
             .navbar {
                 position: sticky;
                 top: 0;
@@ -344,13 +472,11 @@
                 padding: 1rem;
                 z-index: 100;
                 height: 70px;
-                /* Fixed height */
                 box-sizing: border-box;
             }
 
             .container {
                 padding-top: 70px;
-                /* Match navbar height */
             }
 
             .tool-header {
@@ -378,7 +504,6 @@
             .nav-center {
                 position: fixed;
                 top: 70px;
-                /* Exactly below navbar */
                 left: 0;
                 width: 100%;
                 background-color: rgba(30, 30, 30, 0.98);
@@ -388,7 +513,6 @@
                 align-items: center;
                 padding: 0;
                 margin: 0;
-                /* Remove any default margins */
                 z-index: 99;
                 overflow: hidden;
                 max-height: 0;
@@ -399,7 +523,6 @@
                     transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
                 box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
                 border-top: none;
-                /* Ensure no border */
             }
 
             .nav-center.active {
@@ -437,7 +560,6 @@
                     transform 0.4s ease;
             }
 
-            /* Sequential animation for each link */
             .nav-center.active .nav-links a:nth-child(1) {
                 opacity: 1;
                 transform: translateY(0);
@@ -469,6 +591,20 @@
             .tools-grid {
                 grid-template-columns: 1fr;
             }
+
+            .search-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filter-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .category-filter {
+                width: 100%;
+            }
         }
 
         @media (max-width: 576px) {
@@ -486,13 +622,10 @@
                 padding: 1.5rem 0 2rem;
             }
 
-            .search-container {
-                flex-direction: column;
-            }
-
             .filter-btn {
                 justify-content: center;
                 padding: 0.8rem;
+                width: 100%;
             }
 
             .support-btn {
@@ -505,7 +638,12 @@
                 display: none;
             }
         }
-        
+
+        @media (max-width: 480px) {
+            .category-filter, .reset-btn {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
@@ -543,14 +681,35 @@
 
             <div class="search-container">
                 <input type="text" id="searchBar" placeholder="Search tools...">
+                <button class="filter-btn" id="searchBtn">
+                    Search
+                </button>
+                <div class="category-filter">
+                    <select id="categoryFilter">
+                        <option value="all">All</option>
+                        <option value="paid">Paid</option>
+                        <option value="free">Free</option>
+                        <option value="toptools">Top Tools (HOT)</option>
+                        <option value="text">Text Generator</option>
+                        <option value="image">Image Generator</option>
+                        <option value="code">Code Assistant</option>
+                        <option value="video">Video Generator</option>
+                    </select>
+                </div>
+                <button class="filter-btn" id="resetFilters">
+                    Reset Filters
+                </button>
+        
             </div>
+            
+            
         </header>
 
         <div class="content-divider"></div>
 
         <main>
             <div class="tools-grid" id="toolsContainer">
-                <h1>Featured Tools</h1>
+                
             </div>
         </main>
 
@@ -565,7 +724,8 @@
                 id: 1,
                 title: "ChatGPT",
                 description: "ChatGPT helps you get answers, find inspiration and be more productive. It is free to use and easy to try.",
-                category: "Machine Learning",
+                category: "text",
+                tags: ["text", "free", "paid", "toptools"],
                 image: "https://cdn.pixabay.com/photo/2023/05/08/00/43/chatgpt-7977357_1280.png",
                 link: "https://yosephrafael.com/AI-Tools/details/chatgpt"
             },
@@ -573,7 +733,8 @@
                 id: 2,
                 title: "DeepSeek | 深度求索",
                 description: "深度求索（DeepSeek），成立于2023年，专注于研究世界领先的通用人工智能底层模型与技术，挑战人工智能前沿性难题。基于自研训练框架、自建智算集群和万卡算力等资源",
-                category: "Machine Learning",
+                category: "text",
+                tags: ["text", "chat", "code", "free"],
                 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7VWRBg1RU4RrOGIh_o0mzvPkIlkQvlYBxRA&s",
                 link: "https://yosephrafael.com/AI-Tools/details/deepseek"
             },
@@ -581,17 +742,37 @@
                 id: 3,
                 title: "Claude",
                 description: "Claude is a next generation AI assistant built by Anthropic and trained to be safe, accurate, and secure to help you do your best work. Create with Claude.",
-                category: "Machine Learning",
+                category: "text",
+                tags: ["text", "chat", "free"],
                 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmN6IGfewSlkA6vZ_-mrJsRliWWV_PYZ0J9g&s",
                 link: "https://yosephrafael.com/AI-Tools/details/claude"
             },
             {
+                id: 4,
+                title: "Midjourney",
+                description: "Midjourney is an independent research lab exploring new mediums of thought and expanding the imaginative powers of the human species.",
+                category: "image",
+                tags: ["image", "art", "paid"],
+                image: "https://getsby.com/wp-content/uploads/2025/03/Midjourney-logo-1.png",
+                link: "https://yosephrafael.com/AI-Tools/details/midjourney"
+            },
+            {
                 id: 5,
                 title: "Jasper",
-                description: "Jasper AI is an AI-powered writing tool that helps marketers create content. It can be used to write blog posts, product descriptions, marketing copy, and more. ",
-                category: "Machine Learning",
+                description: "Jasper AI is an AI-powered writing tool that helps marketers create content. It can be used to write blog posts, product descriptions, marketing copy, and more.",
+                category: "text",
+                tags: ["text", "writing", "paid"],
                 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRT1NnTvksgbH9nplArUKrVUCOwu2BVwAiWLw&s",
                 link: "https://yosephrafael.com/AI-Tools/details/jasper"
+            },
+            {
+                id: 6,
+                title: "Runway ML",
+                description: "Runway ML is an applied AI research company shaping the next era of art, entertainment and human creativity.",
+                category: "video",
+                tags: ["video", "art", "paid"],
+                image: "https://docubase.mit.edu/wp-content/uploads/2020/04/runway-logo-420x420.png",
+                link: "https://yosephrafael.com/AI-Tools/details/runwayml"
             }
         ];
 
@@ -600,14 +781,30 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const navCenter = document.getElementById('nav-center');
         const supportBtn = document.querySelector('.support-btn');
+        const searchBtn = document.getElementById('searchBtn');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const resetFilters = document.getElementById('resetFilters');
 
         function displayTools(toolsToDisplay) {
             toolsContainer.innerHTML = '';
 
+            if (toolsToDisplay.length === 0) {
+                toolsContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary)">No tools found matching your search criteria.</p>';
+                return;
+            }
+
             toolsToDisplay.forEach(tool => {
                 const toolCard = document.createElement('div');
                 toolCard.className = 'tool-card';
+                
                 toolCard.innerHTML = `
+                    <div class="tool-badges">
+                        ${tool.tags.map(tag => `
+                            <span class="tool-badge" style="background-color: ${getTagColor(tag)};">
+                                ${formatTagName(tag)}
+                            </span>
+                        `).join('')}
+                    </div>
                     <img src="${tool.image}" alt="${tool.title}" class="tool-icon">
                     <h3 class="tool-title">${tool.title}</h3>
                     <p class="tool-description">${tool.description}</p>
@@ -617,16 +814,73 @@
             });
         }
 
+        function formatTagName(tag) {
+            const tagNames = {
+                'text': 'Text',
+                'image': 'Image',
+                'code': 'Code',
+                'video': 'Video',
+                'free': 'Free',
+                'paid': 'Paid',
+                'toptools': 'Top',
+                'chat': 'Chat',
+                'art': 'Art',
+                'writing': 'Writing',
+                'developer': 'Dev'
+            };
+            return tagNames[tag] || tag;
+        }
+
+        function getTagColor(tag) {
+            const colors = {
+                'text': 'rgba(74, 144, 226, 0.1)',
+                'image': 'rgba(156, 39, 176, 0.1)',
+                'code': 'rgba(0, 188, 212, 0.1)',
+                'video': 'rgba(255, 87, 34, 0.1)',
+                'free': 'rgba(76, 175, 80, 0.1)',
+                'paid': 'rgba(244, 67, 54, 0.1)',
+                'toptools': 'rgba(255, 193, 7, 0.1)',
+                'chat': 'rgba(100, 181, 246, 0.1)',
+                'art': 'rgba(171, 71, 188, 0.1)',
+                'writing': 'rgba(77, 182, 172, 0.1)',
+                'developer': 'rgba(77, 182, 172, 0.1)',
+                'default': 'rgba(158, 158, 158, 0.1)'
+            };
+            return colors[tag] || colors['default'];
+        }
+
         function filterTools() {
             const searchTerm = searchBar.value.toLowerCase();
-            const filteredTools = tools.filter(tool =>
-                tool.title.toLowerCase().includes(searchTerm) ||
-                tool.description.toLowerCase().includes(searchTerm) ||
-                tool.category.toLowerCase().includes(searchTerm)
-            );
+            const selectedCategory = categoryFilter.value;
+            
+            const filteredTools = tools.filter(tool => {
+                // Filter by category
+                if (selectedCategory !== 'all' && !tool.tags.includes(selectedCategory)) {
+                    return false;
+                }
+                
+                // Filter by search term
+                if (searchTerm) {
+                    return (
+                        tool.title.toLowerCase().includes(searchTerm) ||
+                        tool.description.toLowerCase().includes(searchTerm) ||
+                        tool.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                    );
+                }
+                
+                return true;
+            });
+            
             displayTools(filteredTools);
         }
 
+        function resetAllFilters() {
+            searchBar.value = '';
+            categoryFilter.value = 'all';
+            filterTools();
+        }
+
+        // Event listeners
         mobileMenu.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             navCenter.classList.toggle('active');
@@ -637,7 +891,11 @@
         });
 
         searchBar.addEventListener('input', filterTools);
+        searchBtn.addEventListener('click', filterTools);
+        categoryFilter.addEventListener('change', filterTools);
+        resetFilters.addEventListener('click', resetAllFilters);
 
+        // Initial display
         displayTools(tools);
     </script>
 </body>
