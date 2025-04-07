@@ -681,9 +681,6 @@
 
             <div class="search-container">
                 <input type="text" id="searchBar" placeholder="Search tools...">
-                <button class="filter-btn" id="searchBtn">
-                    Search
-                </button>
                 <div class="category-filter">
                     <select id="categoryFilter">
                         <option value="all">All</option>
@@ -773,6 +770,24 @@
                 tags: ["video", "art", "paid"],
                 image: "https://docubase.mit.edu/wp-content/uploads/2020/04/runway-logo-420x420.png",
                 link: "https://yosephrafael.com/AI-Tools/details/runwayml"
+            },
+            {
+                id: 7,
+                title: "Gemini",
+                description: "Gemini is an interface to a multimodal LLM (handling text, audio, images and more). Gemini is based on Google’s cutting-edge research in LLMs",
+                category: "text",
+                tags: ["text", "free", "paid"],
+                image: "https://brandlogo.org/wp-content/uploads/2024/06/Gemini-Icon-300x300.png.webp",
+                link: "https://yosephrafael.com/AI-Tools/details/gemini"
+            },
+            {
+                id: 8,
+                title: "Perplexity AI",
+                description: "Perplexity is a free AI search engine designed to revolutionize the way you discover information. Ask any question, and it searches the internet to give you an accessible, conversational, and verifiable answer.",
+                category: "text",
+                tags: ["text", "free", "paid"],
+                image: "https://brandlogo.org/wp-content/uploads/2024/09/Perplexity-AI-App-Icon-2023-300x300.png.webp",
+                link: "https://yosephrafael.com/AI-Tools/details/perplexity"
             }
         ];
 
@@ -891,7 +906,6 @@
         });
 
         searchBar.addEventListener('input', filterTools);
-        searchBtn.addEventListener('click', filterTools);
         categoryFilter.addEventListener('change', filterTools);
         resetFilters.addEventListener('click', resetAllFilters);
 
