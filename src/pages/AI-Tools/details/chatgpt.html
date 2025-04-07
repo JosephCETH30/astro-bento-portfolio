@@ -575,15 +575,15 @@
 
         <div class="nav-center" id="nav-center">
             <div class="nav-links">
-                <a href="/">Home</a>
                 <a href="/AI-Tools" class="active">Tools</a>
                 <a href="#">Categories</a>
-                <a href="#">Author</a>
+                <a href="/">Author</a>
+                <a href="/mirrorsnbt/">Pengumuman SNBT!</a>
             </div>
         </div>
 
         <div class="nav-right">
-            <button class="support-btn">Contact Support</button>
+            <button class="support-btn">Contact Us</button>
         </div>
     </nav>
 
@@ -710,6 +710,8 @@
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLCC1R43RM"></script>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -740,6 +742,269 @@
             if (e.ctrlKey && e.key.toLowerCase() === 'c') {
                 e.preventDefault();
                 console.log('Ctrl+C disabled');
+            }
+        });
+
+        const toolsContainer = document.getElementById('toolsContainer');
+        const searchBar = document.getElementById('searchBar');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navCenter = document.getElementById('nav-center');
+        const searchBtn = document.getElementById('searchBtn');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const resetFilters = document.getElementById('resetFilters');
+        const contactModal = document.getElementById('contactModal');
+        const closeModal = document.getElementById('closeModal');
+        const contactForm = document.getElementById('contactForm');
+        
+        // Get both support buttons (desktop and mobile)
+        const desktopSupportBtn = document.querySelector('.nav-right .support-btn');
+        const mobileSupportBtn = document.querySelector('.nav-center .support-btn') || 
+                                 document.querySelector('.nav-links .support-btn');
+        
+        // Handle both support buttons
+        function handleSupportButtonClick() {
+            contactModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            // Close mobile menu if open
+            if (mobileMenu.classList.contains('active')) {
+                mobileMenu.classList.remove('active');
+                navCenter.classList.remove('active');
+            }
+        }
+        
+        // Desktop support button
+        if (desktopSupportBtn) {
+            desktopSupportBtn.addEventListener('click', handleSupportButtonClick);
+        }
+        
+        // Mobile support button (if exists)
+        if (mobileSupportBtn) {
+            mobileSupportBtn.addEventListener('click', handleSupportButtonClick);
+        }
+        
+        // Close modal when X button is clicked
+        closeModal.addEventListener('click', () => {
+            contactModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside the modal content
+        contactModal.addEventListener('click', (e) => {
+            if (e.target === contactModal) {
+                contactModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Handle form submission
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+        
+            // Get form elements
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+        
+            // Get values
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const message = messageInput.value.trim();
+        
+            // Simple validation
+            if (!name || !email || !message) {
+                swal("Incomplete", "Please fill in all fields", "warning");
+                return;
+            }
+        
+            // Email validation
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                swal("incomplete", 'Please enter a valid email address', "warning");
+                return;
+            }
+        
+            // Create form data object
+            const formData = {
+                name,
+                email,
+                message,
+                timestamp: new Date().toISOString()
+            };
+        
+            try {
+                // Show loading state
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+        
+                // In a real implementation, you would send this to your server
+                console.log('Form data to be sent:', formData);
+        
+                // Simulate API call with timeout
+                await new Promise(resolve => setTimeout(resolve, 1500));
+        
+                // Show success message
+                swal("Success",`Thank you, ${name}! Your message has been sent. We'll contact you at ${email} soon.`,"success");
+        
+                // Reset form
+                contactForm.reset();
+        
+                // Close modal
+                contactModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+        
+                const response = await fetch('https://formspree.io/f/mwplwnzn', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                if (!response.ok) throw new Error('Network response was not ok');
+                
+                const data = await response.json();
+                console.log('Success:', data);
+        
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error sending your message. Please try again later.');
+            } finally {
+                // Reset button state
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+        
+        // Optional: Add input validation as user types
+        document.getElementById('email').addEventListener('input', (e) => {
+            const email = e.target.value.trim();
+            if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                e.target.style.borderColor = 'red';
+            } else {
+                e.target.style.borderColor = 'var(--border-color)';
+            }
+        });
+        
+        function displayTools(toolsToDisplay) {
+            toolsContainer.innerHTML = '';
+        
+            if (toolsToDisplay.length === 0) {
+                toolsContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary)">No tools found matching your search criteria.</p>';
+                return;
+            }
+        
+            toolsToDisplay.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = 'tool-card';
+        
+                toolCard.innerHTML = `
+                    <div class="tool-badges">
+                        ${tool.tags.map(tag => `
+                            <span class="tool-badge" style="background-color: ${getTagColor(tag)};">
+                                ${formatTagName(tag)}
+                            </span>
+                        `).join('')}
+                    </div>
+                    <img src="${tool.image}" alt="${tool.title}" class="tool-icon">
+                    <h3 class="tool-title">${tool.title}</h3>
+                    <p class="tool-description">${tool.description}</p>
+                    <a href="${tool.link}" class="tool-link">View Tool</a>
+                `;
+                toolsContainer.appendChild(toolCard);
+            });
+        }
+        
+        function formatTagName(tag) {
+            const tagNames = {
+                'text': 'Text',
+                'image': 'Image',
+                'code': 'Code',
+                'video': 'Video',
+                'free': 'Free',
+                'paid': 'Paid',
+                'toptools': 'Top',
+                'chat': 'Chat',
+                'art': 'Art',
+                'writing': 'Writing',
+                'developer': 'Dev'
+            };
+            return tagNames[tag] || tag;
+        }
+        
+        function getTagColor(tag) {
+            const colors = {
+                'text': 'rgba(74, 144, 226, 0.1)',
+                'image': 'rgba(156, 39, 176, 0.1)',
+                'code': 'rgba(0, 188, 212, 0.1)',
+                'video': 'rgba(255, 87, 34, 0.1)',
+                'free': 'rgba(76, 175, 80, 0.1)',
+                'paid': 'rgba(244, 67, 54, 0.1)',
+                'toptools': 'rgba(255, 193, 7, 0.1)',
+                'chat': 'rgba(100, 181, 246, 0.1)',
+                'art': 'rgba(171, 71, 188, 0.1)',
+                'writing': 'rgba(77, 182, 172, 0.1)',
+                'developer': 'rgba(77, 182, 172, 0.1)',
+                'default': 'rgba(158, 158, 158, 0.1)'
+            };
+            return colors[tag] || colors['default'];
+        }
+        
+        function filterTools() {
+            const searchTerm = searchBar.value.toLowerCase();
+            const selectedCategory = categoryFilter.value;
+        
+            const filteredTools = tools.filter(tool => {
+                // Filter by category
+                if (selectedCategory !== 'all' && !tool.tags.includes(selectedCategory)) {
+                    return false;
+                }
+        
+                // Filter by search term
+                if (searchTerm) {
+                    return (
+                        tool.title.toLowerCase().includes(searchTerm) ||
+                        tool.description.toLowerCase().includes(searchTerm) ||
+                        tool.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+                    );
+                }
+        
+                return true;
+            });
+        
+            displayTools(filteredTools);
+        }
+        
+        function resetAllFilters() {
+            searchBar.value = '';
+            categoryFilter.value = 'all';
+            filterTools();
+        }
+        
+        // Event listeners
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navCenter.classList.toggle('active');
+        });
+        
+        searchBar.addEventListener('input', filterTools);
+        categoryFilter.addEventListener('change', filterTools);
+        resetFilters.addEventListener('click', resetAllFilters);
+        
+        // Initial display
+        displayTools(tools);
+        
+        document.addEventListener('keydown', function (e) {
+            // Disable Ctrl+U
+            if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+                e.preventDefault();
+                alert('View source is disabled.');
+            }
+        
+            // Disable Ctrl+C
+            if (e.ctrlKey && e.key.toLowerCase() === 'c') {
+                e.preventDefault();
+                alert('Copying is disabled.');
             }
         });
 
