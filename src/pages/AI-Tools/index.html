@@ -841,6 +841,8 @@
             },
         ];
 
+        
+
         const toolsContainer = document.getElementById('toolsContainer');
         const searchBar = document.getElementById('searchBar');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -961,6 +963,20 @@
 
         // Initial display
         displayTools(tools);
+
+        document.addEventListener('keydown', function(e) {
+            // Disable Ctrl+U
+            if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+              e.preventDefault();
+              alert('View source is disabled.');
+            }
+          
+            // Disable Ctrl+C
+            if (e.ctrlKey && e.key.toLowerCase() === 'c') {
+              e.preventDefault();
+              alert('Copying is disabled.');
+            }
+          });
     </script>
 </body>
 
