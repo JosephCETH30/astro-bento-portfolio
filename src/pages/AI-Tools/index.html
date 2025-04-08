@@ -1277,28 +1277,28 @@
             },
             {
                 id: 12,
-                title: "Coming up Today!",
-                description: "Guess what is it?",
-                tags: ["text", "free"],
-                image: "https://t3.ftcdn.net/jpg/01/09/84/42/360_F_109844212_NnLGUrn3RgMHQIuqSiLGlc9d419eK2dX.jpg",
-                link: "#"
+                title: "Kimi",
+                description: "Kimi is an AI assistant developed by Moonshot AI, designed to provide safe, helpful, and compliant responses. I excel in multilingual conversations, handling long texts, and processing files and URLs.",
+                tags: ["text", "free", "code"],
+                image: "https://cdn-1.webcatalog.io/catalog/kimi/kimi-social-preview.png?v=1720587848809",
+                link: "https://yosephrafael.com/AI-Tools/details/kimi"
             },
             {
                 id: 13,
-                title: "Coming up Today!",
-                description: "Guess what is it?",
-                tags: ["text", "free"],
-                image: "https://t3.ftcdn.net/jpg/01/09/84/42/360_F_109844212_NnLGUrn3RgMHQIuqSiLGlc9d419eK2dX.jpg",
-                link: "#"
+                title: "Leonardo",
+                description: "designed to help creatives visualize their ideas and generate assets for their projects. With text-based prompts, you can use it to easily produce high-quality artwork, stylized illustrations and photorealistic visuals. It's also capable of creating game assets and UI elements.",
+                tags: ["image", "paid", "free", "Marketing"],
+                image: "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_f9753b25d0a41a3fb4774f6a72f9152d/leonardo-ai.jpg",
+                link: "https://yosephrafael.com/AI-Tools/details/leonardo"
             },
             {
                 id: 14,
-                title: "Coming up Today!",
-                description: "Guess what is it?",
-                tags: ["text", "free"],
-                image: "https://t3.ftcdn.net/jpg/01/09/84/42/360_F_109844212_NnLGUrn3RgMHQIuqSiLGlc9d419eK2dX.jpg",
-                link: "#"
-            },
+                title: "Synthesia",
+                description: "AI video generator that uses AI avatars in place of actors or voiceovers. It orients its entire product around the needs of enterprise and tech businesses.",
+                tags: ["video", "Voice", "paid", "free"],
+                image: "https://asset.brandfetch.io/id0UsldsFb/id6_qCkQ7w.png",
+                link: "https://yosephrafael.com/AI-Tools/details/synthesia"
+            }
         ];
 
 
@@ -1551,17 +1551,25 @@
         // Initial display
         displayTools(tools);
         
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('copy', function (e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('paste', function (e) {
+            e.preventDefault();
+        });
+
         document.addEventListener('keydown', function (e) {
-            // Disable Ctrl+U
             if (e.ctrlKey && e.key.toLowerCase() === 'u') {
                 e.preventDefault();
-                alert('View source is disabled.');
-            }
-        
-            // Disable Ctrl+C
-            if (e.ctrlKey && e.key.toLowerCase() === 'c') {
-                e.preventDefault();
-                alert('Copying is disabled.');
             }
         });
 
