@@ -194,6 +194,10 @@
                                     easing: "easeOutExpo",
                                     complete: () => {
                                         container.style.display = 'none';
+                                        // Redirect after all animations are done
+                                        setTimeout(() => {
+                                            window.location.href = 'https://cs.ui.ac.id';
+                                        }, 500);
                                     }
                                 });
                             }
@@ -220,10 +224,11 @@
                 });
             }
             
-            // Auto-hide after total duration
+            // Auto-hide after total duration (fallback in case animations don't complete)
             setTimeout(() => {
                 container.style.display = 'none';
-            }, totalDuration);
+                window.location.href = 'https://cs.ui.ac.id';
+            }, totalDuration + 2000);
         });
     </script>
 </body>
