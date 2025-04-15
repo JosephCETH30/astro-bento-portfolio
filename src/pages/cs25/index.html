@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loader with Animated Text</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #121212;
+            color: #ffffff;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Background decorations */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            background: #ff4d4d;
+            top: 20%;
+            left: 10%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: #4d79ff;
+            bottom: 15%;
+            right: 10%;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+        
+        .circle-3 {
+            width: 200px;
+            height: 200px;
+            background: #4dffb8;
+            top: 60%;
+            left: 25%;
+            animation: float 7s ease-in-out infinite 2s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        .loader-container {
+            position: relative;
+            text-align: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .text-item {
+            position: absolute;
+            font-size: 6.5rem;
+            opacity: 0;
+            white-space: nowrap;
+            font-family: 'Orbitron', 'Poppins', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .letter {
+            display: inline-block;
+            line-height: 1em;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .line {
+            display: block;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scaleY(0);
+            transform-origin: center;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Glow effect */
+        .glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, transparent 70%);
+            filter: blur(10px);
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background decorations -->
+    <div class="bg-circle circle-1"></div>
+    <div class="bg-circle circle-2"></div>
+    <div class="bg-circle circle-3"></div>
+    
+    <div class="loader-container">
+        <div class="glow"></div>
+        <div class="text-item" id="text1">OKK UI 25</div>
+        <div class="text-item" id="text2">WAIT FOR ME</div>
+        <div class="text-item" id="text4">IM COMING</div>
+        <div class="line"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const texts = document.querySelectorAll('.text-item');
+            const line = document.querySelector('.line');
+            const container = document.querySelector('.loader-container');
+            const textDuration = 2500;
+            const totalDuration = 9000; // 3 texts × 3 seconds
+            
+            // Initialize - hide all texts except first
+            texts.forEach((text, index) => {
+                if (index === 0) {
+                    text.style.opacity = 1;
+                    prepareTextAnimation(text);
+                } else {
+                    text.style.opacity = 0;
+                }
+            });
+            
+            let currentIndex = 0;
+            
+            function prepareTextAnimation(textElement) {
+                textElement.innerHTML = textElement.textContent.replace(
+                    /(\S)/g, 
+                    "<span class='letter'>$&</span>"
+                );
+                animateText(textElement);
+            }
+            
+            function animateText(textElement) {
+                // Reset line and letters
+                anime.set(line, {
+                    scaleY: 0,
+                    opacity: 0.8,
+                    translateX: '-50%',
+                    width: 0
+                });
+                
+                anime.set(textElement.querySelectorAll('.letter'), {
+                    opacity: 0,
+                    translateY: '20px'
+                });
+                
+                // Animate letters
+                anime({
+                    targets: textElement.querySelectorAll('.letter'),
+                    opacity: [0, 1],
+                    translateY: ['20px', '0px'],
+                    easing: "easeOutExpo",
+                    duration: 1000,
+                    delay: (el, i) => 50 * (i + 1),
+                    complete: () => {
+                        // Schedule next text or finish
+                        setTimeout(() => {
+                            if (currentIndex < texts.length - 1) {
+                                switchToNextText();
+                            } else {
+                                // Last animation - fade out everything
+                                anime({
+                                    targets: [container, ...document.querySelectorAll('.bg-circle')],
+                                    opacity: 0,
+                                    duration: 1200,
+                                    easing: "easeOutExpo",
+                                    complete: () => {
+                                        container.style.display = 'none';
+                                    }
+                                });
+                            }
+                        }, 1000);
+                    }
+                });
+            }
+            
+            function switchToNextText() {
+                const currentText = texts[currentIndex];
+                const nextText = texts[currentIndex + 1];
+                
+                // Fade out current text
+                anime({
+                    targets: currentText,
+                    opacity: 0,
+                    duration: 600,
+                    easing: "easeOutExpo",
+                    complete: () => {
+                        currentIndex++;
+                        nextText.style.opacity = 1;
+                        prepareTextAnimation(nextText);
+                    }
+                });
+            }
+            
+            // Auto-hide after total duration
+            setTimeout(() => {
+                container.style.display = 'none';
+            }, totalDuration);
+        });
+    </script>
+</body>
+</html>
