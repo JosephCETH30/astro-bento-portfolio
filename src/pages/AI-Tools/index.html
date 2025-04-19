@@ -20,9 +20,9 @@
             font-size: 0.95rem;
             transition: all 0.3s ease;
             white-space: nowrap;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
-        
+
         .cookie-accept-btn:hover {
             background-color: var(--secondary-color);
             transform: translateY(-2px);
@@ -118,7 +118,7 @@
             -webkit-backdrop-filter: blur(8px);
             animation: fadeIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        
+
         .modal-content {
             background-color: var(--card-bg);
             border-radius: 16px;
@@ -131,25 +131,26 @@
             transition: transform 0.3s ease;
             animation: modalSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         }
-        
+
         @keyframes modalSlideUp {
             from {
                 opacity: 0;
                 transform: translateY(30px) scale(0.95);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
             }
         }
-        
+
         .modal-header {
             padding: 1.5rem;
             background-color: rgba(76, 175, 80, 0.1);
             border-bottom: 1px solid var(--primary-color);
             position: relative;
         }
-        
+
         .modal-title {
             font-size: 1.5rem;
             color: var(--primary-color);
@@ -159,11 +160,11 @@
             align-items: center;
             gap: 0.5rem;
         }
-        
+
         .modal-title::before {
             font-size: 1.2rem;
         }
-        
+
         .close-btn {
             position: absolute;
             top: 1rem;
@@ -180,22 +181,22 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .close-btn:hover {
             background-color: var(--primary-color);
             color: white;
             transform: rotate(90deg);
         }
-        
+
         .modal-body {
             padding: 1.5rem;
         }
-        
+
         .form-group {
             margin-bottom: 1.5rem;
             position: relative;
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
@@ -203,7 +204,7 @@
             font-weight: 500;
             font-size: 0.95rem;
         }
-        
+
         .form-group input,
         .form-group textarea,
         .form-group select {
@@ -216,7 +217,7 @@
             font-family: 'Satoshi', sans-serif;
             transition: all 0.3s ease;
         }
-        
+
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
@@ -224,11 +225,11 @@
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
         }
-        
+
         .form-group textarea {
             padding: 0.8rem 1rem !important;
         }
-        
+
         .form-group::before {
             position: absolute;
             left: 1rem;
@@ -236,12 +237,12 @@
             color: var(--primary-color);
             font-size: 1rem;
         }
-        
-        
+
+
         .form-group.message::before {
             top: 1.2rem;
         }
-        
+
         .submit-btn {
             width: 100%;
             padding: 1rem;
@@ -258,20 +259,20 @@
             justify-content: center;
             gap: 0.5rem;
         }
-        
+
         .submit-btn:hover {
             background-color: var(--secondary-color);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
         }
-        
+
         .submit-btn:disabled {
             background-color: var(--border-color);
             transform: none;
             box-shadow: none;
             cursor: not-allowed;
         }
-        
+
 
 
 
@@ -578,73 +579,6 @@
             }
         }
 
-        .tool-card:nth-child(1) {
-            animation-delay: 1.1s;
-        }
-
-        .tool-card:nth-child(2) {
-            animation-delay: 1.3s;
-        }
-
-        .tool-card:nth-child(3) {
-            animation-delay: 1.5s;
-        }
-
-        .tool-card:nth-child(4) {
-            animation-delay: 1.7s;
-        }
-
-        .tool-card:nth-child(5) {
-            animation-delay: 1.9s;
-        }
-
-        .tool-card:nth-child(6) {
-            animation-delay: 2.1s;
-        }
-
-        .tool-card:nth-child(7) {
-            animation-delay: 2.3s;
-        }
-
-        .tool-card:nth-child(8) {
-            animation-delay: 2.5s;
-        }
-
-        .tool-card:nth-child(9) {
-            animation-delay: 2.7s;
-        }
-
-        .tool-card:nth-child(10) {
-            animation-delay: 2.9s;
-        }
-
-        .tool-card:nth-child(11) {
-            animation-delay: 3.1s;
-        }
-
-        .tool-card:nth-child(12) {
-            animation-delay: 3.3s;
-        }
-
-        .tool-card:nth-child(13) {
-            animation-delay: 3.5s;
-        }
-
-        .tool-card:nth-child(14) {
-            animation-delay: 3.7s;
-        }
-
-        .tool-card:nth-child(15) {
-            animation-delay: 3.9s;
-        }
-
-        .tool-card:nth-child(16) {
-            animation-delay: 3.9s;
-        }
-
-        .tool-card:nth-child(17) {
-            animation-delay: 3.9s;
-        }
 
         .tool-card:hover {
             transform: translateY(-5px);
@@ -743,12 +677,14 @@
         }
 
         .nav-right .support-btn {
-            display: block; /* Show button in nav-right */
-          }
-          
-          .nav-center .support-btn {
-            display: none; /* Hide button in nav-center */
-          }
+            display: block;
+            /* Show button in nav-right */
+        }
+
+        .nav-center .support-btn {
+            display: none;
+            /* Hide button in nav-center */
+        }
 
         /* Responsive Styles */
         @media (max-width: 992px) {
@@ -805,14 +741,17 @@
             }
 
             .nav-right {
-                margin-left: auto; /* Push it to the right */
-                padding-right: 15px; /* Add some spacing */
+                margin-left: auto;
+                /* Push it to the right */
+                padding-right: 15px;
+                /* Add some spacing */
             }
-        
+
             .support-btn {
                 padding: 0.4rem 1rem;
                 font-size: 0.85rem;
-                white-space: nowrap; /* Prevent text wrapping */
+                white-space: nowrap;
+                /* Prevent text wrapping */
             }
 
             .menu-toggle {
@@ -1017,26 +956,27 @@
         }
 
         @media (max-width: 500px) {
+
             /* Show support button in mobile menu */
             .nav-center .support-btn {
-              display: inline-block;
-              padding: 0.5rem 1rem;
-              border-radius: 5px;
-              font-size: 1rem;
-              width: 90%;
-              text-align: center;
+                display: inline-block;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                font-size: 1rem;
+                width: 90%;
+                text-align: center;
             }
-          
+
             /* Hide the regular support button */
             .nav-right {
-              display: none;
+                display: none;
             }
-          
+
             /* Adjust mobile menu padding */
             .nav-center.active {
-              padding: 1rem 0 2rem;
+                padding: 1rem 0 2rem;
             }
-          }
+        }
 
 
         @media (max-width: 480px) {
@@ -1044,27 +984,27 @@
                 width: 95%;
                 border-radius: 12px;
             }
-            
+
             .modal-header {
                 padding: 1rem;
             }
-            
+
             .modal-title {
                 font-size: 1.3rem;
             }
-            
+
             .form-group input,
             .form-group textarea,
             .form-group select {
                 padding: 0.5rem 2rem 0.5rem 0.5rem;
             }
-            
+
             .form-group::before {
                 left: 0.8rem;
                 top: 2.1rem;
                 font-size: 0.9rem;
             }
-            
+
             .form-group.message::before {
                 top: 1rem;
             }
@@ -1099,18 +1039,19 @@
                 <a href="#">Categories</a>
                 <a href="/">Author</a>
                 <a href="/mirrorsnbt/">Pengumuman SNBT!</a>
-        <button class="support-btn mobile-support-btn">Contact Us</button>
+                <button class="support-btn mobile-support-btn">Contact Us</button>
             </div>
         </div>
 
         <div class="nav-right">
-            <button class="support-btn desktop-support-btn" >Contact Us</button>
+            <button class="support-btn desktop-support-btn">Contact Us</button>
         </div>
     </nav>
 
     <div class="marquee">
         <div class="marquee-content">
-            🚀 New AI Tools Added Daily!. 🔥 ChatGPT-5 coming soon!. 💡 Pro Tip: Use category filters to find tools faster.
+            🚀 New AI Tools Added Weekly!. 🔥 ChatGPT-5 coming soon!. 💡 Pro Tip: Use category filters to find tools
+            faster.
         </div>
     </div>
     </div>
@@ -1191,6 +1132,12 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
+
+        document.querySelectorAll('.tool-card').forEach((card, index) => {
+            let delay = 1.1 + index * 0.2;
+            if (delay > 3.9) delay = 3.9; // batas maksimal delay
+            card.style.animationDelay = `${delay}s`;
+        });
 
         const tools = [
             {
@@ -1341,6 +1288,15 @@
                 image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNUK5RcbW22thzmrJ49Nijo4XDshBtK7JdiA&s",
                 link: "https://yosephrafael.com/AI-Tools/details/kapwing"
             },
+
+            {
+                id: 18,
+                title: "Devin",
+                description: "The first AI software engineer that autonomously builds, debugs, and deploys code. It handles full-stack development and collaborates with human engineers.",
+                tags: ["code", "text", "paid"],
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSflRL_kOAEcT6xS2vIM3NH5jW1vBXTVZalQ&s",
+                link: "https://yosephrafael.com/AI-Tools/details/devin"
+            },
         ];
 
 
@@ -1354,12 +1310,12 @@
         const contactModal = document.getElementById('contactModal');
         const closeModal = document.getElementById('closeModal');
         const contactForm = document.getElementById('contactForm');
-        
+
         // Get both support buttons (desktop and mobile)
         const desktopSupportBtn = document.querySelector('.nav-right .support-btn');
-        const mobileSupportBtn = document.querySelector('.nav-center .support-btn') || 
-                                 document.querySelector('.nav-links .support-btn');
-        
+        const mobileSupportBtn = document.querySelector('.nav-center .support-btn') ||
+            document.querySelector('.nav-links .support-btn');
+
         // Handle both support buttons
         function handleSupportButtonClick() {
             contactModal.style.display = 'flex';
@@ -1370,23 +1326,23 @@
                 navCenter.classList.remove('active');
             }
         }
-        
+
         // Desktop support button
         if (desktopSupportBtn) {
             desktopSupportBtn.addEventListener('click', handleSupportButtonClick);
         }
-        
+
         // Mobile support button (if exists)
         if (mobileSupportBtn) {
             mobileSupportBtn.addEventListener('click', handleSupportButtonClick);
         }
-        
+
         // Close modal when X button is clicked
         closeModal.addEventListener('click', () => {
             contactModal.style.display = 'none';
             document.body.style.overflow = 'auto';
         });
-        
+
         // Close modal when clicking outside the modal content
         contactModal.addEventListener('click', (e) => {
             if (e.target === contactModal) {
@@ -1394,33 +1350,33 @@
                 document.body.style.overflow = 'auto';
             }
         });
-        
+
         // Handle form submission
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-        
+
             // Get form elements
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
             const messageInput = document.getElementById('message');
-        
+
             // Get values
             const name = nameInput.value.trim();
             const email = emailInput.value.trim();
             const message = messageInput.value.trim();
-        
+
             // Simple validation
             if (!name || !email || !message) {
                 swal("Incomplete", "Please fill in all fields", "warning");
                 return;
             }
-        
+
             // Email validation
             if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                 swal("incomplete", 'Please enter a valid email address', "warning");
                 return;
             }
-        
+
             // Create form data object
             const formData = {
                 name,
@@ -1428,29 +1384,29 @@
                 message,
                 timestamp: new Date().toISOString()
             };
-        
+
             try {
                 // Show loading state
                 const submitBtn = contactForm.querySelector('.submit-btn');
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Sending...';
-        
+
                 // In a real implementation, you would send this to your server
                 console.log('Form data to be sent:', formData);
-        
+
                 // Simulate API call with timeout
                 await new Promise(resolve => setTimeout(resolve, 1500));
-        
+
                 // Show success message
-                swal("Success",`Thank you, ${name}! Your message has been sent. We'll contact you at ${email} soon.`,"success");
-        
+                swal("Success", `Thank you, ${name}! Your message has been sent. We'll contact you at ${email} soon.`, "success");
+
                 // Reset form
                 contactForm.reset();
-        
+
                 // Close modal
                 contactModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
-        
+
                 const response = await fetch('https://formspree.io/f/mwplwnzn', {
                     method: 'POST',
                     headers: {
@@ -1458,12 +1414,12 @@
                     },
                     body: JSON.stringify(formData)
                 });
-                
+
                 if (!response.ok) throw new Error('Network response was not ok');
-                
+
                 const data = await response.json();
                 console.log('Success:', data);
-        
+
             } catch (error) {
                 console.error('Error:', error);
                 alert('There was an error sending your message. Please try again later.');
@@ -1474,7 +1430,7 @@
                 submitBtn.textContent = 'Send Message';
             }
         });
-        
+
         // Optional: Add input validation as user types
         document.getElementById('email').addEventListener('input', (e) => {
             const email = e.target.value.trim();
@@ -1484,19 +1440,19 @@
                 e.target.style.borderColor = 'var(--border-color)';
             }
         });
-        
+
         function displayTools(toolsToDisplay) {
             toolsContainer.innerHTML = '';
-        
+
             if (toolsToDisplay.length === 0) {
                 toolsContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary)">No tools found matching your search criteria.</p>';
                 return;
             }
-        
+
             toolsToDisplay.forEach(tool => {
                 const toolCard = document.createElement('div');
                 toolCard.className = 'tool-card';
-        
+
                 toolCard.innerHTML = `
                     <div class="tool-badges">
                         ${tool.tags.map(tag => `
@@ -1513,7 +1469,7 @@
                 toolsContainer.appendChild(toolCard);
             });
         }
-        
+
         function formatTagName(tag) {
             const tagNames = {
                 'text': 'Text',
@@ -1530,7 +1486,7 @@
             };
             return tagNames[tag] || tag;
         }
-        
+
         function getTagColor(tag) {
             const colors = {
                 'text': 'rgba(74, 144, 226, 0.1)',
@@ -1548,17 +1504,17 @@
             };
             return colors[tag] || colors['default'];
         }
-        
+
         function filterTools() {
             const searchTerm = searchBar.value.toLowerCase();
             const selectedCategory = categoryFilter.value;
-        
+
             const filteredTools = tools.filter(tool => {
                 // Filter by category
                 if (selectedCategory !== 'all' && !tool.tags.includes(selectedCategory)) {
                     return false;
                 }
-        
+
                 // Filter by search term
                 if (searchTerm) {
                     return (
@@ -1567,32 +1523,32 @@
                         tool.tags.some(tag => tag.toLowerCase().includes(searchTerm))
                     );
                 }
-        
+
                 return true;
             });
-        
+
             displayTools(filteredTools);
         }
-        
+
         function resetAllFilters() {
             searchBar.value = '';
             categoryFilter.value = 'all';
             filterTools();
         }
-        
+
         // Event listeners
         mobileMenu.addEventListener('click', () => {
             mobileMenu.classList.toggle('active');
             navCenter.classList.toggle('active');
         });
-        
+
         searchBar.addEventListener('input', filterTools);
         categoryFilter.addEventListener('change', filterTools);
         resetFilters.addEventListener('click', resetAllFilters);
-        
+
         // Initial display
         displayTools(tools);
-        
+
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
         });
@@ -1604,7 +1560,7 @@
         document.addEventListener('copy', function (e) {
             e.preventDefault();
         });
-        
+
         document.addEventListener('paste', function (e) {
             e.preventDefault();
         });
@@ -1615,22 +1571,22 @@
             }
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Check if cookie consent was already given
             if (!getCookie('cookieConsent')) {
                 // Show the consent banner
                 document.getElementById('cookieConsent').style.display = 'block';
             }
-            
+
             // Set up the accept button
-            document.getElementById('acceptCookies').addEventListener('click', function() {
+            document.getElementById('acceptCookies').addEventListener('click', function () {
                 // Set a cookie that expires in 1 year
                 setCookie('cookieConsent', 'true', 365);
                 // Hide the banner
                 document.getElementById('cookieConsent').style.display = 'none';
             });
         });
-        
+
         // Helper function to set a cookie
         function setCookie(name, value, days) {
             let expires = "";
@@ -1641,12 +1597,12 @@
             }
             document.cookie = name + "=" + (value || "") + expires + "; path=/";
         }
-        
+
         // Helper function to get a cookie
         function getCookie(name) {
             const nameEQ = name + "=";
             const ca = document.cookie.split(';');
-            for(let i = 0; i < ca.length; i++) {
+            for (let i = 0; i < ca.length; i++) {
                 let c = ca[i];
                 while (c.charAt(0) === ' ') c = c.substring(1, c.length);
                 if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
@@ -1655,15 +1611,18 @@
         }
     </script>
 
-    <div id="cookieConsent" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--card-bg); padding: 20px; border-top: 1px solid var(--border-color); z-index: 9999; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+    <div id="cookieConsent"
+        style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--card-bg); padding: 20px; border-top: 1px solid var(--border-color); z-index: 9999; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+        <div
+            style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px;">
             <p style="color: var(--text-primary); margin: 0; flex: 1; font-size: 0.95rem;">
-                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.
+                We use cookies to enhance your experience. By continuing to visit this site you agree to our use of
+                cookies.
             </p>
             <button id="acceptCookies" class="cookie-accept-btn">Accept</button>
         </div>
     </div>
-    
+
 </body>
 
 </html>
