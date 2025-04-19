@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Protected Resume</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/satoshi');
+        
+        :root {
+            --primary: rgba(56, 182, 255, 0.8);
+            --secondary: rgba(255, 56, 182, 0.8);
+            --glass: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.15);
+            --text: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --blur: 10px;
+            --bg-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding-top: 2rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 2rem;
+            animation: fadeIn 0.8s ease-out;
+            margin-top: 1rem;
+        }
+
+        .auth-box {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            backdrop-filter: blur(var(--blur));
+            transform-style: preserve-3d;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--text), var(--primary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .password-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .input-group {
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(56, 182, 255, 0.2);
+        }
+
+        .input-group label {
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+            color: var(--text-secondary);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus + label,
+        .input-group input:not(:placeholder-shown) + label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: var(--primary);
+            background: var(--bg-gradient);
+            padding: 0 0.5rem;
+            border-radius: 4px;
+        }
+
+        .btn {
+            padding: 1rem;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(56, 182, 255, 0.4);
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-top: -1rem;
+            height: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .resume-content {
+            display: none;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        /* Resume Content Styling */
+        .resume-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .resume-section {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(var(--blur));
+        }
+
+        .section-title {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .auth-box {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .auth-box {
+                padding: 1.5rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-box" id="auth-box">
+            <h1 class="logo">My Resume</h1>
+            <p class="tagline">Protected portfolio - Enter password to view</p>
+            
+            <form class="password-form" id="password-form">
+                <div class="input-group">
+                    <input type="password" id="password" placeholder=" " required>
+                    <label for="password">Password</label>
+                </div>
+                
+                <p class="error-message" id="error-message"></p>
+                
+                <button type="submit" class="btn">
+                    <i class="fas fa-lock-open"></i> Unlock Resume
+                </button>
+            </form>
+        </div>
+        
+        <div class="resume-content" id="resume-content">
+            <div class="resume-header">
+                <h1 class="logo">John Doe</h1>
+                <p class="tagline">Senior UX Designer | 5+ Years Experience</p>
+            </div>
+            
+            <div class="resume-section">
+                <h2 class="section-title"><i class="fas fa-user"></i> About Me</h2>
+                <p>Innovative UX designer with passion for creating intuitive user experiences. Specialized in mobile app design and design systems.</p>
+            </div>
+            
+            <div class="resume-section">
+                <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+                <p><strong>Lead UX Designer</strong> | TechCorp (2020-Present)</p>
+                <p><strong>UI Designer</strong> | CreativeStudio (2018-2020)</p>
+            </div>
+            
+            <div class="resume-section">
+                <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+                <p><strong>MSc Human-Computer Interaction</strong> | University X (2018)</p>
+            </div>
+            
+            <div class="resume-section">
+                <h2 class="section-title"><i class="fas fa-project-diagram"></i> Projects</h2>
+                <p><strong>Fintech Mobile App</strong> - Increased user retention by 40%</p>
+            </div>
+            
+            <button class="btn" id="lock-btn" style="width: 100%; margin-top: 1rem;">
+                <i class="fas fa-lock"></i> Lock Resume
+            </button>
+        </div>
+        
+        <footer>
+            <p>© 2023 My Professional Portfolio | Confidential</p>
+        </footer>
+    </div>
+
+    <script>
+       function _0x5036(){const _0x2b1b0f=['562386LoewbY','preventDefault','blur','transform','password','color','862hgaYFn','forEach','9SvOwUO','addEventListener','querySelectorAll','507564cFNZsa','block','value','none','9824oQBpFx','getElementById','focus','6865397AsgtjN','var(--primary)','display','label','auth-box','translateY(-1.5rem)\x20scale(0.85)','167pMqhYv','querySelector','666460BSwEBX','password-form','5yDrZwn','parentNode','669764npCwWF','Incorrect\x20password.\x20Please\x20try\x20again.','opacity','434FOXPGn','style','yebiyungkung28','click'];_0x5036=function(){return _0x2b1b0f;};return _0x5036();}const _0x5e74b2=_0x4bd7;(function(_0x5420da,_0x1491d1){const _0x383660=_0x4bd7,_0x2e4530=_0x5420da();while(!![]){try{const _0xe564b5=parseInt(_0x383660(0x1bc))/0x1*(-parseInt(_0x383660(0x1cf))/0x2)+-parseInt(_0x383660(0x1d4))/0x3+-parseInt(_0x383660(0x1c2))/0x4*(parseInt(_0x383660(0x1c0))/0x5)+-parseInt(_0x383660(0x1c9))/0x6+-parseInt(_0x383660(0x1c5))/0x7*(parseInt(_0x383660(0x1d8))/0x8)+-parseInt(_0x383660(0x1d1))/0x9*(-parseInt(_0x383660(0x1be))/0xa)+parseInt(_0x383660(0x1db))/0xb;if(_0xe564b5===_0x1491d1)break;else _0x2e4530['push'](_0x2e4530['shift']());}catch(_0x1b0928){_0x2e4530['push'](_0x2e4530['shift']());}}}(_0x5036,0x1b6ac));function _0x4bd7(_0x30eaf8,_0x1485c1){const _0x50364a=_0x5036();return _0x4bd7=function(_0x4bd777,_0x283bdd){_0x4bd777=_0x4bd777-0x1bc;let _0x3411d3=_0x50364a[_0x4bd777];return _0x3411d3;},_0x4bd7(_0x30eaf8,_0x1485c1);}const CORRECT_PASSWORD=_0x5e74b2(0x1c7),authBox=document[_0x5e74b2(0x1d9)](_0x5e74b2(0x1df)),resumeContent=document[_0x5e74b2(0x1d9)]('resume-content'),passwordForm=document[_0x5e74b2(0x1d9)](_0x5e74b2(0x1bf)),errorMessage=document[_0x5e74b2(0x1d9)]('error-message'),lockBtn=document[_0x5e74b2(0x1d9)]('lock-btn');passwordForm[_0x5e74b2(0x1d2)]('submit',function(_0x52c5f3){const _0x54e054=_0x5e74b2;_0x52c5f3[_0x54e054(0x1ca)]();const _0x20a43b=document[_0x54e054(0x1d9)](_0x54e054(0x1cd))['value'];_0x20a43b===CORRECT_PASSWORD?(authBox[_0x54e054(0x1c6)][_0x54e054(0x1dd)]=_0x54e054(0x1d7),resumeContent[_0x54e054(0x1c6)][_0x54e054(0x1dd)]=_0x54e054(0x1d5),errorMessage['style'][_0x54e054(0x1c4)]='0'):(errorMessage['textContent']=_0x54e054(0x1c3),errorMessage[_0x54e054(0x1c6)][_0x54e054(0x1c4)]='1',document[_0x54e054(0x1d9)](_0x54e054(0x1cd))[_0x54e054(0x1d6)]='');}),lockBtn['addEventListener'](_0x5e74b2(0x1c8),function(){const _0x5ca7ee=_0x5e74b2;authBox['style'][_0x5ca7ee(0x1dd)]=_0x5ca7ee(0x1d5),resumeContent[_0x5ca7ee(0x1c6)][_0x5ca7ee(0x1dd)]='none',document[_0x5ca7ee(0x1d9)](_0x5ca7ee(0x1cd))[_0x5ca7ee(0x1d6)]='',errorMessage['style']['opacity']='0';}),document[_0x5e74b2(0x1d3)]('.input-group\x20input')[_0x5e74b2(0x1d0)](_0x52e5a5=>{const _0x41e606=_0x5e74b2;_0x52e5a5[_0x41e606(0x1d2)](_0x41e606(0x1da),function(){const _0x49ae3e=_0x41e606;this[_0x49ae3e(0x1c1)][_0x49ae3e(0x1bd)](_0x49ae3e(0x1de))['style'][_0x49ae3e(0x1cc)]=_0x49ae3e(0x1e0),this[_0x49ae3e(0x1c1)]['querySelector'](_0x49ae3e(0x1de))['style'][_0x49ae3e(0x1ce)]=_0x49ae3e(0x1dc);}),_0x52e5a5['addEventListener'](_0x41e606(0x1cb),function(){const _0x257c51=_0x41e606;this[_0x257c51(0x1d6)]===''&&(this[_0x257c51(0x1c1)][_0x257c51(0x1bd)](_0x257c51(0x1de))[_0x257c51(0x1c6)][_0x257c51(0x1cc)]='',this[_0x257c51(0x1c1)][_0x257c51(0x1bd)](_0x257c51(0x1de))[_0x257c51(0x1c6)][_0x257c51(0x1ce)]='var(--text-secondary)');});});
+    </script>
+</body>
+</html>
