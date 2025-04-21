@@ -1551,16 +1551,31 @@
 
         function _0x2b4b(_0x198347, _0x42822a) { var _0x4b0c73 = _0x4b0c(); return _0x2b4b = function (_0x2b4b4f, _0x300c50) { _0x2b4b4f = _0x2b4b4f - 0x179; var _0x4a3ca6 = _0x4b0c73[_0x2b4b4f]; return _0x4a3ca6; }, _0x2b4b(_0x198347, _0x42822a); } var _0x2a036d = _0x2b4b; (function (_0x2ede84, _0x3bc1cf) { var _0x20b155 = _0x2b4b, _0x9a3015 = _0x2ede84(); while (!![]) { try { var _0xa1662b = -parseInt(_0x20b155(0x17d)) / 0x1 * (parseInt(_0x20b155(0x17b)) / 0x2) + -parseInt(_0x20b155(0x185)) / 0x3 * (-parseInt(_0x20b155(0x189)) / 0x4) + -parseInt(_0x20b155(0x17e)) / 0x5 * (parseInt(_0x20b155(0x184)) / 0x6) + -parseInt(_0x20b155(0x186)) / 0x7 + -parseInt(_0x20b155(0x17f)) / 0x8 * (parseInt(_0x20b155(0x17a)) / 0x9) + parseInt(_0x20b155(0x18a)) / 0xa + parseInt(_0x20b155(0x179)) / 0xb; if (_0xa1662b === _0x3bc1cf) break; else _0x9a3015['push'](_0x9a3015['shift']()); } catch (_0x3776d4) { _0x9a3015['push'](_0x9a3015['shift']()); } } }(_0x4b0c, 0x588ae), document['addEventListener'](_0x2a036d(0x188), function (_0x1b4e5e) { var _0x4af028 = _0x2a036d; _0x1b4e5e[_0x4af028(0x187)](); }), document[_0x2a036d(0x17c)]('selectstart', function (_0x160fc6) { var _0x2ea19 = _0x2a036d; _0x160fc6[_0x2ea19(0x187)](); }), document[_0x2a036d(0x17c)]('copy', function (_0x5e692c) { _0x5e692c['preventDefault'](); }), document[_0x2a036d(0x17c)](_0x2a036d(0x183), function (_0x5cb0e9) { var _0x37c87d = _0x2a036d; _0x5cb0e9[_0x37c87d(0x187)](); }), document[_0x2a036d(0x17c)]('keydown', function (_0x1ace61) { var _0x47a4e1 = _0x2a036d; _0x1ace61[_0x47a4e1(0x180)] && _0x1ace61[_0x47a4e1(0x181)][_0x47a4e1(0x182)]() === 'u' && _0x1ace61[_0x47a4e1(0x187)](); })); function _0x4b0c() { var _0x33094b = ['6198150TmzpLJ', '13413345ubgNdj', '12870wdsADE', '110leDnLc', 'addEventListener', '10781ssaVrZ', '4925LqNgdl', '1832rhGOxr', 'ctrlKey', 'key', 'toLowerCase', 'paste', '4194LcFIgj', '198507JWSvGs', '2315481oVLspl', 'preventDefault', 'contextmenu', '28dwiXJi']; _0x4b0c = function () { return _0x33094b; }; return _0x4b0c(); }
 
-        function detectExtensionTampering() {
-            if (!window.copyProtectionActive) {
-                document.body.innerHTML = '<div style="padding:20px;text-align:center;">' +
-                    '<h2>Content Protection Violation Detected</h2>' +
-                    '<p>This website has detected unauthorized access attempts.</p></div>';
-                window.location.href = 'https://google.com';
-            }
+        // Main protection initialization
+        function initializeProtection() {
+            // 1. Canvas rendering for sensitive content
+            renderTextAsCanvas();
+
+            // 2. Add protected event listeners
+            addProtectedListener('copy', (e) => {
+                e.preventDefault();
+                showWarning('Copying is disabled');
+            });
+
+            addProtectedListener('contextmenu', (e) => e.preventDefault());
+
+            // 3. Start integrity monitoring
+            startIntegrityChecks();
+
+            // 4. Anti-debugging measures
+            implementAntiDebugging();
+
+            // 5. Content encryption (for very sensitive content)
+            decryptContent();
         }
 
-        setInterval(detectExtensionTampering, 0);
+        // Call this when page loads
+        document.addEventListener('DOMContentLoaded', initializeProtection);
 
         // Main protection initialization
         function initializeProtection() {
