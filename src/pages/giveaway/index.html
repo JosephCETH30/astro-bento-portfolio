@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stake Username Raffle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@300,400,500,700&display=swap" rel="stylesheet">
+    <!-- Add Chart.js and its plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
+    <!-- Add SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        :root {
+            --primary-color: #00ff9d;
+            --secondary-color: #00b8ff;
+            --accent-color: #ff00ff;
+            --success-color: #00ff9d;
+            --danger-color: #ff3d3d;
+            --dark-bg: #0a0a0a;
+            --card-bg: #111111;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --border-color: #333;
+            --glow-primary: 0 0 20px rgba(0, 255, 157, 0.3);
+            --glow-secondary: 0 0 20px rgba(0, 184, 255, 0.3);
+            
+            /* Precise spacing system */
+            --spacing-xxs: 0.125rem;
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 0.75rem;
+            --spacing-lg: 1rem;
+            --spacing-xl: 1.5rem;
+            --spacing-xxl: 2rem;
+            
+            /* Precise border radius */
+            --border-radius-xs: 2px;
+            --border-radius-sm: 4px;
+            --border-radius-md: 6px;
+            --border-radius-lg: 8px;
+            --border-radius-xl: 12px;
+            
+            /* Typography scale */
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-md: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-xxl: 1.5rem;
+            
+            /* Line heights */
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --line-height-loose: 1.8;
+            
+            /* Transitions */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Satoshi', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: var(--line-height-normal);
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(0, 255, 157, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(0, 184, 255, 0.05) 0%, transparent 50%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(0, 255, 157, 0.03) 49%, rgba(0, 255, 157, 0.03) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(0, 184, 255, 0.03) 49%, rgba(0, 184, 255, 0.03) 51%, transparent 52%);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .navbar {
+            padding: 1rem 2rem;
+            background: rgba(17, 17, 17, 0.95);
+            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 600;
+            font-family: 'Satoshi', sans-serif;
+        }
+        
+        .navbar-brand i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .navbar-menu {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .navbar-item {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        
+        .navbar-item:hover {
+            color: var(--primary-color);
+            background: rgba(0, 255, 157, 0.1);
+        }
+        
+        .navbar-item i {
+            font-size: 1rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: var(--spacing-xl);
+            position: relative;
+            z-index: 1;
+        }
+
+        .count-display{
+            padding: 10px 10px;
+        }
+        
+        .card {
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-md);
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 157, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 255, 157, 0.1);
+            border-color: rgba(0, 255, 157, 0.2);
+        }
+        
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .tab-container {
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .tabs {
+            display: flex;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+        }
+        
+        .tab {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.2s ease;
+        }
+        
+        .tab:hover {
+            color: var(--primary-color);
+        }
+        
+        .tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+        }
+        
+        .form-group h2 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            text-shadow: var(--glow-primary);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+        }
+        
+        .input-group {
+            position: relative;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: var(--spacing-md);
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-secondary);
+            font-size: var(--font-size-md);
+            transition: var(--transition-fast);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-sm) var(--spacing-sm) 3rem;
+            font-size: var(--font-size-sm);
+            border-radius: var(--border-radius-sm);
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            color: var(--text-primary)      ;
+            transition: var(--transition-fast);
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(0, 255, 157, 0.2);
+            outline: none;
+        }
+        
+        .form-group input:focus + .input-icon {
+            color: var(--primary-color);
+        }
+        
+        .btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            font-size: var(--font-size-sm);
+            border-radius: var(--border-radius-sm);
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            border: none;
+            outline: none;
+        }
+        
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 255, 157, 0.2);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .participant-list {
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: var(--spacing-sm);
+        }
+        
+        .participant-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .participant-list::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+            border-radius: 3px;
+        }
+        
+        .participant-list::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 3px;
+            box-shadow: var(--glow-primary);
+        }
+        
+        .participant-item {
+            padding: var(--spacing-sm) var(--spacing-md);
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            border-radius: var(--border-radius-sm);
+            margin-bottom: var(--spacing-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--font-size-sm);
+            transition: var(--transition-fast);
+        }
+        
+        .participant-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 255, 157, 0.1);
+        }
+        
+        .winner-badge {
+            padding: var(--spacing-xxs) var(--spacing-sm);
+            font-size: var(--font-size-xs);
+            background: rgba(0, 255, 157, 0.1);
+            color: var(--success-color);
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xxs);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            color: var(--text-secondary);
+        }
+        
+        .empty-state i {
+            font-size: 3rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--border-color);
+        }
+        
+        .empty-state p {
+            font-size: 1.1rem;
+        }
+        
+        .result-container {
+            background: rgba(0, 255, 157, 0.05);
+            padding: var(--spacing-xl);
+            border-radius: var(--border-radius-lg);
+            border-left: 4px solid var(--success-color);
+            margin-top: var(--spacing-xl);
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .winner-display {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--success-color);
+            margin: var(--spacing-lg) 0;
+            word-break: break-word;
+            text-align: center;
+            text-shadow: var(--glow-primary);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 80px; /* Adjusted to be below navbar */
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background-color: var(--success-color);
+            color: var(--dark-bg);
+            padding: var(--spacing-md) var(--spacing-xl);
+            border-radius: var(--border-radius-md);
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-align: center;
+            min-width: 300px;
+            max-width: 90%;
+        }
+        
+        .notification.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .notification i {
+            font-size: 1.2em;
+        }
+        
+        .notification.success {
+            background-color: var(--success-color);
+            border: 1px solid rgba(0, 255, 157, 0.2);
+        }
+        
+        .notification.danger {
+            background-color: var(--danger-color);
+            border: 1px solid rgba(255, 61, 61, 0.2);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 1rem;
+                height: auto;
+            }
+            
+            .navbar-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+            
+            .navbar-item {
+                font-size: 0.75rem;
+                padding: 0.375rem 0.5rem;
+            }
+            
+            .container {
+                padding: var(--spacing-sm);
+                max-width: 100%;
+            }
+            
+            .card {
+                padding: var(--spacing-md);
+                margin-bottom: var(--spacing-md);
+            }
+            
+            .form-group h2 {
+                font-size: var(--font-size-md);
+                margin-bottom: 1rem;
+            }
+            
+            .form-group input {
+                padding: 20px 2.25rem;
+                font-size: var(--font-size-xs);
+            }
+            
+            .input-icon {
+                left: var(--spacing-sm);
+                font-size: var(--font-size-sm);
+            }
+            
+            .btn {
+                font-size: var(--font-size-xs);
+                width: 100%;
+                text-transform: uppercase;
+                padding: 0.5rem 1rem;
+            }
+            
+            .participant-item {
+                padding: var(--spacing-xs) var(--spacing-sm);
+                font-size: var(--font-size-xs);
+            }
+            
+            .winner-badge {
+                font-size: var(--font-size-xxs);
+                padding: var(--spacing-xxs) var(--spacing-xs);
+            }
+            
+            .empty-state i {
+                font-size: 2rem;
+            }
+            
+            .empty-state p {
+                font-size: var(--font-size-sm);
+            }
+            
+            .wheel {
+                width: 280px;
+                height: 280px;
+            }
+            
+            .wheel-segment span {
+                font-size: var(--font-size-xs);
+                padding: 0 15px;
+                width: 120px;
+            }
+            
+            .wheel-center {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .wheel-pointer {
+                width: 30px;
+                height: 30px;
+                top: -15px;
+            }
+            
+            .wheel-result {
+                padding: var(--spacing-sm);
+                width: 90%;
+                max-width: 300px;
+            }
+            
+            .wheel-result h3 {
+                font-size: var(--font-size-md);
+            }
+            
+            .wheel-result p {
+                font-size: var(--font-size-xs);
+            }
+            
+            .notification {
+                top: 120px; /* Adjusted for mobile navbar height */
+                min-width: 90%;
+                margin: 0 auto;
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+            
+            .tabs {
+                flex-wrap: wrap;
+                gap: var(--spacing-xs);
+            }
+            
+            .tab {
+                flex: 1 1 auto;
+                min-width: 120px;
+                text-align: center;
+                font-size: var(--font-size-xs);
+                padding: var(--spacing-xxs) var(--spacing-sm);
+            }
+            
+            .participant-list {
+                max-height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .wheel {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .wheel-segment span {
+                font-size: var(--font-size-xxs);
+                padding: 0 10px;
+                width: 100px;
+            }
+            
+            .wheel-center {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .wheel-pointer {
+                width: 25px;
+                height: 25px;
+                top: -12px;
+            }
+            
+            .click-to-spin {
+                font-size: 1.5rem;
+            }
+            
+            .participant-list {
+                max-height: 150px;
+            }
+        }
+        
+        /* Wheel Animation Styles */
+        @property --randomize {
+            syntax: "<integer>";
+            initial-value: 0;
+            inherits: true;
+        }
+
+        #wheelContainer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        #wheel {
+            --size: min(800px, 85vmin);
+            position: relative;
+            width: var(--size);
+            height: var(--size);
+            border-radius: 50%;
+            background: #1a1a1a;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+            transition: transform var(--spin-duration, 10s) cubic-bezier(0.21, 0.53, 0.29, 0.99);
+            transform: rotate(0deg);
+            border: 8px solid #FFD700;
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.3),
+                        inset 0 0 30px rgba(255, 215, 0, 0.1);
+            cursor: pointer;
+            touch-action: none;
+        }
+        
+        .wheel-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(var(--size) / 6);
+            height: calc(var(--size) / 6);
+            background: radial-gradient(circle at center, #FFD700, #B8860B);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 4;
+            border: 4px solid #1a1a1a;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .wheel-center:hover {
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        .wheel-center::after {
+            content: 'SPIN';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #1a1a1a;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: bold;
+            font-size: calc(var(--size) / 35);
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+        
+        .wheel-pointer {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 50px;
+            background: #FFD700;
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            z-index: 5;
+            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
+            transition: transform 0.3s ease;
+        }
+        
+        .wheel-pointer.bounce {
+            animation: pointerBounce 0.5s cubic-bezier(0.36, 0, 0.66, -0.56) forwards;
+        }
+        
+        @keyframes pointerBounce {
+            0%, 100% { transform: translateX(-50%) scaleY(1); }
+            50% { transform: translateX(-50%) scaleY(0.8); }
+        }
+        
+        .wheel-segment {
+            --count: var(--segment-count, 1);
+            --deg: calc(var(--i, 0) * (360deg / var(--count)));
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            transform-origin: 100% 100%;
+            transform: rotate(var(--deg));
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .wheel-segment:nth-child(10n + 1) { background: linear-gradient(45deg, #FF4B4B, #FF6B6B); }
+        .wheel-segment:nth-child(10n + 2) { background: linear-gradient(45deg, #3DBDAF, #4ECDC4); }
+        .wheel-segment:nth-child(10n + 3) { background: linear-gradient(45deg, #3497B1, #45B7D1); }
+        .wheel-segment:nth-child(10n + 4) { background: linear-gradient(45deg, #76AE94, #96CEB4); }
+        .wheel-segment:nth-child(10n + 5) { background: linear-gradient(45deg, #DFCE8D, #FFEEAD); }
+        .wheel-segment:nth-child(10n + 6) { background: linear-gradient(45deg, #B48585, #D4A5A5); }
+        .wheel-segment:nth-child(10n + 7) { background: linear-gradient(45deg, #7B3996, #9B59B6); }
+        .wheel-segment:nth-child(10n + 8) { background: linear-gradient(45deg, #2478BB, #3498DB); }
+        .wheel-segment:nth-child(10n + 9) { background: linear-gradient(45deg, #DF7F0C, #FF9F1C); }
+        .wheel-segment:nth-child(10n + 0) { background: linear-gradient(45deg, #0EAC51, #2ECC71); }
+        
+        .wheel-segment.highlight {
+            filter: brightness(1.2);
+            box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+        
+        .wheel-segment::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.1) 0%,
+                rgba(255, 255, 255, 0.05) 50%,
+                rgba(0, 0, 0, 0.05) 100%
+            );
+        }
+        
+        .wheel-segment span {
+            --text-angle: calc(90deg + (360deg / var(--count)) / 2);
+            position: absolute;
+            left: 0;
+            width: 100%;
+            padding: 0 calc(var(--size) / 16);
+            transform-origin: center right;
+            transform: rotate(var(--text-angle));
+            color: #FFFFFF;
+            font-size: calc(var(--size) / 35);
+            font-weight: 700;
+            font-family: 'Satoshi', sans-serif;
+            text-align: right;
+            text-transform: uppercase;
+            white-space: nowrap;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            opacity: 0.95;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .wheel-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 3;
+            background: radial-gradient(
+                circle at center,
+                transparent 30%,
+                rgba(0, 0, 0, 0.2) 60%,
+                rgba(0, 0, 0, 0.5) 100%
+            );
+        }
+        
+        @keyframes spin-back {
+            0% { transform: rotate(var(--start-rotation, 0deg)); }
+            10% { transform: rotate(calc(var(--start-rotation, 0deg) - 30deg)); }
+            30% { transform: rotate(calc(var(--final-rotation, 3600deg) + 60deg)); }
+            100% { transform: rotate(var(--final-rotation, 3600deg)); }
+        }
+        
+        #wheelResult {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(26, 26, 26, 0.98);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            z-index: 1001;
+            border: 3px solid #FFD700;
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            min-width: 320px;
+        }
+        
+        #wheelWinner {
+            font-size: 2rem;
+            color: #FFD700;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            font-family: 'Satoshi', sans-serif;
+            font-weight: bold;
+        }
+        
+        #closeWheel {
+            background: transparent;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+        }
+        
+        #closeWheel:hover {
+            background: #FFD700;
+            color: #1a1a1a;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .count-display{
+                padding: 10px 0;
+            }
+
+            #wheel {
+                --size: min(90vmin, 500px);
+            }
+            
+            .wheel-segment span {
+                font-size: calc(var(--size) / 35);
+                padding-right: calc(var(--size) / 20);
+            }
+            
+            #wheelResult {
+                width: 90%;
+                max-width: 400px;
+                padding: 2rem;
+            }
+            
+            #wheelWinner {
+                font-size: 1.6rem;
+            }
+            
+            #closeWheel {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Wheel styles */
+        .wheel-wrapper {
+            width: 90%;
+            max-width: 34.37em;
+            max-height: 90vh;
+            background-color: var(--card-bg);
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            padding: 3em;
+            border-radius: var(--border-radius-lg);
+            box-shadow: 0 4em 5em rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .wheel-wrapper:hover {
+            border-color: rgba(0, 255, 157, 0.3);
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.1);
+        }
+
+        .wheel-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        #wheel {
+            max-height: inherit;
+            width: inherit;
+            top: 0;
+            padding: 0;
+            border: 8px solid var(--primary-color);
+            box-shadow: 0 0 60px rgba(0, 255, 157, 0.3),
+                        inset 0 0 30px rgba(0, 255, 157, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        #wheel:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 80px rgba(0, 184, 255, 0.3),
+                        inset 0 0 40px rgba(0, 184, 255, 0.2);
+        }
+
+        #spin-btn {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            height: 26%;
+            width: 26%;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 0;
+            background: radial-gradient(var(--primary-color) 50%, var(--secondary-color) 85%);
+            color: var(--dark-bg);
+            text-transform: uppercase;
+            font-size: 1.8em;
+            font-weight: 600;
+            font-family: 'Satoshi', sans-serif;
+            box-shadow: var(--glow-primary);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        #spin-btn:hover:not(:disabled) {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.5);
+        }
+
+        #spin-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            background: radial-gradient(var(--text-secondary) 50%, var(--border-color) 85%);
+        }
+
+        .wheel-pointer {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 50px;
+            background: var(--primary-color);
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            z-index: 5;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 157, 0.5));
+            transition: all 0.3s ease;
+        }
+
+        .wheel-pointer:hover {
+            background: var(--secondary-color);
+            filter: drop-shadow(0 0 15px rgba(0, 184, 255, 0.5));
+        }
+
+        #final-value {
+            font-size: 1.5em;
+            text-align: center;
+            margin-top: 1.5em;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-family: 'Satoshi', sans-serif;
+            text-shadow: var(--glow-primary);
+            padding: var(--spacing-md);
+            background: rgba(0, 255, 157, 0.05);
+            border-radius: var(--border-radius-md);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        #wheelResult {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: var(--border-radius-lg);
+            text-align: center;
+            z-index: 1001;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 0 50px rgba(0, 255, 157, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            min-width: 320px;
+            transition: all 0.3s ease;
+        }
+
+        #wheelResult:hover {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 60px rgba(0, 184, 255, 0.3);
+        }
+
+        #wheelWinner {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            text-shadow: var(--glow-primary);
+            font-family: 'Satoshi', sans-serif;
+            font-weight: bold;
+            padding: var(--spacing-md);
+            background: rgba(0, 255, 157, 0.05);
+            border-radius: var(--border-radius-md);
+            border-left: 4px solid var(--primary-color);
+        }
+
+        #closeWheel {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius-md);
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        #closeWheel:hover {
+            background: var(--primary-color);
+            color: var(--dark-bg);
+            box-shadow: 0 0 30px rgba(0, 255, 157, 0.3);
+            transform: translateY(-2px);
+        }
+
+        @media screen and (max-width: 768px) {
+            .wheel-wrapper {
+                font-size: 12px;
+                padding: 2em;
+                width: 95%;
+                max-width: 95%;
+            }
+
+            #wheel {
+                border-width: 6px;
+            }
+
+            #spin-btn {
+                font-size: 1.4em;
+                height: 30%;
+                width: 30%;
+            }
+
+            .wheel-pointer {
+                width: 30px;
+                height: 40px;
+                top: -20px;
+            }
+
+            #final-value {
+                font-size: 1.2em;
+                padding: var(--spacing-sm);
+            }
+
+            #wheelResult {
+                width: 90%;
+                max-width: 90%;
+                padding: 1.5rem;
+            }
+
+            #wheelWinner {
+                font-size: 1.6rem;
+                padding: var(--spacing-sm);
+            }
+
+            #closeWheel {
+                padding: 0.75rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .wheel-wrapper {
+                padding: 1.5em;
+            }
+
+            #wheel {
+                border-width: 4px;
+            }
+
+            #spin-btn {
+                font-size: 1.2em;
+                height: 35%;
+                width: 35%;
+            }
+
+            .wheel-pointer {
+                width: 25px;
+                height: 35px;
+                top: -15px;
+            }
+
+            #final-value {
+                font-size: 1em;
+            }
+
+            #wheelWinner {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <i class="fas fa-trophy"></i>
+            PP STREAM RAFFLE
+        </a>
+        <div class="navbar-menu">
+            <a href="https://kick.com/thechosenonept" target="_blank" class="navbar-item">
+                <i class="fas fa-tv"></i>
+                Kick Stream
+            </a>
+            <a href="https://ppprivatejet.com" target="_blank" class="navbar-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                Grab Loans
+            </a>
+            <a href="https://t.me/jssoma" target="_blank" class="navbar-item">
+                <i class="fab fa-telegram"></i>
+                Contact PP
+            </a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="card">
+            <div class="tab-container">
+                <div class="tabs">
+                    <div class="tab active" data-tab="register">
+                        <i class="fas fa-user-plus"></i> Register
+                    </div>
+                    <div class="tab" data-tab="view">
+                        <i class="fas fa-users"></i> Participants
+                    </div>
+                    <div class="tab" data-tab="draw">
+                        <i class="fas fa-trophy"></i> Draw Winners
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="register-tab">
+                    <div class="form-group">
+                        <h2><i class="fas fa-ticket-alt"></i> Join Giveaway</h2>
+                        <div class="input-group">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="participantUsername" placeholder="Enter your stake username">
+                        </div>
+                        
+                        <div class="input-group">
+                            <i class="fas fa-key input-icon"></i>
+                            <input type="password" id="participantPin" placeholder="Enter the PIN provided by organizer">
+                        </div>
+                        
+                        <button class="btn btn-primary" id="registerBtn">
+                            <i class="fas fa-check-circle"></i> Register for Giveaway
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="view-tab">
+                    <div class="form-group">
+                        <h2><i class="fas fa-list"></i> Registered Participants</h2>
+                        <div class="count-display" id="participantsCount">
+                            <i class="fas fa-users"></i> 0 participants registered
+                        </div>
+                        
+                        <div class="participant-list" id="participantList">
+                            <div class="empty-state">
+                                <i class="fas fa-users-slash"></i>
+                                <p>No participants registered yet.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="draw-tab">
+                    <div class="form-group">
+                        <h2><i class="fas fa-trophy"></i> Draw Winners</h2>
+                        <button class="btn btn-primary" id="drawWinnersBtn">
+                            <i class="fas fa-random"></i> Start Wheel
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card" id="resultContainer" style="display: none;">
+            <h2><i class="fas fa-trophy"></i> Raffle Result</h2>
+            <div class="winner-display" id="winnerDisplay"></div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText">Success!</span>
+    </div>
+
+    <div id="wheelContainer" style="display: none;">
+        <div class="wheel-wrapper">
+            <div class="wheel-container">
+                <canvas id="wheel" width="500" height="500"></canvas>
+                <button id="spin-btn">SPIN</button>
+                <div class="wheel-pointer"></div>
+            </div>
+            <div id="final-value">
+                <p>Click On The Spin Button To Start</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="wheelResult" style="display: none;">
+        <div id="wheelWinner"></div>
+        <button id="closeWheel">Close</button>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize data
+        let VALID_PINS = ['PPgiveaway']; // Default PIN
+        let participants = [];
+        let myChart = null;
+        let isSpinning = false;
+
+        // Custom SweetAlert2 theme
+        const swalTheme = {
+            background: 'var(--card-bg)',
+            color: 'var(--text-primary)',
+            confirmButtonColor: 'var(--primary-color)',
+            cancelButtonColor: 'var(--danger-color)',
+            fontFamily: "'Satoshi', sans-serif",
+            customClass: {
+                popup: 'swal2-popup',
+                title: 'swal2-title',
+                content: 'swal2-content',
+                confirmButton: 'swal2-confirm',
+                cancelButton: 'swal2-cancel',
+                actions: 'swal2-actions',
+                icon: 'swal2-icon'
+            }
+        };
+
+        // Custom notification function using SweetAlert2
+        function showNotification(message, type = 'success') {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                background: type === 'success' ? 'var(--success-color)' : 'var(--danger-color)',
+                color: 'var(--dark-bg)',
+                customClass: {
+                    popup: 'swal2-toast',
+                    title: 'swal2-title',
+                    content: 'swal2-content'
+                }
+            });
+
+            Toast.fire({
+                icon: type === 'success' ? 'success' : 'error',
+                title: message
+            });
+        }
+
+        // DOM Elements
+        const elements = {
+            participantUsername: document.getElementById('participantUsername'),
+            participantPin: document.getElementById('participantPin'),
+            registerBtn: document.getElementById('registerBtn'),
+            participantList: document.getElementById('participantList'),
+            participantsCount: document.getElementById('participantsCount'),
+            notification: document.getElementById('notification'),
+            notificationText: document.getElementById('notificationText'),
+            tabs: document.querySelectorAll('.tab'),
+            tabContents: document.querySelectorAll('.tab-content'),
+            wheel: document.getElementById('wheel'),
+            spinBtn: document.getElementById('spin-btn'),
+            finalValue: document.getElementById('final-value'),
+            wheelContainer: document.getElementById('wheelContainer'),
+            wheelResult: document.getElementById('wheelResult'),
+            wheelWinner: document.getElementById('wheelWinner'),
+            closeWheel: document.getElementById('closeWheel'),
+            drawWinnersBtn: document.getElementById('drawWinnersBtn')
+        };
+
+        // Load data from localStorage
+        function loadData() {
+            try {
+                const storedPins = localStorage.getItem('validPins');
+                if (storedPins) {
+                    // Handle both string and array formats
+                    if (storedPins.includes(',')) {
+                        VALID_PINS = storedPins.split(',').map(pin => pin.trim());
+                    } else {
+                        VALID_PINS = [storedPins];
+                    }
+                }
+
+                const storedParticipants = localStorage.getItem('giveawayParticipants');
+                if (storedParticipants) {
+                    participants = JSON.parse(storedParticipants);
+                    updateParticipantsDisplay();
+                }
+            } catch (error) {
+                console.error('Error loading data:', error);
+                showNotification('Error loading data', 'danger');
+            }
+        }
+
+        // Load initial data
+        loadData();
+
+        // Event Listeners
+        elements.registerBtn.addEventListener('click', handleRegistration);
+        elements.participantPin.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleRegistration();
+            }
+        });
+
+        elements.tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.dataset.tab;
+                switchTab(targetTab);
+            });
+        });
+
+        // Listen for changes from admin page
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'validPins') {
+                try {
+                    if (e.newValue.includes(',')) {
+                        VALID_PINS = e.newValue.split(',').map(pin => pin.trim());
+                    } else {
+                        VALID_PINS = [e.newValue];
+                    }
+                    console.log('Valid PINs updated:', VALID_PINS);
+                } catch (error) {
+                    console.error('Error parsing validPins:', error);
+                }
+            } else if (e.key === 'giveawayParticipants') {
+                try {
+                    participants = JSON.parse(e.newValue) || [];
+                    updateParticipantsDisplay();
+                } catch (error) {
+                    console.error('Error parsing participants:', error);
+                }
+            }
+        });
+
+        // Core Functions
+        function handleRegistration() {
+            const username = elements.participantUsername.value.trim();
+            const pin = elements.participantPin.value.trim();
+
+            if (!username || !pin) {
+                showNotification('Please fill in all fields', 'danger');
+                return;
+            }
+
+            // Reload valid pins before checking
+            loadData();
+
+            console.log('Current valid pins:', VALID_PINS);
+            console.log('Entered pin:', pin);
+
+            if (!VALID_PINS.includes(pin)) {
+                showNotification('Invalid PIN. Please try again.', 'danger');
+                return;
+            }
+
+            if (participants.some(p => p.username.toLowerCase() === username.toLowerCase())) {
+                showNotification('Username already registered', 'danger');
+                return;
+            }
+
+            try {
+                const newParticipant = {
+                    username,
+                    pin,
+                    timestamp: new Date().toISOString(),
+                    isWinner: false
+                };
+                
+                participants.push(newParticipant);
+                saveParticipants();
+                updateParticipantsDisplay();
+                
+                elements.participantUsername.value = '';
+                elements.participantPin.value = '';
+                
+                Swal.fire({
+                    ...swalTheme,
+                    title: 'Registration Successful!',
+                    text: 'Good luck in the raffle!',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    timer: 2000,
+                    timerProgressBar: true
+                }).then(() => {
+                    switchTab('view');
+                });
+            } catch (error) {
+                console.error('Error in registration:', error);
+                showNotification('Error during registration. Please try again.', 'danger');
+            }
+        }
+
+        function saveParticipants() {
+            try {
+                localStorage.setItem('giveawayParticipants', JSON.stringify(participants));
+            } catch (error) {
+                console.error('Error saving participants:', error);
+                showNotification('Error saving data. Please try again.', 'danger');
+            }
+        }
+
+        function updateParticipantsDisplay() {
+            if (!elements.participantList || !elements.participantsCount) return;
+
+            if (participants.length === 0) {
+                elements.participantList.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-users-slash"></i>
+                        <p>No participants registered yet.</p>
+                    </div>
+                `;
+            } else {
+                elements.participantList.innerHTML = participants.map(p => `
+                    <div class="participant-item">
+                        <span>${p.username}</span>
+                        ${p.isWinner ? '<span class="winner-badge"><i class="fas fa-trophy"></i> Winner</span>' : ''}
+                    </div>
+                `).join('');
+            }
+            
+            elements.participantsCount.innerHTML = `<i class="fas fa-users"></i> ${participants.length} participants registered`;
+        }
+
+        function switchTab(targetTab) {
+            // Remove active class from all tabs and contents
+            elements.tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.style.display = 'none';
+            });
+            
+            // Add active class to selected tab
+            const selectedTab = document.querySelector(`.tab[data-tab="${targetTab}"]`);
+            if (selectedTab) {
+                selectedTab.classList.add('active');
+            }
+            
+            // Show selected content
+            const selectedContent = document.getElementById(`${targetTab}-tab`);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+        }
+
+        // Initialize first tab
+        switchTab('register');
+
+        // Wheel implementation
+        function initializeWheel(participants) {
+            if (!participants || participants.length === 0) {
+                Swal.fire({
+                    ...swalTheme,
+                    title: 'No Participants',
+                    text: 'There are no participants to display on the wheel.',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+
+            // Destroy existing chart if it exists
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            // Limit to 100 participants
+            const displayParticipants = participants.slice(0, 100);
+
+            // Generate colors for segments
+            const pieColors = generateColors(displayParticipants.length);
+
+            try {
+                // Create chart
+                myChart = new Chart(elements.wheel, {
+                    plugins: [ChartDataLabels],
+                    type: "pie",
+                    data: {
+                        labels: displayParticipants.map(p => p.username),
+                        datasets: [{
+                            backgroundColor: pieColors,
+                            data: Array(displayParticipants.length).fill(1),
+                        }],
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: true,
+                        animation: { duration: 0 },
+                        rotation: 0,
+                        circumference: 360,
+                        plugins: {
+                            tooltip: false,
+                            legend: { display: false },
+                            datalabels: {
+                                color: "#ffffff",
+                                formatter: (_, context) => context.chart.data.labels[context.dataIndex],
+                                font: { 
+                                    family: "'Satoshi', sans-serif",
+                                    size: Math.max(8, Math.min(16, 200 / displayParticipants.length))
+                                },
+                            },
+                        },
+                    },
+                });
+
+                console.log('Wheel initialized with', displayParticipants.length, 'participants');
+            } catch (error) {
+                console.error('Error initializing wheel:', error);
+                Swal.fire({
+                    ...swalTheme,
+                    title: 'Error',
+                    text: 'Failed to initialize the wheel. Please try again.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            }
+        }
+
+        function generateColors(count) {
+            const colors = [];
+            const baseColors = [
+                '#8b35bc', '#b163da', '#8b35bc', '#b163da',
+                '#8b35bc', '#b163da', '#8b35bc', '#b163da'
+            ];
+            
+            for (let i = 0; i < count; i++) {
+                colors.push(baseColors[i % baseColors.length]);
+            }
+            return colors;
+        }
+
+        // Spinner count
+        let count = 0;
+        let resultValue = 101;
+        let spinInterval;
+        let currentRotation = 0;
+        let targetRotation = 0;
+        let spinSpeed = 0;
+        let maxSpeed = 20;
+        let minSpeed = 0.5;
+        let deceleration = 0.95;
+        let isDecelerating = false;
+
+        elements.spinBtn.addEventListener("click", () => {
+            if (!myChart || isSpinning) {
+                return;
+            }
+            
+            isSpinning = true;
+            elements.spinBtn.disabled = true;
+            elements.finalValue.innerHTML = `<p>Good Luck!</p>`;
+            
+            const allParticipants = JSON.parse(localStorage.getItem('giveawayParticipants') || '[]');
+            const displayParticipants = allParticipants.slice(0, 100);
+            
+            if (displayParticipants.length === 0) {
+                showNotification('No participants to spin', 'danger');
+                elements.spinBtn.disabled = false;
+                isSpinning = false;
+                return;
+            }
+
+            const randomIndex = Math.floor(Math.random() * displayParticipants.length);
+            targetRotation = (360 / displayParticipants.length) * randomIndex;
+            
+            console.log('Spinning to target degree:', targetRotation);
+            
+            // Reset spin variables
+            currentRotation = 0;
+            spinSpeed = maxSpeed;
+            isDecelerating = false;
+            
+            // Clear any existing interval
+            if (spinInterval) {
+                clearInterval(spinInterval);
+            }
+            
+            // Start spinning
+            spinInterval = setInterval(() => {
+                if (!isDecelerating && currentRotation > 360 * 2) {
+                    isDecelerating = true;
+                }
+                
+                if (isDecelerating) {
+                    spinSpeed *= deceleration;
+                    
+                    if (spinSpeed < minSpeed) {
+                        spinSpeed = minSpeed;
+                    }
+                    
+                    // Check if we're close to the target
+                    const remainingRotation = (targetRotation - currentRotation) % 360;
+                    if (Math.abs(remainingRotation) < spinSpeed) {
+                        // Final adjustment to land exactly on target
+                        currentRotation = targetRotation;
+                        clearInterval(spinInterval);
+                        
+                        const winner = displayParticipants[randomIndex];
+                        console.log('Winner selected:', winner.username);
+                        
+                        elements.finalValue.innerHTML = `<p>Winner: ${winner.username}</p>`;
+                        
+                        // Update winner in localStorage
+                        allParticipants.forEach(p => p.isWinner = false);
+                        const winnerIndex = allParticipants.findIndex(p => p.username === winner.username);
+                        if (winnerIndex !== -1) {
+                            allParticipants[winnerIndex].isWinner = true;
+                        }
+                        localStorage.setItem('giveawayParticipants', JSON.stringify(allParticipants));
+                        
+                        // Show winner display
+                        elements.wheelWinner.textContent = `🎉 ${winner.username} 🎉`;
+                        elements.wheelResult.style.display = 'block';
+                        
+                        elements.spinBtn.disabled = false;
+                        isSpinning = false;
+                    }
+                }
+                
+                currentRotation += spinSpeed;
+                myChart.options.rotation = currentRotation;
+                myChart.update();
+            }, 16); // ~60fps
+        });
+
+        // Show wheel function
+        function showWheel() {
+            const currentParticipants = JSON.parse(localStorage.getItem('giveawayParticipants') || '[]');
+            if (currentParticipants.length === 0) {
+                Swal.fire({
+                    ...swalTheme,
+                    title: 'No Participants',
+                    text: 'There are no participants to draw from.',
+                    icon: 'warning',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+
+            elements.wheelContainer.style.display = 'flex';
+            elements.wheelContainer.style.justifyContent = 'center';
+            elements.wheelContainer.style.alignItems = 'center';
+            elements.wheelContainer.style.position = 'fixed';
+            elements.wheelContainer.style.top = '0';
+            elements.wheelContainer.style.left = '0';
+            elements.wheelContainer.style.width = '100%';
+            elements.wheelContainer.style.height = '100%';
+            elements.wheelContainer.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+            elements.wheelContainer.style.zIndex = '1000';
+            elements.wheelContainer.style.backdropFilter = 'blur(10px)';
+            elements.wheelContainer.style.webkitBackdropFilter = 'blur(10px)';
+            
+            // Initialize wheel with current participants
+            initializeWheel(currentParticipants);
+        }
+
+        // Add event listener to show wheel
+        elements.drawWinnersBtn.addEventListener('click', showWheel);
+
+        // Close wheel result
+        elements.closeWheel.addEventListener('click', () => {
+            elements.wheelResult.style.display = 'none';
+            elements.wheelContainer.style.display = 'none';
+            
+            Swal.fire({
+                ...swalTheme,
+                title: 'Winner Selected!',
+                text: 'The winner has been recorded.',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                timer: 2000,
+                timerProgressBar: true
+            });
+        });
+
+        // Update wheel when participants change
+        window.addEventListener('storage', (e) => {
+            if (e.key === 'giveawayParticipants') {
+                try {
+                    const participants = JSON.parse(e.newValue || '[]');
+                    if (participants.length > 0) {
+                        initializeWheel(participants);
+                    }
+                } catch (error) {
+                    console.error('Error updating wheel:', error);
+                }
+            }
+        });
+
+        // Initialize first tab
+        switchTab('register');
+    });
+    </script>
+</body>
+</html>

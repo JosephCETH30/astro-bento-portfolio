@@ -455,7 +455,12 @@
               <i class="fab fa-telegram-plane share-tg"></i> Telegram
             </a>
             <a href="https://discord.com/channels/@me" target="_blank"
-              onclick="navigator.clipboard.writeText('https://yosephrafael.com/mirrorsnbt'); alert('Link mirror SNBT berhasil disalin! 🚀');">
+              onclick="navigator.clipboard.writeText('https://yosephrafael.com/mirrorsnbt'); Swal.fire({
+                title: 'Success!',
+                text: 'Link mirror SNBT berhasil disalin! 🚀',
+                icon: 'success',
+                confirmButtonText: 'OK'
+              });">
               <i class="fab fa-discord share-ds"></i> Discord
             </a>
           </div>

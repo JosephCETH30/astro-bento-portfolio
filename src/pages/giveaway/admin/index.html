@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <title>PP Stream Raffle - Admin Panel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400,500,700&family=Space+Grotesk:wght@300,400,500,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #00ff9d;
+            --secondary-color: #00b8ff;
+            --accent-color: #ff00ff;
+            --success-color: #00ff9d;
+            --danger-color: #ff3d3d;
+            --dark-bg: #0a0a0a;
+            --card-bg: #111111;
+            --text-primary: #FFFFFF;
+            --text-secondary: #B0B0B0;
+            --border-color: #333;
+            --glow-primary: 0 0 20px rgba(0, 255, 157, 0.3);
+            --glow-secondary: 0 0 20px rgba(0, 184, 255, 0.3);
+            --spacing-xs: 0.25rem;
+            --spacing-sm: 0.5rem;
+            --spacing-md: 0.75rem;
+            --spacing-lg: 1rem;
+            --spacing-xl: 1.5rem;
+            --border-radius-sm: 4px;
+            --border-radius-md: 6px;
+            --border-radius-lg: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Space Grotesk', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(0, 255, 157, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(0, 184, 255, 0.05) 0%, transparent 50%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(45deg, transparent 48%, rgba(0, 255, 157, 0.03) 49%, rgba(0, 255, 157, 0.03) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, rgba(0, 184, 255, 0.03) 49%, rgba(0, 184, 255, 0.03) 51%, transparent 52%);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .navbar {
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1.125rem;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+        }
+        
+        .navbar-brand i {
+            color: var(--primary-color);
+            text-shadow: var(--glow-primary);
+        }
+        
+        .navbar-actions {
+            display: flex;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .card {
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            background: var(--card-bg);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 157, 0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.1);
+            border-color: rgba(0, 255, 157, 0.2);
+        }
+        
+        .card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .card h2 {
+            font-size: 1.125rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            text-shadow: var(--glow-primary);
+        }
+        
+        .admin-section {
+            background: rgba(0, 255, 157, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .admin-section h3 {
+            font-size: 1rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .settings-form {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-sm);
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 0.875rem;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            border-radius: var(--border-radius-sm);
+            background-color: rgba(17, 17, 17, 0.8);
+            color: var(--text-primary);
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(0, 255, 157, 0.2);
+        }
+        
+        .btn {
+            padding: var(--spacing-sm) var(--spacing-md);
+            border: none;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--dark-bg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .btn:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+            box-shadow: var(--glow-primary);
+        }
+        
+        .btn-danger {
+            background-color: var(--danger-color);
+            box-shadow: 0 0 20px rgba(255, 61, 61, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .admin-controls {
+            display: flex;
+            gap: var(--spacing-md);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-lg);
+        }
+        
+        .participant-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-sm);
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: var(--spacing-sm);
+        }
+        
+        .participant-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .participant-list::-webkit-scrollbar-track {
+            background: var(--dark-bg);
+            border-radius: 3px;
+        }
+        
+        .participant-list::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 3px;
+            box-shadow: var(--glow-primary);
+        }
+        
+        .participant-item {
+            background: rgba(17, 17, 17, 0.8);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            border-radius: var(--border-radius-sm);
+            padding: var(--spacing-sm) var(--spacing-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+            font-size: 0.875rem;
+        }
+        
+        .participant-item:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0, 255, 157, 0.1);
+        }
+        
+        .participant-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            align-items: center;
+        }
+        
+        .winner-badge {
+            background: rgba(0, 255, 157, 0.1);
+            color: var(--success-color);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            font-family: 'Orbitron', sans-serif;
+            text-shadow: var(--glow-primary);
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: var(--spacing-lg);
+            right: var(--spacing-lg);
+            background-color: var(--success-color);
+            color: var(--dark-bg);
+            padding: var(--spacing-md) var(--spacing-lg);
+            border-radius: var(--border-radius-sm);
+            box-shadow: 0 4px 20px rgba(0, 255, 157, 0.2);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            z-index: 1000;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .notification.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .notification.danger {
+            background-color: var(--danger-color);
+            box-shadow: 0 4px 20px rgba(255, 61, 61, 0.2);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: var(--spacing-xl);
+            color: var(--text-secondary);
+        }
+        
+        .empty-state i {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--border-color);
+        }
+        
+        .result-container {
+            background: rgba(0, 255, 157, 0.05);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            border-left: 4px solid var(--success-color);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .winner-display {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--success-color);
+            margin-bottom: var(--spacing-md);
+            text-align: center;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+            text-shadow: var(--glow-primary);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: var(--spacing-md);
+            }
+            
+            .navbar {
+                padding: var(--spacing-md);
+            }
+            
+            .admin-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-controls {
+                flex-direction: column;
+            }
+            
+            .admin-controls .btn {
+                width: 100%;
+            }
+            
+            .card {
+                padding: var(--spacing-lg);
+            }
+            
+            .card h2 {
+                font-size: 1.5rem;
+            }
+            
+            .admin-section {
+                padding: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">
+            <i class="fas fa-trophy"></i>
+            Jssoma Giveaway
+        </a>
+        <div class="navbar-actions">
+            <button class="btn btn-danger" id="logoutBtn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="admin-grid">
+            <div class="card">
+                <h2><i class="fas fa-users"></i> Participants</h2>
+                <div class="count-display" id="adminParticipantsCount">
+                    <i class="fas fa-users"></i> 0 participants registered
+                </div>
+                
+                <div class="participant-list" id="adminParticipantList">
+                    <div class="empty-state">
+                        <i class="fas fa-users-slash"></i>
+                        <p>No participants registered yet.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                <div class="admin-section">
+                    <h3><i class="fas fa-key"></i> PIN Configuration</h3>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label for="participantPins">Participant PINs (comma separated):</label>
+                            <input type="text" id="participantPins" placeholder="PPgiveaway,otherpin">
+                        </div>
+                    </div>
+                    
+                    <h3><i class="fas fa-random"></i> Raffle Settings</h3>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label for="winnersCount">Number of Winners:</label>
+                            <input type="number" id="winnersCount" min="1" value="1">
+                        </div>
+                    </div>
+                    
+                    <div class="admin-controls">
+                        <button class="btn btn-success" id="saveSettingsBtn">
+                            <i class="fas fa-save"></i> Save Settings
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="admin-section">
+                    <h3><i class="fas fa-star"></i> Draw Winners</h3>
+                    <div class="admin-controls">
+                        <button class="btn btn-primary" id="adminDrawWinnersBtn">
+                            <i class="fas fa-random"></i> Draw Winners Now
+                        </button>
+                        <button class="btn btn-danger" id="adminResetBtn">
+                            <i class="fas fa-trash-alt"></i> Reset Participants
+                        </button>
+                    </div>
+                    
+                    <div class="result-container" id="adminResultContainer" style="display: none;">
+                        <h3><i class="fas fa-trophy"></i> Raffle Result</h3>
+                        <div class="winner-display" id="adminWinnerDisplay"></div>
+                        <div class="participant-list" id="adminWinnerList"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle"></i>
+        <span id="notificationText">Success!</span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check login status
+            if (!localStorage.getItem('adminLoggedIn')) {
+                window.location.href = '/giveaway/admin/login';
+                return;
+            }
+            
+            // Logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                localStorage.removeItem('adminLoggedIn');
+                window.location.href = '/giveaway/admin/login';
+            });
+            
+            // Configuration
+            let VALID_PINS = localStorage.getItem('validPins') ? localStorage.getItem('validPins').split(',') : ["PPgiveaway"];
+            let WINNERS_COUNT = parseInt(localStorage.getItem('winnersCount')) || 1;
+            
+            // Participants data
+            let participants = [];
+            
+            // DOM elements
+            const participantPins = document.getElementById('participantPins');
+            const winnersCount = document.getElementById('winnersCount');
+            const saveSettingsBtn = document.getElementById('saveSettingsBtn');
+            const adminDrawWinnersBtn = document.getElementById('adminDrawWinnersBtn');
+            const adminResetBtn = document.getElementById('adminResetBtn');
+            const adminParticipantList = document.getElementById('adminParticipantList');
+            const adminParticipantsCount = document.getElementById('adminParticipantsCount');
+            const adminResultContainer = document.getElementById('adminResultContainer');
+            const adminWinnerDisplay = document.getElementById('adminWinnerDisplay');
+            const adminWinnerList = document.getElementById('adminWinnerList');
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            // Initialize
+            participantPins.value = VALID_PINS.join(',');
+            winnersCount.value = WINNERS_COUNT;
+            
+            // Load participants from localStorage
+            function loadParticipants() {
+                try {
+                    const storedParticipants = localStorage.getItem('giveawayParticipants');
+                    if (storedParticipants) {
+                        participants = JSON.parse(storedParticipants);
+                    } else {
+                        participants = [];
+                    }
+                    updateAdminParticipantsDisplay();
+                } catch (error) {
+                    console.error('Error loading participants:', error);
+                    participants = [];
+                    updateAdminParticipantsDisplay();
+                }
+            }
+            
+            // Load participants on page load
+            loadParticipants();
+            
+            // Save participants to localStorage
+            function saveParticipants() {
+                try {
+                    localStorage.setItem('giveawayParticipants', JSON.stringify(participants));
+                    // Force storage event to sync with main page
+                    window.dispatchEvent(new StorageEvent('storage', {
+                        key: 'giveawayParticipants',
+                        newValue: JSON.stringify(participants),
+                        oldValue: null,
+                        storageArea: localStorage
+                    }));
+                } catch (error) {
+                    console.error('Error saving participants:', error);
+                    showNotification('Error saving participants data', 'danger');
+                }
+            }
+            
+            // Listen for participant updates from main page
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'giveawayParticipants') {
+                    try {
+                        const newParticipants = JSON.parse(e.newValue);
+                        if (Array.isArray(newParticipants)) {
+                            participants = newParticipants;
+                            updateAdminParticipantsDisplay();
+                        }
+                    } catch (error) {
+                        console.error('Error parsing participants data:', error);
+                    }
+                }
+            });
+            
+            // Save settings
+            saveSettingsBtn.addEventListener('click', function() {
+                const newPins = participantPins.value.split(',').map(p => p.trim()).filter(p => p);
+                
+                if (newPins.length === 0) {
+                    showNotification('Please enter at least one participant PIN', 'danger');
+                    return;
+                }
+                
+                localStorage.setItem('validPins', newPins.join(','));
+                localStorage.setItem('winnersCount', winnersCount.value);
+                
+                VALID_PINS = newPins;
+                WINNERS_COUNT = parseInt(winnersCount.value);
+                
+                showNotification('Settings saved successfully', 'success');
+            });
+            
+            // Draw winners
+            adminDrawWinnersBtn.addEventListener('click', drawWinners);
+            
+            // Reset all data
+            adminResetBtn.addEventListener('click', function() {
+                if (confirm('Are you sure you want to reset ALL raffle data? This cannot be undone.')) {
+                    participants = [];
+                    localStorage.removeItem('giveawayParticipants');
+                    updateAdminParticipantsDisplay();
+                    adminResultContainer.style.display = 'none';
+                    showNotification('All data has been reset.', 'success');
+                }
+            });
+            
+            // Helper functions
+            async function drawWinners() {
+                if (participants.length === 0) {
+                    showNotification('No participants registered yet', 'danger');
+                    return;
+                }
+                
+                if (participants.length < WINNERS_COUNT) {
+                    showNotification(`Not enough participants (${participants.length}) for ${WINNERS_COUNT} winners`, 'danger');
+                    return;
+                }
+                
+                try {
+                    // Create a copy of participants array
+                    const availableParticipants = [...participants];
+                    const winners = [];
+                    
+                    // Select winners
+                    for (let i = 0; i < WINNERS_COUNT; i++) {
+                        const randomIndex = Math.floor(Math.random() * availableParticipants.length);
+                        winners.push(availableParticipants[randomIndex]);
+                        availableParticipants.splice(randomIndex, 1);
+                    }
+                    
+                    // Mark winners
+                    participants.forEach(p => p.isWinner = false);
+                    winners.forEach(winner => {
+                        const winnerParticipant = participants.find(p => p.username === winner.username);
+                        if (winnerParticipant) winnerParticipant.isWinner = true;
+                    });
+                    
+                    // Save participants with winners marked
+                    saveParticipants();
+                    
+                    // Process winners one by one
+                    for (const winner of winners) {
+                        // Store current winner in localStorage to trigger wheel animation
+                        localStorage.setItem('raffleWinner', JSON.stringify({
+                            username: winner.username,
+                            timestamp: new Date().toISOString()
+                        }));
+                        
+                        // Wait for animation to complete before proceeding to next winner
+                        await new Promise(resolve => setTimeout(resolve, 6000));
+                    }
+                    
+                    // Display results in admin panel
+                    if (winners.length === 1) {
+                        adminWinnerDisplay.textContent = winners[0].username;
+                    } else {
+                        adminWinnerDisplay.textContent = `${winners.length} Winners Selected`;
+                    }
+                    
+                    // Display winner list
+                    adminWinnerList.innerHTML = winners.map((winner, index) => `
+                        <div class="participant-item">
+                            <span>Winner ${index + 1}: ${winner.username}</span>
+                            <span class="winner-badge"><i class="fas fa-trophy"></i> Winner</span>
+                        </div>
+                    `).join('');
+                    
+                    // Show result container
+                    adminResultContainer.style.display = 'block';
+                    updateAdminParticipantsDisplay();
+                    
+                    showNotification('Winners have been selected!', 'success');
+                    
+                } catch (error) {
+                    console.error('Error in giveaway:', error);
+                    showNotification('An error occurred during the raffle. Please try again.', 'danger');
+                }
+            }
+            
+            function updateAdminParticipantsDisplay() {
+                if (participants.length === 0) {
+                    adminParticipantList.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-users-slash"></i>
+                            <p>No participants registered yet.</p>
+                        </div>
+                    `;
+                } else {
+                    adminParticipantList.innerHTML = participants.map(p => `
+                        <div class="participant-item">
+                            <span>${p.username} <small>(PIN: ${p.pin})</small></span>
+                            <div class="participant-actions">
+                                ${p.isWinner ? '<span class="winner-badge"><i class="fas fa-trophy"></i> Winner</span>' : ''}
+                                <button class="btn btn-danger btn-sm remove-participant" data-username="${p.username}">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+                    
+                    // Add event listeners to remove buttons
+                    document.querySelectorAll('.remove-participant').forEach(btn => {
+                        btn.addEventListener('click', function() {
+                            const username = this.getAttribute('data-username');
+                            removeParticipant(username);
+                        });
+                    });
+                }
+                
+                adminParticipantsCount.innerHTML = `<i class="fas fa-users"></i> ${participants.length} participants registered`;
+            }
+            
+            function removeParticipant(username) {
+                if (confirm(`Remove participant ${username}?`)) {
+                    participants = participants.filter(p => p.username !== username);
+                    saveParticipants();
+                    updateAdminParticipantsDisplay();
+                    showNotification(`Participant ${username} removed`, 'success');
+                }
+            }
+            
+            function showNotification(message, type) {
+                notificationText.textContent = message;
+                notification.className = 'notification';
+                
+                if (type === 'success') {
+                    notification.style.backgroundColor = 'var(--success-color)';
+                } else if (type === 'danger') {
+                    notification.style.backgroundColor = 'var(--danger-color)';
+                    notification.classList.add('danger');
+                }
+                
+                notification.classList.add('show');
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+            
+            // Initial display update
+            updateAdminParticipantsDisplay();
+        });
+    </script>
+</body>
+</html>
