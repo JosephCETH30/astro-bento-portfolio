@@ -402,6 +402,39 @@
             text-shadow: var(--glow-primary);
         }
         
+        .seed-display {
+            background: rgba(0, 255, 157, 0.05);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius-sm);
+            margin-bottom: var(--spacing-lg);
+            border: 1px solid rgba(0, 255, 157, 0.1);
+        }
+
+        .seed-display h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+            font-size: var(--font-size-md);
+        }
+
+        .seed-value {
+            background: var(--dark-bg);
+            padding: var(--spacing-md);
+            font-family: monospace;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            text-align: center;
+            border-radius: var(--border-radius-sm);
+            margin-bottom: var(--spacing-sm);
+            word-break: break-all;
+        }
+
+        .seed-info {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            text-align: center;
+            margin: 0;
+        }
+        
         @media (max-width: 768px) {
             .container {
                 padding: var(--spacing-md);
@@ -494,6 +527,11 @@
                 
                 <div class="admin-section">
                     <h3><i class="fas fa-star"></i> Draw Winners</h3>
+                    <div class="seed-display">
+                        <h4>Current Seed for Verification</h4>
+                        <div class="seed-value" id="currentSeedDisplay"></div>
+                        <p class="seed-info">This seed will be used for the next draw. Participants can verify the fairness using this seed.</p>
+                    </div>
                     <div class="admin-controls">
                         <button class="btn btn-primary" id="adminDrawWinnersBtn">
                             <i class="fas fa-random"></i> Draw Winners Now
@@ -627,6 +665,25 @@
                 showNotification('Settings saved successfully', 'success');
             });
             
+            // Add seed management
+            let currentSeed = '';
+            const currentSeedDisplay = document.getElementById('currentSeedDisplay');
+
+            function generateSeed() {
+                const timestamp = Date.now();
+                const random = Math.random().toString(36).substring(2);
+                return `${timestamp}-${random}`;
+            }
+
+            function updateSeed() {
+                currentSeed = generateSeed();
+                currentSeedDisplay.textContent = currentSeed;
+                localStorage.setItem('currentRaffleSeed', currentSeed);
+            }
+
+            // Initialize seed
+            updateSeed();
+            
             // Draw winners
             adminDrawWinnersBtn.addEventListener('click', drawWinners);
             
@@ -654,13 +711,14 @@
                 }
                 
                 try {
-                    // Create a copy of participants array
+                    // Use the current seed to generate winners
+                    const random = new Math.seedrandom(currentSeed);
                     const availableParticipants = [...participants];
                     const winners = [];
                     
                     // Select winners
                     for (let i = 0; i < WINNERS_COUNT; i++) {
-                        const randomIndex = Math.floor(Math.random() * availableParticipants.length);
+                        const randomIndex = Math.floor(random() * availableParticipants.length);
                         winners.push(availableParticipants[randomIndex]);
                         availableParticipants.splice(randomIndex, 1);
                     }
@@ -675,16 +733,27 @@
                     // Save participants with winners marked
                     saveParticipants();
                     
-                    // Process winners one by one
-                    for (const winner of winners) {
-                        // Store current winner in localStorage to trigger wheel animation
+                    // Store the draw history
+                    const drawHistory = {
+                        seed: currentSeed,
+                        timestamp: new Date().toISOString(),
+                        participants: JSON.parse(JSON.stringify(participants)), // Deep copy of participants
+                        winners: winners.map(w => w.username),
+                        winnersCount: WINNERS_COUNT
+                    };
+                    
+                    // Store in localStorage
+                    const history = JSON.parse(localStorage.getItem('drawHistory') || '[]');
+                    history.unshift(drawHistory);
+                    localStorage.setItem('drawHistory', JSON.stringify(history));
+                    
+                    // Store the first winner in localStorage to trigger wheel animation
+                    if (winners.length > 0) {
                         localStorage.setItem('raffleWinner', JSON.stringify({
-                            username: winner.username,
-                            timestamp: new Date().toISOString()
+                            username: winners[0].username,
+                            timestamp: new Date().toISOString(),
+                            seed: currentSeed
                         }));
-                        
-                        // Wait for animation to complete before proceeding to next winner
-                        await new Promise(resolve => setTimeout(resolve, 6000));
                     }
                     
                     // Display results in admin panel
@@ -705,6 +774,9 @@
                     // Show result container
                     adminResultContainer.style.display = 'block';
                     updateAdminParticipantsDisplay();
+                    
+                    // Generate new seed for next draw
+                    updateSeed();
                     
                     showNotification('Winners have been selected!', 'success');
                     
@@ -778,5 +850,8 @@
             updateAdminParticipantsDisplay();
         });
     </script>
+
+    <!-- Add seedrandom library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
 </body>
 </html>

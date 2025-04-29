@@ -1197,7 +1197,7 @@
             {
                 id: 7,
                 title: "Gemini",
-                description: "Gemini is an interface to a multimodal LLM (handling text, audio, images and more). Gemini is based on Google's cutting-edge research in LLMs",
+                description: "Gemini is an interface to a multimodal LLM (handling text, audio, images and more). Gemini is based on Google’s cutting-edge research in LLMs",
                 category: "text",
                 tags: ["text", "free", "paid"],
                 image: "https://brandlogo.org/wp-content/uploads/2024/06/Gemini-Icon-300x300.png.webp",
@@ -1215,7 +1215,7 @@
             {
                 id: 9,
                 title: "Llama 4",
-                description: "As more people continue to use artificial intelligence to enhance their daily lives, it's important that the leading models and systems are openly available so everyone can build the future of personalized experiences.",
+                description: "As more people continue to use artificial intelligence to enhance their daily lives, it’s important that the leading models and systems are openly available so everyone can build the future of personalized experiences.",
                 category: "text",
                 tags: ["text", "free", "New"],
                 image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Meta_AI_logo.png/800px-Meta_AI_logo.png",
@@ -1422,12 +1422,7 @@
 
             } catch (error) {
                 console.error('Error:', error);
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'There was an error sending your message. Please try again later.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
+                alert('There was an error sending your message. Please try again later.');
             } finally {
                 // Reset button state
                 const submitBtn = contactForm.querySelector('.submit-btn');
