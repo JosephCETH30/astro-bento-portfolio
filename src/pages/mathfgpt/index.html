@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Complex Converter</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- KaTeX CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <!-- MathJax CDN for LaTeX to MathML -->
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <style>
+    :root {
+      --primary: #3b82f6;
+      --primary-dark: #2563eb;
+      --secondary: #22d3ee;
+      --success: #22c55e;
+      --bg-dark: #0f172a;
+      --bg-mid: #1e293b;
+      --bg-light: #334155;
+      --text-primary: #f8fafc;
+      --text-secondary: #cbd5e1;
+      --glass-bg: rgba(30, 41, 59, 0.5);
+      --glass-border: rgba(59, 130, 246, 0.2);
+      --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      --btn-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      --border-radius: 10px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-mid) 60%, var(--bg-light) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--text-primary);
+      padding: 2rem 1rem;
+    }
+
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--card-shadow);
+      border-radius: var(--border-radius);
+      border: 1px solid var(--glass-border);
+      padding: 2rem;
+      max-width: 600px;
+      width: 100%;
+      margin: 2rem 0;
+      animation: fadeIn 0.8s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, 
+        rgba(59,130,246,0) 0%, 
+        rgba(59,130,246,0.3) 50%, 
+        rgba(59,130,246,0) 100%
+      );
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(24px);}
+      to { opacity: 1; transform: none;}
+    }
+
+    h2 {
+      color: var(--text-primary);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .desc {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: var(--border-radius);
+      background: rgba(255,255,255,0.05);
+      color: var(--text-primary);
+      border: 1px solid rgba(59,130,246,0.1);
+      font-size: 1.1rem;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      margin-bottom: 1.5rem;
+      resize: vertical;
+      min-height: 100px;
+      transition: all 0.3s ease;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: rgba(255,255,255,0.08);
+      box-shadow: 0 0 0 2px rgba(59,130,246,0.1);
+    }
+
+    .btn-container {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--border-radius);
+      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      background: linear-gradient(90deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--text-primary);
+      box-shadow: var(--btn-shadow);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.15) 50%, 
+        rgba(255,255,255,0) 100%
+      );
+      transform: translateX(-100%);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.1) 50%, 
+        rgba(255,255,255,0) 100%
+      );
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      transform: translateX(100%);
+    }
+
+    .btn:hover::after {
+      transform: translateX(-100%);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn.copy {
+      background: linear-gradient(90deg, var(--secondary) 0%, var(--success) 100%);
+    }
+
+    .btn.copy::before,
+    .btn.copy::after {
+      background: linear-gradient(90deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.2) 50%, 
+        rgba(255,255,255,0) 100%
+      );
+    }
+
+    .btn:disabled {
+      background: var(--bg-light);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      opacity: 0.7;
+    }
+
+    .btn:disabled::before,
+    .btn:disabled::after {
+      display: none;
+    }
+
+    .output-section {
+      background: rgba(0,0,0,0.2);
+      border-radius: var(--border-radius);
+      padding: 1.25rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .output-label {
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    pre {
+      background: rgba(0,0,0,0.2);
+      color: #bbf7d0;
+      padding: 1rem;
+      border-radius: var(--border-radius);
+      font-size: 0.95rem;
+      font-family: 'Fira Code', 'Consolas', monospace;
+      overflow-x: auto;
+      min-height: 40px;
+      line-height: 1.5;
+      border: 1px solid rgba(255,255,255,0.05);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+
+    .preview-container {
+      background: rgba(0,0,0,0.2);
+      border-radius: var(--border-radius);
+      padding: 1.25rem;
+      min-height: 60px;
+      border: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .preview {
+      width: 100%;
+      text-align: center;
+      overflow-x: auto;
+      padding: 0.75rem;
+    }
+
+    .preview .katex {
+      font-size: 1.1rem;
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    .preview .katex-display {
+      margin: 0;
+      padding: 0;
+    }
+
+    .preview .katex-display > .katex {
+      display: inline-block;
+      text-align: center;
+      max-width: 100%;
+    }
+
+    .footer {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      opacity: 0.7;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      .glass-card {
+        padding: 1.5rem;
+      }
+      
+      .btn-container {
+        flex-direction: column;
+      }
+      
+      h2 {
+        font-size: 1.75rem;
+      }
+
+      .preview-container {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="glass-card">
+    <h2>Math Complex Converter</h2>
+    <div class="desc">
+      Paste LaTeX dari ChatGPT, klik Convert, lalu Copy MathML untuk paste langsung ke Microsoft Word Equation!
+    </div>
+    <textarea id="input" placeholder="Paste LaTeX di sini..."></textarea>
+    <div class="btn-container">
+      <button class="btn" onclick="convert()">Convert</button>
+      <button class="btn copy" id="copyBtn" onclick="copyMathML()" disabled>Copy MathML</button>
+    </div>
+    <div class="output-section">
+      <div class="output-label">MathML Output (copy & paste ke Word Equation):</div>
+      <pre id="mathmlOutput"></pre>
+    </div>
+    <div class="output-section">
+      <div class="output-label">Preview:</div>
+      <div class="preview-container">
+        <div class="preview" id="preview"></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    &copy; 2025 Yoseph Rafael. Powered by KaTeX & MathJax. No frameworks needed!
+  </div>
+  <!-- KaTeX JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script>
+    async function convert() {
+      const input = document.getElementById('input').value.trim();
+      document.getElementById('copyBtn').disabled = true;
+      // Convert LaTeX to MathML using MathJax
+      if (!input) {
+        document.getElementById('mathmlOutput').textContent = '';
+        document.getElementById('preview').innerHTML = '';
+        return;
+      }
+      const mathml = await MathJax.tex2mmlPromise(input, {display: true});
+      document.getElementById('mathmlOutput').textContent = mathml;
+      document.getElementById('copyBtn').disabled = false;
+      // Preview (render as math using KaTeX)
+      const preview = document.getElementById('preview');
+      try {
+        katex.render(input, preview, { 
+          throwOnError: false, 
+          displayMode: true,
+          maxSize: 1.2,
+          maxExpand: 1000
+        });
+      } catch (e) {
+        preview.textContent = "Error rendering LaTeX!";
+      }
+    }
+    function copyMathML() {
+      const mathml = document.getElementById('mathmlOutput').textContent;
+      if (!mathml) return;
+      navigator.clipboard.writeText(mathml);
+      const btn = document.getElementById('copyBtn');
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = "Copy MathML", 1200);
+    }
+  </script>
+</body>
+</html>
