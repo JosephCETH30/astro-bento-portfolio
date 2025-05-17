@@ -269,6 +269,104 @@
             padding: 16px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
+
+        /* Calendar Picker Styles */
+        .date-picker-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .date-picker-container input[type="date"] {
+            width: 100%;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: var(--text);
+            font-size: 14px;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .date-picker-container input[type="date"]::-webkit-calendar-picker-indicator {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            cursor: pointer;
+            filter: invert(0.5);
+        }
+
+        .date-picker-container input[type="date"]::-webkit-datetime-edit {
+            padding: 0;
+        }
+
+        .date-picker-container input[type="date"]::-webkit-datetime-edit-fields-wrapper {
+            padding: 0;
+        }
+
+        .date-picker-container input[type="date"]::-webkit-datetime-edit-text {
+            padding: 0 2px;
+            color: var(--text-secondary);
+        }
+
+        .date-picker-container input[type="date"]::-webkit-datetime-edit-year-field,
+        .date-picker-container input[type="date"]::-webkit-datetime-edit-month-field,
+        .date-picker-container input[type="date"]::-webkit-datetime-edit-day-field {
+            padding: 0 2px;
+            color: var(--text);
+        }
+
+        .date-picker-container input[type="date"]:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            outline: none;
+        }
+
+        /* Select Styles */
+        .select-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .select-container select {
+            width: 100%;
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: var(--text);
+            font-size: 14px;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        .select-container::after {
+            content: '';
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 12px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394A3B8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+        .select-container select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            outline: none;
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -571,11 +669,14 @@
         <div id="history-tab" class="tab-content">
             <div class="modern-card">
                 <h2 class="text-2xl font-semibold text-emerald-400 mb-6">Riwayat Transaksi</h2>
-                <div class="space-y-4">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                        <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                            <input type="date" class="modern-input">
-                            <select class="modern-input">
+                <div class="space-y-6">
+                    <!-- Filter Section -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="date-picker-container">
+                            <input type="date" id="dateFilter" class="modern-input" onchange="filterTransactions()">
+                        </div>
+                        <div class="select-container">
+                            <select id="categoryFilter" class="modern-input" onchange="filterTransactions()">
                                 <option value="">Semua Kategori</option>
                                 <option value="income">Pendapatan</option>
                                 <option value="fixed">Pengeluaran Tetap</option>
@@ -583,19 +684,44 @@
                                 <option value="savings">Tabungan</option>
                             </select>
                         </div>
-                        <button class="btn-primary w-full sm:w-auto">
-                            Tambah Transaksi
+                        <div class="relative">
+                            <input type="text" id="searchFilter" class="modern-input" placeholder="Cari transaksi..." oninput="filterTransactions()">
+                        </div>
+                        <button onclick="resetFilters()" class="btn-secondary w-full flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+                            </svg>
+                            Reset Filter
                         </button>
                     </div>
+
+                    <!-- Loading State -->
+                    <div id="loadingState" class="hidden">
+                        <div class="flex items-center justify-center py-8">
+                            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-400"></div>
+                        </div>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div id="emptyState" class="hidden">
+                        <div class="text-center py-8">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            </svg>
+                            <p class="text-gray-400">Tidak ada transaksi yang ditemukan</p>
+                        </div>
+                    </div>
+
+                    <!-- Transaction Table -->
                     <div class="overflow-x-auto">
                         <table class="w-full">
                             <thead>
                                 <tr class="text-left text-gray-400 border-b border-slate-700">
-                                    <th class="pb-3">Tanggal</th>
-                                    <th class="pb-3">Kategori</th>
-                                    <th class="pb-3">Deskripsi</th>
-                                    <th class="pb-3">Jumlah</th>
-                                    <th class="pb-3">Aksi</th>
+                                    <th class="px-6 pb-3">Tanggal</th>
+                                    <th class="px-6 pb-3">Kategori</th>
+                                    <th class="px-6 pb-3">Deskripsi</th>
+                                    <th class="px-6 pb-3">Jumlah</th>
+                                    <th class="px-6 pb-3">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody id="transactionHistory">
@@ -613,18 +739,22 @@
                 <h2 class="text-2xl font-semibold text-emerald-400 mb-6">Saran AI</h2>
                 <div class="space-y-6">
                     <!-- Chat Interface -->
-                    <div class="bg-slate-800/50 rounded-lg border border-slate-700/50 flex flex-col h-[400px] sm:h-[500px] md:h-[600px]">
-                        <div id="chatMessages" class="flex-1 space-y-4 sm:space-y-6 p-3 sm:p-4 overflow-y-auto">
+                    <div class="bg-slate-800/50 rounded-lg border border-slate-700/50 flex flex-col h-[500px]">
+                        <div class="p-4 border-b border-slate-700/50">
+                            <h3 class="text-lg font-medium text-emerald-400">Asisten Keuangan AI</h3>
+                            <p class="text-sm text-gray-400 mt-1">Tanyakan apapun tentang keuangan Anda</p>
+                        </div>
+                        <div id="chatMessages" class="flex-1 space-y-4 p-4 overflow-y-auto">
                             <!-- Welcome Message -->
-                            <div class="flex items-start gap-3 sm:gap-4">
-                                <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                            <div class="flex items-start gap-4">
+                                <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
                                     </svg>
                                 </div>
-                                <div class="flex-1">
-                                    <p class="text-gray-300 text-sm sm:text-base">Halo! Saya adalah asisten AI Anda. Saya dapat membantu Anda dengan:</p>
-                                    <ul class="list-disc list-inside text-gray-400 mt-2 space-y-1 text-sm sm:text-base">
+                                <div class="flex-1 bg-emerald-500/10 rounded-lg p-4 border border-emerald-500/20">
+                                    <p class="text-gray-300">Halo! Saya adalah asisten AI Anda. Saya dapat membantu Anda dengan:</p>
+                                    <ul class="list-disc list-inside text-gray-400 mt-2 space-y-1">
                                         <li>Analisis anggaran Anda</li>
                                         <li>Rekomendasi penghematan</li>
                                         <li>Tips investasi</li>
@@ -633,12 +763,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="border-t border-slate-700/50 p-3 sm:p-4 bg-slate-800/50">
-                            <form id="aiChatForm" class="flex gap-2 sm:gap-4">
-                                <input type="text" id="aiQuestion" placeholder="Tanyakan sesuatu..." class="modern-input flex-1 text-sm sm:text-base">
-                                <button type="submit" class="btn-primary">
-                                    <span class="hidden sm:inline">Kirim</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <div class="p-4 border-t border-slate-700/50 bg-slate-800/50">
+                            <form id="aiChatForm" class="flex gap-3">
+                                <input type="text" id="aiQuestion" placeholder="Tanyakan sesuatu..." class="flex-1 bg-slate-700/50 border border-slate-600/50 rounded-lg px-4 py-2 text-gray-300 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50">
+                                <button type="submit" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-lg flex items-center gap-2 transition-colors">
+                                    <span>Kirim</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
@@ -646,33 +776,54 @@
                         </div>
                     </div>
 
-                    <!-- Budget Analysis Section -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                        <div class="bg-slate-700/50 rounded-lg p-4 md:p-6">
-                            <h3 class="text-lg font-medium text-emerald-400 mb-3">Analisis Anggaran</h3>
-                            <div class="text-gray-300 text-sm md:text-base prose prose-invert max-w-none" id="budgetAnalysis">
-                                <p>Analisis anggaran Anda akan muncul di sini setelah menghitung anggaran.</p>
+                    <!-- AI Suggestions Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700/50 hover:border-emerald-500/50 transition-colors">
+                            <h3 class="text-lg font-medium text-emerald-400 mb-4 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                                </svg>
+                                Analisis Anggaran
+                            </h3>
+                            <div id="budgetAnalysis" class="prose prose-invert max-w-none">
+                                <p class="text-gray-400">Analisis anggaran Anda akan muncul di sini setelah menghitung anggaran.</p>
                             </div>
                         </div>
 
-                        <div class="bg-slate-700/50 rounded-lg p-4 md:p-6">
-                            <h3 class="text-lg font-medium text-emerald-400 mb-3">Rekomendasi Tabungan</h3>
-                            <div class="text-gray-300 text-sm md:text-base prose prose-invert max-w-none" id="savingsRecommendations">
-                                <p>Rekomendasi tabungan Anda akan muncul di sini setelah menghitung anggaran.</p>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700/50 hover:border-emerald-500/50 transition-colors">
+                            <h3 class="text-lg font-medium text-emerald-400 mb-4 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
+                                </svg>
+                                Rekomendasi Tabungan
+                            </h3>
+                            <div id="savingsRecommendations" class="prose prose-invert max-w-none">
+                                <p class="text-gray-400">Rekomendasi tabungan Anda akan muncul di sini setelah menghitung anggaran.</p>
                             </div>
                         </div>
 
-                        <div class="bg-slate-700/50 rounded-lg p-4 md:p-6">
-                            <h3 class="text-lg font-medium text-emerald-400 mb-3">Optimasi Pengeluaran</h3>
-                            <div class="text-gray-300 text-sm md:text-base prose prose-invert max-w-none" id="expenseOptimization">
-                                <p>Saran optimasi pengeluaran Anda akan muncul di sini setelah menghitung anggaran.</p>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700/50 hover:border-emerald-500/50 transition-colors">
+                            <h3 class="text-lg font-medium text-emerald-400 mb-4 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                Optimasi Pengeluaran
+                            </h3>
+                            <div id="expenseOptimization" class="prose prose-invert max-w-none">
+                                <p class="text-gray-400">Saran optimasi pengeluaran Anda akan muncul di sini setelah menghitung anggaran.</p>
                             </div>
                         </div>
 
-                        <div class="bg-slate-700/50 rounded-lg p-4 md:p-6">
-                            <h3 class="text-lg font-medium text-emerald-400 mb-3">Tujuan Keuangan</h3>
-                            <div class="text-gray-300 text-sm md:text-base prose prose-invert max-w-none" id="financialGoals">
-                                <p>Tujuan keuangan dan progres Anda akan muncul di sini setelah menghitung anggaran.</p>
+                        <div class="bg-slate-800/50 rounded-lg p-6 border border-slate-700/50 hover:border-emerald-500/50 transition-colors">
+                            <h3 class="text-lg font-medium text-emerald-400 mb-4 flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                                </svg>
+                                Tujuan Keuangan
+                            </h3>
+                            <div id="financialGoals" class="prose prose-invert max-w-none">
+                                <p class="text-gray-400">Tujuan keuangan dan progres Anda akan muncul di sini setelah menghitung anggaran.</p>
                             </div>
                         </div>
                     </div>
@@ -1624,6 +1775,10 @@ Jawablah dengan:
                 const question = document.getElementById('aiQuestion').value.trim();
                 if (question) {
                     askAI(question);
+                    // Clear input and placeholder after sending
+                    const aiQuestion = document.getElementById('aiQuestion');
+                    aiQuestion.value = '';
+                    aiQuestion.placeholder = '';
                 }
             });
 
@@ -1634,9 +1789,113 @@ Jawablah dengan:
                     const question = e.target.value.trim();
                     if (question) {
                         askAI(question);
+                        // Clear input and placeholder after sending
+                        const aiQuestion = document.getElementById('aiQuestion');
+                        aiQuestion.value = '';
+                        aiQuestion.placeholder = '';
                     }
                 }
             });
+
+            // Add focus event listener to restore placeholder
+            document.getElementById('aiQuestion').addEventListener('focus', function() {
+                if (!this.value) {
+                    this.placeholder = 'Tanyakan sesuatu...';
+                }
+            });
+
+            // Add blur event listener to clear placeholder if input is empty
+            document.getElementById('aiQuestion').addEventListener('blur', function() {
+                if (!this.value) {
+                    this.placeholder = '';
+                }
+            });
+
+            // Update the JavaScript functions for filtering
+            function filterTransactions() {
+                const dateFilter = document.getElementById('dateFilter').value;
+                const categoryFilter = document.getElementById('categoryFilter').value;
+                const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
+                
+                const filteredTransactions = transactions.filter(transaction => {
+                    const matchesDate = !dateFilter || transaction.date === dateFilter;
+                    const matchesCategory = !categoryFilter || transaction.category === categoryFilter;
+                    const matchesSearch = !searchFilter || 
+                        transaction.description.toLowerCase().includes(searchFilter) ||
+                        transaction.amount.toString().includes(searchFilter);
+                    
+                    return matchesDate && matchesCategory && matchesSearch;
+                });
+                
+                updateTransactionHistory(filteredTransactions);
+            }
+
+            function resetFilters() {
+                document.getElementById('dateFilter').value = '';
+                document.getElementById('categoryFilter').value = '';
+                document.getElementById('searchFilter').value = '';
+                updateTransactionHistory(transactions);
+            }
+
+            function updateTransactionHistory(transactionsToShow = transactions) {
+                const transactionHistory = document.getElementById('transactionHistory');
+                const emptyState = document.getElementById('emptyState');
+                const loadingState = document.getElementById('loadingState');
+                
+                // Show loading state
+                loadingState.classList.remove('hidden');
+                transactionHistory.innerHTML = '';
+                emptyState.classList.add('hidden');
+                
+                // Simulate loading delay
+                setTimeout(() => {
+                    loadingState.classList.add('hidden');
+                    
+                    if (!transactionsToShow || transactionsToShow.length === 0) {
+                        emptyState.classList.remove('hidden');
+                        return;
+                    }
+                    
+                    transactionHistory.innerHTML = transactionsToShow.map(transaction => `
+                        <tr class="hover:bg-slate-800/50 transition-colors">
+                            <td class="px-6 py-4 text-gray-300">${formatDate(transaction.date)}</td>
+                            <td class="px-6 py-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-medium ${
+                                    transaction.category === 'income' ? 'bg-emerald-900/50 text-emerald-400' :
+                                    transaction.category === 'fixed' ? 'bg-red-900/50 text-red-400' :
+                                    transaction.category === 'variable' ? 'bg-orange-900/50 text-orange-400' :
+                                    'bg-blue-900/50 text-blue-400'
+                                }">
+                                    ${transaction.category === 'income' ? 'Pendapatan' :
+                                      transaction.category === 'fixed' ? 'Pengeluaran Tetap' :
+                                      transaction.category === 'variable' ? 'Pengeluaran Variabel' :
+                                      'Tabungan'}
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-gray-300">${transaction.description}</td>
+                            <td class="px-6 py-4 font-medium ${
+                                transaction.category === 'income' ? 'text-emerald-400' :
+                                transaction.category === 'savings' ? 'text-blue-400' :
+                                'text-red-400'
+                            }">
+                                ${formatCurrency(transaction.amount)}
+                            </td>
+                            <td class="px-6 py-4">
+                                <button onclick="deleteTransaction(${transaction.id})" class="text-red-400 hover:text-red-300 transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    `).join('');
+                }, 300);
+            }
+
+            function formatDate(dateString) {
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                return new Date(dateString).toLocaleDateString('id-ID', options);
+            }
         </script>
     </div>
 </body>
