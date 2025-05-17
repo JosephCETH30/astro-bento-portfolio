@@ -1,11 +1,1643 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=https://yosephrafael.com/budgy/login" />
-    <title>Redirecting...</title>
-  </head>
-  <body>
-    <p>Redirecting to login page...</p>
-  </body>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Budget Tracker/Calculator | Kelola Keuangan Anda</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <style>
+        :root {
+            --primary: #10B981;
+            --primary-dark: #059669;
+            --secondary: #1E293B;
+            --accent: #3B82F6;
+            --background: #0F172A;
+            --surface: #1E293B;
+            --text: #F8FAFC;
+            --text-secondary: #94A3B8;
+        }
+
+        body {
+            font-family: 'Satoshi', sans-serif;
+            background: linear-gradient(135deg, var(--background) 0%, #1E1B4B 100%);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 240px;
+            background-color: var(--surface);
+            color: var(--text);
+            text-align: center;
+            border-radius: 8px;
+            padding: 8px 12px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -120px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-content {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tab-button {
+            color: var(--text-secondary);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .tab-button:hover {
+            color: var(--text);
+        }
+
+        .tab-button.active {
+            color: var(--primary);
+        }
+
+        .tab-button.active::after {
+            width: 100%;
+        }
+
+        /* Modern Card Styles */
+        .modern-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+
+        @media (min-width: 640px) {
+            .modern-card {
+                padding: 24px;
+            }
+        }
+
+        .modern-input {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 8px 12px;
+            color: var(--text);
+            transition: all 0.3s ease;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        @media (min-width: 640px) {
+            .modern-input {
+                padding: 12px 16px;
+                font-size: 16px;
+            }
+        }
+
+        .modern-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            outline: none;
+        }
+
+        .modern-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+            font-size: 14px;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .btn-primary {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(30, 41, 59, 0.7);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .btn-secondary {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+
+        .btn-secondary:hover {
+            background: rgba(30, 41, 59, 0.9);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-danger {
+            background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 6px -1px rgba(239, 68, 68, 0.2);
+            font-size: 14px;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        @media (min-width: 640px) {
+            .btn-danger {
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 8px -1px rgba(239, 68, 68, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Chart Styles */
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 300px;
+            background: rgba(30, 41, 59, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-slate-800/50 backdrop-blur-sm border-b border-slate-700/50 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="text-emerald-400 font-bold text-xl">Budgy</a>
+                <div class="flex items-center space-x-6">
+                    <a href="#author" class="text-gray-300 hover:text-emerald-400 transition-colors">Author</a>
+                    <a href="#contact" class="text-gray-300 hover:text-emerald-400 transition-colors">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-3">Budget Tracker/Calculator</h1>
+            <p class="text-gray-400 text-lg">Kelola keuangan Anda dengan lebih baik</p>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="flex justify-center mb-8">
+            <div class="flex space-x-8 bg-slate-800/50 p-2 rounded-xl backdrop-blur-sm">
+                <button class="tab-button active px-6 py-3 font-medium transition-colors" data-tab="budget">Anggaran</button>
+                <button class="tab-button px-6 py-3 font-medium transition-colors" data-tab="history">Riwayat Transaksi</button>
+                <button class="tab-button px-6 py-3 font-medium transition-colors" data-tab="ai-suggestions">Saran AI</button>
+            </div>
+        </div>
+
+        <!-- Budget Tab Content -->
+        <div id="budget-tab" class="tab-content active">
+            <div class="max-w-4xl mx-auto">
+                <!-- Budget Calculator Form -->
+                <div class="modern-card mb-8">
+                    <h2 class="text-2xl font-semibold text-emerald-400 mb-6">Kalkulator Anggaran</h2>
+                    
+                    <form id="budgetForm" class="space-y-8">
+                        <!-- Income Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-medium text-gray-300 flex items-center">
+                                Pendapatan
+                                <span class="tooltip ml-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400 hover:text-emerald-400 transition-colors" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="tooltiptext">Masukkan semua sumber pendapatan (gaji, bonus, penghasilan tambahan, dll.)</span>
+                                </span>
+                            </h3>
+                            <div id="incomeFields" class="space-y-3">
+                                <div class="flex gap-3">
+                                    <input type="text" name="incomeSource[]" placeholder="Sumber" class="modern-input flex-1">
+                                    <input type="number" name="incomeAmount[]" placeholder="Jumlah" class="modern-input w-32">
+                                    <button type="button" class="btn-danger px-3 py-2" data-container="incomeFields">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-secondary flex items-center justify-center" data-container="incomeFields" data-type="income">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                                </svg>
+                                Tambah Sumber Pendapatan
+                            </button>
+                        </div>
+
+                        <!-- Fixed Expenses Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-medium text-gray-300 flex items-center">
+                                Pengeluaran Tetap
+                                <span class="tooltip ml-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="tooltiptext">Pengeluaran bulanan tetap (sewa, utilitas, langganan, dll.)</span>
+                                </span>
+                            </h3>
+                            <div id="fixedExpenseFields">
+                                <div class="flex gap-3">
+                                    <input type="text" name="fixedExpenseName[]" placeholder="Pengeluaran" class="modern-input flex-1">
+                                    <input type="number" name="fixedExpenseAmount[]" placeholder="Jumlah" class="modern-input w-32">
+                                    <button type="button" class="btn-danger px-3 py-2" data-container="fixedExpenseFields">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-secondary flex items-center" data-container="fixedExpenseFields" data-type="fixedExpense">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                                </svg>
+                                Tambah Pengeluaran Tetap
+                            </button>
+                        </div>
+
+                        <!-- Variable Expenses Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-medium text-gray-300 flex items-center">
+                                Pengeluaran Variabel
+                                <span class="tooltip ml-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="tooltiptext">Pengeluaran yang berubah setiap bulan (belanja, hiburan, makan di luar, dll.)</span>
+                                </span>
+                            </h3>
+                            <div id="variableExpenseFields">
+                                <div class="flex gap-3">
+                                    <input type="text" name="variableExpenseName[]" placeholder="Pengeluaran" class="modern-input flex-1">
+                                    <input type="number" name="variableExpenseAmount[]" placeholder="Jumlah" class="modern-input w-32">
+                                    <button type="button" class="btn-danger px-3 py-2" data-container="variableExpenseFields">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-secondary flex items-center" data-container="variableExpenseFields" data-type="variableExpense">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                                </svg>
+                                Tambah Pengeluaran Variabel
+                            </button>
+                        </div>
+
+                        <!-- Savings Goals Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-medium text-gray-300 flex items-center">
+                                Tujuan Tabungan
+                                <span class="tooltip ml-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" />
+                                    </svg>
+                                    <span class="tooltiptext">Jumlah yang ingin Anda tabung setiap bulan (dana darurat, liburan, investasi, dll.)</span>
+                                </span>
+                            </h3>
+                            <div id="savingsFields">
+                                <div class="flex gap-3">
+                                    <input type="text" name="savingsGoal[]" placeholder="Tujuan" class="modern-input flex-1">
+                                    <input type="number" name="savingsAmount[]" placeholder="Jumlah" class="modern-input w-32">
+                                    <button type="button" class="btn-danger px-3 py-2" data-container="savingsFields">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <button type="button" class="btn-secondary flex items-center" data-container="savingsFields" data-type="savings">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+                                </svg>
+                                Tambah Tujuan Tabungan
+                            </button>
+                        </div>
+
+                        <!-- Import PDF Section -->
+                        <div class="space-y-4">
+                            <h3 class="text-lg font-medium text-gray-300">Impor Data Anggaran</h3>
+                            <div class="flex items-center gap-3">
+                                <input type="file" id="pdfInput" accept=".pdf" class="hidden">
+                                <label for="pdfInput" class="btn-secondary cursor-pointer">
+                                    Pilih File PDF
+                                </label>
+                                <span id="pdfFileName" class="text-gray-400">Belum ada file dipilih</span>
+                            </div>
+                            <p class="text-sm text-gray-400">Unggah PDF dengan data anggaran Anda untuk mengisi formulir secara otomatis</p>
+                        </div>
+
+                        <!-- Form Actions -->
+                        <div class="flex flex-wrap gap-3 pt-4">
+                            <button type="button" id="calculateBtn" class="btn-primary">
+                                Hitung Anggaran
+                            </button>
+                            <button type="button" id="saveBtn" class="btn-success">
+                                Simpan Anggaran
+                            </button>
+                            <button type="button" id="loadBtn" class="btn-secondary">
+                                Muat Anggaran
+                            </button>
+                            <button type="button" id="resetBtn" class="btn-danger">
+                                Reset Semua
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Results Section -->
+                <div class="space-y-8">
+                    <!-- Summary Card -->
+                    <div id="summaryCard" class="hidden fade-in">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Left Column: Summary Numbers -->
+                            <div class="modern-card">
+                                <h2 class="text-2xl font-semibold text-emerald-400 mb-6">Ringkasan Anggaran</h2>
+                                <div class="space-y-6">
+                                    <div class="flex items-center justify-between p-4 bg-emerald-900/30 rounded-xl border border-emerald-800/50">
+                                        <div>
+                                            <h3 class="text-sm font-medium text-emerald-300">Total Pendapatan</h3>
+                                            <p id="totalIncome" class="text-3xl font-bold text-emerald-400">Rp 0</p>
+                                        </div>
+                                        <div class="p-3 bg-emerald-800/50 rounded-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-4 bg-red-900/30 rounded-xl border border-red-800/50">
+                                        <div>
+                                            <h3 class="text-sm font-medium text-red-300">Total Pengeluaran</h3>
+                                            <p id="totalExpenses" class="text-3xl font-bold text-red-400">Rp 0</p>
+                                        </div>
+                                        <div class="p-3 bg-red-800/50 rounded-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-4 bg-blue-900/30 rounded-xl border border-blue-800/50">
+                                        <div>
+                                            <h3 class="text-sm font-medium text-blue-300">Total Tabungan</h3>
+                                            <p id="totalSavings" class="text-3xl font-bold text-blue-400">Rp 0</p>
+                                        </div>
+                                        <div class="p-3 bg-blue-800/50 rounded-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" viewBox="0 0 20 20" fill="currentColor">
+                                                <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-4 bg-slate-700/30 rounded-xl border border-slate-600/50">
+                                        <div>
+                                            <h3 class="text-sm font-medium text-gray-300">Sisa</h3>
+                                            <p id="netBalance" class="text-3xl font-bold text-gray-200">Rp 0</p>
+                                        </div>
+                                        <div class="p-3 bg-slate-600/50 rounded-lg">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Quick Stats -->
+                            <div class="modern-card">
+                                <h2 class="text-2xl font-semibold text-emerald-400 mb-6">Statistik Cepat</h2>
+                                <div class="space-y-6">
+                                    <div class="p-4 bg-slate-700/30 rounded-xl border border-slate-600/50">
+                                        <h3 class="text-sm font-medium text-gray-300 mb-2">Rasio Pengeluaran</h3>
+                                        <div class="w-full bg-slate-600/50 rounded-full h-2.5">
+                                            <div id="expenseRatio" class="bg-red-400 h-2.5 rounded-full" style="width: 0%"></div>
+                                        </div>
+                                        <p id="expenseRatioText" class="text-sm text-gray-400 mt-2">0% dari pendapatan</p>
+                                    </div>
+                                    <div class="p-4 bg-slate-700/30 rounded-xl border border-slate-600/50">
+                                        <h3 class="text-sm font-medium text-gray-300 mb-2">Rasio Tabungan</h3>
+                                        <div class="w-full bg-slate-600/50 rounded-full h-2.5">
+                                            <div id="savingsRatio" class="bg-blue-400 h-2.5 rounded-full" style="width: 0%"></div>
+                                        </div>
+                                        <p id="savingsRatioText" class="text-sm text-gray-400 mt-2">0% dari pendapatan</p>
+                                    </div>
+                                    <div class="p-4 bg-slate-700/30 rounded-xl border border-slate-600/50">
+                                        <h3 class="text-sm font-medium text-gray-300 mb-2">Status Anggaran</h3>
+                                        <p id="budgetStatus" class="text-lg font-medium text-emerald-400">Seimbang</p>
+                                        <p class="text-sm text-gray-400 mt-1">Anggaran Anda dalam kondisi baik</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div id="chartsSection" class="hidden fade-in space-y-8">
+                        <!-- Bar Chart -->
+                        <div class="modern-card">
+                            <h2 class="text-2xl font-semibold text-emerald-400 mb-6">Pendapatan vs Pengeluaran</h2>
+                            <div class="chart-container">
+                                <canvas id="barChart"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Pie Chart -->
+                        <div class="modern-card">
+                            <h2 class="text-2xl font-semibold text-emerald-400 mb-6">Rincian Pengeluaran</h2>
+                            <div class="chart-container">
+                                <canvas id="pieChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction History Tab Content -->
+        <div id="history-tab" class="tab-content">
+            <div class="modern-card">
+                <h2 class="text-2xl font-semibold text-emerald-400 mb-6">Riwayat Transaksi</h2>
+                <div class="space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <input type="date" class="modern-input">
+                            <select class="modern-input">
+                                <option value="">Semua Kategori</option>
+                                <option value="income">Pendapatan</option>
+                                <option value="fixed">Pengeluaran Tetap</option>
+                                <option value="variable">Pengeluaran Variabel</option>
+                                <option value="savings">Tabungan</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary w-full sm:w-auto">
+                            Tambah Transaksi
+                        </button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="text-left text-gray-400 border-b border-slate-700">
+                                    <th class="pb-3">Tanggal</th>
+                                    <th class="pb-3">Kategori</th>
+                                    <th class="pb-3">Deskripsi</th>
+                                    <th class="pb-3">Jumlah</th>
+                                    <th class="pb-3">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactionHistory">
+                                <!-- Transaction rows will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Suggestions Tab Content -->
+        <div id="ai-suggestions-tab" class="tab-content">
+            <div class="modern-card">
+                <h2 class="text-2xl font-semibold text-emerald-400 mb-6">Saran AI</h2>
+                <div class="space-y-6">
+                    <!-- Chat Interface -->
+                    <div class="bg-slate-800/50 rounded-lg border border-slate-700/50 flex flex-col h-[400px] sm:h-[500px] md:h-[600px]">
+                        <div id="chatMessages" class="flex-1 space-y-4 sm:space-y-6 p-3 sm:p-4 overflow-y-auto">
+                            <!-- Welcome Message -->
+                            <div class="flex items-start gap-3 sm:gap-4">
+                                <div class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                                <div class="flex-1">
+                                    <p class="text-gray-300 text-sm sm:text-base">Halo! Saya adalah asisten AI Anda. Saya dapat membantu Anda dengan:</p>
+                                    <ul class="list-disc list-inside text-gray-400 mt-2 space-y-1 text-sm sm:text-base">
+                                        <li>Analisis anggaran Anda</li>
+                                        <li>Rekomendasi penghematan</li>
+                                        <li>Tips investasi</li>
+                                        <li>Perencanaan keuangan</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="border-t border-slate-700/50 p-3 sm:p-4 bg-slate-800/50">
+                            <form id="aiChatForm" class="flex gap-2 sm:gap-4">
+                                <input type="text" id="aiQuestion" placeholder="Tanyakan sesuatu..." class="modern-input flex-1 text-sm sm:text-base">
+                                <button type="submit" class="btn-primary">
+                                    <span class="hidden sm:inline">Kirim</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Budget Analysis Section -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        <div class="bg-slate-700/50 rounded-lg p-4 md:p-6">
+                            <h3 class="text-lg font-medium text-emerald-400 mb-3">Analisis Anggaran</h3>
+                            <div class="text-gray-300 text-sm md:text-base prose prose-invert max-w-none" id="budgetAnalysis">
+                                <p>Analisis anggaran Anda akan muncul di sini setelah menghitung anggaran.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-700/50 rounded-lg p-4 md:p-6">
+                            <h3 class="text-lg font-medium text-emerald-400 mb-3">Rekomendasi Tabungan</h3>
+                            <div class="text-gray-300 text-sm md:text-base prose prose-invert max-w-none" id="savingsRecommendations">
+                                <p>Rekomendasi tabungan Anda akan muncul di sini setelah menghitung anggaran.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-700/50 rounded-lg p-4 md:p-6">
+                            <h3 class="text-lg font-medium text-emerald-400 mb-3">Optimasi Pengeluaran</h3>
+                            <div class="text-gray-300 text-sm md:text-base prose prose-invert max-w-none" id="expenseOptimization">
+                                <p>Saran optimasi pengeluaran Anda akan muncul di sini setelah menghitung anggaran.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-700/50 rounded-lg p-4 md:p-6">
+                            <h3 class="text-lg font-medium text-emerald-400 mb-3">Tujuan Keuangan</h3>
+                            <div class="text-gray-300 text-sm md:text-base prose prose-invert max-w-none" id="financialGoals">
+                                <p>Tujuan keuangan dan progres Anda akan muncul di sini setelah menghitung anggaran.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script>
+            // Initialize PDF.js
+            pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+
+            // DOM Elements
+            const pdfInput = document.getElementById('pdfInput');
+            const pdfFileName = document.getElementById('pdfFileName');
+            const summaryCard = document.getElementById('summaryCard');
+            const chartsSection = document.getElementById('chartsSection');
+            const calculateBtn = document.getElementById('calculateBtn');
+            const saveBtn = document.getElementById('saveBtn');
+            const loadBtn = document.getElementById('loadBtn');
+            const resetBtn = document.getElementById('resetBtn');
+            const transactionHistory = document.getElementById('transactionHistory');
+            const budgetAnalysis = document.getElementById('budgetAnalysis');
+            const savingsRecommendations = document.getElementById('savingsRecommendations');
+            const expenseOptimization = document.getElementById('expenseOptimization');
+            const financialGoals = document.getElementById('financialGoals');
+
+            // Chart instances
+            let barChart, pieChart;
+
+            // Transaction history array
+            let transactions = [];
+
+            // Event Listeners
+            document.addEventListener('DOMContentLoaded', function() {
+                // Load budget from local storage if available
+                if(localStorage.getItem('budgetData')) {
+                    loadBudget();
+                }
+                
+                // Load transactions from local storage if available
+                if(localStorage.getItem('transactions')) {
+                    transactions = JSON.parse(localStorage.getItem('transactions'));
+                    updateTransactionHistory();
+                }
+                
+                // PDF file input change handler
+                pdfInput.addEventListener('change', function(e) {
+                    if (e.target.files.length > 0) {
+                        pdfFileName.textContent = e.target.files[0].name;
+                        parsePDF(e.target.files[0]);
+                    } else {
+                        pdfFileName.textContent = 'Belum ada file dipilih';
+                    }
+                });
+
+                // Button event listeners
+                calculateBtn.addEventListener('click', calculateBudget);
+                saveBtn.addEventListener('click', saveBudget);
+                loadBtn.addEventListener('click', loadBudget);
+                resetBtn.addEventListener('click', () => resetBudget(true));
+
+                // Dynamic field buttons
+                document.querySelectorAll('[data-container]').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const container = this.getAttribute('data-container');
+                        const type = this.getAttribute('data-type');
+                        if (type) {
+                            addField(container, type);
+                        }
+                    });
+                });
+
+                // Tab navigation
+                document.querySelectorAll('.tab-button').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const tabId = this.getAttribute('data-tab');
+                        switchTab(tabId);
+                    });
+                });
+            });
+
+            // Switch between tabs
+            function switchTab(tabId) {
+                // Hide all tab contents
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                
+                // Remove active state from all buttons
+                document.querySelectorAll('.tab-button').forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                // Show selected tab content
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+                
+                // Set active state on selected button
+                document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+            }
+
+            // Add new input field
+            function addField(containerId, type) {
+                const container = document.getElementById(containerId);
+                const newField = document.createElement('div');
+                newField.className = 'flex gap-3';
+                
+                if (type === 'income') {
+                    newField.innerHTML = `
+                        <input type="text" name="incomeSource[]" placeholder="Sumber" class="modern-input flex-1">
+                        <input type="number" name="incomeAmount[]" placeholder="Jumlah" class="modern-input w-32">
+                        <button type="button" class="btn-danger px-3 py-2" data-container="${containerId}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    `;
+                } else if (type === 'fixedExpense') {
+                    newField.innerHTML = `
+                        <input type="text" name="fixedExpenseName[]" placeholder="Pengeluaran" class="modern-input flex-1">
+                        <input type="number" name="fixedExpenseAmount[]" placeholder="Jumlah" class="modern-input w-32">
+                        <button type="button" class="btn-danger px-3 py-2" data-container="${containerId}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    `;
+                } else if (type === 'variableExpense') {
+                    newField.innerHTML = `
+                        <input type="text" name="variableExpenseName[]" placeholder="Pengeluaran" class="modern-input flex-1">
+                        <input type="number" name="variableExpenseAmount[]" placeholder="Jumlah" class="modern-input w-32">
+                        <button type="button" class="btn-danger px-3 py-2" data-container="${containerId}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    `;
+                } else if (type === 'savings') {
+                    newField.innerHTML = `
+                        <input type="text" name="savingsGoal[]" placeholder="Tujuan" class="modern-input flex-1">
+                        <input type="number" name="savingsAmount[]" placeholder="Jumlah" class="modern-input w-32">
+                        <button type="button" class="btn-danger px-3 py-2" data-container="${containerId}">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    `;
+                }
+                
+                container.appendChild(newField);
+                
+                // Add event listener to the new remove button
+                newField.querySelector('button').addEventListener('click', function() {
+                    if (container.children.length > 1) {
+                        newField.remove();
+                    } else {
+                        alert('Anda perlu memiliki setidaknya satu field.');
+                    }
+                });
+            }
+
+            // Calculate budget
+            function calculateBudget() {
+                // Get all input values
+                const income = Array.from(document.querySelectorAll('#incomeFields input[type="number"]'))
+                    .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0);
+                const fixedExpenses = Array.from(document.querySelectorAll('#fixedExpenseFields input[type="number"]'))
+                    .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0);
+                const variableExpenses = Array.from(document.querySelectorAll('#variableExpenseFields input[type="number"]'))
+                    .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0);
+                const savingsGoals = Array.from(document.querySelectorAll('#savingsFields input[type="number"]'))
+                    .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0);
+
+                // Calculate totals
+                const totalExpenses = fixedExpenses + variableExpenses;
+                const totalSavings = savingsGoals;
+                const remaining = income - totalExpenses - totalSavings;
+
+                // Update summary card
+                document.getElementById('totalIncome').textContent = formatCurrency(income);
+                document.getElementById('totalExpenses').textContent = formatCurrency(totalExpenses);
+                document.getElementById('totalSavings').textContent = formatCurrency(totalSavings);
+                document.getElementById('netBalance').textContent = formatCurrency(remaining);
+
+                // Create charts
+                createCharts(income, fixedExpenses, variableExpenses, totalSavings);
+
+                // Generate AI insights
+                generateAIInsights(income, fixedExpenses, variableExpenses, totalSavings, remaining);
+
+                // Show results
+                summaryCard.classList.remove('hidden');
+                chartsSection.classList.remove('hidden');
+
+                // Add transaction to history
+                const date = new Date().toISOString().split('T')[0];
+                addTransaction(date, 'income', 'Pendapatan Bulanan', income);
+                addTransaction(date, 'fixed', 'Pengeluaran Tetap', fixedExpenses);
+                addTransaction(date, 'variable', 'Pengeluaran Variabel', variableExpenses);
+                addTransaction(date, 'savings', 'Tabungan', savingsGoals);
+
+                // Update quick stats
+                const expenseRatio = ((fixedExpenses + variableExpenses) / income) * 100;
+                const savingsRatio = (savingsGoals / income) * 100;
+
+                document.getElementById('expenseRatio').style.width = `${Math.min(expenseRatio, 100)}%`;
+                document.getElementById('savingsRatio').style.width = `${Math.min(savingsRatio, 100)}%`;
+                document.getElementById('expenseRatioText').textContent = `${expenseRatio.toFixed(1)}% dari pendapatan`;
+                document.getElementById('savingsRatioText').textContent = `${savingsRatio.toFixed(1)}% dari pendapatan`;
+
+                // Update budget status
+                const budgetStatus = document.getElementById('budgetStatus');
+                if (remaining < 0) {
+                    budgetStatus.textContent = 'Defisit';
+                    budgetStatus.className = 'text-lg font-medium text-red-400';
+                } else if (remaining > income * 0.2) {
+                    budgetStatus.textContent = 'Sangat Baik';
+                    budgetStatus.className = 'text-lg font-medium text-emerald-400';
+                } else {
+                    budgetStatus.textContent = 'Seimbang';
+                    budgetStatus.className = 'text-lg font-medium text-emerald-400';
+                }
+            }
+
+            // Format currency
+            function formatCurrency(amount) {
+                return new Intl.NumberFormat('id-ID', {
+                    style: 'currency',
+                    currency: 'IDR',
+                    minimumFractionDigits: 0,
+                    maximumFractionDigits: 0
+                }).format(amount);
+            }
+
+            // Create charts
+            function createCharts(income, fixedExpenses, variableExpenses, savings) {
+                const ctx = document.getElementById('barChart').getContext('2d');
+                const pieCtx = document.getElementById('pieChart').getContext('2d');
+
+                // Destroy existing charts if they exist
+                if (barChart) barChart.destroy();
+                if (pieChart) pieChart.destroy();
+
+                // Bar Chart
+                barChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Pendapatan', 'Pengeluaran Tetap', 'Pengeluaran Variabel', 'Tabungan'],
+                        datasets: [{
+                            label: 'Jumlah',
+                            data: [income, fixedExpenses, variableExpenses, savings],
+                            backgroundColor: [
+                                'rgba(16, 185, 129, 0.8)',
+                                'rgba(239, 68, 68, 0.8)',
+                                'rgba(245, 158, 11, 0.8)',
+                                'rgba(59, 130, 246, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgb(16, 185, 129)',
+                                'rgb(239, 68, 68)',
+                                'rgb(245, 158, 11)',
+                                'rgb(59, 130, 246)'
+                            ],
+                            borderWidth: 2,
+                            borderRadius: 8,
+                            barThickness: 40,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: false
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(30, 41, 59, 0.9)',
+                                titleColor: '#F8FAFC',
+                                bodyColor: '#F8FAFC',
+                                borderColor: 'rgba(255, 255, 255, 0.1)',
+                                borderWidth: 1,
+                                padding: 12,
+                                cornerRadius: 8,
+                                displayColors: false,
+                                callbacks: {
+                                    label: function(context) {
+                                        return formatCurrency(context.raw);
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                grid: {
+                                    color: 'rgba(255, 255, 255, 0.1)',
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    color: '#94A3B8',
+                                    font: {
+                                        family: 'Satoshi',
+                                        size: 12
+                                    },
+                                    callback: function(value) {
+                                        return formatCurrency(value);
+                                    }
+                                }
+                            },
+                            x: {
+                                grid: {
+                                    display: false
+                                },
+                                ticks: {
+                                    color: '#94A3B8',
+                                    font: {
+                                        family: 'Satoshi',
+                                        size: 12
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Pie Chart
+                pieChart = new Chart(pieCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Pengeluaran Tetap', 'Pengeluaran Variabel', 'Tabungan'],
+                        datasets: [{
+                            data: [fixedExpenses, variableExpenses, savings],
+                            backgroundColor: [
+                                'rgba(239, 68, 68, 0.8)',
+                                'rgba(245, 158, 11, 0.8)',
+                                'rgba(59, 130, 246, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgb(239, 68, 68)',
+                                'rgb(245, 158, 11)',
+                                'rgb(59, 130, 246)'
+                            ],
+                            borderWidth: 2,
+                            borderRadius: 8,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    color: '#94A3B8',
+                                    font: {
+                                        family: 'Satoshi',
+                                        size: 12
+                                    },
+                                    padding: 20,
+                                    usePointStyle: true,
+                                    pointStyle: 'circle'
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(30, 41, 59, 0.9)',
+                                titleColor: '#F8FAFC',
+                                bodyColor: '#F8FAFC',
+                                borderColor: 'rgba(255, 255, 255, 0.1)',
+                                borderWidth: 1,
+                                padding: 12,
+                                cornerRadius: 8,
+                                callbacks: {
+                                    label: function(context) {
+                                        const value = context.raw;
+                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                        const percentage = ((value / total) * 100).toFixed(1);
+                                        return `${context.label}: ${formatCurrency(value)} (${percentage}%)`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Generate AI insights
+            function generateAIInsights(income, fixedExpenses, variableExpenses, savings, remaining) {
+                // Budget Analysis
+                const expenseRatio = ((fixedExpenses + variableExpenses) / income) * 100;
+                const savingsRatio = (savings / income) * 100;
+                
+                budgetAnalysis.innerHTML = `
+                    <div class="space-y-4">
+                        <p class="text-gray-300">Total pengeluaran Anda adalah ${expenseRatio.toFixed(1)}% dari pendapatan.</p>
+                        <p class="text-gray-300">Anda menabung ${savingsRatio.toFixed(1)}% dari pendapatan.</p>
+                        <p class="text-gray-300">${remaining >= 0 ? 'Selamat! Anda memiliki sisa uang.' : 'Anda perlu mengurangi pengeluaran atau meningkatkan pendapatan.'}</p>
+                    </div>
+                `;
+
+                // Savings Recommendations
+                const recommendedSavings = income * 0.2; // 20% of income
+                savingsRecommendations.innerHTML = `
+                    <div class="space-y-4">
+                        <p class="text-gray-300">Rekomendasi tabungan: ${formatCurrency(recommendedSavings)} (20% dari pendapatan)</p>
+                        <p class="text-gray-300">${savings >= recommendedSavings ? 'Selamat! Anda telah mencapai tujuan tabungan!' : 'Pertimbangkan untuk meningkatkan tabungan Anda untuk mencapai jumlah yang direkomendasikan.'}</p>
+                    </div>
+                `;
+
+                // Expense Optimization
+                const highExpenseCategories = [];
+                if (fixedExpenses > income * 0.5) highExpenseCategories.push('pengeluaran tetap');
+                if (variableExpenses > income * 0.3) highExpenseCategories.push('pengeluaran variabel');
+                
+                expenseOptimization.innerHTML = `
+                    <div class="space-y-4">
+                        <p class="text-gray-300">${highExpenseCategories.length > 0 ? 
+                            `Pertimbangkan untuk mengurangi ${highExpenseCategories.join(' dan ')}.` : 
+                            'Pengeluaran Anda sudah seimbang.'}</p>
+                        <p class="text-gray-300">${variableExpenses > fixedExpenses ? 
+                            'Pengeluaran variabel Anda lebih tinggi dari pengeluaran tetap. Pertimbangkan untuk menetapkan anggaran yang lebih ketat.' : 
+                            'Pengeluaran tetap Anda dikelola dengan baik.'}</p>
+                    </div>
+                `;
+
+                // Financial Goals
+                financialGoals.innerHTML = `
+                    <div class="space-y-4">
+                        <p class="text-gray-300">Tujuan jangka pendek: Membangun dana darurat sebanyak 3-6 bulan dari pengeluaran.</p>
+                        <p class="text-gray-300">Tujuan jangka menengah: Meningkatkan tingkat tabungan ke 20% dari pendapatan.</p>
+                        <p class="text-gray-300">Tujuan jangka panjang: Mencapai independensi keuangan melalui tabungan konsisten dan investasi.</p>
+                    </div>
+                `;
+            }
+
+            // Save budget
+            function saveBudget() {
+                const budgetData = {
+                    income: [],
+                    fixedExpenses: [],
+                    variableExpenses: [],
+                    savings: []
+                };
+
+                // Save income data
+                const incomeSources = document.getElementsByName('incomeSource[]');
+                const incomeAmounts = document.getElementsByName('incomeAmount[]');
+                incomeSources.forEach((source, index) => {
+                    if (source.value || incomeAmounts[index].value) {
+                        budgetData.income.push({
+                            source: source.value,
+                            amount: incomeAmounts[index].value
+                        });
+                    }
+                });
+
+                // Save fixed expenses data
+                const fixedExpenseNames = document.getElementsByName('fixedExpenseName[]');
+                const fixedExpenseAmounts = document.getElementsByName('fixedExpenseAmount[]');
+                fixedExpenseNames.forEach((name, index) => {
+                    if (name.value || fixedExpenseAmounts[index].value) {
+                        budgetData.fixedExpenses.push({
+                            name: name.value,
+                            amount: fixedExpenseAmounts[index].value
+                        });
+                    }
+                });
+
+                // Save variable expenses data
+                const variableExpenseNames = document.getElementsByName('variableExpenseName[]');
+                const variableExpenseAmounts = document.getElementsByName('variableExpenseAmount[]');
+                variableExpenseNames.forEach((name, index) => {
+                    if (name.value || variableExpenseAmounts[index].value) {
+                        budgetData.variableExpenses.push({
+                            name: name.value,
+                            amount: variableExpenseAmounts[index].value
+                        });
+                    }
+                });
+
+                // Save savings data
+                const savingsGoals = document.getElementsByName('savingsGoal[]');
+                const savingsAmounts = document.getElementsByName('savingsAmount[]');
+                savingsGoals.forEach((goal, index) => {
+                    if (goal.value || savingsAmounts[index].value) {
+                        budgetData.savings.push({
+                            goal: goal.value,
+                            amount: savingsAmounts[index].value
+                        });
+                    }
+                });
+
+                // Save to local storage
+                localStorage.setItem('budgetData', JSON.stringify(budgetData));
+                alert('Anggaran berhasil disimpan!');
+            }
+
+            // Load budget
+            function loadBudget() {
+                const savedData = localStorage.getItem('budgetData');
+                if (savedData) {
+                    const budgetData = JSON.parse(savedData);
+                    
+                    // Clear existing fields
+                    resetBudget(false);
+                    
+                    // Load income data
+                    budgetData.income.forEach(item => {
+                        addField('incomeFields', 'income');
+                        const fields = document.querySelectorAll('#incomeFields > div');
+                        const lastField = fields[fields.length - 1];
+                        lastField.querySelector('input[name="incomeSource[]"]').value = item.source;
+                        lastField.querySelector('input[name="incomeAmount[]"]').value = item.amount;
+                    });
+                    
+                    // Load fixed expenses data
+                    budgetData.fixedExpenses.forEach(item => {
+                        addField('fixedExpenseFields', 'fixedExpense');
+                        const fields = document.querySelectorAll('#fixedExpenseFields > div');
+                        const lastField = fields[fields.length - 1];
+                        lastField.querySelector('input[name="fixedExpenseName[]"]').value = item.name;
+                        lastField.querySelector('input[name="fixedExpenseAmount[]"]').value = item.amount;
+                    });
+                    
+                    // Load variable expenses data
+                    budgetData.variableExpenses.forEach(item => {
+                        addField('variableExpenseFields', 'variableExpense');
+                        const fields = document.querySelectorAll('#variableExpenseFields > div');
+                        const lastField = fields[fields.length - 1];
+                        lastField.querySelector('input[name="variableExpenseName[]"]').value = item.name;
+                        lastField.querySelector('input[name="variableExpenseAmount[]"]').value = item.amount;
+                    });
+                    
+                    // Load savings data
+                    budgetData.savings.forEach(item => {
+                        addField('savingsFields', 'savings');
+                        const fields = document.querySelectorAll('#savingsFields > div');
+                        const lastField = fields[fields.length - 1];
+                        lastField.querySelector('input[name="savingsGoal[]"]').value = item.goal;
+                        lastField.querySelector('input[name="savingsAmount[]"]').value = item.amount;
+                    });
+                    
+                    // Calculate budget with loaded data
+                    calculateBudget();
+                } else {
+                    alert('Tidak ada anggaran tersimpan.');
+                }
+            }
+
+            // Reset budget
+            function resetBudget(clearStorage = true) {
+                // Clear all input fields
+                document.querySelectorAll('input[type="text"], input[type="number"]').forEach(input => {
+                    input.value = '';
+                });
+                
+                // Remove all extra fields except the first one
+                ['incomeFields', 'fixedExpenseFields', 'variableExpenseFields', 'savingsFields'].forEach(containerId => {
+                    const container = document.getElementById(containerId);
+                    if (container) {
+                        while (container.children.length > 1) {
+                            container.removeChild(container.lastChild);
+                        }
+                    }
+                });
+                
+                // Hide summary and charts
+                summaryCard.classList.add('hidden');
+                chartsSection.classList.add('hidden');
+                
+                // Clear local storage if requested
+                if (clearStorage) {
+                    localStorage.removeItem('budgetData');
+                }
+            }
+
+            // Parse PDF file
+            function parsePDF(file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const typedarray = new Uint8Array(e.target.result);
+                    pdfjsLib.getDocument(typedarray).promise.then(function(pdf) {
+                        let text = '';
+                        for (let i = 1; i <= pdf.numPages; i++) {
+                            pdf.getPage(i).then(function(page) {
+                                page.getTextContent().then(function(content) {
+                                    content.items.forEach(function(item) {
+                                        text += item.str + ' ';
+                                    });
+                                    if (i === pdf.numPages) {
+                                        extractDataFromPDF(text);
+                                    }
+                                });
+                            });
+                        }
+                    });
+                };
+                reader.readAsArrayBuffer(file);
+            }
+
+            // Extract data from PDF text
+            function extractDataFromPDF(text) {
+                // This is a simple example. You would need to implement more sophisticated
+                // parsing logic based on the structure of your PDF files.
+                const lines = text.split('\n');
+                lines.forEach(line => {
+                    if (line.includes('Pendapatan') || line.includes('Gaji')) {
+                        // Try to extract income data
+                        const amount = line.match(/\$?\d+(\.\d{2})?/);
+                        if (amount) {
+                            addField('incomeFields', 'income');
+                            const fields = document.querySelectorAll('#incomeFields > div');
+                            const lastField = fields[fields.length - 1];
+                            lastField.querySelector('input[name="incomeAmount[]"]').value = amount[0].replace('$', '');
+                        }
+                    }
+                });
+            }
+
+            // Add transaction to history
+            function addTransaction(date, category, description, amount) {
+                const transaction = {
+                    date,
+                    category,
+                    description,
+                    amount: parseFloat(amount),
+                    id: Date.now() + Math.random()
+                };
+                
+                if (!transactions) {
+                    transactions = [];
+                }
+                
+                transactions.push(transaction);
+                transactions.sort((a, b) => new Date(b.date) - new Date(a.date));
+                localStorage.setItem('transactions', JSON.stringify(transactions));
+                updateTransactionHistory();
+            }
+
+            // Update transaction history table
+            function updateTransactionHistory() {
+                if (!transactionHistory) return;
+                
+                transactionHistory.innerHTML = transactions && transactions.length ? 
+                    transactions.map(transaction => `
+                        <tr class="border-b border-slate-700/50">
+                            <td class="py-4 text-gray-300">${transaction.date}</td>
+                            <td class="py-4">
+                                <span class="px-2 py-1 rounded-full text-xs font-medium ${
+                                    transaction.category === 'income' ? 'bg-emerald-900/50 text-emerald-400' :
+                                    transaction.category === 'fixed' ? 'bg-red-900/50 text-red-400' :
+                                    transaction.category === 'variable' ? 'bg-orange-900/50 text-orange-400' :
+                                    'bg-blue-900/50 text-blue-400'
+                                }">
+                                    ${transaction.category === 'income' ? 'Pendapatan' :
+                                      transaction.category === 'fixed' ? 'Pengeluaran Tetap' :
+                                      transaction.category === 'variable' ? 'Pengeluaran Variabel' :
+                                      'Tabungan'}
+                                </span>
+                            </td>
+                            <td class="py-4 text-gray-300">${transaction.description}</td>
+                            <td class="py-4 font-medium ${
+                                transaction.category === 'income' ? 'text-emerald-400' :
+                                transaction.category === 'savings' ? 'text-blue-400' :
+                                'text-red-400'
+                            }">
+                                ${formatCurrency(transaction.amount)}
+                            </td>
+                            <td class="py-4">
+                                <button onclick="deleteTransaction(${transaction.id})" class="text-red-400 hover:text-red-300 transition-colors">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                            </td>
+                        </tr>
+                    `).join('') :
+                    '<tr><td colspan="5" class="py-8 text-center text-gray-400">Belum ada transaksi</td></tr>';
+            }
+
+            // Delete transaction
+            function deleteTransaction(id) {
+                transactions = transactions.filter(t => t.id !== id);
+                localStorage.setItem('transactions', JSON.stringify(transactions));
+                updateTransactionHistory();
+            }
+
+            // Add OpenAI integration
+            async function askAI(question) {
+                const chatMessages = document.getElementById('chatMessages');
+                const aiQuestion = document.getElementById('aiQuestion');
+                
+                // Add user message
+                chatMessages.innerHTML += `
+                    <div class="flex items-start gap-4">
+                        <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-gray-300">${question}</p>
+                        </div>
+                    </div>
+                `;
+
+                // Add loading message with typing animation
+                const loadingMessage = document.createElement('div');
+                loadingMessage.className = 'flex items-start gap-4';
+                loadingMessage.innerHTML = `
+                    <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <div class="typing-animation">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+                    </div>
+                `;
+                chatMessages.appendChild(loadingMessage);
+
+                try {
+                    // Get budget data
+                    const budgetData = {
+                        income: Array.from(document.querySelectorAll('#incomeFields input[type="number"]'))
+                            .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0),
+                        fixedExpenses: Array.from(document.querySelectorAll('#fixedExpenseFields input[type="number"]'))
+                            .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0),
+                        variableExpenses: Array.from(document.querySelectorAll('#variableExpenseFields input[type="number"]'))
+                            .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0),
+                        savings: Array.from(document.querySelectorAll('#savingsFields input[type="number"]'))
+                            .reduce((sum, input) => sum + (parseFloat(input.value) || 0), 0)
+                    };
+
+                    // Prepare context for Gemini
+                    const context = `
+                        Pendapatan: Rp ${budgetData.income.toLocaleString('id-ID')}
+                        Pengeluaran Tetap: Rp ${budgetData.fixedExpenses.toLocaleString('id-ID')}
+                        Pengeluaran Variabel: Rp ${budgetData.variableExpenses.toLocaleString('id-ID')}
+                        Tabungan: Rp ${budgetData.savings.toLocaleString('id-ID')}
+                        Sisa: Rp ${(budgetData.income - budgetData.fixedExpenses - budgetData.variableExpenses - budgetData.savings).toLocaleString('id-ID')}
+                    `;
+
+                    const GEMINI_API_KEY = 'AIzaSyCmnT_8Iqe1jogYydCSXKqGw9nZXNWBZv8';
+                    const GEMINI_API_ENDPOINT = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+
+                    // Call Gemini API
+                    const response = await fetch(`${GEMINI_API_ENDPOINT}?key=${GEMINI_API_KEY}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{
+                                    text: `Anda adalah asisten AI yang cerdas dan membantu. Anda dapat menjawab berbagai pertanyaan dengan bijak dan informatif. Gunakan format markdown untuk membuat jawaban lebih terstruktur (gunakan # untuk heading, ** untuk bold, - untuk list, dll).
+
+Jika pertanyaan terkait keuangan, gunakan konteks anggaran berikut:
+${context}
+
+Pertanyaan: ${question}
+
+Jawablah dengan:
+1. Sesuaikan jawaban dengan konteks pertanyaan
+2. Gunakan bahasa yang mudah dipahami
+3. Berikan contoh konkret jika diperlukan
+4. Jika pertanyaan di luar keuangan, jawab sesuai topik yang ditanyakan
+5. Jika tidak yakin, akui dan tanyakan klarifikasi`
+                                }]
+                            }],
+                            generationConfig: {
+                                temperature: 0.7,
+                                maxOutputTokens: 1000,
+                                topP: 0.8,
+                                topK: 40
+                            }
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+
+                    const data = await response.json();
+                    const aiResponse = data.candidates[0].content.parts[0].text;
+
+                    // Remove loading message
+                    chatMessages.removeChild(loadingMessage);
+
+                    // Add AI response with markdown support
+                    const aiMessage = document.createElement('div');
+                    aiMessage.className = 'flex items-start gap-4';
+                    aiMessage.innerHTML = `
+                        <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-emerald-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="flex-1 prose prose-invert max-w-none">
+                            ${marked.parse(aiResponse)}
+                        </div>
+                    `;
+                    chatMessages.appendChild(aiMessage);
+
+                    // Clear input
+                    aiQuestion.value = '';
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                } catch (error) {
+                    console.error('Error:', error);
+                    // Remove loading message
+                    chatMessages.removeChild(loadingMessage);
+                    
+                    // Add error message
+                    const errorMessage = document.createElement('div');
+                    errorMessage.className = 'flex items-start gap-4';
+                    errorMessage.innerHTML = `
+                        <div class="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="flex-1">
+                            <p class="text-gray-300">Maaf, terjadi kesalahan. Silakan coba lagi nanti.</p>
+                            <p class="text-gray-400 text-sm mt-1">${error.message}</p>
+                        </div>
+                    `;
+                    chatMessages.appendChild(errorMessage);
+                }
+            }
+
+            // Add styles for typing animation
+            const style = document.createElement('style');
+            style.textContent = `
+                .typing-animation {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 8px 0;
+                }
+
+                .typing-animation .dot {
+                    width: 8px;
+                    height: 8px;
+                    background: #10B981;
+                    border-radius: 50%;
+                    animation: typing 1.4s infinite ease-in-out;
+                }
+
+                .typing-animation .dot:nth-child(1) { animation-delay: 0s; }
+                .typing-animation .dot:nth-child(2) { animation-delay: 0.2s; }
+                .typing-animation .dot:nth-child(3) { animation-delay: 0.4s; }
+
+                @keyframes typing {
+                    0%, 60%, 100% { transform: translateY(0); }
+                    30% { transform: translateY(-4px); }
+                }
+
+                .prose-invert {
+                    color: #E2E8F0;
+                }
+
+                .prose-invert h1 {
+                    color: #10B981;
+                    font-size: 1.5em;
+                    margin-top: 1em;
+                    margin-bottom: 0.5em;
+                }
+
+                .prose-invert h2 {
+                    color: #10B981;
+                    font-size: 1.25em;
+                    margin-top: 1em;
+                    margin-bottom: 0.5em;
+                }
+
+                .prose-invert h3 {
+                    color: #10B981;
+                    font-size: 1.1em;
+                    margin-top: 1em;
+                    margin-bottom: 0.5em;
+                }
+
+                .prose-invert strong {
+                    color: #F8FAFC;
+                    font-weight: 600;
+                }
+
+                .prose-invert ul {
+                    list-style-type: disc;
+                    padding-left: 1.5em;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                }
+
+                .prose-invert ol {
+                    list-style-type: decimal;
+                    padding-left: 1.5em;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                }
+
+                .prose-invert li {
+                    margin-top: 0.25em;
+                    margin-bottom: 0.25em;
+                }
+
+                .prose-invert p {
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                }
+
+                .prose-invert code {
+                    background: rgba(255, 255, 255, 0.1);
+                    padding: 0.2em 0.4em;
+                    border-radius: 4px;
+                    font-size: 0.9em;
+                }
+
+                .prose-invert pre {
+                    background: rgba(255, 255, 255, 0.1);
+                    padding: 1em;
+                    border-radius: 8px;
+                    overflow-x: auto;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                }
+
+                .prose-invert blockquote {
+                    border-left: 4px solid #10B981;
+                    padding-left: 1em;
+                    margin-left: 0;
+                    margin-top: 0.5em;
+                    margin-bottom: 0.5em;
+                    color: #94A3B8;
+                }
+            `;
+            document.head.appendChild(style);
+
+            // Add event listener for AI chat form
+            document.getElementById('aiChatForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const question = document.getElementById('aiQuestion').value.trim();
+                if (question) {
+                    askAI(question);
+                }
+            });
+
+            // Add event listener for AI question input
+            document.getElementById('aiQuestion').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    const question = e.target.value.trim();
+                    if (question) {
+                        askAI(question);
+                    }
+                }
+            });
+        </script>
+    </div>
+</body>
 </html>
