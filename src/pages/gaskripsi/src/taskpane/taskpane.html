@@ -1,0 +1,281 @@
+<!-- Copyright (c) Microsoft Corporation. All rights reserved. Licensed under the MIT License. -->
+<!-- This file shows how to design a first-run page that provides a welcome screen to the user about the features of the add-in. -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quick Skripsi Add-in</title>
+
+    <!-- Office JavaScript API -->
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+
+    <!-- Fluent UI -->
+    <link rel="stylesheet" href="https://res-1.cdn.office.net/files/fabric-cdn-prod_20230815.002/office-ui-fabric-core/11.1.0/css/fabric.min.css"/>
+    
+    <!-- Template styles -->
+    <link href="taskpane.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Gemini API -->
+    <script src="gemini.js"></script>
+</head>
+
+<body class="ms-font-m ms-Fabric">
+    <header class="ms-header">
+        <div class="ms-header-content">
+            <h1 class="ms-font-l">Quick Skripsi</h1>
+        </div>
+        <div class="ms-header-actions">
+            <div class="ms-search-container">
+                <i class="ms-Icon ms-Icon--Search"></i>
+                <input type="text" class="ms-search-input" placeholder="Cari perintah..." id="searchInput">
+            </div>
+            <button class="ms-icon-button" id="themeToggle" title="Ubah Tema">
+                <i class="ms-Icon ms-Icon--Sunny"></i>
+            </button>
+            <button class="ms-icon-button" title="Pengaturan">
+                <i class="ms-Icon ms-Icon--Settings"></i>
+            </button>
+        </div>
+    </header>
+
+    <main id="app-body" class="ms-main">
+        <!-- AI Assistant Section -->
+        <section class="ms-section" data-category="ai">
+            <div class="ms-section-header">
+                <i class="ms-Icon ms-Icon--Robot"></i>
+                <h2 class="ms-section-title">Asisten AI</h2>
+            </div>
+            <div class="ms-button-group">
+                <div class="ms-ai-container">
+                    <textarea class="ms-ai-input" placeholder="Tanyakan sesuatu atau minta bantuan..." id="aiInput"></textarea>
+                    <button class="ms-ai-button" onclick="askAI()">
+                        <i class="ms-Icon ms-Icon--Send"></i>
+                    </button>
+                </div>
+                <div class="ms-ai-actions">
+                    <button class="ms-button" onclick="paraphraseText()">
+                        <div class="ms-button-content">
+                            <i class="ms-Icon ms-Icon--Edit"></i>
+                            <span>Parafrase Teks</span>
+                        </div>
+                    </button>
+                    <button class="ms-button" onclick="improveText()">
+                        <div class="ms-button-content">
+                            <i class="ms-Icon ms-Icon--TextDocument"></i>
+                            <span>Perbaiki Teks</span>
+                        </div>
+                    </button>
+                </div>
+                <div class="ms-ai-response" id="aiResponse">
+                    <div class="ms-ai-response-header">
+                        <i class="ms-Icon ms-Icon--Robot"></i>
+                        <span>Jawaban AI</span>
+                        <button class="ms-ai-copy" onclick="copyResponse()">
+                            <i class="ms-Icon ms-Icon--Copy"></i>
+                        </button>
+                    </div>
+                    <div class="ms-ai-response-content" id="aiResponseContent">
+                        <div class="ms-ai-placeholder">Jawaban akan muncul di sini...</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formatting Section -->
+        <section class="ms-section" data-category="formatting">
+            <div class="ms-section-header">
+                <i class="ms-Icon ms-Icon--Edit"></i>
+                <h2 class="ms-section-title">Pemformatan</h2>
+            </div>
+            <div class="ms-button-group">
+                <button class="ms-button" onclick="Office.actions.invoke('formatBAB')" data-command="formatBAB">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--NumberSymbol"></i>
+                        <span>Format BAB</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+1</span>
+                </button>
+                <button class="ms-button" onclick="Office.actions.invoke('formatBABNoLabel')" data-command="formatBABNoLabel">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--NumberSymbol"></i>
+                        <span>Format BAB (Tanpa Label)</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+Shift+1</span>
+                </button>
+                <button class="ms-button" onclick="Office.actions.invoke('formatSubBAB')" data-command="formatSubBAB">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--NumberedList"></i>
+                        <span>Format Sub-BAB</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+2</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Page Numbering Section -->
+        <section class="ms-section" data-category="numbering">
+            <div class="ms-section-header">
+                <i class="ms-Icon ms-Icon--NumberField"></i>
+                <h2 class="ms-section-title">Penomoran Halaman</h2>
+            </div>
+            <div class="ms-button-group">
+                <button class="ms-button" onclick="Office.actions.invoke('insertPageNumber')" data-command="insertPageNumber">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--NumberField"></i>
+                        <span>Masukkan Nomor Halaman</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+Ctrl+K</span>
+                </button>
+                <button class="ms-button" onclick="Office.actions.invoke('insertRomanNumbers')" data-command="insertRomanNumbers">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--NumberedListText"></i>
+                        <span>Masukkan Angka Romawi</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+R</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Captions Section -->
+        <section class="ms-section" data-category="captions">
+            <div class="ms-section-header">
+                <i class="ms-Icon ms-Icon--Picture"></i>
+                <h2 class="ms-section-title">Keterangan</h2>
+            </div>
+            <div class="ms-button-group">
+                <button class="ms-button" onclick="Office.actions.invoke('insertImageCaption1')" data-command="insertImageCaption1">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--Picture"></i>
+                        <span>Keterangan Gambar (1-digit)</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+G</span>
+                </button>
+                <button class="ms-button" onclick="Office.actions.invoke('insertImageCaption2')" data-command="insertImageCaption2">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--Picture"></i>
+                        <span>Keterangan Gambar (2-digit)</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+Ctrl+G</span>
+                </button>
+                <button class="ms-button" onclick="Office.actions.invoke('insertTableCaption')" data-command="insertTableCaption">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--Table"></i>
+                        <span>Keterangan Tabel</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+Ctrl+T</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Lists Section -->
+        <section class="ms-section" data-category="lists">
+            <div class="ms-section-header">
+                <i class="ms-Icon ms-Icon--List"></i>
+                <h2 class="ms-section-title">Daftar</h2>
+            </div>
+            <div class="ms-button-group">
+                <button class="ms-button" onclick="Office.actions.invoke('insertTOC')" data-command="insertTOC">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--List"></i>
+                        <span>Daftar Isi</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+D</span>
+                </button>
+                <button class="ms-button" onclick="Office.actions.invoke('insertListOfFigures')" data-command="insertListOfFigures">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--Picture"></i>
+                        <span>Daftar Gambar</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+Shift+G</span>
+                </button>
+                <button class="ms-button" onclick="Office.actions.invoke('insertListOfTables')" data-command="insertListOfTables">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--Table"></i>
+                        <span>Daftar Tabel</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+Shift+T</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- Tools Section -->
+        <section class="ms-section" data-category="tools">
+            <div class="ms-section-header">
+                <i class="ms-Icon ms-Icon--Tools"></i>
+                <h2 class="ms-section-title">Alat</h2>
+            </div>
+            <div class="ms-button-group">
+                <button class="ms-button" onclick="Office.actions.invoke('insertSection')" data-command="insertSection">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--Page"></i>
+                        <span>Masukkan Bagian</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+N</span>
+                </button>
+                <button class="ms-button" onclick="Office.actions.invoke('detectChapter')" data-command="detectChapter">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--AutoRacing"></i>
+                        <span>Deteksi Bab</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+Shift+K</span>
+                </button>
+                <button class="ms-button" onclick="Office.actions.invoke('refreshAll')" data-command="refreshAll">
+                    <div class="ms-button-content">
+                        <i class="ms-Icon ms-Icon--Refresh"></i>
+                        <span>Segarkan Semua</span>
+                    </div>
+                    <span class="ms-shortcut">Alt+U</span>
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const icon = themeToggle.querySelector('i');
+            if (body.classList.contains('dark-mode')) {
+                icon.className = 'ms-Icon ms-Icon--Moon';
+            } else {
+                icon.className = 'ms-Icon ms-Icon--Sunny';
+            }
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const sections = document.querySelectorAll('.ms-section');
+        const buttons = document.querySelectorAll('.ms-button');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            sections.forEach(section => {
+                const buttons = section.querySelectorAll('.ms-button');
+                let hasVisibleButton = false;
+
+                buttons.forEach(button => {
+                    const text = button.textContent.toLowerCase();
+                    if (text.includes(searchTerm)) {
+                        button.style.display = 'flex';
+                        hasVisibleButton = true;
+                    } else {
+                        button.style.display = 'none';
+                    }
+                });
+
+                section.style.display = hasVisibleButton ? 'block' : 'none';
+            });
+        });
+    </script>
+    <script src="taskpane.js"></script>
+</body>
+
+</html>
