@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budgy Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            200: '#bbf7d0',
+                            300: '#86efac',
+                            400: '#4ade80',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        dark: {
+                            100: '#1E1E1E',
+                            200: '#2D2D2D',
+                            300: '#3D3D3D',
+                            400: '#4D4D4D',
+                            500: '#5D5D5D',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Satoshi', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
+                        'hover': '0 4px 20px -3px rgba(0, 0, 0, 0.1), 0 12px 24px -2px rgba(0, 0, 0, 0.06)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1E1E1E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3D3D3D;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4D4D4D;
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Code block styling */
+        pre {
+            position: relative;
+            background: #1a1a1a;
+            border-radius: 0.75rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            max-width: 100%;
+        }
+
+        pre::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2.5rem;
+            background: #2D2D2D;
+            border-bottom: 1px solid #3D3D3D;
+        }
+
+        pre::after {
+            content: 'JavaScript';
+            position: absolute;
+            top: 0.75rem;
+            left: 1rem;
+            color: #888;
+            font-size: 0.875rem;
+            font-family: 'Satoshi', sans-serif;
+            font-weight: 500;
+        }
+
+        pre code {
+            display: block;
+            padding: 3.5rem 1.25rem 1.5rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            color: #e4e4e7;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Syntax highlighting */
+        pre code .keyword { color: #FF79C6; }
+        pre code .string { color: #F1FA8C; }
+        pre code .comment { color: #6272A4; }
+        pre code .function { color: #8BE9FD; }
+        pre code .property { color: #BD93F9; }
+        pre code .operator { color: #FF79C6; }
+        pre code .number { color: #BD93F9; }
+
+        /* Code block hover effect */
+        pre:hover {
+            border-color: #3D3D3D;
+            box-shadow: 0 4px 20px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Code block scrollbar */
+        pre code::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        pre code::-webkit-scrollbar-track {
+            background: #1A1A1A;
+        }
+
+        pre code::-webkit-scrollbar-thumb {
+            background: #3D3D3D;
+            border-radius: 3px;
+        }
+
+        pre code::-webkit-scrollbar-thumb:hover {
+            background: #4D4D4D;
+        }
+
+        /* Active section highlight */
+        .active-section {
+            color: #4ade80;
+            font-weight: 600;
+            background: rgba(74, 222, 128, 0.1);
+            border-left: 3px solid #4ade80;
+        }
+
+        /* Transition effects */
+        .transition-all {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Card hover effect */
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px -3px rgba(0, 0, 0, 0.1), 0 12px 24px -2px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Flowchart styling */
+        .flowchart {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .flowchart-item {
+            background: #2D2D2D;
+            border: 1px solid #3D3D3D;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flowchart-item:hover {
+            transform: translateY(-2px);
+            border-color: #4D4D4D;
+            box-shadow: 0 4px 20px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .flowchart-item::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 1rem;
+            background: #3D3D3D;
+        }
+
+        .flowchart-item:last-child::after {
+            display: none;
+        }
+
+        .flowchart-item svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4ade80;
+            display: block;
+        }
+
+        .flowchart-item h4 {
+            color: #fff;
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .flowchart-item p {
+            color: #A3A3A3;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .flowchart {
+                grid-template-columns: 1fr;
+            }
+            
+            .flowchart-item::after {
+                display: none;
+            }
+        }
+
+        /* Section title styling */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 3rem;
+            height: 3px;
+            background: linear-gradient(90deg, #4ade80 0%, #22c55e 100%);
+            border-radius: 3px;
+        }
+
+        /* Card styling */
+        .content-card {
+            background: linear-gradient(145deg, #2D2D2D, #252525);
+            border: 1px solid rgba(74, 222, 128, 0.1);
+            border-radius: 1rem;
+            padding: 1.75rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(74, 222, 128, 0.2) 50%, 
+                transparent 100%
+            );
+        }
+
+        .content-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(74, 222, 128, 0.2) 50%, 
+                transparent 100%
+            );
+        }
+
+        .content-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 4px 20px -3px rgba(0, 0, 0, 0.2),
+                0 12px 24px -2px rgba(0, 0, 0, 0.1),
+                0 0 20px rgba(74, 222, 128, 0.1);
+            border-color: rgba(74, 222, 128, 0.2);
+        }
+
+        .content-card h3 {
+            color: #fff;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+
+        .content-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 2rem;
+            height: 2px;
+            background: linear-gradient(90deg, #4ade80, transparent);
+            border-radius: 2px;
+        }
+
+        .content-card p {
+            color: #A3A3A3;
+            line-height: 1.6;
+        }
+
+        /* Feature list enhancement */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 1.75rem;
+            margin-bottom: 1rem;
+            color: #E5E5E5;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-list li:hover {
+            transform: translateX(4px);
+        }
+
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-list li:hover::before {
+            transform: translateX(4px);
+        }
+
+        /* Add new styles for mobile menu */
+        @media (max-width: 768px) {
+            .header-content {
+                transition: opacity 0.3s ease;
+            }
+            
+            .sidebar-open .header-content {
+                opacity: 0;
+                pointer-events: none;
+            }
+        }
+
+        @media (max-width: 578px) {
+            .header-content .flex.items-center.space-x-4:first-child {
+                display: none;
+            }
+        }
+
+        /* Add search bar styles */
+        .search-container {
+            position: relative;
+            max-width: 300px;
+            width: 100%;
+        }
+
+        .search-input {
+            background: rgba(45, 45, 45, 0.8);
+            border: 1px solid rgba(74, 222, 128, 0.1);
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            color: #fff;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(74, 222, 128, 0.3);
+            box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.1);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #A3A3A3;
+            pointer-events: none;
+        }
+
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #2D2D2D;
+            border: 1px solid rgba(74, 222, 128, 0.1);
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+            max-height: 300px;
+            overflow-y: auto;
+            z-index: 50;
+            display: none;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-result-item {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(74, 222, 128, 0.1);
+        }
+
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+
+        .search-result-item:hover {
+            background: rgba(74, 222, 128, 0.1);
+        }
+
+        .search-result-item h4 {
+            color: #fff;
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .search-result-item p {
+            color: #A3A3A3;
+            font-size: 0.75rem;
+        }
+
+        .highlight {
+            background: rgba(74, 222, 128, 0.2);
+            padding: 0 2px;
+            border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                max-width: 200px;
+            }
+        }
+
+        /* Animation styles */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Initial state for animated elements */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Page load animations */
+        .section-title {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .content-card {
+            animation: scaleIn 0.8s ease-out;
+        }
+
+        .flowchart-item {
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .flowchart-item:nth-child(1) { animation-delay: 0.1s; }
+        .flowchart-item:nth-child(2) { animation-delay: 0.2s; }
+        .flowchart-item:nth-child(3) { animation-delay: 0.3s; }
+        .flowchart-item:nth-child(4) { animation-delay: 0.4s; }
+        .flowchart-item:nth-child(5) { animation-delay: 0.5s; }
+
+        /* Hover animations */
+        .content-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .flowchart-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .flowchart-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Code block animation */
+        pre {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        pre:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Active section highlight animation */
+        .active-section {
+            transition: all 0.3s ease;
+        }
+
+        .active-section:hover {
+            transform: translateX(5px);
+        }
+
+        /* Sidebar navigation styles */
+        nav a {
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(74, 222, 128, 0.1);
+            color: #4ade80;
+        }
+
+        nav a:hover svg {
+            color: #4ade80;
+        }
+
+        nav a.active-section {
+            color: #4ade80;
+            background: rgba(74, 222, 128, 0.1);
+            border-left: 3px solid #4ade80;
+        }
+
+        nav a.active-section svg {
+            color: #4ade80;
+        }
+
+        @media (max-width: 578px) {
+            pre {
+                border-radius: 0.5rem;
+                margin: 1rem 0;
+            }
+
+            pre code {
+                font-size: 0.8em;
+                padding: 3rem 0.75rem 1rem;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+
+            pre::after {
+                font-size: 0.75rem;
+                top: 0.875rem;
+            }
+
+            .content-card {
+                padding: 1.25rem;
+            }
+
+            .content-card h3 {
+                font-size: 1.125rem;
+                margin-bottom: 1rem;
+            }
+
+            .content-card p {
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark-100 text-gray-100 min-h-screen">
+    <!-- Top Header -->
+    <header class="fixed top-0 right-0 left-0 md:left-64 h-16 bg-dark-100 border-b border-dark-300 z-30">
+        <div class="h-full px-6 flex items-center justify-between header-content">
+            <div class="flex items-center space-x-4">
+                <h1 class="text-xl font-bold gradient-text hidden md:block">Beta</h1>
+                <span class="px-2 py-1 text-xs font-medium bg-primary-900 text-primary-100 rounded-full hidden md:block">v1.0.0</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div class="search-container">
+                    <svg class="w-4 h-4 search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                    <input type="text" class="search-input" placeholder="Search documentation..." />
+                    <div class="search-results"></div>
+                </div>
+                <a href="/budgy/docs/id" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">Indonesian</a>
+                <a href="https://yosephrafael.com" class="text-sm text-gray-400 hover:text-primary-400 transition-colors">Owner</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile menu button -->
+    <button id="mobile-menu-button" class="fixed top-4 right-4 z-50 p-2 rounded-lg bg-dark-200 border border-dark-300 shadow-soft md:hidden">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
+    <aside id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-dark-100 border-r border-dark-300 transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-40">
+        <div class="h-16 flex items-center px-6 border-b border-dark-300">
+            <h2 class="text-lg font-semibold">Budgy Documentation</h2>
+        </div>
+        <nav class="p-4">
+            <ul class="space-y-1">
+                <li>
+                    <a href="#getting-started" class="block px-4 py-2.5 rounded-lg hover:bg-dark-300 transition-colors group">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            Getting Started
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#introduction" class="block px-4 py-2.5 rounded-lg hover:bg-dark-300 transition-colors group">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            Introduction
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#how-to-use" class="block px-4 py-2.5 rounded-lg hover:bg-dark-300 transition-colors group">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                            </svg>
+                            How to Use
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#faq" class="block px-4 py-2.5 rounded-lg hover:bg-dark-300 transition-colors group">
+                        <span class="flex items-center">
+                            <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            FAQ
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main content -->
+    <main class="md:ml-64 pt-16" id="getting-started">
+        <div class="max-w-4xl mx-auto px-6 py-8">
+            <section class="mb-16">
+                <h2 class="section-title">Getting Started</h2>
+                <p class="mb-6 text-gray-300">Welcome to Budgy! A powerful static budget planner that helps you manage your finances without requiring an account. Get started with our intuitive features right away.</p>
+                <div class="content-card">
+                    <h3>Quick Start</h3>
+                    <ol class="feature-list">
+                        <li>Enter your monthly income and expenses</li>
+                        <li>Set your savings goals</li>
+                        <li>Track your transactions</li>
+                        <li>Get AI-powered financial advice</li>
+                    </ol>
+                </div>
+
+                <div class="flowchart">
+                    <div class="flowchart-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                        </svg>
+                        <h4>Start Planning</h4>
+                        <p>Open the app and begin your financial journey</p>
+                    </div>
+                    <div class="flowchart-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                        <h4>Input Data</h4>
+                        <p>Enter your income, expenses, and savings goals</p>
+                    </div>
+                    <div class="flowchart-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <h4>Track & Analyze</h4>
+                        <p>Monitor transactions and view financial insights</p>
+                    </div>
+                    <div class="flowchart-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <h4>AI Assistant</h4>
+                        <p>Get personalized financial advice</p>
+                    </div>
+                    <div class="flowchart-item">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                        <h4>Visual Reports</h4>
+                        <p>View financial status through interactive charts</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="introduction" class="mb-16">
+                <h2 class="section-title">Introduction</h2>
+                <p class="mb-6 text-gray-300">Budgy is a comprehensive budget planning tool that helps you manage your finances effectively with powerful features and intuitive visualizations.</p>
+                <div class="content-card">
+                    <h3>Key Features</h3>
+                    <ul class="feature-list">
+                        <li>No account required - start planning immediately</li>
+                        <li>Interactive savings calculator</li>
+                        <li>Visual charts for income vs expenses</li>
+                        <li>AI-powered financial assistant</li>
+                        <li>Transaction history tracking</li>
+                        <li>Exportable financial reports</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section id="how-to-use" class="mb-16">
+                <h2 class="section-title">How to Use</h2>
+                <p class="mb-6 text-gray-300">Learn how to use Budgy's features to effectively manage your finances.</p>
+                
+                <!-- Chart.js Visualization Section -->
+                <div class="content-card">
+                    <h3>Data Visualization with Chart.js</h3>
+                    <p class="text-gray-400 mb-6">
+                        This function is used to create financial data visualizations using Chart.js. 
+                        It generates two types of charts: a bar chart for comparing income and expenses, 
+                        and a pie chart for expense breakdown.
+                    </p>
+
+                    <pre><code><span class="keyword">function</span> <span class="function">createCharts</span>(<span class="property">income</span>, <span class="property">fixedExpenses</span>, <span class="property">variableExpenses</span>, <span class="property">savings</span>) {
+    <span class="keyword">const</span> <span class="property">ctx</span> = <span class="function">document</span>.<span class="function">getElementById</span>(<span class="string">'barChart'</span>).<span class="function">getContext</span>(<span class="string">'2d'</span>);
+    <span class="keyword">const</span> <span class="property">pieCtx</span> = <span class="function">document</span>.<span class="function">getElementById</span>(<span class="string">'pieChart'</span>).<span class="function">getContext</span>(<span class="string">'2d'</span>);
+
+    <span class="comment">// Bar Chart</span>
+    <span class="property">barChart</span> = <span class="keyword">new</span> <span class="function">Chart</span>(<span class="property">ctx</span>, {
+        <span class="property">type</span>: <span class="string">'bar'</span>,
+        <span class="property">data</span>: {
+            <span class="property">labels</span>: [<span class="string">'Income'</span>, <span class="string">'Fixed Expenses'</span>, <span class="string">'Variable Expenses'</span>, <span class="string">'Savings'</span>],
+            <span class="property">datasets</span>: [{
+                <span class="property">label</span>: <span class="string">'Amount'</span>,
+                <span class="property">data</span>: [<span class="property">income</span>, <span class="property">fixedExpenses</span>, <span class="property">variableExpenses</span>, <span class="property">savings</span>],
+                <span class="property">backgroundColor</span>: [
+                    <span class="string">'rgba(16, 185, 129, 0.8)'</span>, <span class="comment">// Green</span>
+                    <span class="string">'rgba(239, 68, 68, 0.8)'</span>,  <span class="comment">// Red</span>
+                    <span class="string">'rgba(245, 158, 11, 0.8)'</span>, <span class="comment">// Orange</span>
+                    <span class="string">'rgba(59, 130, 246, 0.8)'</span>  <span class="comment">// Blue</span>
+                ],
+                <span class="property">borderWidth</span>: <span class="number">2</span>,
+                <span class="property">borderRadius</span>: <span class="number">8</span>,
+                <span class="property">barThickness</span>: <span class="number">40</span>,
+            }]
+        },
+        <span class="property">options</span>: {
+            <span class="property">responsive</span>: <span class="keyword">true</span>,
+            <span class="property">maintainAspectRatio</span>: <span class="keyword">false</span>,
+            <span class="property">plugins</span>: {
+                <span class="property">tooltip</span>: {
+                    <span class="property">backgroundColor</span>: <span class="string">'rgba(30, 41, 59, 0.9)'</span>,
+                    <span class="property">titleColor</span>: <span class="string">'#F8FAFC'</span>,
+                    <span class="property">bodyColor</span>: <span class="string">'#F8FAFC'</span>,
+                    <span class="property">borderColor</span>: <span class="string">'rgba(255, 255, 255, 0.1)'</span>,
+                    <span class="property">borderWidth</span>: <span class="number">1</span>,
+                    <span class="property">padding</span>: <span class="number">12</span>,
+                    <span class="property">cornerRadius</span>: <span class="number">8</span>,
+                    <span class="property">callbacks</span>: {
+                        <span class="property">label</span>: <span class="keyword">function</span>(<span class="property">context</span>) {
+                            <span class="keyword">return</span> <span class="function">formatCurrency</span>(<span class="property">context</span>.<span class="property">raw</span>);
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    <span class="comment">// Pie Chart</span>
+    <span class="property">pieChart</span> = <span class="keyword">new</span> <span class="function">Chart</span>(<span class="property">pieCtx</span>, {
+        <span class="property">type</span>: <span class="string">'doughnut'</span>,
+        <span class="property">data</span>: {
+            <span class="property">labels</span>: [<span class="string">'Fixed Expenses'</span>, <span class="string">'Variable Expenses'</span>, <span class="string">'Savings'</span>],
+            <span class="property">datasets</span>: [{
+                <span class="property">data</span>: [<span class="property">fixedExpenses</span>, <span class="property">variableExpenses</span>, <span class="property">savings</span>],
+                <span class="property">backgroundColor</span>: [
+                    <span class="string">'rgba(239, 68, 68, 0.8)'</span>,
+                    <span class="string">'rgba(245, 158, 11, 0.8)'</span>,
+                    <span class="string">'rgba(59, 130, 246, 0.8)'</span>
+                ],
+                <span class="property">borderWidth</span>: <span class="number">2</span>,
+                <span class="property">borderRadius</span>: <span class="number">8</span>,
+                <span class="property">hoverOffset</span>: <span class="number">4</span>
+            }]
+        },
+        <span class="property">options</span>: {
+            <span class="property">responsive</span>: <span class="keyword">true</span>,
+            <span class="property">maintainAspectRatio</span>: <span class="keyword">false</span>,
+            <span class="property">cutout</span>: <span class="string">'70%'</span>,
+            <span class="property">plugins</span>: {
+                <span class="property">legend</span>: {
+                    <span class="property">position</span>: <span class="string">'bottom'</span>,
+                    <span class="property">labels</span>: {
+                        <span class="property">color</span>: <span class="string">'#94A3B8'</span>,
+                        <span class="property">font</span>: {
+                            <span class="property">family</span>: <span class="string">'Satoshi'</span>,
+                            <span class="property">size</span>: <span class="number">12</span>
+                        },
+                        <span class="property">padding</span>: <span class="number">20</span>,
+                        <span class="property">usePointStyle</span>: <span class="keyword">true</span>,
+                        <span class="property">pointStyle</span>: <span class="string">'circle'</span>
+                    }
+                },
+                <span class="property">tooltip</span>: {
+                    <span class="property">backgroundColor</span>: <span class="string">'rgba(30, 41, 59, 0.9)'</span>,
+                    <span class="property">titleColor</span>: <span class="string">'#F8FAFC'</span>,
+                    <span class="property">bodyColor</span>: <span class="string">'#F8FAFC'</span>,
+                    <span class="property">borderColor</span>: <span class="string">'rgba(255, 255, 255, 0.1)'</span>,
+                    <span class="property">borderWidth</span>: <span class="number">1</span>,
+                    <span class="property">padding</span>: <span class="number">12</span>,
+                    <span class="property">cornerRadius</span>: <span class="number">8</span>,
+                    <span class="property">callbacks</span>: {
+                        <span class="property">label</span>: <span class="keyword">function</span>(<span class="property">context</span>) {
+                            <span class="keyword">const</span> <span class="property">value</span> = <span class="property">context</span>.<span class="property">raw</span>;
+                            <span class="keyword">const</span> <span class="property">total</span> = <span class="property">context</span>.<span class="property">dataset</span>.<span class="property">data</span>.<span class="function">reduce</span>((<span class="property">a</span>, <span class="property">b</span>) => <span class="property">a</span> + <span class="property">b</span>, <span class="number">0</span>);
+                            <span class="keyword">const</span> <span class="property">percentage</span> = ((<span class="property">value</span> / <span class="property">total</span>) * <span class="number">100</span>).<span class="function">toFixed</span>(<span class="number">1</span>);
+                            <span class="keyword">return</span> <span class="string">`${context.label}: ${formatCurrency(value)} (${percentage}%)`</span>;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}</code></pre>
+
+                    <div class="mt-6 space-y-4">
+                        <h4 class="text-lg font-medium text-white">Key Features:</h4>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Creates bar chart to compare income, expenses, and savings</li>
+                            <li>Creates pie chart to view expense proportions</li>
+                            <li>Informative tooltips with currency formatting</li>
+                            <li>Responsive and modern design</li>
+                            <li>Consistent and distinguishable colors</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-6 space-y-4">
+                        <h4 class="text-lg font-medium text-white">Parameters:</h4>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li><code class="text-emerald-400">income</code>: Total income</li>
+                            <li><code class="text-emerald-400">fixedExpenses</code>: Total fixed expenses</li>
+                            <li><code class="text-emerald-400">variableExpenses</code>: Total variable expenses</li>
+                            <li><code class="text-emerald-400">savings</code>: Total savings</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-card mt-6">
+                    <h3>AI Assistant Integration</h3>
+                    <pre><code><span class="comment">// Example of using the AI Assistant</span>
+<span class="keyword">async function</span> <span class="function">askAI</span>(<span class="property">question</span>) {
+  <span class="keyword">const</span> <span class="property">response</span> = <span class="keyword">await</span> <span class="function">fetch</span>(<span class="string">'https://api.yourbudgetapp.com/ai-assistant'</span>, {
+    <span class="property">method</span>: <span class="string">'POST'</span>,
+    <span class="property">headers</span>: {
+      <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span>
+    },
+    <span class="property">body</span>: <span class="function">JSON.stringify</span>({ <span class="property">question</span> })
+  });
+  <span class="keyword">const</span> <span class="property">data</span> = <span class="keyword">await</span> <span class="property">response</span>.<span class="function">json</span>();
+  <span class="keyword">return</span> <span class="property">data</span>.<span class="property">answer</span>;
+}
+
+<span class="function">askAI</span>(<span class="string">"How can I save more this month?"</span>).<span class="function">then</span>(<span class="property">answer</span> => {
+  <span class="function">console.log</span>(<span class="string">"AI Assistant:"</span>, <span class="property">answer</span>);
+});</code></pre>
+                </div>
+
+                <div class="content-card mt-6">
+                    <h3>Getting Started with the Project</h3>
+                    <p class="text-gray-400 mb-6">
+                        To get started with the Budgy project, follow these steps to clone and set up the repository:
+                    </p>
+                    <pre><code><span class="comment"># Clone the repository</span>
+<span class="function">git</span> <span class="property">clone</span> <span class="string">https://github.com/JosephCETH30/budgy.git</span>
+
+<span class="comment"># Navigate to the project directory</span>
+<span class="function">cd</span> <span class="property">budgy</span>
+
+<span class="comment"># Open the project in your preferred code editor</span>
+<span class="function">code</span> <span class="property">.</span>
+
+<span class="comment"># Install dependencies (if using npm)</span>
+<span class="function">npm</span> <span class="property">install</span>
+
+<span class="comment"># Start the development server</span>
+<span class="function">npm</span> <span class="property">run</span> <span class="string">dev</span></code></pre>
+
+                    <div class="mt-6 space-y-4">
+                        <h4 class="text-lg font-medium text-white">Requirements:</h4>
+                        <ul class="list-disc list-inside text-gray-400 space-y-2">
+                            <li>Git installed on your system</li>
+                            <li>Node.js and npm (for development)</li>
+                            <li>A code editor (VS Code recommended)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="faq" class="mb-16">
+                <h2 class="section-title">FAQ</h2>
+                <div class="space-y-4">
+                    <div class="content-card">
+                        <h3>How does the savings calculator work?</h3>
+                        <p class="text-gray-300">The savings calculator helps you determine how much you can save based on your income, expenses, and financial goals. Simply input your monthly income and expenses, and the calculator will show you potential savings scenarios and recommendations.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>What kind of advice can the AI assistant provide?</h3>
+                        <p class="text-gray-300">Our AI assistant can help with various financial queries, including budgeting tips, expense reduction strategies, investment advice, and general financial planning. It analyzes your financial data to provide personalized recommendations.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>How is my transaction history stored?</h3>
+                        <p class="text-gray-300">All transaction data is stored locally in your browser using secure storage methods. This ensures your financial information remains private and accessible only to you. You can export your data at any time for backup purposes.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Can I customize the financial charts?</h3>
+                        <p class="text-gray-300">Yes, the charts are fully customizable. You can choose different time periods, categories, and visualization types to better understand your financial patterns and make informed decisions.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const sidebar = document.getElementById('sidebar');
+        const body = document.body;
+        
+        mobileMenuButton.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            body.classList.toggle('sidebar-open');
+        });
+
+        // Active section highlighting
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav a');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -80% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-section');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active-section');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // Set initial active section based on URL hash
+        const hash = window.location.hash;
+        if (hash) {
+            const targetLink = document.querySelector(`nav a[href="${hash}"]`);
+            if (targetLink) {
+                targetLink.classList.add('active-section');
+            }
+        }
+
+        // Close mobile menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) {
+                    sidebar.classList.add('-translate-x-full');
+                }
+            });
+        });
+
+        // Add search functionality
+        const searchInput = document.querySelector('.search-input');
+        const searchResults = document.querySelector('.search-results');
+        let searchTimeout;
+
+        // Searchable content
+        const searchableContent = [
+            {
+                title: 'Getting Started',
+                content: 'Welcome to Budgy! A powerful static budget planner that helps you manage your finances without requiring an account.',
+                url: '#getting-started'
+            },
+            {
+                title: 'Quick Start',
+                content: 'Enter your monthly income and expenses, set your savings goals, track your transactions, and get AI-powered financial advice.',
+                url: '#getting-started'
+            },
+            {
+                title: 'Introduction',
+                content: 'Budgy is a comprehensive budget planning tool that helps you manage your finances effectively with powerful features and intuitive visualizations.',
+                url: '#introduction'
+            },
+            {
+                title: 'Key Features',
+                content: 'No account required, interactive savings calculator, visual charts, AI-powered financial assistant, transaction history tracking, and exportable reports.',
+                url: '#introduction'
+            },
+            {
+                title: 'How to Use',
+                content: 'Learn how to make the most of Budgy\'s features to manage your finances effectively.',
+                url: '#how-to-use'
+            },
+            {
+                title: 'AI Assistant Integration',
+                content: 'Example of using the AI Assistant for financial advice and recommendations.',
+                url: '#how-to-use'
+            },
+            {
+                title: 'FAQ',
+                content: 'Frequently asked questions about savings calculator, AI assistant capabilities, transaction history, and chart customization.',
+                url: '#faq'
+            }
+        ];
+
+        function highlightText(text, searchTerm) {
+            if (!searchTerm) return text;
+            const regex = new RegExp(`(${searchTerm})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+
+        function performSearch(searchTerm) {
+            if (!searchTerm) {
+                searchResults.classList.remove('active');
+                return;
+            }
+
+            const results = searchableContent.filter(item => {
+                const searchContent = `${item.title} ${item.content}`.toLowerCase();
+                return searchContent.includes(searchTerm.toLowerCase());
+            });
+
+            if (results.length > 0) {
+                searchResults.innerHTML = results.map(item => `
+                    <div class="search-result-item" onclick="window.location.href='${item.url}'">
+                        <h4>${highlightText(item.title, searchTerm)}</h4>
+                        <p>${highlightText(item.content.substring(0, 100) + '...', searchTerm)}</p>
+                    </div>
+                `).join('');
+                searchResults.classList.add('active');
+            } else {
+                searchResults.innerHTML = `
+                    <div class="search-result-item">
+                        <p>No results found</p>
+                    </div>
+                `;
+                searchResults.classList.add('active');
+            }
+        }
+
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                performSearch(e.target.value);
+            }, 300);
+        });
+
+        // Close search results when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) {
+                searchResults.classList.remove('active');
+            }
+        });
+
+        // Add animation classes to elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add animate-on-scroll class to elements
+            const elements = document.querySelectorAll('.content-card, .section-title, .flowchart-item');
+            elements.forEach(element => {
+                element.classList.add('animate-on-scroll');
+            });
+
+            // Intersection Observer for scroll animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            // Observe all elements with animate-on-scroll class
+            document.querySelectorAll('.animate-on-scroll').forEach(element => {
+                observer.observe(element);
+            });
+
+            // Add hover effect to code blocks
+            document.querySelectorAll('pre').forEach(pre => {
+                pre.addEventListener('mouseenter', () => {
+                    pre.style.transform = 'translateY(-2px)';
+                    pre.style.boxShadow = '0 10px 30px -5px rgba(0, 0, 0, 0.3)';
+                });
+
+                pre.addEventListener('mouseleave', () => {
+                    pre.style.transform = 'translateY(0)';
+                    pre.style.boxShadow = 'none';
+                });
+            });
+
+            // Add smooth scroll to navigation links
+            document.querySelectorAll('nav a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
