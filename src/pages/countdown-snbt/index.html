@@ -766,16 +766,56 @@
         const visitorRef = database.ref('visitors');
         const pageRef = visitorRef.child('countdown-snbt');
         
-        // Increment visitor count
-        pageRef.transaction((currentCount) => {
-            return (currentCount || 0) + 1;
-        });
+        // Generate a unique visitor ID using localStorage
+        function getVisitorId() {
+            let visitorId = localStorage.getItem('visitorId');
+            if (!visitorId) {
+                visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('visitorId', visitorId);
+            }
+            return visitorId;
+        }
+
+        // Function to increment visitor count
+        function incrementVisitorCount() {
+            const visitorId = getVisitorId();
+            const visitorSessionRef = pageRef.child('sessions').child(visitorId);
+            
+            // Check if this visitor has already been counted in this session
+            visitorSessionRef.once('value', (snapshot) => {
+                if (!snapshot.exists()) {
+                    // If not counted, increment the total count and mark this visitor as counted
+                    pageRef.child('total').transaction((currentTotal) => {
+                        return (currentTotal || 0) + 1;
+                    });
+                    visitorSessionRef.set({
+                        timestamp: firebase.database.ServerValue.TIMESTAMP
+                    });
+                }
+            });
+        }
+
+        // Call increment function when page loads
+        incrementVisitorCount();
 
         // Update visitor count in real-time
-        pageRef.on('value', (snapshot) => {
+        pageRef.child('total').on('value', (snapshot) => {
             const count = snapshot.val() || 0;
             document.getElementById('visitorCount').textContent = count.toLocaleString();
         });
+
+        // Clean up old sessions periodically (optional)
+        function cleanupOldSessions() {
+            const oneDayAgo = Date.now() - (24 * 60 * 60 * 1000);
+            pageRef.child('sessions').orderByChild('timestamp').endAt(oneDayAgo).once('value', (snapshot) => {
+                snapshot.forEach((childSnapshot) => {
+                    childSnapshot.ref.remove();
+                });
+            });
+        }
+
+        // Run cleanup once per day
+        setInterval(cleanupOldSessions, 24 * 60 * 60 * 1000);
 
         // Existing countdown script
         const targetDate = new Date('2025-05-28T15:00:00+07:00').getTime();
