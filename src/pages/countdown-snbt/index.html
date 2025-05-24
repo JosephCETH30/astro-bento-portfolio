@@ -19,6 +19,14 @@
     <link rel="canonical" href="https://yosephrafael.com/countdown-snbt">
     <title>Countdown Pengumuman SNBT SNPMB 2025 | Pantau Waktu Pengumuman Hasil Seleksi</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Satoshi:wght@400;500;700&display=swap">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F4KSQMVFHE"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-F4KSQMVFHE');
+    </script>
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database-compat.js"></script>
@@ -395,6 +403,7 @@
         .visitor-counter {
             display: inline-flex;
             align-items: center;
+            margin-top: 25px;
             gap: 0.5rem;
             margin-left: 1rem;
             color: var(--text-secondary);
@@ -674,7 +683,7 @@
             <p>
                 Visit our website: <a href="https://cs.ui.ac.id/" target="_blank" rel="noopener noreferrer">https://cs.ui.ac.id/</a>
                 <div class="visitor-counter">
-                    <span id="visitorCount">0</span> daily visitors
+                    <span id="visitorCount">0</span> visitors
                 </div>
             </p>
         </footer>
@@ -754,7 +763,8 @@
             storageBucket: "budgettracker-62a78.firebasestorage.app",
             messagingSenderId: "944373038211",
             appId: "1:944373038211:web:bced5c2ec39615ddf76fb6",
-            measurementId: "G-30JJZTHYTR"
+            measurementId: "G-30JJZTHYTR",
+            databaseURL: "https://budgettracker-62a78-default-rtdb.asia-southeast1.firebasedatabase.app"
         };
 
         // Initialize Firebase
@@ -762,16 +772,10 @@
         const analytics = firebase.analytics();
         const database = firebase.database();
 
-        // Visitor counter logic
+        // Visitor counter logic with error handling
         const visitorRef = database.ref('visitors');
         const pageRef = visitorRef.child('countdown-snbt');
         
-        // Get today's date in YYYY-MM-DD format
-        function getTodayDate() {
-            const now = new Date();
-            return now.toISOString().split('T')[0];
-        }
-
         // Generate a unique visitor ID using localStorage
         function getVisitorId() {
             let visitorId = localStorage.getItem('visitorId');
@@ -782,84 +786,53 @@
             return visitorId;
         }
 
-        // Function to increment visitor count
+        // Function to increment visitor count with error handling
         function incrementVisitorCount() {
-            const visitorId = getVisitorId();
-            const today = getTodayDate();
-            const visitorSessionRef = pageRef.child('daily').child(today).child('sessions').child(visitorId);
-            
-            // Check if this visitor has already been counted today
-            visitorSessionRef.once('value', (snapshot) => {
-                if (!snapshot.exists()) {
-                    // If not counted today, increment the daily count and mark this visitor as counted
-                    pageRef.child('daily').child(today).child('total').transaction((currentTotal) => {
-                        return (currentTotal || 0) + 1;
-                    });
-                    visitorSessionRef.set({
-                        timestamp: firebase.database.ServerValue.TIMESTAMP
-                    });
-                }
-            });
+            try {
+                const visitorId = getVisitorId();
+                const visitorSessionRef = pageRef.child('lifetime').child('sessions').child(visitorId);
+                
+                visitorSessionRef.once('value', (snapshot) => {
+                    if (!snapshot.exists()) {
+                        pageRef.child('lifetime').child('total').transaction((currentTotal) => {
+                            return (currentTotal || 0) + 1;
+                        }).catch(error => {
+                            console.error('Error updating visitor count:', error);
+                        });
+                        
+                        visitorSessionRef.set({
+                            timestamp: firebase.database.ServerValue.TIMESTAMP
+                        }).catch(error => {
+                            console.error('Error setting visitor session:', error);
+                        });
+                    }
+                }).catch(error => {
+                    console.error('Error checking visitor session:', error);
+                });
+            } catch (error) {
+                console.error('Error in incrementVisitorCount:', error);
+            }
         }
 
         // Call increment function when page loads
         incrementVisitorCount();
 
-        // Update visitor count in real-time
+        // Update visitor count in real-time with error handling
         function updateVisitorCount() {
-            const today = getTodayDate();
-            pageRef.child('daily').child(today).child('total').on('value', (snapshot) => {
-                const count = snapshot.val() || 0;
-                document.getElementById('visitorCount').textContent = count.toLocaleString();
-            });
+            try {
+                pageRef.child('lifetime').child('total').on('value', (snapshot) => {
+                    const count = snapshot.val() || 0;
+                    document.getElementById('visitorCount').textContent = count.toLocaleString();
+                }, (error) => {
+                    console.error('Error reading visitor count:', error);
+                });
+            } catch (error) {
+                console.error('Error in updateVisitorCount:', error);
+            }
         }
 
         // Initialize visitor count
         updateVisitorCount();
-
-        // Schedule daily reset at 23:59
-        function scheduleDailyReset() {
-            const now = new Date();
-            const resetTime = new Date(now);
-            resetTime.setHours(23, 59, 0, 0);
-            
-            // If it's already past 23:59, schedule for tomorrow
-            if (now > resetTime) {
-                resetTime.setDate(resetTime.getDate() + 1);
-            }
-            
-            const timeUntilReset = resetTime - now;
-            
-            // Schedule the reset
-            setTimeout(() => {
-                // Reset the counter
-                const today = getTodayDate();
-                pageRef.child('daily').child(today).child('total').set(0);
-                pageRef.child('daily').child(today).child('sessions').remove();
-                
-                // Schedule next reset
-                scheduleDailyReset();
-            }, timeUntilReset);
-        }
-
-        // Start the daily reset schedule
-        scheduleDailyReset();
-
-        // Clean up old data (keep last 30 days)
-        function cleanupOldData() {
-            const thirtyDaysAgo = new Date();
-            thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-            const oldDate = thirtyDaysAgo.toISOString().split('T')[0];
-            
-            pageRef.child('daily').orderByKey().endAt(oldDate).once('value', (snapshot) => {
-                snapshot.forEach((childSnapshot) => {
-                    childSnapshot.ref.remove();
-                });
-            });
-        }
-
-        // Run cleanup once per day
-        setInterval(cleanupOldData, 24 * 60 * 60 * 1000);
 
         // Existing countdown script
         const targetDate = new Date('2025-05-28T15:00:00+07:00').getTime();
