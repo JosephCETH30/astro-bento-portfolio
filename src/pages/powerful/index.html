@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Daily - Ayat Alkitab & Doa</title>
+    <style>
+        /* Satoshi Font */
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('https://api.fontshare.com/v2/fonts/satoshi/woff2') format('woff2'),
+                 url('https://api.fontshare.com/v2/fonts/satoshi/woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('https://api.fontshare.com/v2/fonts/satoshi/woff2') format('woff2'),
+                 url('https://api.fontshare.com/v2/fonts/satoshi/woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('https://api.fontshare.com/v2/fonts/satoshi/woff2') format('woff2'),
+                 url('https://api.fontshare.com/v2/fonts/satoshi/woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --primary-color: #6c5ce7;
+            --primary-hover: #5649c0;
+            --primary-glow: rgba(108, 92, 231, 0.4);
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --transition-speed: 0.3s;
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Satoshi', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color var(--transition-speed), color var(--transition-speed);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 3rem;
+            padding: 1rem 0;
+        }
+
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), #a29bfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.02em;
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        .subtitle, .prayer-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            font-weight: 500;
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        .theme-toggle {
+            display: none;
+        }
+
+        main {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .verse-card, .prayer-counter {
+            background-color: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: all var(--transition-speed);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .verse-card::before, .prayer-counter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), #a29bfe);
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .verse-card:hover::before, .prayer-counter:hover::before {
+            opacity: 1;
+        }
+
+        .verse-card:hover, .prayer-counter:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .verse-icon {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .verse-content {
+            margin-bottom: 1.5rem;
+        }
+
+        .verse-text {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            opacity: 1;
+            transition: opacity var(--transition-speed);
+            line-height: 1.8;
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        .verse-text.fade {
+            opacity: 0;
+        }
+
+        .verse-reference {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-style: italic;
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        .refresh-button, .counter-button {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all var(--transition-speed);
+            box-shadow: 0 2px 4px rgba(108, 92, 231, 0.2);
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        .refresh-button:hover, .counter-button:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(108, 92, 231, 0.3);
+        }
+
+        .counter-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .counter-display {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            min-width: 140px;
+            padding: 1.5rem;
+            background-color: var(--bg-secondary);
+            border-radius: 1rem;
+            transition: all var(--transition-speed);
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        .counter-display::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+        }
+
+        .counter-display:hover::after {
+            opacity: 0.1;
+        }
+
+        .counter-display:hover {
+            transform: scale(1.05);
+        }
+
+        .counter-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .counter-button.reset {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            box-shadow: none;
+        }
+
+        .counter-button.reset:hover {
+            background-color: var(--border-color);
+            box-shadow: var(--card-shadow);
+        }
+
+        .prayer-header {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .prayer-header h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            main {
+                grid-template-columns: 1fr;
+            }
+
+            .verse-card, .prayer-counter {
+                padding: 1.5rem;
+            }
+
+            .counter-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .counter-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .verse-card, .prayer-counter {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 5px var(--primary-glow);
+            }
+            50% {
+                box-shadow: 0 0 20px var(--primary-glow);
+            }
+            100% {
+                box-shadow: 0 0 5px var(--primary-glow);
+            }
+        }
+
+        .counter-button:hover {
+            animation: glow 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Bible Daily</h1>
+                <p class="subtitle">God's Word for Today</p>
+            </div>
+        </header>
+
+        <main>
+            <section class="verse-card">
+                <div class="verse-content">
+                    <div class="verse-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                        </svg>
+                    </div>
+                    <p class="verse-text" id="verseText">Loading...</p>
+                    <p class="verse-reference" id="verseReference"></p>
+                </div>
+                <button id="refreshVerse" class="refresh-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M23 4v6h-6"></path>
+                        <path d="M1 20v-6h6"></path>
+                        <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                    </svg>
+                    Ayat Baru
+                </button>
+            </section>
+
+            <section class="prayer-counter">
+                <div class="prayer-header">
+                    <h2>Doa Bapa Kami</h2>
+                    <p class="prayer-subtitle">Manifesting God's Power through Prayer</p>
+                </div>
+                <div class="counter-container">
+                    <div class="counter-display">
+                        <span id="counterValue">0</span>
+                    </div>
+                    <div class="counter-buttons">
+                        <button id="incrementCounter" class="counter-button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                            Tambah
+                        </button>
+                        <button id="resetCounter" class="counter-button reset">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                                <path d="M3 3v5h5"></path>
+                            </svg>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        // Sample Bible verses (you can replace these with your own collection)
+        const bibleVerses = [
+            {
+                text: "Karena begitu besar kasih Allah akan dunia ini, sehingga Ia telah mengaruniakan Anak-Nya yang tunggal, supaya setiap orang yang percaya kepada-Nya tidak binasa, melainkan beroleh hidup yang kekal.",
+                reference: "Yohanes 3:16"
+            },
+            {
+                text: "Segala perkara dapat kutanggung di dalam Dia yang memberi kekuatan kepadaku.",
+                reference: "Filipi 4:13"
+            },
+            {
+                text: "Serahkanlah segala kekuatiranmu kepada-Nya, sebab Ia yang memelihara kamu.",
+                reference: "1 Petrus 5:7"
+            },
+            {
+                text: "Aku tahu, bahwa Engkau sanggup melakukan segala sesuatu, dan tidak ada rencana-Mu yang gagal.",
+                reference: "Ayub 42:2"
+            },
+            {
+                text: "Tetapi carilah dahulu Kerajaan Allah dan kebenarannya, maka semuanya itu akan ditambahkan kepadamu.",
+                reference: "Matius 6:33"
+            },
+            {
+                text: "Janganlah takut, sebab Aku menyertai engkau, janganlah bimbang, sebab Aku ini Allahmu; Aku akan meneguhkan, bahkan akan menolong engkau; Aku akan memegang engkau dengan tangan kanan-Ku yang membawa kemenangan.",
+                reference: "Yesaya 41:10"
+            },
+            {
+                text: "Sebab Allah memberikan kepada kita bukan roh ketakutan, melainkan roh yang membangkitkan kekuatan, kasih dan ketertiban.",
+                reference: "2 Timotius 1:7"
+            },
+            {
+                text: "Marilah kepada-Ku, semua yang letih lesu dan berbeban berat, Aku akan memberi kelegaan kepadamu.",
+                reference: "Matius 11:28"
+            },
+            {
+                text: "TUHAN adalah kekuatanku dan perisaiku; kepada-Nya hatiku percaya. Aku tertolong sebab itu beria-ria hatiku, dan dengan nyanyianku aku bersyukur kepada-Nya.",
+                reference: "Mazmur 28:7"
+            },
+            {
+                text: "Sebab Aku ini mengetahui rancangan-rancangan apa yang ada pada-Ku mengenai kamu, demikianlah firman TUHAN, yaitu rancangan damai sejahtera dan bukan rancangan kecelakaan, untuk memberikan kepadamu hari depan yang penuh harapan.",
+                reference: "Yeremia 29:11"
+            },
+            {
+                text: "Tetapi orang-orang yang menanti-nantikan TUHAN mendapat kekuatan baru: mereka seumpama rajawali yang naik terbang dengan kekuatan sayapnya; mereka berlari dan tidak menjadi lesu, mereka berjalan dan tidak menjadi lelah.",
+                reference: "Yesaya 40:31"
+            },
+            {
+                text: "Percayalah kepada TUHAN dengan segenap hatimu, dan janganlah bersandar kepada pengertianmu sendiri. Akuilah Dia dalam segala lakumu, maka Ia akan meluruskan jalanmu.",
+                reference: "Amsal 3:5-6"
+            },
+            {
+                text: "Sebab itu janganlah kamu kuatir dan berkata: Apakah yang akan kami makan? Apakah yang akan kami minum? Apakah yang akan kami pakai? Semua itu dicari bangsa-bangsa yang tidak mengenal Allah. Akan tetapi Bapamu yang di sorga tahu, bahwa kamu memerlukan semuanya itu.",
+                reference: "Matius 6:31-32"
+            },
+            {
+                text: "TUHAN dekat pada setiap orang yang berseru kepada-Nya, pada setiap orang yang berseru kepada-Nya dalam kesetiaan.",
+                reference: "Mazmur 145:18"
+            },
+            {
+                text: "Sebab itu, hai orang-orang yang kukasihi, jagalah dirimu demikian, dan bertekunlah di dalam imanmu. Bertumbuhlah dalam kasih karunia dan dalam pengenalan akan Tuhan dan Juruselamat kita, Yesus Kristus.",
+                reference: "2 Petrus 3:17-18"
+            },
+            {
+                text: "Karena itu, janganlah kamu kuatir akan hari besok, karena hari besok mempunyai kesusahannya sendiri. Kesusahan sehari cukuplah untuk sehari.",
+                reference: "Matius 6:34"
+            },
+            {
+                text: "TUHAN itu dekat kepada orang-orang yang patah hati, dan Ia menyelamatkan orang-orang yang remuk jiwanya.",
+                reference: "Mazmur 34:18"
+            },
+            {
+                text: "Sebab itu, kuatkanlah tangan yang lemah dan lutut yang goyah; dan luruskanlah jalan bagi kakimu, sehingga yang pincang jangan terpelecok, tetapi menjadi sembuh.",
+                reference: "Ibrani 12:12-13"
+            },
+            {
+                text: "Sebab itu janganlah kamu takut, karena kamu lebih berharga dari pada banyak burung pipit.",
+                reference: "Matius 10:31"
+            },
+            {
+                text: "TUHAN adalah gembalaku, takkan kekurangan aku. Ia membaringkan aku di padang yang berumput hijau, Ia membimbing aku ke air yang tenang.",
+                reference: "Mazmur 23:1-2"
+            }
+        ];
+
+        // DOM Elements
+        const verseText = document.getElementById('verseText');
+        const verseReference = document.getElementById('verseReference');
+        const refreshButton = document.getElementById('refreshVerse');
+        const counterValue = document.getElementById('counterValue');
+        const incrementButton = document.getElementById('incrementCounter');
+        const resetButton = document.getElementById('resetCounter');
+
+        // Counter state
+        let count = 0;
+
+        // Functions
+        function getRandomVerse() {
+            const randomIndex = Math.floor(Math.random() * bibleVerses.length);
+            return bibleVerses[randomIndex];
+        }
+
+        function updateVerse() {
+            verseText.classList.add('fade');
+            
+            setTimeout(() => {
+                const verse = getRandomVerse();
+                verseText.textContent = verse.text;
+                verseReference.textContent = verse.reference;
+                verseText.classList.remove('fade');
+            }, 300);
+        }
+
+        function updateCounter() {
+            counterValue.textContent = count;
+            counterValue.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                counterValue.style.transform = 'scale(1)';
+            }, 200);
+        }
+
+        // Event Listeners
+        refreshButton.addEventListener('click', updateVerse);
+
+        incrementButton.addEventListener('click', () => {
+            count++;
+            updateCounter();
+        });
+
+        resetButton.addEventListener('click', () => {
+            count = 0;
+            updateCounter();
+        });
+
+        // Initialize
+        function init() {
+            // Load initial verse
+            updateVerse();
+        }
+
+        // Start the app
+        init();
+    </script>
+</body>
+</html>
