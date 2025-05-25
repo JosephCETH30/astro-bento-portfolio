@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doa Novena Tiga Salam Maria</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --text-opacity: 0.9;
+            --spacing: 1.5rem;
+            --max-width: 800px;
+            --line-height: 1.8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Satoshi', sans-serif;
+            line-height: var(--line-height);
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            min-height: 100vh;
+            padding: var(--spacing);
+            position: relative;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--spacing) 0;
+        }
+
+        .prayer {
+            position: relative;
+            padding: var(--spacing);
+        }
+
+        .prayer-header {
+            margin-bottom: var(--spacing);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .prayer-header.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+            opacity: var(--text-opacity);
+        }
+
+        .prayer-text {
+            font-size: 1.25rem;
+            line-height: var(--line-height);
+            white-space: pre-line;
+        }
+
+        .prayer-text p {
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .prayer-text p.visible {
+            opacity: var(--text-opacity);
+            transform: translateY(0);
+        }
+
+        .section-header {
+            font-weight: 500;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-header.visible {
+            opacity: var(--text-opacity);
+            transform: translateY(0);
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 2rem;
+            height: 1px;
+            background: var(--text-color);
+            opacity: 0.3;
+        }
+
+        .amen {
+            font-style: italic;
+            margin: 0.75rem 0;
+            text-align: right;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .amen.visible {
+            opacity: 0.8;
+            transform: translateY(0);
+        }
+
+        /* Subtle separator between major sections */
+        .prayer-text > div:not(:last-child) {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .prayer-text > div:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--text-color);
+            opacity: 0.1;
+        }
+
+        @media (max-width: 768px) {
+            :root {
+                --spacing: 1rem;
+            }
+
+            body {
+                padding: var(--spacing);
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .prayer-text {
+                font-size: 1.1rem;
+            }
+
+            .prayer {
+                padding: var(--spacing);
+            }
+
+            .section-header {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <article class="prayer">
+            <header class="prayer-header">
+                <h1>Ibadat Doa Novena Tiga Salam Maria</h1>
+            </header>
+            <div class="prayer-text">
+                <div>
+                    <div class="section-header">Tanda Salib</div>
+                    <p>Atas Nama Bapa, Putra dan Roh Kudus.</p>
+                    <p class="amen">Amin</p>
+                </div>
+
+                <div>
+                    <div class="section-header">Syahadat Para Rasul</div>
+                    <p>Aku percaya akan Allah, Bapa yang mahakuasa, Pencipta langit dan bumi; Dan akan Yesus Kristus, Putra-Nya yang tunggal, Tuhan kita, Yang dikandung dari Roh Kudus, Dilahirkan oleh Perawan Maria; Yang menderita sengsara Dalam pemerintahan Pontius Pilatus Disalibkan, wafat, dan dimakamkan; Yang turun ke tempat penantian Pada hari ketiga bangkit dari antara orang mati; Yang naik ke surga, Duduk di sebelah kanan Allah Bapa yang mahakuasa; Dari situ Ia akan datang mengadili orang yang hidup dan yang mati. Aku percaya akan Roh Kudus, Gereja katolik yang kudus, Persekutuan para kudus, Pengampunan dosa, Kebangkitan badan, Kehidupan kekal.</p>
+                    <p class="amen">Amin.</p>
+                </div>
+
+                <div>
+                    <div class="section-header">Bapa Kami</div>
+                    <p>Bapa kami yang ada di surga, Dimuliakanlah nama-Mu. Datanglah kerajaan-Mu. Jadilah kehendak-Mu di atas bumi seperti di dalam surga. Berilah kami rezeki pada hari ini, dan ampunilah kesalahan kami, seperti kami pun mengampuni yang bersalah kepada kami. Dan janganlah masukkan kami ke dalam pencobaan, tetapi bebaskanlah kami dari yang jahat.</p>
+                    <p class="amen">Amin</p>
+                </div>
+
+                <div>
+                    <div class="section-header">Doa Tobat</div>
+                    <p>Allah yang maha rahim, aku menyesal atas dosa-dosaku. Aku sungguh patut Engkau hukum, terutama karena aku telah tidak setia kepada Engkau yang maha pengasih dan maha baik bagiku. Aku benci akan segala dosaku, dan berjanji dengan pertolongan rahmat-Mu hendak memperbaiki hidupku dan tidak akan berbuat dosa lagi. Allah yang maha murah, ampunilah aku, orang berdosa.</p>
+                    <p class="amen">Amin</p>
+                </div>
+
+                <div>
+                    <div class="section-header">Novena Tiga Salam Maria</div>
+                    <p>Bunda Maria, Perawan yang berkuasa, bagimu tidak ada sesuatu yang tak mungkin, karena kuasa yang dianugerahkan oleh Tuhan Yang Maha Kuasa kepadamu. Dengan sangat aku mohon pertolonganmu dalam kesulitanku ini, janganlah hendaknya engkau meninggalkan aku, sebab aku yakin engkau pasti dapat menolong, meski dalam perkara yang sulit, yang sudah tidak ada harapannya, engkau tetap menjadi pengantara bagi Putramu.</p>
+
+                    <p>Baik keluhuran Tuhan, penghormatanku kepadamu maupun keselamatan jiwaku akan bertambah seandainya engkau sudi mengabulkan segala permohonanku ini. Karenanya, kalau permohonanku ini benar-benar sesuai dengan kehendak Putramu, dengan sangat aku mohon, o Bunda, sudilah meneruskan segala permohonanku ini ke hadirat Putramu, yang pasti tak akan menolakmu.</p>
+
+                    <p>Pengharapanku yang besar ini, berdasarkan atas kuasa yang tak terbatas yang dianugerahkan oleh Allah Bapa kepadamu. Dan untuk menghormati besarnya kuasamu itu, aku berdoa bersama dengan St. Mechtildis yang kau beritahukan tentang kebaikan doa "Tiga Salam Maria", yang sangat besar manfaatnya itu.</p>
+
+                    <p>Salam Maria, penuh rahmat, Tuhan sertamu, terpujilah engkau di antara wanita, dan terpujilah buah tubuhmu, Yesus. Santa Maria, bunda Allah, doakanlah kami yang berdosa ini sekarang dan waktu kami mati. Amin. (3 kali)</p>
+
+                    <p>Doa wujud permohonan anda…</p>
+
+                    <p>Bunda Maria, Bunda yang baik dan murah hati, jauhkanlah (diriku, dia, kami) dari dosa berat</p>
+
+                    <p>Perawan Suci yang disebut Tahta Kebijaksanaan, karena Sabda Allah tinggal padamu, engkau dianugerahi pengetahuan Ilahi yang tak terhingga oleh Putramu, sebagai makhluk yang paling sempurna untuk dapat menerimanya.</p>
+
+                    <p>Engkau tahu betapa besar kesulitan yang kuhadapi ini, betapa besar pengharapanku akan pertolonganmu. Dengan penuh kepercayaan akan tingginya kebijaksanaanmu, aku menyerahkan diri seutuhnya kepadamu, supaya engkau dapat mengatur dengan segala kesanggupan dan kebaikan budi, demi keluhuran Tuhan dan keselamatan jiwaku. Sudilah kiranya Bunda dapat menolong dengan segala cara yang paling tepat untuk terkabulnya permohonanku ini.</p>
+
+                    <p>O Maria, Bunda Kebijaksanaan Ilahi, sudilah kiranya Bunda berkenan mengabulkan permohonanku yang mendesak ini. Aku memohon berdasarkan atas kebijaksanaanmu yang tiada bandingnya, yang dikaruniakan oleh Putramu melalui Sabda Ilahi kepadamu.</p>
+
+                    <p>Bersama dengan St. Antonius dari Padua dan St. Leonardus dari Porto Mauritio, yang rajin mewartakan tentang devosi "Tiga Salam Maria" aku berdoa untuk menghormati kebijaksanaanmu yang tiada taranya itu.</p>
+
+                    <p>Salam Maria, penuh rahmat, Tuhan sertamu, terpujilah engkau di antara wanita, dan terpujilah buah tubuhmu, Yesus. Santa Maria, bunda Allah, doakanlah kami yang berdosa ini sekarang dan waktu kami mati. Amin. (3 kali)</p>
+
+                    <p>Doa wujud permohonan anda…</p>
+
+                    <p>Bunda Maria, Bunda yang baik dan murah hati, jauhkanlah (diriku, dia, kami) dari dosa berat</p>
+
+                    <p>O Bunda yang baik dan lembut hati, Bunda Kerahiman Sejati yang akhir-akhir ini disebut sebagai "Bunda yang penuh belas kasih", aku datang padamu, memohon dengan sangat, sudilah kiranya Bunda memperlihatkan belas kasihmu kepadaku. Makin besar kepapaanku, makin besar pula belas kasihmu kepadaku.</p>
+
+                    <p>Aku tahu, bahwa aku tidak pantas mendapat karunia itu. Sebab seringkali aku menyedihkan hatimu dengan menghina Putramu yang kudus itu. Betapapun besarnya kesalahanku, namun aku sangat menyesal telah melukai Hati Kudus Yesus dan hati kudusmu.</p>
+
+                    <p>Engkau memperkenalkan diri sebagai "Bunda para pendosa yang bertobat" kepada St. Brigita, maka ampunilah kiranya segala kurang rasa terima kasihku padamu. Ingatlah akan keluhuran Putramu saja serta kerahiman dan kebaikan hatimu yang terpancar dengan mengabulkan permohonanku ini melalui perantaraan Putramu.</p>
+
+                    <p>O Bunda, Perawan yang penuh kebaikan serta lembut dan manis, belum pernah ada orang yang datang padamu dan memohon pertolonganmu engkau biarkan begitu saja. Atas kerahiman dan kebaikanmu, aku berharap dengan sangat, agar aku dianugerahi Roh Kudus. (hening sejenak dan rasakan kuasa Roh Kudus hadir dalam diri anda) Dan demi keluhuranmu, bersama St. Alfonsus Ligouri, rasul kerahimanmu serta pengajar devosi "Tiga Salam Maria", aku berdoa untuk menghormati kerahimanmu dan kebaikanmu.</p>
+
+                    <p>Salam Maria, penuh rahmat, Tuhan sertamu, terpujilah engkau di antara wanita, dan terpujilah buah tubuhmu, Yesus. Santa Maria, bunda Allah, doakanlah kami yang berdosa ini sekarang dan waktu kami mati. Amin. (3 kali)</p>
+
+                    <p>Doa wujud permohonan anda…</p>
+
+                    <p>Bunda Maria, Bunda yang baik dan murah hati, jauhkanlah (diriku, dia, kami) dari dosa berat</p>
+
+                    <p class="amen">Amin</p>
+                </div>
+
+                <div>
+                    <div class="section-header">Kemuliaan</div>
+                    <p>Kemuliaan kepada Bapa dan Putra dan Roh Kudus, seperti pada permulaan, sekarang, selalu dan sepanjang segala abad.</p>
+                    <p class="amen">Amin</p>
+                </div>
+
+                <div>
+                    <div class="section-header">Terpujilah</div>
+                    <p>Terpujilah nama Yesus, Maria dan Yosef, sekarang dan selama-lamanya.</p>
+                    <p class="amen">Amin.</p>
+                </div>
+
+                <div>
+                    <div class="section-header">Tanda Salib</div>
+                    <p>Atas Nama Bapa, Putra dan Roh Kudus.</p>
+                    <p class="amen">Amin</p>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <script>
+        // Function to check if element is in viewport
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        }
+
+        // Function to handle scroll animation
+        function handleScrollAnimation() {
+            const elements = document.querySelectorAll('.prayer-header, .section-header, .prayer-text p, .amen');
+            
+            elements.forEach(element => {
+                if (isInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initial check for elements in viewport
+        document.addEventListener('DOMContentLoaded', handleScrollAnimation);
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScrollAnimation);
+    </script>
+</body>
+</html>
