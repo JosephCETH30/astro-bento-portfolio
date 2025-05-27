@@ -7,7 +7,7 @@ draft: false
 ---
 
 ## UTBK dengan tuntunan Tuhan
-92 Hari yang lalu, anak yang ambisius ingin restart perjalanan hidupnya dengan menjadi mahasiswa di Universitas Indonesia, melihat di fyp tiktok yaitu promosi bimbel by <a href="https://alternatifa.com/">Alternatifa Project</a> dan <a href="https://www.ruangguru.com/">Ruang Guru.</a> Tentu ini bukan suatu kebetulan dan saya juga berfikir bagaimana kalau kita memulainya kembali tapi dengan tuntunan Tuhan?
+164 Hari yang lalu, anak yang ambisius ingin restart perjalanan hidupnya dengan menjadi mahasiswa di Universitas Indonesia, melihat di fyp tiktok yaitu promosi bimbel by <a href="https://alternatifa.com/">Alternatifa Project</a> dan <a href="https://www.ruangguru.com/">Ruang Guru.</a> Tentu ini bukan suatu kebetulan dan saya juga berfikir bagaimana kalau kita memulainya kembali tapi dengan tuntunan Tuhan?
 
 tepatnya pada tanggal 15 Desember 2024 jam 08:33 saya memulai perjalanan ini dengan sebutan <a href="https://www.google.com/search?q=semigapyear+adalah&oq=semigapyear+adalah&gs_lcrp=EgZjaHJvbWUqBwgAEAAYgAQyBwgAEAAYgAQyCAgBEAAYFhgeMggIAhAAGBYYHjIKCAMQABgKGBYYHjIKCAQQABgKGBYYHjIKCAUQABiABBiiBDIKCAYQABiABBiiBNIBCDIwMzRqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8">semigapyear</a>.
 
