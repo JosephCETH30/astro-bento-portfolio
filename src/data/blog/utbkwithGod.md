@@ -84,6 +84,37 @@ Best Regard, Yoseph
 <br>    
 <p class="sync2">Big Thanks to King of Kings Jesus, Orang Tua, Om Ricky, Alternatifa Project, Ruang Guru, Mantappu Academy, Privat Al Faiz, Wangsit Om Jero, Ani Jogja, Ariandaru, Raihan, Tubagus, Sultan, Ray, Ahza, Mulki, Oscar, Yumna, Afifah, Zalea, Zulfa, Rizqi, etc.</p>
 
+<p class="sync2">
+Detail:<br>
+https://alternatifa.com/<br>
+https://www.ruangguru.com/<br>
+https://mantappuacademy.com/<br>
+https://www.privatalfaiz.id/<br>
+https://tubuhkata.com/<br>
+https://www.wangsiteducation.com/<br>
+https://www.instagram.com/aniibelajar/<br>
+https://www.instagram.com/babehhhisal_/<br>
+https://www.instagram.com/ariandaru_a/<br>
+https://www.instagram.com/ray_b4ri/<br>
+https://www.instagram.com/tubagussyadewa_0104<br>
+https://www.instagram.com/zaleabalqiss/<br>
+https://www.instagram.com/frdtymn/<br>
+https://www.instagram.com/afifahrsnt/<br>
+https://www.instagram.com/sultanzsaldi/<br>
+https://www.instagram.com/rizqii.sp/<br>
+https://www.instagram.com/agdpras/<br>
+</p>
+
+<p class="sync2">
+https://cs.ui.ac.id/<br>
+https://academic.ui.ac.id/<br>
+https://fti.gunadarma.ac.id/informatika/<br>
+https://v-class.gunadarma.ac.id/
+</p>
+
+
+
+
 
 <br><br><br>
 
