@@ -5,7 +5,13 @@
   force = true
 
 [[redirects]]
-  from = "/*"
+  from = "/v2/*"
   to = "/v2/:splat"
   status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/:splat"
+  status = 200
   force = true 
