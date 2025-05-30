@@ -1345,12 +1345,11 @@
 
         function updateGMT8Time() {
             const now = new Date();
-            const gmt8Time = new Date(now.getTime() + (8 * 60 * 60 * 1000));
-            const timeString = gmt8Time.toLocaleTimeString('en-US', {
+            const timeString = now.toLocaleTimeString('en-US', {
                 hour: '2-digit',
                 minute: '2-digit',
                 hour12: true,
-                timeZone: 'Asia/Singapore'
+                timeZone: 'Asia/Jakarta'
             });
             document.getElementById('gmt8-time').textContent = `GMT+8 ${timeString}`;
         }
