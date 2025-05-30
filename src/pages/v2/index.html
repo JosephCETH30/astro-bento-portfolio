@@ -443,11 +443,13 @@
 
         .music-player {
             width: 100%;
+            aspect-ratio: 16/9;
             margin-top: 1rem;
             border-radius: 8px;
             overflow: hidden;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            object-fit: contain;
         }
 
         .music-player::-webkit-media-controls-panel {
@@ -666,8 +668,7 @@
             }
 
             .music-player {
-                width: 100%;
-                margin-top: 0.8rem;
+                aspect-ratio: 16/9;
             }
         }
 
@@ -759,6 +760,10 @@
 
             .timeline-item::after {
                 left: -1.55rem;
+            }
+
+            .music-player {
+                aspect-ratio: 16/9;
             }
         }
 
@@ -1077,7 +1082,7 @@
         <main class="main-content">
             <div class="live-status">
                 <div class="status-dot"></div>
-                <span class="status-text">Joseph Live status: Playing Clash Royale/PUBG</span>
+                <span class="status-text">Joseph Live status: Simak UI</span>
                 <span class="status-time" id="gmt8-time"></span>
                 <span class="status-update" id="status-update"></span>
             </div>
@@ -1144,7 +1149,7 @@
             </section>
 
             <section id="music" class="section">
-                <h2>Music</h2>
+                <h2>Music Clips</h2>
                 <div class="music-grid">
                     <div class="music-card">
                         <div class="music-content">
@@ -1164,15 +1169,15 @@
 
                     <div class="music-card">
                         <div class="music-content">
-                            <h3>Piano Improvisation</h3>
+                            <h3>Sungguh alangkah baiknya - Bass</h3>
                             <div class="music-tags">
-                                <span class="music-tag">Piano</span>
-                                <span class="music-tag">Jazz</span>
-                                <span class="music-tag">Improvisation</span>
+                                <span class="music-tag">Bass</span>
+                                <span class="music-tag">Fast-beat</span>
+                                <span class="music-tag">Trap</span>
                             </div>
-                            <p>A spontaneous piano improvisation exploring jazz harmonies and melodic ideas.</p>
+                            <p>A heartfelt bass cover of "Sungguh Alangkah Baiknya", showcasing rhythmic bass lines and melodic interpretation.</p>
                             <video controls class="music-player">
-                                <source src="/" type="video/mp4">
+                                <source src="/sungguhalangkahbaiknya.mp4" type="video/mp4">
                                 Your browser does not support the video element.
                             </video>
                         </div>
