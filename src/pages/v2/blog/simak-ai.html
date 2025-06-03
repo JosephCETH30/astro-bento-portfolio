@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simak AI - Universitas Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Satoshi';
+            src: url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --bg-color: #0a0a0a;
+            --text-color: #e0e0e0;
+            --secondary-text: #a0a0a0;
+            --border-color: #2a2a2a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Satoshi', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            width: 100%;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.2s ease;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .back-link:hover {
+            color: var(--secondary-text);
+        }
+
+        .blog-header {
+            margin: 6rem 0 4rem;
+        }
+
+        .blog-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .blog-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            margin: 2rem 0;
+        }
+
+        .content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.8rem;
+            margin: 3rem 0 1.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        h3 {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1.4rem;
+            margin: 2.5rem 0 1rem;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        ul {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-text);
+        }
+
+        blockquote {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-left: 2px solid var(--border-color);
+            color: var(--secondary-text);
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        .code-snippet {
+            position: relative;
+            margin: 1.5rem 0;
+            background: #1a1a1a;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #2a2a2a;
+        }
+
+        .code-snippet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: #2a2a2a;
+            border-bottom: 1px solid #3a3a3a;
+        }
+
+        .code-snippet-title {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+        }
+
+        .code-snippet-content {
+            padding: 1.25rem;
+            font-family: 'Satoshi', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            overflow-x: auto;
+            white-space: pre;
+            tab-size: 4;
+        }
+
+        /* Syntax Highlighting Colors */
+        .code-snippet-content .keyword {
+            color: #ff79c6;
+        }
+
+        .code-snippet-content .string {
+            color: #f1fa8c;
+        }
+
+        .code-snippet-content .comment {
+            color: #6272a4;
+        }
+
+        .code-snippet-content .function {
+            color: #8be9fd;
+        }
+
+        .code-snippet-content .class {
+            color: #50fa7b;
+        }
+
+        .code-snippet-content .parameter {
+            color: #bd93f9;
+        }
+
+        .code-snippet-content .number {
+            color: #bd93f9;
+        }
+
+        .copy-button {
+            font-family: 'Satoshi', sans-serif;
+            background: transparent;
+            border: 1px solid #3a3a3a;
+            color: var(--secondary-text);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .copy-button:hover {
+            background: #3a3a3a;
+            color: var(--text-color);
+        }
+
+        .copy-button.copied {
+            background: #2a2a2a;
+            color: #4CAF50;
+            border-color: #4CAF50;
+        }
+
+        .copy-button i {
+            font-size: 0.9rem;
+        }
+
+        /* Custom Scrollbar for Code Snippet */
+        .code-snippet-content::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .code-snippet-content::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        .code-snippet-content::-webkit-scrollbar-thumb {
+            background: #3a3a3a;
+            border-radius: 3px;
+        }
+
+        .code-snippet-content::-webkit-scrollbar-thumb:hover {
+            background: #4a4a4a;
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: var(--border-color);
+            margin: 3rem 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            .back-link {
+                display: none;
+            }
+
+            .blog-header {
+                margin: 2rem 0 3rem;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .cover-image {
+                height: 300px;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .blog-header {
+                margin: 1.5rem 0 2.5rem;
+            }
+
+            .blog-title {
+                font-size: 1.8rem;
+            }
+
+            .cover-image {
+                height: 250px;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .content {
+                font-size: 1rem;
+            }
+
+            .blog-meta {
+                font-size: 0.9rem;
+            }
+
+            blockquote {
+                padding: 1.25rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: var(--border-color);
+            color: var(--text-color);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-text);
+        }
+
+        .search-container {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: var(--text-color);
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1rem;
+        }
+
+        .filter-select {
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: var(--text-color);
+            font-family: 'Satoshi', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            min-width: 140px;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+            padding-right: 2.5rem;
+        }
+
+        .filter-select:hover {
+            border-color: #4a4a4a;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #4a4a4a;
+        }
+
+        .filter-select option {
+            background: #1a1a1a;
+            color: var(--text-color);
+            padding: 0.5rem;
+        }
+
+        .prodi-results {
+            margin-top: 1.5rem;
+        }
+
+        .prodi-card {
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .prodi-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .prodi-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        .prodi-fakultas {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 0.75rem;
+        }
+
+        .prodi-requirements {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .prodi-capacity {
+            font-size: 0.95rem;
+            color: var(--secondary-text);
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: var(--secondary-text);
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                flex-direction: column;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+        }
+
+        .search-placeholder {
+            text-align: center;
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+            margin: 1rem 0 2rem;
+            font-style: italic;
+        }
+
+        .ipi-details {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .ipi-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            background: #2a2a2a;
+            border-radius: 4px;
+        }
+
+        .ipi-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .ipi-label {
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+        }
+
+        .ipi-value {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .external-link {
+            display: inline-block;
+            color: var(--secondary-text);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            transition: color 0.2s ease;
+        }
+
+        .external-link:hover {
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .ipi-group {
+                padding: 0.4rem;
+            }
+
+            .ipi-label,
+            .ipi-value {
+                font-size: 0.9rem;
+            }
+        }
+
+        .image-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .image-label {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .image-label:hover {
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .ipi-group {
+                padding: 0.4rem;
+            }
+
+            .ipi-label,
+            .ipi-value {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/v2" class="back-link">← Back</a>
+
+        <article>
+            <header class="blog-header">
+                <h1 class="blog-title">SIMAK AI : Mengulik Jalur Masuk UI yang bersih ini dari sisi technya.</h1>
+                <div class="blog-meta">
+                    <span><i class="far fa-calendar"></i> June 4, 2025</span>
+                    <span><i class="far fa-user"></i> Yoseph Rafael</span>
+                </div>
+            </header>
+
+            <img src="/43b5e043-b813-47c9-b0c1-3c8fa14bf6ae_169.jpeg" alt="SIMAK UI Cover" class="cover-image">
+
+            <div class="content">
+                <p>
+                    SIMAK UI itu singkatan dari Seleksi Masuk Universitas Indonesia. Ini adalah jalur masuk UI yang
+                    diselenggarakan langsung sama kampusnya, beda sama SNBP (undangan) atau SNBT (tes nasional).
+                    Yang bikin SIMAK UI menarik adalah kamu bisa pilih sampai 6 program studi sekaligus, bahkan lintas
+                    rumpun. Jadi kalau kamu mau masuk UI tapi belum berhasil lewat jalur nasional, ini adalah kesempatan
+                    yang bagus buat kamu.
+                </p>
+
+                <blockquote>
+                    Pendaftaran → Pembayaran → Tes SIMAK UI → Pengumuman → Daftar Ulang
+                </blockquote>
+
+                <h2>Program Studi yang Tersedia</h2>
+                <p>
+                    SIMAK UI menawarkan berbagai program studi yang bisa kamu pilih. Gunakan searchbar di bawah untuk mencari program studi yang kamu inginkan:
+                </p>
+
+                <div class="search-container">
+                    <input type="text" id="prodiSearch" placeholder="Cari program studi..." class="search-input">
+                    <select id="fakultasFilter" class="filter-select">
+                        <option value="all">Semua Jenjang</option>
+                        <option value="vokasi">Vokasi</option>
+                        <option value="sarjana">Sarjana</option>
+                    </select>
+                </div>
+
+                <div class="search-placeholder">
+                    Cari program studi, program studi yang dicari akan muncul di sini
+                </div>
+
+                <div id="prodiResults" class="prodi-results"></div>
+
+                <script>
+                    const prodiData = {
+                        vokasi: [
+                            {
+                                nama: "Administrasi Asuransi dan Aktuaria",
+                                fakultas: "Vokasi",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Administrasi Keuangan dan Perbankan",
+                                fakultas: "Vokasi",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Administrasi Perpajakan",
+                                fakultas: "Vokasi",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Administrasi Rumah Sakit",
+                                fakultas: "Vokasi",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Akuntansi",
+                                fakultas: "Vokasi",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Hubungan Masyarakat",
+                                fakultas: "Vokasi",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Penyiaran Multimedia",
+                                fakultas: "Vokasi",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Bisnis Kreatif",
+                                fakultas: "Vokasi D4",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "27"
+                            },
+                            {
+                                nama: "Fisioterapi",
+                                fakultas: "Vokasi D4",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "27"
+                            },
+                            {
+                                nama: "Manajemen Bisnis Pariwisata",
+                                fakultas: "Vokasi D4",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "27"
+                            },
+                            {
+                                nama: "Manajemen Rekod dan Arsip",
+                                fakultas: "Vokasi D4",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "27"
+                            },
+                            {
+                                nama: "Produksi Media",
+                                fakultas: "Vokasi D4",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "27"
+                            },
+                            {
+                                nama: "Terapi Okupasi",
+                                fakultas: "Vokasi D4",
+                                requirements: "Lulus SMA/SMK/MA/Sederajat tanpa batasan tahun lulusan",
+                                dayaTampung: "27"
+                            }
+                        ],
+                        sarjana: [
+                            {
+                                nama: "Pendidikan Dokter",
+                                fakultas: "Kedokteran",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "20"
+                            },
+                            {
+                                nama: "Pendidikan Dokter Gigi",
+                                fakultas: "Kedokteran Gigi",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "30"
+                            },
+                            {
+                                nama: "Biologi",
+                                fakultas: "MIPA",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "48"
+                            },
+                            {
+                                nama: "Fisika",
+                                fakultas: "MIPA",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "56"
+                            },
+                            {
+                                nama: "Geofisika",
+                                fakultas: "MIPA",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "32"
+                            },
+                            {
+                                nama: "Geografi",
+                                fakultas: "MIPA",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "56"
+                            },
+                            {
+                                nama: "Geologi",
+                                fakultas: "MIPA",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "32"
+                            },
+                            {
+                                nama: "Ilmu Aktuaria",
+                                fakultas: "MIPA",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "32"
+                            },
+                            {
+                                nama: "Kimia",
+                                fakultas: "MIPA",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "56"
+                            },
+                            {
+                                nama: "Matematika",
+                                fakultas: "MIPA",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "38"
+                            },
+                            {
+                                nama: "Statistika",
+                                fakultas: "MIPA",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "32"
+                            },
+                            {
+                                nama: "Arsitektur",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "25"
+                            },
+                            {
+                                nama: "Arsitektur Interior",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "21"
+                            },
+                            {
+                                nama: "Teknik Biomedik",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "21"
+                            },
+                            {
+                                nama: "Teknik Elektro",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "40"
+                            },
+                            {
+                                nama: "Teknik Industri",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "50"
+                            },
+                            {
+                                nama: "Teknik Kimia",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "30"
+                            },
+                            {
+                                nama: "Teknik Komputer",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "30"
+                            },
+                            {
+                                nama: "Teknik Lingkungan",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "30"
+                            },
+                            {
+                                nama: "Teknik Mesin",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "40"
+                            },
+                            {
+                                nama: "Teknik Metalurgi & Material",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "25"
+                            },
+                            {
+                                nama: "Teknik Perkapalan",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "25"
+                            },
+                            {
+                                nama: "Teknik Sipil",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "50"
+                            },
+                            {
+                                nama: "Teknologi Bioproses",
+                                fakultas: "Teknik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Ilmu Hukum",
+                                fakultas: "Hukum",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "115"
+                            },
+                            {
+                                nama: "Akuntansi",
+                                fakultas: "Ekonomi dan Bisnis",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "30"
+                            },
+                            {
+                                nama: "Bisnis Islam",
+                                fakultas: "Ekonomi dan Bisnis",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "10"
+                            },
+                            {
+                                nama: "Ilmu Ekonomi",
+                                fakultas: "Ekonomi dan Bisnis",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Ilmu Ekonomi Islam",
+                                fakultas: "Ekonomi dan Bisnis",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "10"
+                            },
+                            {
+                                nama: "Manajemen",
+                                fakultas: "Ekonomi dan Bisnis",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "20"
+                            },
+                            {
+                                nama: "Arkeologi",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Bahasa dan Kebudayaan Korea",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "13"
+                            },
+                            {
+                                nama: "Ilmu Filsafat",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Ilmu Perpustakaan",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "23"
+                            },
+                            {
+                                nama: "Ilmu Sejarah",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "38"
+                            },
+                            {
+                                nama: "Sastra Arab",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Sastra Belanda",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Sastra Cina",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Sastra Daerah untuk Sastra Jawa",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Sastra Indonesia",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Sastra Inggris",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Sastra Jepang",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Sastra Jerman",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "13"
+                            },
+                            {
+                                nama: "Sastra Perancis",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "13"
+                            },
+                            {
+                                nama: "Sastra Rusia",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "19"
+                            },
+                            {
+                                nama: "Psikologi",
+                                fakultas: "Psikologi",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "45"
+                            },
+                            {
+                                nama: "Antropologi Sosial",
+                                fakultas: "Ilmu Sosial dan Ilmu Politik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "35"
+                            },
+                            {
+                                nama: "Ilmu Hubungan Internasional",
+                                fakultas: "Ilmu Sosial dan Ilmu Politik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "18"
+                            },
+                            {
+                                nama: "Ilmu Kesejahteraan Sosial",
+                                fakultas: "Ilmu Sosial dan Ilmu Politik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "35"
+                            },
+                            {
+                                nama: "Ilmu Komunikasi",
+                                fakultas: "Ilmu Sosial dan Ilmu Politik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "15"
+                            },
+                            {
+                                nama: "Ilmu Politik",
+                                fakultas: "Ilmu Sosial dan Ilmu Politik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "30"
+                            },
+                            {
+                                nama: "Kriminologi",
+                                fakultas: "Ilmu Sosial dan Ilmu Politik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "25"
+                            },
+                            {
+                                nama: "Sosiologi",
+                                fakultas: "Ilmu Sosial dan Ilmu Politik",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "24"
+                            },
+                            {
+                                nama: "Kesehatan Lingkungan",
+                                fakultas: "Kesehatan Masyarakat",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "27"
+                            },
+                            {
+                                nama: "Kesehatan Masyarakat",
+                                fakultas: "Kesehatan Masyarakat",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "45"
+                            },
+                            {
+                                nama: "Keselamatan & Kesehatan Kerja",
+                                fakultas: "Kesehatan Masyarakat",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "40"
+                            },
+                            {
+                                nama: "Studi Gizi",
+                                fakultas: "Kesehatan Masyarakat",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "28"
+                            },
+                            {
+                                nama: "Ilmu Komputer",
+                                fakultas: "Ilmu Komputer",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "42"
+                            },
+                            {
+                                nama: "Sistem Informasi",
+                                fakultas: "Ilmu Komputer",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "62"
+                            },
+                            {
+                                nama: "Ilmu Keperawatan",
+                                fakultas: "Ilmu Keperawatan",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Bebas dari Tuna (Netra, Rungu, Wicara, atau Daksa). Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "40"
+                            },
+                            {
+                                nama: "Farmasi",
+                                fakultas: "Farmasi",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Tidak boleh buta warna keseluruhan maupun buta warna sebagian. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "72"
+                            },
+                            {
+                                nama: "Ilmu Administrasi Fiskal",
+                                fakultas: "Ilmu Administrasi",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "51"
+                            },
+                            {
+                                nama: "Ilmu Administrasi Negara",
+                                fakultas: "Ilmu Administrasi",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "62"
+                            },
+                            {
+                                nama: "Ilmu Administrasi Niaga",
+                                fakultas: "Ilmu Administrasi",
+                                requirements: "Lulusan SMA/sederajat tahun 2025, 2024, 2023. Sehat jasmani dan mental. Bebas narkoba. Mengikuti UTBK-SNBT 2025",
+                                dayaTampung: "51"
+                            }
+                        ]
+                    };
+
+                    function searchProdi() {
+                        const searchTerm = document.getElementById('prodiSearch').value.toLowerCase();
+                        const fakultasFilter = document.getElementById('fakultasFilter').value;
+                        const resultsContainer = document.getElementById('prodiResults');
+                        const searchPlaceholder = document.querySelector('.search-placeholder');
+                        let results = [];
+
+                        // Only show results if there's a search term
+                        if (searchTerm === '') {
+                            resultsContainer.innerHTML = '';
+                            searchPlaceholder.style.display = 'block';
+                            return;
+                        }
+
+                        // Hide placeholder when searching
+                        searchPlaceholder.style.display = 'none';
+
+                        // Filter berdasarkan fakultas
+                        if (fakultasFilter === 'all') {
+                            results = [...prodiData.vokasi, ...prodiData.sarjana];
+                        } else {
+                            results = prodiData[fakultasFilter];
+                        }
+
+                        // Filter berdasarkan pencarian
+                        results = results.filter(prodi => 
+                            prodi.nama.toLowerCase().includes(searchTerm) ||
+                            prodi.fakultas.toLowerCase().includes(searchTerm)
+                        );
+
+                        // Tampilkan hasil
+                        if (results.length === 0) {
+                            resultsContainer.innerHTML = '<div class="no-results">Tidak ada program studi yang ditemukan</div>';
+                            searchPlaceholder.style.display = 'block';
+                            return;
+                        }
+
+                        resultsContainer.innerHTML = results.map(prodi => `
+                            <div class="prodi-card">
+                                <div class="prodi-title">${prodi.nama}</div>
+                                <div class="prodi-fakultas">${prodi.fakultas}</div>
+                                <div class="prodi-requirements">${prodi.requirements}</div>
+                                <div class="prodi-capacity">Daya Tampung: ${prodi.dayaTampung} mahasiswa</div>
+                            </div>
+                        `).join('');
+                    }
+
+                    // Event listeners
+                    document.getElementById('prodiSearch').addEventListener('input', searchProdi);
+                    document.getElementById('fakultasFilter').addEventListener('change', () => {
+                        // Only trigger search if there's a search term
+                        if (document.getElementById('prodiSearch').value !== '') {
+                            searchProdi();
+                        }
+                    });
+
+                    // Initial state - hide results
+                    document.getElementById('prodiResults').innerHTML = '';
+                </script>
+
+                <p>
+                    Yang bikin SIMAK UI beda dari tes masuk lainnya adalah waktunya yang biasanya diadakan setelah SNBT
+                    selesai (sekitar Juni-Juli). Jadi ini kesempatan terakhir buat kamu yang pengen masuk UI di tahun
+                    yang sama. Plus, karena tesnya diselenggarakan langsung sama UI, materinya bisa lebih dalam dan
+                    mirip kayak UTBK zaman dulu (SBMPTN). Jadi kalau kamu udah latihan buat UTBK, persiapannya bisa
+                    dipake lagi buat SIMAK UI.
+                </p>
+
+                <h2>Biaya IPI Jalur Simak Terbaru 2025</h2>
+                <p>
+                    Biaya IPI (Iuran Pengembangan Institusi) untuk jalur SIMAK UI tahun 2025 dibagi menjadi 4 golongan. Berikut adalah rincian biayanya:
+                </p>
+
+                <div class="search-container">
+                    <input type="text" id="ipiSearch" placeholder="Cari program studi..." class="search-input">
+                    <select id="ipiFilter" class="filter-select">
+                        <option value="all">Semua Jenjang</option>
+                        <option value="vokasi">Vokasi</option>
+                        <option value="sarjana">Sarjana</option>
+                    </select>
+                </div>
+
+                <div class="search-placeholder">
+                    Cari program studi, biaya IPI akan muncul di sini
+                </div>
+
+                <div id="ipiResults" class="prodi-results"></div>
+
+                <script>
+                    const ipiData = {
+                        vokasi: [
+                            {
+                                nama: "Hubungan Masyarakat",
+                                fakultas: "Vokasi",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 4.500.000",
+                                ipiGol3: "Rp 9.000.000",
+                                ipiGol4: "Rp 11.500.000"
+                            },
+                            {
+                                nama: "Periklanan Kreatif",
+                                fakultas: "Vokasi",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 4.500.000",
+                                ipiGol3: "Rp 9.000.000",
+                                ipiGol4: "Rp 11.500.000"
+                            },
+                            {
+                                nama: "Penyiar Multimedia",
+                                fakultas: "Vokasi",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 4.500.000",
+                                ipiGol3: "Rp 9.000.000",
+                                ipiGol4: "Rp 11.500.000"
+                            },
+                            {
+                                nama: "Administrasi Rumah Sakit",
+                                fakultas: "Vokasi",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 4.500.000",
+                                ipiGol3: "Rp 9.000.000",
+                                ipiGol4: "Rp 11.500.000"
+                            }
+                        ],
+                        sarjana: [
+                            {
+                                nama: "Pendidikan Dokter",
+                                fakultas: "Kedokteran",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 60.000.000",
+                                ipiGol3: "Rp 90.000.000",
+                                ipiGol4: "Rp 120.000.000"
+                            },
+                            {
+                                nama: "Kedokteran Gigi",
+                                fakultas: "Kedokteran Gigi",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 36.000.000",
+                                ipiGol3: "Rp 72.000.000",
+                                ipiGol4: "Rp 95.000.000"
+                            },
+                            {
+                                nama: "Ilmu Keperawatan",
+                                fakultas: "Ilmu Keperawatan",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 10.500.000",
+                                ipiGol3: "Rp 21.000.000",
+                                ipiGol4: "Rp 27.000.000"
+                            },
+                            {
+                                nama: "Farmasi",
+                                fakultas: "Farmasi",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 28.500.000",
+                                ipiGol3: "Rp 57.000.000",
+                                ipiGol4: "Rp 75.000.000"
+                            },
+                            {
+                                nama: "Gizi",
+                                fakultas: "Kesehatan Masyarakat",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 20.000.000",
+                                ipiGol3: "Rp 40.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Kesehatan Lingkungan",
+                                fakultas: "Kesehatan Masyarakat",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 20.000.000",
+                                ipiGol3: "Rp 40.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Kesehatan Masyarakat",
+                                fakultas: "Kesehatan Masyarakat",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 20.000.000",
+                                ipiGol3: "Rp 40.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Keselamatan dan Kesehatan Kerja",
+                                fakultas: "Kesehatan Masyarakat",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 20.000.000",
+                                ipiGol3: "Rp 40.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Teknik Lingkungan",
+                                fakultas: "Teknik",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 22.500.000",
+                                ipiGol3: "Rp 45.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Teknik Mesin",
+                                fakultas: "Teknik",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 22.500.000",
+                                ipiGol3: "Rp 45.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Teknik Metalurgi & Material",
+                                fakultas: "Teknik",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 22.500.000",
+                                ipiGol3: "Rp 45.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Teknik Perkapalan",
+                                fakultas: "Teknik",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 22.500.000",
+                                ipiGol3: "Rp 45.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Teknik Sipil",
+                                fakultas: "Teknik",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 22.500.000",
+                                ipiGol3: "Rp 45.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Ilmu Komputer",
+                                fakultas: "Ilmu Komputer",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 30.000.000",
+                                ipiGol3: "Rp 45.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Sistem Informasi",
+                                fakultas: "Ilmu Komputer",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 30.000.000",
+                                ipiGol3: "Rp 45.000.000",
+                                ipiGol4: "Rp 60.000.000"
+                            },
+                            {
+                                nama: "Ilmu Hukum",
+                                fakultas: "Hukum",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 25.000.000",
+                                ipiGol3: "Rp 35.000.000",
+                                ipiGol4: "Rp 48.000.000"
+                            },
+                            {
+                                nama: "Akuntansi",
+                                fakultas: "Ekonomi dan Bisnis",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 15.000.000",
+                                ipiGol3: "Rp 25.000.000",
+                                ipiGol4: "Rp 35.000.000"
+                            },
+                            {
+                                nama: "Bisnis Islam",
+                                fakultas: "Ekonomi dan Bisnis",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 15.000.000",
+                                ipiGol3: "Rp 25.000.000",
+                                ipiGol4: "Rp 35.000.000"
+                            },
+                            {
+                                nama: "Ilmu Ekonomi",
+                                fakultas: "Ekonomi dan Bisnis",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 15.000.000",
+                                ipiGol3: "Rp 25.000.000",
+                                ipiGol4: "Rp 35.000.000"
+                            },
+                            {
+                                nama: "Ilmu Ekonomi Islam",
+                                fakultas: "Ekonomi dan Bisnis",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 15.000.000",
+                                ipiGol3: "Rp 25.000.000",
+                                ipiGol4: "Rp 35.000.000"
+                            },
+                            {
+                                nama: "Manajemen",
+                                fakultas: "Ekonomi dan Bisnis",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 15.000.000",
+                                ipiGol3: "Rp 25.000.000",
+                                ipiGol4: "Rp 35.000.000"
+                            },
+                            {
+                                nama: "Arkeologi",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 15.000.000",
+                                ipiGol3: "Rp 30.000.000",
+                                ipiGol4: "Rp 40.000.000"
+                            },
+                            {
+                                nama: "Bahasa dan Kebudayaan Korea",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 11.000.000",
+                                ipiGol3: "Rp 22.000.000",
+                                ipiGol4: "Rp 30.000.000"
+                            },
+                            {
+                                nama: "Ilmu Filsafat",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 15.000.000",
+                                ipiGol3: "Rp 30.000.000",
+                                ipiGol4: "Rp 40.000.000"
+                            },
+                            {
+                                nama: "Ilmu Perpustakaan",
+                                fakultas: "Ilmu Pengetahuan Budaya",
+                                ipiGol1: "Rp 0",
+                                ipiGol2: "Rp 11.500.000",
+                                ipiGol3: "Rp 23.000.000",
+                                ipiGol4: "Rp 28.000.000"
+                            }
+                        ]
+                    };
+
+                    function searchIpi() {
+                        const searchTerm = document.getElementById('ipiSearch').value.toLowerCase();
+                        const ipiFilter = document.getElementById('ipiFilter').value;
+                        const resultsContainer = document.getElementById('ipiResults');
+                        const searchPlaceholder = document.querySelector('.search-placeholder');
+                        let results = [];
+
+                        // Only show results if there's a search term
+                        if (searchTerm === '') {
+                            resultsContainer.innerHTML = '';
+                            searchPlaceholder.style.display = 'block';
+                            return;
+                        }
+
+                        // Hide placeholder when searching
+                        searchPlaceholder.style.display = 'none';
+
+                        if (ipiFilter === 'all') {
+                            results = [...ipiData.vokasi, ...ipiData.sarjana];
+                        } else {
+                            results = ipiData[ipiFilter];
+                        }
+
+                        results = results.filter(prodi => 
+                            prodi.nama.toLowerCase().includes(searchTerm) ||
+                            prodi.fakultas.toLowerCase().includes(searchTerm)
+                        );
+
+                        if (results.length === 0) {
+                            resultsContainer.innerHTML = '<div class="no-results">Tidak ada program studi yang ditemukan</div>';
+                            searchPlaceholder.style.display = 'block';
+                            return;
+                        }
+
+                        // Ensure placeholder is hidden and show results
+                        searchPlaceholder.style.display = 'none';
+                        resultsContainer.style.display = 'block';
+                        resultsContainer.innerHTML = results.map(prodi => `
+                            <div class="prodi-card">
+                                <div class="prodi-title">${prodi.nama}</div>
+                                <div class="prodi-fakultas">${prodi.fakultas}</div>
+                                <div class="ipi-details">
+                                    <div class="ipi-group">
+                                        <span class="ipi-label">IPI Golongan 1:</span>
+                                        <span class="ipi-value">${prodi.ipiGol1}</span>
+                                    </div>
+                                    <div class="ipi-group">
+                                        <span class="ipi-label">IPI Golongan 2:</span>
+                                        <span class="ipi-value">${prodi.ipiGol2}</span>
+                                    </div>
+                                    <div class="ipi-group">
+                                        <span class="ipi-label">IPI Golongan 3:</span>
+                                        <span class="ipi-value">${prodi.ipiGol3}</span>
+                                    </div>
+                                    <div class="ipi-group">
+                                        <span class="ipi-label">IPI Golongan 4:</span>
+                                        <span class="ipi-value">${prodi.ipiGol4}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('');
+                    }
+
+                    // Event listeners
+                    document.getElementById('ipiSearch').addEventListener('input', searchIpi);
+                    document.getElementById('ipiFilter').addEventListener('change', () => {
+                        // Only trigger search if there's a search term
+                        if (document.getElementById('ipiSearch').value !== '') {
+                            searchIpi();
+                        }
+                    });
+
+                    // Initial state - hide results and show placeholder
+                    document.getElementById('ipiResults').innerHTML = '';
+                    document.querySelector('.search-placeholder').style.display = 'block';
+                </script>
+
+                <p>
+                    Catatan penting:
+                </p>
+                <ul>
+                    <li>Biaya IPI dibayarkan hanya disaat awal masuk saja</li>
+                    <li>Biaya dapat berubah sewaktu-waktu sesuai kebijakan UI</li>
+                    <li>Biaya di atas belum termasuk biaya SPP (Sumbangan Pengembangan Pendidikan) dan biaya operasional lainnya</li>
+                    <li>Pembayaran dapat dilakukan secara bertahap sesuai dengan kemampuan finansial mahasiswa</li>
+                </ul>
+
+                <p>
+                    Untuk informasi lebih lanjut mengenai biaya dan pembayaran, silakan kunjungi website resmi UI atau hubungi bagian keuangan UI. atau klik <a href="https://www.ui.ac.id/wp-content/uploads/2025/05/688-Tarif-IPI-S1-dan-Vokasi-Jalur-Mandiri-2025-2026.pdf" target="_blank" style="color: white; opacity: 0.8;">Tarif-IPI-S1-dan-Vokasi-Jalur-Mandiri-2025-2026</a>
+                </p>
+
+                <h2>Mengulik Potensi Kecurangan di Simak UI 2025</h2>
+                <p>
+                    Melihat adanya kecurangan yang terjadi di Jalur mandiri ini pada Tahun 2024, membuat kami sebagai calon mahasiswa UI berpikir apakah ada potensi kecurangan yang sama pada tahun 2025?
+                </p>
+
+                <blockquote>
+                    Beberapa bukti kecurangan yang terjadi pada tahun 2024 <a href="https://www.google.com/search?sca_esv=f623dff6c3c032cb&sxsrf=AE3TifNx0TWlesefuV_bs-kPbYYiRWwr2g:1748970226344&q=site:studyx.ai+ujiansimak&udm=2&fbs=AIIjpHxZSHO4BBrQmD3PXjKsg9pHO7fOpCHalheK8ChkR9jxpaPygJDT8yVjj5lLObEueKJg-CLd1Pr7goH_svCqxYSyjpxHqPTxPNDs2MDa6iPXcISvWXFVSffVnN2S1gIXULlQiEN4VBnDmVyLAXBO93BZoxNcwxgWyoBYJM5o8vH0LbMPMpz0q9linLMryRpKn6WpRf9uRJdDqZ8gZ5TPiAH5l8AhEA&sa=X&ved=2ahUKEwjdqcHo3dWNAxWmTGwGHVuxI9IQtKgLegQIEhAB&biw=1280&bih=632&dpr=1.5" target="_blank" style="color: white; opacity: 0.5;">(Google Search)</a>
+                </blockquote>
+                <h3>1. Simak AI</h3>
+                <div class="image-container">
+                    <img src="https://media.studyx.ai/us/81f6f9cb/a6279149a0c24196b55015fc6c750649.jpg" alt="">
+                    <a href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/2vww_RCB3dww4qSZ7HHhbqjPuilNJoTDoovrrYxud4LuAEfFoII28HE6XboI_JawdLAZ7A==" target="_blank" class="image-label">mahasiswa aktif</a>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="image-overlay" id="imageOverlay" onclick="closeOverlay()">
+        <img id="overlayImg" src="">
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".cover-image").forEach(img => {
+                img.addEventListener("click", function () {
+                    document.getElementById("overlayImg").src = this.src;
+                    document.getElementById("imageOverlay").classList.add("show");
+                    document.body.style.overflow = "hidden";
+                });
+            });
+        });
+
+        function closeOverlay() {
+            document.getElementById("imageOverlay").classList.remove("show");
+            document.body.style.overflow = "";
+        }
+
+        function copyCode(button) {
+            const codeContent = button.closest('.code-snippet').querySelector('.code-snippet-content').textContent;
+            navigator.clipboard.writeText(codeContent).then(() => {
+                button.classList.add('copied');
+                button.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                    button.innerHTML = '<i class="far fa-copy"></i> Copy';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>
