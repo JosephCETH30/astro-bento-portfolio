@@ -7,16 +7,9 @@
     <title>Simak AI - Universitas Indonesia</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @font-face {
-            font-family: 'Satoshi';
-            src: url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         :root {
             --bg-color: #0a0a0a;
             --text-color: #e0e0e0;
@@ -31,7 +24,7 @@
         }
 
         body {
-            font-family: 'Satoshi', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.7;
@@ -70,7 +63,7 @@
         }
 
         .blog-title {
-            font-family: 'Satoshi', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 2.5rem;
             font-weight: 700;
             line-height: 1.2;
@@ -97,6 +90,7 @@
             height: 400px;
             object-fit: cover;
             margin: 2rem 0;
+            border-radius: 12px;
         }
 
         .content {
@@ -116,7 +110,7 @@
         }
 
         h2 {
-            font-family: 'Satoshi', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1.8rem;
             margin: 3rem 0 1.5rem;
             font-weight: 600;
@@ -124,7 +118,7 @@
         }
 
         h3 {
-            font-family: 'Satoshi', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1.4rem;
             margin: 2.5rem 0 1rem;
             font-weight: 500;
@@ -162,229 +156,9 @@
             padding: 1.5rem;
             border-left: 2px solid var(--border-color);
             color: var(--secondary-text);
-            font-family: 'Satoshi', sans-serif;
-        }
-
-        .code-snippet {
-            position: relative;
-            margin: 1.5rem 0;
-            background: #1a1a1a;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #2a2a2a;
-        }
-
-        .code-snippet-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 1rem;
-            background: #2a2a2a;
-            border-bottom: 1px solid #3a3a3a;
-        }
-
-        .code-snippet-title {
-            font-family: 'Satoshi', sans-serif;
-            font-size: 0.85rem;
-            color: var(--secondary-text);
-        }
-
-        .code-snippet-content {
-            padding: 1.25rem;
-            font-family: 'Satoshi', monospace;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            color: #e0e0e0;
-            overflow-x: auto;
-            white-space: pre;
-            tab-size: 4;
-        }
-
-        /* Syntax Highlighting Colors */
-        .code-snippet-content .keyword {
-            color: #ff79c6;
-        }
-
-        .code-snippet-content .string {
-            color: #f1fa8c;
-        }
-
-        .code-snippet-content .comment {
-            color: #6272a4;
-        }
-
-        .code-snippet-content .function {
-            color: #8be9fd;
-        }
-
-        .code-snippet-content .class {
-            color: #50fa7b;
-        }
-
-        .code-snippet-content .parameter {
-            color: #bd93f9;
-        }
-
-        .code-snippet-content .number {
-            color: #bd93f9;
-        }
-
-        .copy-button {
-            font-family: 'Satoshi', sans-serif;
-            background: transparent;
-            border: 1px solid #3a3a3a;
-            color: var(--secondary-text);
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.2s ease;
-        }
-
-        .copy-button:hover {
-            background: #3a3a3a;
-            color: var(--text-color);
-        }
-
-        .copy-button.copied {
-            background: #2a2a2a;
-            color: #4CAF50;
-            border-color: #4CAF50;
-        }
-
-        .copy-button i {
-            font-size: 0.9rem;
-        }
-
-        /* Custom Scrollbar for Code Snippet */
-        .code-snippet-content::-webkit-scrollbar {
-            height: 6px;
-        }
-
-        .code-snippet-content::-webkit-scrollbar-track {
-            background: #1a1a1a;
-        }
-
-        .code-snippet-content::-webkit-scrollbar-thumb {
-            background: #3a3a3a;
-            border-radius: 3px;
-        }
-
-        .code-snippet-content::-webkit-scrollbar-thumb:hover {
-            background: #4a4a4a;
-        }
-
-        hr {
-            border: none;
-            height: 1px;
-            background: var(--border-color);
-            margin: 3rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.25rem;
-            }
-
-            .back-link {
-                display: none;
-            }
-
-            .blog-header {
-                margin: 2rem 0 3rem;
-            }
-
-            .blog-title {
-                font-size: 2rem;
-            }
-
-            .blog-meta {
-                flex-direction: column;
-                gap: 0.75rem;
-            }
-
-            .cover-image {
-                height: 300px;
-            }
-
-            h2 {
-                font-size: 1.6rem;
-            }
-
-            h3 {
-                font-size: 1.3rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-
-            .blog-header {
-                margin: 1.5rem 0 2.5rem;
-            }
-
-            .blog-title {
-                font-size: 1.8rem;
-            }
-
-            .cover-image {
-                height: 250px;
-            }
-
-            h2 {
-                font-size: 1.4rem;
-            }
-
-            h3 {
-                font-size: 1.2rem;
-            }
-
-            .content {
-                font-size: 1rem;
-            }
-
-            .blog-meta {
-                font-size: 0.9rem;
-            }
-
-            blockquote {
-                padding: 1.25rem;
-                font-size: 0.95rem;
-            }
-        }
-
-        /* Smooth Scroll Behavior */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Selection Color */
-        ::selection {
-            background: var(--border-color);
-            color: var(--text-color);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--border-color);
-            border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary-text);
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 0 8px 8px 0;
         }
 
         .search-container {
@@ -400,7 +174,7 @@
             border-radius: 8px;
             background: #1a1a1a;
             color: var(--text-color);
-            font-family: 'Satoshi', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1rem;
         }
 
@@ -410,7 +184,7 @@
             border-radius: 8px;
             background: #1a1a1a;
             color: var(--text-color);
-            font-family: 'Satoshi', sans-serif;
+            font-family: 'Poppins', sans-serif;
             font-size: 1rem;
             cursor: pointer;
             min-width: 140px;
@@ -422,29 +196,10 @@
             padding-right: 2.5rem;
         }
 
-        .filter-select:hover {
-            border-color: #4a4a4a;
-        }
-
-        .filter-select:focus {
-            outline: none;
-            border-color: #4a4a4a;
-        }
-
-        .filter-select option {
-            background: #1a1a1a;
-            color: var(--text-color);
-            padding: 0.5rem;
-        }
-
-        .prodi-results {
-            margin-top: 1.5rem;
-        }
-
         .prodi-card {
             background: #1a1a1a;
             border: 1px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 12px;
             padding: 1.25rem;
             margin-bottom: 1rem;
             transition: all 0.2s ease;
@@ -481,31 +236,6 @@
             font-weight: 500;
         }
 
-        .no-results {
-            text-align: center;
-            padding: 2rem;
-            color: var(--secondary-text);
-            font-style: italic;
-        }
-
-        @media (max-width: 768px) {
-            .search-container {
-                flex-direction: column;
-            }
-
-            .filter-select {
-                width: 100%;
-            }
-        }
-
-        .search-placeholder {
-            text-align: center;
-            color: var(--secondary-text);
-            font-size: 0.95rem;
-            margin: 1rem 0 2rem;
-            font-style: italic;
-        }
-
         .ipi-details {
             margin-top: 1rem;
             padding-top: 1rem;
@@ -517,13 +247,9 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 0.5rem;
-            padding: 0.5rem;
+            padding: 0.75rem;
             background: #2a2a2a;
-            border-radius: 4px;
-        }
-
-        .ipi-group:last-child {
-            margin-bottom: 0;
+            border-radius: 8px;
         }
 
         .ipi-label {
@@ -536,32 +262,17 @@
             color: var(--text-color);
         }
 
-        .external-link {
-            display: inline-block;
-            color: var(--secondary-text);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            transition: color 0.2s ease;
-        }
-
-        .external-link:hover {
-            color: var(--text-color);
-        }
-
-        @media (max-width: 768px) {
-            .ipi-group {
-                padding: 0.4rem;
-            }
-
-            .ipi-label,
-            .ipi-value {
-                font-size: 0.9rem;
-            }
-        }
-
         .image-container {
             position: relative;
             display: inline-block;
+            width: 100%;
+            margin: 1rem 0;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
         }
 
         .image-label {
@@ -578,19 +289,159 @@
             transition: background-color 0.2s ease;
         }
 
-        .image-label:hover {
-            background: rgba(0, 0, 0, 0.9);
-        }
-
         @media (max-width: 768px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            .back-link {
+                top: 1rem;
+                left: 1rem;
+                background: rgba(0, 0, 0, 0.8);
+                border-radius: 8px;
+            }
+
+            .blog-header {
+                margin: 4rem 0 3rem;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .cover-image {
+                height: 300px;
+                margin: 1.5rem 0;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+                margin: 2.5rem 0 1.25rem;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+                margin: 2rem 0 1rem;
+            }
+
+            .search-container {
+                flex-direction: column;
+            }
+
+            .filter-select {
+                width: 100%;
+            }
+
+            .prodi-card {
+                padding: 1rem;
+            }
+
             .ipi-group {
-                padding: 0.4rem;
+                padding: 0.6rem;
             }
 
             .ipi-label,
             .ipi-value {
                 font-size: 0.9rem;
             }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .blog-header {
+                margin: 3rem 0 2rem;
+            }
+
+            .blog-title {
+                font-size: 1.8rem;
+            }
+
+            .cover-image {
+                height: 250px;
+                margin: 1rem 0;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                margin: 2rem 0 1rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+
+            .content {
+                font-size: 1rem;
+            }
+
+            .blog-meta {
+                font-size: 0.85rem;
+            }
+
+            blockquote {
+                padding: 1rem;
+                font-size: 0.95rem;
+            }
+
+            .prodi-card {
+                padding: 0.875rem;
+            }
+
+            .prodi-title {
+                font-size: 1.1rem;
+            }
+
+            .prodi-fakultas,
+            .prodi-requirements,
+            .prodi-capacity {
+                font-size: 0.9rem;
+            }
+
+            .ipi-group {
+                padding: 0.5rem;
+            }
+
+            .ipi-label,
+            .ipi-value {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Smooth Scroll Behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection Color */
+        ::selection {
+            background: var(--border-color);
+            color: var(--text-color);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-text);
         }
     </style>
 </head>
