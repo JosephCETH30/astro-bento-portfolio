@@ -207,7 +207,7 @@
 
         .prodi-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .prodi-title {
@@ -443,6 +443,343 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--secondary-text);
         }
+
+        .image-converter-container {
+            margin: 1rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .converter-wrapper {
+            margin-top: 1.5rem;
+        }
+
+        .upload-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-area:hover {
+            border-color: var(--secondary-text);
+        }
+
+        .upload-area i {
+            font-size: 2.5rem;
+            color: var(--secondary-text);
+            margin-bottom: 1rem;
+        }
+
+        .upload-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: var(--border-color);
+            border-radius: 6px;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .upload-button:hover {
+            background: var(--secondary-text);
+        }
+
+        .preview-container {
+            position: relative;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .preview-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 400px;
+            object-fit: contain;
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .remove-image:hover {
+            background: rgba(255, 0, 0, 0.7);
+        }
+
+        .result-section {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .result-header h4 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .copy-button {
+            background: var(--border-color);
+            border: none;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background: var(--secondary-text);
+        }
+
+        .result-content {
+            flex: 1;
+            background: #2a2a2a;
+            border-radius: 6px;
+            padding: 1rem;
+            min-height: 100px;
+            max-height: 300px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-family: monospace;
+        }
+
+        .placeholder-text {
+            color: var(--secondary-text);
+            text-align: center;
+            margin: 0;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--secondary-text);
+        }
+
+        .loading i {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .image-converter-container {
+                padding: 1.5rem;
+            }
+        }
+
+        .code-snippet {
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+
+        .code-snippet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: #2a2a2a;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .code-snippet-header span {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .code-snippet .copy-button {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .code-snippet .copy-button:hover {
+            background: var(--border-color);
+        }
+
+        .code-snippet .copy-button.copied {
+            background: #2d5a27;
+            border-color: #2d5a27;
+        }
+
+        .code-snippet-content {
+            margin: 0;
+            padding: 1.25rem;
+            overflow-x: auto;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #1a1a1a;
+        }
+
+        .code-snippet-content code {
+            display: block;
+            white-space: pre;
+        }
+
+        @media (max-width: 768px) {
+            .code-snippet {
+                margin: 1.5rem 0;
+                border-radius: 8px;
+            }
+
+            .code-snippet-header {
+                padding: 0.6rem 0.8rem;
+            }
+
+            .code-snippet-content {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .code-snippet .copy-button {
+                padding: 0.3rem 0.6rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .code-snippet {
+                margin: 1rem 0;
+            }
+
+            .code-snippet-content {
+                padding: 0.8rem;
+                font-size: 0.85rem;
+            }
+        }
+
+        .table-container {
+            margin: 2rem 0;
+            overflow-x: auto;
+            border-radius: 12px;
+            background: #1a1a1a;
+            border: 1px solid var(--border-color);
+        }
+
+        .modern-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+
+        .modern-table th,
+        .modern-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modern-table th {
+            background: #2a2a2a;
+            font-weight: 600;
+            color: var(--text-color);
+            white-space: nowrap;
+        }
+
+        .modern-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .modern-table tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        @media (max-width: 768px) {
+            .table-container {
+                margin: 1.5rem 0;
+                border-radius: 8px;
+            }
+
+            .modern-table {
+                font-size: 0.95rem;
+            }
+
+            .modern-table th,
+            .modern-table td {
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .table-container {
+                margin: 1rem 0;
+            }
+
+            .modern-table {
+                font-size: 0.9rem;
+            }
+
+            .modern-table th,
+            .modern-table td {
+                padding: 0.7rem 0.8rem;
+            }
+        }
     </style>
 </head>
 
@@ -466,7 +803,8 @@
                     SIMAK UI itu singkatan dari Seleksi Masuk Universitas Indonesia. Ini adalah jalur masuk UI yang
                     diselenggarakan langsung sama kampusnya, beda sama SNBP (undangan) atau SNBT (tes nasional).
                     Yang bikin SIMAK UI menarik adalah kamu bisa pilih sampai 6 program studi sekaligus, bahkan lintas
-                    rumpun. Jadi kalau kamu mau masuk UI tapi belum berhasil lewat jalur nasional, ini adalah kesempatan
+                    rumpun. Jadi kalau kamu mau masuk UI tapi belum berhasil lewat jalur SNBP/SNBT, ini adalah
+                    kesempatan
                     yang bagus buat kamu.
                 </p>
 
@@ -476,7 +814,8 @@
 
                 <h2>Program Studi yang Tersedia</h2>
                 <p>
-                    SIMAK UI menawarkan berbagai program studi yang bisa kamu pilih. Gunakan searchbar di bawah untuk mencari program studi yang kamu inginkan:
+                    SIMAK UI menawarkan berbagai program studi yang bisa kamu pilih. Gunakan searchbar di bawah untuk
+                    mencari program studi yang kamu inginkan:
                 </p>
 
                 <div class="search-container">
@@ -989,7 +1328,7 @@
                         }
 
                         // Filter berdasarkan pencarian
-                        results = results.filter(prodi => 
+                        results = results.filter(prodi =>
                             prodi.nama.toLowerCase().includes(searchTerm) ||
                             prodi.fakultas.toLowerCase().includes(searchTerm)
                         );
@@ -1034,7 +1373,8 @@
 
                 <h2>Biaya IPI Jalur Simak Terbaru 2025</h2>
                 <p>
-                    Biaya IPI (Iuran Pengembangan Institusi) untuk jalur SIMAK UI tahun 2025 dibagi menjadi 4 golongan. Berikut adalah rincian biayanya:
+                    Biaya IPI (Iuran Pengembangan Institusi) untuk jalur SIMAK UI tahun 2025 dibagi menjadi 4 golongan.
+                    Berikut adalah rincian biayanya:
                 </p>
 
                 <div class="search-container">
@@ -1044,10 +1384,6 @@
                         <option value="vokasi">Vokasi</option>
                         <option value="sarjana">Sarjana</option>
                     </select>
-                </div>
-
-                <div class="search-placeholder">
-                    Cari program studi, biaya IPI akan muncul di sini
                 </div>
 
                 <div id="ipiResults" class="prodi-results"></div>
@@ -1315,7 +1651,7 @@
                             results = ipiData[ipiFilter];
                         }
 
-                        results = results.filter(prodi => 
+                        results = results.filter(prodi =>
                             prodi.nama.toLowerCase().includes(searchTerm) ||
                             prodi.fakultas.toLowerCase().includes(searchTerm)
                         );
@@ -1375,27 +1711,510 @@
                 <ul>
                     <li>Biaya IPI dibayarkan hanya disaat awal masuk saja</li>
                     <li>Biaya dapat berubah sewaktu-waktu sesuai kebijakan UI</li>
-                    <li>Biaya di atas belum termasuk biaya SPP (Sumbangan Pengembangan Pendidikan) dan biaya operasional lainnya</li>
+                    <li>Biaya di atas belum termasuk biaya SPP (Sumbangan Pengembangan Pendidikan) dan biaya operasional
+                        lainnya</li>
                     <li>Pembayaran dapat dilakukan secara bertahap sesuai dengan kemampuan finansial mahasiswa</li>
                 </ul>
 
                 <p>
-                    Untuk informasi lebih lanjut mengenai biaya dan pembayaran, silakan kunjungi website resmi UI atau hubungi bagian keuangan UI. atau klik <a href="https://www.ui.ac.id/wp-content/uploads/2025/05/688-Tarif-IPI-S1-dan-Vokasi-Jalur-Mandiri-2025-2026.pdf" target="_blank" style="color: white; opacity: 0.8;">Tarif-IPI-S1-dan-Vokasi-Jalur-Mandiri-2025-2026</a>
+                    Untuk informasi lebih lanjut mengenai biaya dan pembayaran, silakan kunjungi website resmi UI atau
+                    hubungi bagian keuangan UI. atau klik <a
+                        href="https://www.ui.ac.id/wp-content/uploads/2025/05/688-Tarif-IPI-S1-dan-Vokasi-Jalur-Mandiri-2025-2026.pdf"
+                        target="_blank"
+                        style="color: white; opacity: 0.8;">Tarif-IPI-S1-dan-Vokasi-Jalur-Mandiri-2025-2026</a>
                 </p>
 
                 <h2>Mengulik Potensi Kecurangan di Simak UI 2025</h2>
                 <p>
-                    Melihat adanya kecurangan yang terjadi di Jalur mandiri ini pada Tahun 2024, membuat kami sebagai calon mahasiswa UI berpikir apakah ada potensi kecurangan yang sama pada tahun 2025?
+                    Melihat adanya kecurangan yang terjadi di Jalur mandiri ini pada Tahun 2024, membuat kami sebagai
+                    calon mahasiswa UI berpikir apakah ada potensi kecurangan yang sama pada tahun 2025?
                 </p>
 
                 <blockquote>
-                    Beberapa bukti kecurangan yang terjadi pada tahun 2024 <a href="https://www.google.com/search?sca_esv=f623dff6c3c032cb&sxsrf=AE3TifNx0TWlesefuV_bs-kPbYYiRWwr2g:1748970226344&q=site:studyx.ai+ujiansimak&udm=2&fbs=AIIjpHxZSHO4BBrQmD3PXjKsg9pHO7fOpCHalheK8ChkR9jxpaPygJDT8yVjj5lLObEueKJg-CLd1Pr7goH_svCqxYSyjpxHqPTxPNDs2MDa6iPXcISvWXFVSffVnN2S1gIXULlQiEN4VBnDmVyLAXBO93BZoxNcwxgWyoBYJM5o8vH0LbMPMpz0q9linLMryRpKn6WpRf9uRJdDqZ8gZ5TPiAH5l8AhEA&sa=X&ved=2ahUKEwjdqcHo3dWNAxWmTGwGHVuxI9IQtKgLegQIEhAB&biw=1280&bih=632&dpr=1.5" target="_blank" style="color: white; opacity: 0.5;">(Google Search)</a>
+                    Beberapa bukti kecurangan yang terjadi pada tahun 2024 <a
+                        href="https://www.google.com/search?sca_esv=f623dff6c3c032cb&sxsrf=AE3TifNx0TWlesefuV_bs-kPbYYiRWwr2g:1748970226344&q=site:studyx.ai+ujiansimak&udm=2&fbs=AIIjpHxZSHO4BBrQmD3PXjKsg9pHO7fOpCHalheK8ChkR9jxpaPygJDT8yVjj5lLObEueKJg-CLd1Pr7goH_svCqxYSyjpxHqPTxPNDs2MDa6iPXcISvWXFVSffVnN2S1gIXULlQiEN4VBnDmVyLAXBO93BZoxNcwxgWyoBYJM5o8vH0LbMPMpz0q9linLMryRpKn6WpRf9uRJdDqZ8gZ5TPiAH5l8AhEA&sa=X&ved=2ahUKEwjdqcHo3dWNAxWmTGwGHVuxI9IQtKgLegQIEhAB&biw=1280&bih=632&dpr=1.5"
+                        target="_blank" style="color: white; opacity: 0.5;">(Google Search)</a>
                 </blockquote>
                 <h3>1. Simak AI</h3>
                 <div class="image-container">
-                    <img src="https://media.studyx.ai/us/81f6f9cb/a6279149a0c24196b55015fc6c750649.jpg" alt="">
-                    <a href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/2vww_RCB3dww4qSZ7HHhbqjPuilNJoTDoovrrYxud4LuAEfFoII28HE6XboI_JawdLAZ7A==" target="_blank" class="image-label">mahasiswa aktif</a>
+                    <img src="/WhatsApp%20Image%202025-06-03%20at%2019.00.56_36e638b9.jpg" alt="">
                 </div>
+                <p>Waduh waduh waduh, saking ramainya dunia Per-AIan yang makin canggih ini, sampai ada yang
+                    mempertimbangkan untuk membeli premium AI daripada ikut les wkwkwk. Ngga salah sih, mungkin karena
+                    skeptis terhadap result orang orang yang memakai AI kemarin.</p>
+
+                <blockquote>"Kok bisa yang pakai AI diloloskan sih?"
+                    "lah memang ada?" ada dong
+                </blockquote>
+
+                <p>Camaba tersebut diduga berhasil lolos SIMAK UI dan diterima sebagai mahasiswa baru Fakultas
+                    Kedokteran (FK) di program Kelas Khusus Internasional (KKI). Langsung dihujat netizen di media
+                    sosial X habis2an tapi kok bisa tidak ada tindakan tegas tertulis dari UI?
+                </p>
+
+                <div class="image-container">
+                    <img src="/KANALUTBK_XCOM.png" alt="">
+                </div>
+
+                <p>Mengutip dari <i>Kumparan.com</i>, Meski begitu, Amelita memastikan UI memperhatikan dengan cermat
+                    kemungkinan terjadinya ketidakjujuran tersebut. Salah satunya melalui mekanisme antisipatif yang
+                    diterapkan adalah penggunaan gabungan skor UTBK dan skor SIMAK (50% skor UTBK dan 50% skor SIMAK).
+                    "UI juga memperhatikan kewajaran dan konsistensi skor yang diperoleh seorang peserta seleksi pada
+                    saat mengikuti UTBK dan pada saat mengikuti SIMAK,"</p>
+                <p>
+
+                <p>Kalau dari sisi technya apakah worth it untuk membeli AI premium seperti Chatgpt untuk membantu
+                    menjawab soal seperti ini melalui OCR? <a
+                        href="https://www.google.com/search?q=apa+itu+ocr&oq=apa+itu+ocr&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIHCAEQABiABDIHCAIQABiABDIJCAMQABgKGIAEMgkIBBAAGAoYgAQyCQgFEAAYChiABDIJCAYQABgKGIAEMgkIBxAAGAoYgAQyCQgIEAAYChiABDIJCAkQABgKGIAE0gEIMjg3MWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
+                        target="_blank" style="color: white; opacity: 0.8;">Apa itu OCR?</a></p>
+
+                <p>Dengan pandangan yang terbatas, ditambah lagi ujian ini menggunkan Kamera dan Micorofonn, tidak
+                    memungkinkan untuk mendapatkan Equation yang jelas disaat mengambil foto dan mengirimkannya ke AI.
+                    Gambar blur, terlalu terang/gelap, atau penuh coretan bisa membuat OCR salah baca simbol seperti +,
+                    x, 1, l, dll.</p>
+
+                <div class="image-container">
+                    <img src="https://media.studyx.ai/us/81f6f9cb/956173bbae4b41cf928bc224763adf94.jpg" alt="">
+                </div>
+
+                <p>Kecuali jika foto yang diambil dengan angle yang benar, ini memungkinkan AI untuk memprosesnya dengan
+                    lebih baik lagi. Chatgpt sendiri memakai Model Vision (Multimodal GPT-4 / GPT-4V), Embedded OCR
+                    Layer, Math-Aware Parsing (Terbatas), Transformer-based vision encoders yang semuanya berkaitan
+                    dengan Visual Language Models (VLMs). Itulah mengapa kadang Chatgpt lebih cepat memproses Latex,
+                    dengan kata lain bisa menggunakan mathpix dulu baru chatgpt.</p>
+
+                <div class="code-snippet">
+                    <div class="code-snippet-header">
+                        <span>Python</span>
+                        <button onclick="copyCode(this)" class="copy-button">
+                            <i class="far fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <pre class="code-snippet-content"><code>from PIL import Image
+import pytesseract
+
+# Path to the image
+image_path = 'example.png'
+
+# Open the image using PIL
+img = Image.open(image_path)
+
+# Extract text from image
+text = pytesseract.image_to_string(img)
+
+# Print the extracted text
+print(text)</code></pre>
+                </div>
+
+                <p>Kalau kamu peserta: Lebih baik gunakan AI buat belajar daripada curang, karena hasil jangka panjangmu
+                    di kampus jauh lebih penting dari sekadar "lolos ujian masuk.</p>
+
+                <div class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Tipe</th>
+                                <th>Penjelasan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Live Proctoring</td>
+                                <td>Pengawas manusia memantau secara langsung via kamera.</td>
+                            </tr>
+                            <tr>
+                                <td>Recorded Proctoring</td>
+                                <td>Aktivitas peserta direkam dan ditinjau nanti.</td>
+                            </tr>
+                            <tr>
+                                <td>Automated (AI-Based) Proctoring</td>
+                                <td>Sistem otomatis berbasis AI memantau dan memberi peringatan.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-container">
+                    <table class="modern-table">
+                        <thead>
+                            <tr>
+                                <th>Aspek</th>
+                                <th>Masalah</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Privasi</td>
+                                <td>Rekaman wajah/suara bisa melanggar privasi jika tidak diatur jelas.</td>
+                            </tr>
+                            <tr>
+                                <td>False Positive</td>
+                                <td>AI bisa salah deteksi (misalnya peserta refleks melihat ke samping dianggap curang).
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Keterbatasan Teknologi</td>
+                                <td>AI kadang tidak bisa bedakan antara perilaku normal dan curang, apalagi dalam budaya
+                                    berbeda.</td>
+                            </tr>
+                            <tr>
+                                <td>Aksesibilitas</td>
+                                <td>Peserta di daerah dengan jaringan buruk akan terdampak kualitas proctoring.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>Kesimpulannya memakai AI saat ujian sangatlah tidak boleh/tidak disarankan. Karena sekalipun kamu
+                    lulus dengan AI, kamu akan mengalami struggle saat menjalani dunia perkuliahan nanti (kalau kamu
+                    nggak pemakai joki kuliah).</p>
+
+
+                <h3>2. Bantuan orang Rumah</h3>
+
+                <p>Kalau yang ini tergolong ekstrim, mengapa karena jika UI mengaktifkan fitur pendeteksi Eye/Body
+                    Movement terhadap pergerakan yang mencurigakan, maka hal ini tergolong hal yang bodoh/busted.</p>
+
+                <p>Kecurangan ini terjadi ketika peserta ujian mendapat bantuan dari anggota keluarga di rumah saat
+                    ujian daring berlangsung, baik secara langsung (berdiri di dekat peserta) atau tidak langsung
+                    (memberi jawaban dari belakang layar/kamera).</p>
+
+                <p>
+                    <a href="https://eyeware.tech/" style="color: white; opacity: 0.8;"><i>Eye Movement Detection</i><br></a>
+                    Sistem AI memantau pergerakan mata peserta yang tidak wajar.
+
+                    Jika peserta sering menoleh ke arah yang sama (misalnya ke kanan setiap 10 detik), ini bisa dianggap
+                    sebagai indikator interaksi dengan pihak lain di luar layar.
+                    Artikel akan dilanjutkan admin istirahat dulu
+                </p>
+
+
+
+                <style>
+                    .table-container {
+                        margin: 2rem 0;
+                        overflow-x: auto;
+                        border-radius: 12px;
+                        background: #1a1a1a;
+                        border: 1px solid var(--border-color);
+                    }
+
+                    .modern-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-size: 1rem;
+                        color: var(--text-color);
+                    }
+
+                    .modern-table th,
+                    .modern-table td {
+                        padding: 1rem 1.5rem;
+                        text-align: left;
+                        border-bottom: 1px solid var(--border-color);
+                    }
+
+                    .modern-table th {
+                        background: #2a2a2a;
+                        font-weight: 600;
+                        color: var(--text-color);
+                        white-space: nowrap;
+                    }
+
+                    .modern-table tr:last-child td {
+                        border-bottom: none;
+                    }
+
+                    .modern-table tr:hover {
+                        background: rgba(255, 255, 255, 0.03);
+                    }
+
+                    @media (max-width: 768px) {
+                        .table-container {
+                            margin: 1.5rem 0;
+                            border-radius: 8px;
+                        }
+
+                        .modern-table {
+                            font-size: 0.95rem;
+                        }
+
+                        .modern-table th,
+                        .modern-table td {
+                            padding: 0.8rem 1rem;
+                        }
+                    }
+
+                    @media (max-width: 480px) {
+                        .table-container {
+                            margin: 1rem 0;
+                        }
+
+                        .modern-table {
+                            font-size: 0.9rem;
+                        }
+
+                        .modern-table th,
+                        .modern-table td {
+                            padding: 0.7rem 0.8rem;
+                        }
+                    }
+                </style>
+
+                <!-- Add Tesseract.js -->
+                <script src="https://cdn.jsdelivr.net/npm/tesseract.js@4.1.1/dist/tesseract.min.js"></script>
+
+                <script>
+                    const uploadArea = document.getElementById('uploadArea');
+                    const imageInput = document.getElementById('imageInput');
+                    const previewContainer = document.getElementById('previewContainer');
+                    const imagePreview = document.getElementById('imagePreview');
+                    const resultContent = document.getElementById('resultContent');
+
+                    let worker = null;
+                    let isWorkerReady = false;
+
+                    // Initialize Tesseract worker
+                    async function initTesseract() {
+                        try {
+                            resultContent.innerHTML = `<div class="loading">
+                                <i class="fas fa-spinner"></i>
+                                Menginisialisasi OCR...
+                            </div>`;
+
+                            worker = await Tesseract.createWorker({
+                                logger: m => {
+                                    if (m.status === 'recognizing text') {
+                                        resultContent.innerHTML = `<div class="loading">
+                                            <i class="fas fa-spinner"></i>
+                                            Memproses gambar... ${Math.round(m.progress * 100)}%
+                                        </div>`;
+                                    }
+                                }
+                            });
+
+                            await worker.loadLanguage('eng');
+                            await worker.initialize('eng');
+                            isWorkerReady = true;
+                            console.log('Tesseract worker initialized successfully');
+                            resultContent.innerHTML = '<p class="placeholder-text">Hasil konversi akan muncul di sini...</p>';
+                        } catch (error) {
+                            console.error('Error initializing Tesseract:', error);
+                            resultContent.innerHTML = 'Terjadi kesalahan saat menginisialisasi OCR. Silakan refresh halaman.';
+                        }
+                    }
+
+                    // Initialize worker when page loads
+                    initTesseract();
+
+                    // Image preprocessing function
+                    function preprocessImage(imageData) {
+                        return new Promise((resolve) => {
+                            const img = new Image();
+                            img.onload = () => {
+                                const canvas = document.createElement('canvas');
+                                const ctx = canvas.getContext('2d');
+
+                                // Set canvas size
+                                canvas.width = img.width;
+                                canvas.height = img.height;
+
+                                // Draw image
+                                ctx.drawImage(img, 0, 0);
+
+                                // Get image data
+                                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                                const data = imageData.data;
+
+                                // Convert to grayscale and increase contrast
+                                for (let i = 0; i < data.length; i += 4) {
+                                    const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+                                    const threshold = 128;
+                                    const value = avg > threshold ? 255 : 0;
+                                    data[i] = data[i + 1] = data[i + 2] = value;
+                                }
+
+                                // Put processed image data back
+                                ctx.putImageData(imageData, 0, 0);
+
+                                // Convert to base64
+                                resolve(canvas.toDataURL('image/jpeg', 1.0));
+                            };
+                            img.src = imageData;
+                        });
+                    }
+
+                    // Handle drag and drop
+                    uploadArea.addEventListener('dragover', (e) => {
+                        e.preventDefault();
+                        if (!isWorkerReady) return;
+                        uploadArea.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--secondary-text');
+                    });
+
+                    uploadArea.addEventListener('dragleave', () => {
+                        if (!isWorkerReady) return;
+                        uploadArea.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color');
+                    });
+
+                    uploadArea.addEventListener('drop', (e) => {
+                        e.preventDefault();
+                        if (!isWorkerReady) {
+                            resultContent.innerHTML = `<div class="loading">
+                                <i class="fas fa-spinner"></i>
+                                OCR masih dalam proses inisialisasi...
+                            </div>`;
+                            return;
+                        }
+                        uploadArea.style.borderColor = getComputedStyle(document.documentElement).getPropertyValue('--border-color');
+                        const file = e.dataTransfer.files[0];
+                        if (file && file.type.startsWith('image/')) {
+                            handleImage(file);
+                        }
+                    });
+
+                    // Handle file input
+                    imageInput.addEventListener('change', (e) => {
+                        if (!isWorkerReady) {
+                            resultContent.innerHTML = `<div class="loading">
+                                <i class="fas fa-spinner"></i>
+                                OCR masih dalam proses inisialisasi...
+                            </div>`;
+                            return;
+                        }
+                        const file = e.target.files[0];
+                        if (file) {
+                            handleImage(file);
+                        }
+                    });
+
+                    // Convert text to LaTeX format
+                    function convertToLatex(text) {
+                        // Basic math symbol replacements
+                        const replacements = {
+                            '×': '\\times',
+                            '÷': '\\div',
+                            '±': '\\pm',
+                            '≤': '\\leq',
+                            '≥': '\\geq',
+                            '≠': '\\neq',
+                            '∞': '\\infty',
+                            '∑': '\\sum',
+                            '∏': '\\prod',
+                            '∫': '\\int',
+                            '√': '\\sqrt',
+                            'π': '\\pi',
+                            'θ': '\\theta',
+                            'α': '\\alpha',
+                            'β': '\\beta',
+                            'γ': '\\gamma',
+                            'δ': '\\delta',
+                            'ε': '\\epsilon',
+                            'φ': '\\phi',
+                            'ω': '\\omega',
+                            '→': '\\rightarrow',
+                            '←': '\\leftarrow',
+                            '↔': '\\leftrightarrow',
+                            '∈': '\\in',
+                            '∉': '\\notin',
+                            '⊂': '\\subset',
+                            '⊃': '\\supset',
+                            '∪': '\\cup',
+                            '∩': '\\cap',
+                            '∅': '\\emptyset',
+                            '∀': '\\forall',
+                            '∃': '\\exists',
+                            '∄': '\\nexists',
+                            '∴': '\\therefore',
+                            '∵': '\\because',
+                            '∝': '\\propto',
+                            '∇': '\\nabla',
+                            '∂': '\\partial',
+                            'ℕ': '\\mathbb{N}',
+                            'ℤ': '\\mathbb{Z}',
+                            'ℚ': '\\mathbb{Q}',
+                            'ℝ': '\\mathbb{R}',
+                            'ℂ': '\\mathbb{C}'
+                        };
+
+                        // Replace special characters
+                        let latex = text;
+                        for (const [symbol, replacement] of Object.entries(replacements)) {
+                            latex = latex.replace(new RegExp(symbol, 'g'), replacement);
+                        }
+
+                        // Add LaTeX delimiters
+                        return `$$${latex}$$`;
+                    }
+
+                    // Modify handleImage function to use LaTeX conversion
+                    async function handleImage(file) {
+                        if (!isWorkerReady) {
+                            resultContent.innerHTML = `<div class="loading">
+                                <i class="fas fa-spinner"></i>
+                                OCR masih dalam proses inisialisasi...
+                            </div>`;
+                            return;
+                        }
+
+                        const reader = new FileReader();
+                        reader.onload = async (e) => {
+                            try {
+                                imagePreview.src = e.target.result;
+                                uploadArea.style.display = 'none';
+                                previewContainer.style.display = 'block';
+
+                                resultContent.innerHTML = `<div class="loading">
+                                    <i class="fas fa-spinner"></i>
+                                    Memproses gambar...
+                                </div>`;
+
+                                // Preprocess image
+                                const processedImage = await preprocessImage(e.target.result);
+
+                                // Process with Tesseract
+                                const { data: { text } } = await worker.recognize(processedImage);
+
+                                if (text) {
+                                    // Convert to LaTeX and display
+                                    const latex = convertToLatex(text);
+                                    resultContent.innerHTML = latex;
+
+                                    // Render LaTeX with MathJax
+                                    if (window.MathJax) {
+                                        MathJax.typesetPromise([resultContent]).catch(function (err) {
+                                            console.error('MathJax error:', err);
+                                        });
+                                    }
+                                } else {
+                                    resultContent.innerHTML = 'Tidak ada teks yang terdeteksi';
+                                }
+                            } catch (error) {
+                                console.error('OCR Error:', error);
+                                resultContent.innerHTML = 'Terjadi kesalahan saat memproses gambar. Pastikan gambar jelas dan tidak blur.';
+                            }
+                        };
+                        reader.readAsDataURL(file);
+                    }
+
+                    // Remove image
+                    function removeImage() {
+                        imagePreview.src = '';
+                        previewContainer.style.display = 'none';
+                        uploadArea.style.display = 'block';
+                        resultContent.innerHTML = '<p class="placeholder-text">Hasil konversi akan muncul di sini...</p>';
+                    }
+
+                    // Copy text
+                    function copyText() {
+                        const text = resultContent.textContent;
+                        navigator.clipboard.writeText(text).then(() => {
+                            const copyButton = document.querySelector('.copy-button');
+                            copyButton.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                            setTimeout(() => {
+                                copyButton.innerHTML = '<i class="far fa-copy"></i> Copy';
+                            }, 2000);
+                        });
+                    }
+                </script>
             </div>
         </article>
     </div>
@@ -1431,7 +2250,42 @@
                 }, 2000);
             });
         }
+
+        // Disable right click
+        document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+        // Disable text selection
+        document.addEventListener('selectstart', (e) => e.preventDefault());
+
+        // Disable inspect element
+        document.addEventListener('keydown', function (e) {
+            // Disable F12
+            if (e.keyCode == 123) {
+                e.preventDefault();
+            }
+            // Disable Ctrl+Shift+I
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                e.preventDefault();
+            }
+            // Disable Ctrl+Shift+J
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                e.preventDefault();
+            }
+            // Disable Ctrl+U
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                e.preventDefault();
+            }
+        });
+
+        // Disable DevTools
+        setInterval(function () {
+            debugger;
+        }, 100);
     </script>
+
+    <!-- Add MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
 
 </html>
