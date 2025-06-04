@@ -750,6 +750,23 @@
             background: rgba(255, 255, 255, 0.03);
         }
 
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            margin: 2rem 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+
         @media (max-width: 768px) {
             .table-container {
                 margin: 1.5rem 0;
@@ -1880,15 +1897,134 @@ print(text)</code></pre>
                     (memberi jawaban dari belakang layar/kamera).</p>
 
                 <p>
-                    <a href="https://eyeware.tech/" style="color: white; opacity: 0.8;"><i>Eye Movement Detection</i><br></a>
-                    Sistem AI memantau pergerakan mata peserta yang tidak wajar.
+                    <a href="https://github.com/antoinelame/GazeTracking" style="color: white; opacity: 0.8;"><i>Eye
+                            Movement
+                            Detection</i><br></a>
 
-                    Jika peserta sering menoleh ke arah yang sama (misalnya ke kanan setiap 10 detik), ini bisa dianggap
-                    sebagai indikator interaksi dengan pihak lain di luar layar.
-                    Artikel akan dilanjutkan admin istirahat dulu
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YEZMk1P0-yw?si=7JuRr7rqcCswd4-T"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                Sistem AI memantau pergerakan mata peserta yang tidak wajar.
+
+                Jika peserta sering menoleh ke arah yang sama (misalnya ke kanan setiap 10 detik), ini bisa dianggap
+                sebagai indikator interaksi dengan pihak lain di luar layar.
                 </p>
 
+                <p>
+                    <a href="https://github.com/nicknochnack/MediaPipePoseEstimation"
+                        style="color: white; opacity: 0.8;"><i>Body Movement / Pose Estimation</i><br></a>
 
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/06TE_U21FK4?si=7JuRr7rqcCswd4-T"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+
+                Beberapa sistem proctoring canggih (misalnya ProctorU, Honorlock, atau sistem kustom seperti yang
+                mungkin dikembangkan UI) menggunakan pose estimation model dari video webcam.
+
+                Melacak postur tubuh peserta.
+
+                Deteksi gerakan kepala berulang.
+
+                Mendeteksi wajah lain atau siluet orang lain di belakang peserta.
+                </p>
+
+                <p>
+                    <a href="https://github.com/ageitgey/face_recognition/blob/master/examples/facerec_from_webcam_faster.py"
+                        style="color: white; opacity: 0.8;"><i>Face Detection & Face Count</i><br></a>
+                <div class="image-container">
+                    <img src="https://cloud.githubusercontent.com/assets/896692/24430398/36f0e3f0-13cb-11e7-8258-4d0c9ce1e419.gif"
+                        alt="">
+                </div>
+                Cara ini terkesan horor dikarenakan bagaimana jika tiba tiba ada gerakan yang tidak terlihat terdeteksi
+                oleh program wkwkwk.
+
+                AI melakukan deteksi jumlah wajah yang muncul.
+
+                Jika lebih dari satu wajah terdeteksi (misalnya orang tua, kakak, atau tutor masuk frame), sistem bisa:
+
+                Mengeluarkan peringatan otomatis.
+
+                Menandai rekaman untuk ditinjau oleh pengawas manual.
+                </p>
+
+                <h3>3. Joki/Multiple Monitor</h3>
+                <p>Ada loh jasa penyedia joki ujian mandiri masuk PTN, banyak tersebar di X atau mungkin di Instagram.
+                    Contohnya : <a
+                        href="https://www.google.com/search?q=site%3Ax.com+joki+simak+ui&sca_esv=5ed3572dacaed608&sxsrf=AE3TifNiMO4ubdGijoxSK3sYAYOVTbH3jg%3A1749050398276&ei=HmRAaMXNEIq54-EPp8zQyQ0&ved=0ahUKEwjF1Lu9iNiNAxWK3DgGHScmNNkQ4dUDCBA&uact=5&oq=site%3Ax.com+joki+simak+ui&gs_lp=Egxnd3Mtd2l6LXNlcnAiGHNpdGU6eC5jb20gam9raSBzaW1hayB1aUiABFDaAljaAnABeACQAQCYAS-gAS-qAQExuAEDyAEA-AEBmAIAoAIAmAMAiAYBkgcAoActsgcAuAcAwgcAyAcA&sclient=gws-wiz-serp"
+                        style="color: white; opacity: 0.8; text-decoration: none;" target="_blank">Klik disini</a></p>
+                <a href="https://github.com/serengil/deepface" style="color: white; opacity: 0.8;"><i>OpenCV + DeepFace / Dlib / FaceNet</i></a> <br><br>
+
+                Face Detection & Feature Extraction
+
+                Sistem mengenali area wajah pada foto identitas dan video live.
+
+                Menyusun peta wajah (face map) berbasis fitur biometrik: jarak antar mata, bentuk hidung, kontur wajah,
+                dll.
+
+                Ekstraksi dilakukan menggunakan convolutional neural network (CNN).
+                walaupun tidak sepenuhnya dapat mengatasi joki tapi hal ini bisa mengantisipasi joki secara langsung. Yaitu dengan memblokir halaman ujian disaat wajah yang tidak sesuai identitas berada di depan monitor ujian lebih dari 10 menit.
+                
+                <h3>4. Manipulasi Kamera</h3>
+
+                <p>Berikut beberapa trik curang yang sering dipakai: <br>
+
+                    Menggunakan video rekaman (looping video)
+                    
+                    Menggunakan virtual webcam (mengalihkan output ke software seperti OBS, ManyCam, dll.)
+                    
+                    Menaruh foto statis atau topeng wajah
+                    
+                    Menunjukkan wajah sendiri di awal, lalu berpindah orang
+                    
+                    Menutup sebagian kamera dan mengklaim "gangguan"
+                    
+                    Menonaktifkan/matikan kamera dengan alasan teknis (baterai, software crash, dll.)</p>
+
+                <p>Nah, buat kamu yang mau coba-coba manipulasi kamera, seandainya UI sudah buat antisipasi menggunakan hal hal ini ya.</p>
+
+                <h4>1. Verifikasi Kamera Asli vs Virtual Camera</h4>
+                <p>UI punya sistem yang bisa ngecek apakah kamera yang kamu pake itu asli atau virtual. Mereka pake API khusus yang cuma nerima input dari kamera fisik, bukan yang virtual. Jadi kalau kamu pake OBS Virtual Cam atau software sejenisnya, kemungkinan besar bakal ketahuan.</p>
+
+                <h4>2. Pengecekan Wajah Acak</h4>
+                <p>Sistem AI mereka bakal ngecek wajah kamu secara acak selama ujian. Jadi kalau tiba-tiba wajahnya berubah atau nggak konsisten, sistem bakal langsung ngasih peringatan dan mungkin bikin kamu kena pemeriksaan manual.</p>
+
+                <h4>3. Rekam Seluruh Sesi Ujian</h4>
+                <p>Semua aktivitas kamu selama ujian bakal direkam, bukan cuma diambil snapshot. Jadi kalau ada yang melaporkan kecurangan, tim pengawas bisa langsung cek rekamannya.</p>
+
+                <h4>4. Deteksi Wajah Asli vs Palsu</h4>
+                <p>UI pake teknologi AI canggih yang bisa bedain wajah manusia asli dengan gambar atau video. Mereka bisa deteksi kedipan, gerakan pupil, ekspresi wajah, bahkan pencahayaan yang nggak natural (kayak layar). Mereka pake teknologi yang sama kayak FaceTec atau iProov.</p>
+
+                <h4>5. Kamera Tambahan</h4>
+                <p>Beberapa fakultas mungkin minta kamu nyiapin kamera tambahan (bisa pake HP) yang merekam dari samping atau atas. Tujuannya buat liat aktivitas tangan, meja, atau apakah ada orang lain di ruangan.</p>
+
+                <h4>6. Perintah Acak</h4>
+                <p>Sistem mungkin ngasih perintah acak kayak "Tengok ke kiri" atau "Ucapkan kata tertentu". Ini buat mastiin kamu masih aktif dan beneran manusia, bukan video rekaman.</p>
+
+                <h4>7. Penguncian Sistem</h4>
+                <p>UI pake browser khusus yang nge-lock sistem kamu selama ujian. Jadi kamu nggak bisa pake software manipulasi kamera atau software curang lainnya. Mereka juga ngecek traffic jaringan buat mastiin nggak ada software manipulasi yang jalan.</p>
+
+                <p>Jadi, lebih baik fokus belajar aja daripada coba-coba manipulasi kamera. Selain risikonya tinggi, kalau ketahuan bisa-bisa kamu ga kena sanksi malah tetap bisa lanjut kuliah. </p>
+
+
+                <p>Potensi kecurangan dalam SIMAK UI 2025 tetap menjadi kekhawatiran, apalagi setelah munculnya berbagai dugaan kasus di tahun 2024. Dari penggunaan AI hingga bantuan orang rumah, semua menunjukkan bahwa sistem seleksi masih punya celah. 
+
+                    Tapi, penting diingat:
+                    Lolos ujian bukan segalanya. Kalau masuk lewat cara curang, besar kemungkinan kamu akan kesulitan bertahan di dunia perkuliahan yang jauh lebih menantang. Gunakan teknologi seperti AI untuk belajar, bukan untuk menipu.
+                    
+                    <br><br>
+
+                    UI sendiri sudah mulai memperketat sistem dengan gabungan skor UTBK-SIMAK dan pemantauan berbasis teknologi (kamera, mic, bahkan deteksi gerakan). Namun tetap, tidak ada sistem yang sempurna. Semua kembali ke integritas masing-masing.
+                    
+                    Jadi, yuk persiapkan diri sebaik mungkin dengan cara yang jujur. Bukan cuma demi lolos, tapi demi masa depan yang lebih bermakna.</p>
+
+                    <p style="color: rgb(255, 157, 0); opacity: 0.5;"> Best regard, Joseph & R1 AI Model</p>
 
                 <style>
                     .table-container {
@@ -1926,6 +2062,23 @@ print(text)</code></pre>
 
                     .modern-table tr:hover {
                         background: rgba(255, 255, 255, 0.03);
+                    }
+
+                    .video-container {
+                        position: relative;
+                        width: 100%;
+                        padding-bottom: 56.25%;
+                        /* 16:9 Aspect Ratio */
+                        margin: 2rem 0;
+                    }
+
+                    .video-container iframe {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 12px;
                     }
 
                     @media (max-width: 768px) {
