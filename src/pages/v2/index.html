@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         :root {
             --bg-color: #09090B;
@@ -1074,6 +1075,106 @@
                 background-position: -200% 0;
             }
         }
+
+        /* Social Media Buttons Styles */
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .social-button {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: visible;
+        }
+
+        .social-button:hover {
+            transform: translateY(-3px);
+            background: var(--card-hover);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .social-button i {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+        }
+
+        .social-button:hover i {
+            transform: scale(1.1);
+            color: rgba(255, 255, 255, 1);
+        }
+
+        .social-tooltip {
+            position: absolute;
+            width: 140px;
+            bottom: calc(100% + 10px);
+            left: 50%;
+            margin-left: -70px;
+            background: rgba(0, 0, 0, 0.95);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 100000000;
+            text-align: center;
+            transform: translateY(10px);
+            letter-spacing: 0.3px;
+            pointer-events: none;
+        }
+
+        .social-button:hover .social-tooltip {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .social-tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -8px;
+            border-width: 8px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.95) transparent transparent transparent;
+            filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.1));
+        }
+
+        @media (max-width: 768px) {
+            .social-tooltip {
+                width: 130px;
+                margin-left: -65px;
+                font-size: 0.8rem;
+                padding: 8px 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-tooltip {
+                width: 120px;
+                margin-left: -60px;
+                font-size: 0.75rem;
+                padding: 6px 12px;
+            }
+        }
     </style>
 </head>
 
@@ -1120,6 +1221,17 @@
                     responsive design, cross-browser compatibility, and performance optimization, ensuring seamless user
                     experiences across all platforms.</p>
             </section>
+
+            <div class="social-buttons">
+                <a href="https://www.linkedin.com/in/yosef-rafael-bonar/" target="_blank" class="social-button">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span class="social-tooltip">LinkedIn saya</span>
+                </a>
+                <a href="https://dribbble.com/Pyoseph" target="_blank" class="social-button">
+                    <i class="fa-brands fa-dribbble"></i>
+                    <span class="social-tooltip">Design UX saya</span>
+                </a>
+            </div>
 
             <section id="experience" class="section">
                 <h2>Work Experience</h2>
