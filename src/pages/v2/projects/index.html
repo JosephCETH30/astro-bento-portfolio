@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects - Yoseph Rafael</title>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #09090B;
+      color: #fff;
+      font-family: 'Satoshi', sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 2.5rem 1.2rem 2rem 1.2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 2.2rem;
+      letter-spacing: -0.03em;
+      background: linear-gradient(90deg, #fff 60%, #aaa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .project-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .project-item {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .project-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .project-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #fff;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .project-title:hover {
+      color: #FFB300;
+      text-decoration: underline;
+    }
+    .project-desc {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      margin-bottom: 0.5rem;
+    }
+    .project-highlight {
+      display: inline-block;
+      background: #222;
+      color: #FFB300;
+      font-size: 0.95rem;
+      border-radius: 6px;
+      padding: 0.18em 0.7em;
+      margin-top: 0.2em;
+      margin-bottom: 0.2em;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      .container { padding: 1.2rem 0.5rem; }
+      .project-title { font-size: 1.1rem; }
+      .project-desc { font-size: 0.97rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Selected Projects</h1>
+    <ul class="project-list">
+      <li class="project-item">
+        <a href="/v2/projects/halalheroid.html" class="project-title">Halalhero.id</a>
+        <div class="project-desc">Corporate website & dashboard for halal food information, affiliated with BPJPH, Smesco, and Halal Indonesia. <span class="project-highlight">Modern UI, API Integration, Trusted Platform</span></div>
+      </li>
+      <li class="project-item">
+        <a href="/v2/projects/dotprojects.html" class="project-title">DotProjects.com.sg</a>
+        <div class="project-desc">Revamp for Singapore-based ESG consulting, focusing on clean, text-focused, and professional design. <span class="project-highlight">Design Thinking, Figma, Professional Look</span></div>
+      </li>
+    </ul>
+  </div>
+</body>
+</html> 
